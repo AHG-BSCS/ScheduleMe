@@ -1,4 +1,4 @@
-using ScheduleMe.panel;
+using ScheduleMe.Tab;
 
 namespace ScheduleMe
 {
@@ -11,7 +11,7 @@ namespace ScheduleMe
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form about = new form_about();
+            Form about = new About();
             about.Show();
         }
 

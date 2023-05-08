@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Diagnostics;
 
-namespace ScheduleMe.panel
+namespace ScheduleMe.Tab
 {
-    public partial class form_about : Form
+    public partial class About : Form
     {
-        public form_about()
+        public About()
         {
             InitializeComponent();
         }
