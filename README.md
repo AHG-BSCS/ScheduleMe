@@ -1,2 +1,2 @@
 # ScheduleMe!
-![fragment](https://user-images.githubusercontent.com/110330524/236799006-0079b7b0-4d76-482d-ba4f-c6d214e8d8c6.png)
+![fragment](https://user-images.githubusercontent.com/110330524/236959994-056af62f-7f27-4f55-9326-040fa08c4e35.png)
