@@ -49,5 +49,10 @@ namespace ScheduleMe
             Form weather = new Weather();
             weather.Show();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -40,7 +40,7 @@ partial class About
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::ScheduleMe.Properties.Resources.scheduleme;
+            this.pictureBox1.Image = global::ScheduleMe.Properties.Resources.scheduleme_it2_logo;
             this.pictureBox1.Location = new System.Drawing.Point(28, 41);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(164, 161);
