@@ -5,11 +5,13 @@ namespace ScheduleMe
     public partial class MainForm : Form
     {
         private Form activeForm = new Form();
-        private Calendar calendar = new Calendar();
-        private Timeline timeline = new Timeline();
-        private Timetable timetable = new Timetable();
-        private Note note = new Note();
-        private Weather weather = new Weather();
+        private static Calendar calendar = new Calendar();
+        private static Timeline timeline = new Timeline();
+        private static Timetable timetable = new Timetable();
+        private static Note note = new Note();
+        private static Weather weather = new Weather();
+        private static Setting setting;
+        private static About about;
 
         public MainForm()
         {
@@ -58,13 +60,17 @@ namespace ScheduleMe
 
         private void btnSettingWindow_Click(object sender, EventArgs e)
         {
-            Setting setting = new Setting();
+            if (setting == null)
+                setting = new Setting();
+            setting.BringToFront();
             setting.Show();
         }
 
         private void btnAboutWindow_Click(object sender, EventArgs e)
         {
-            About about = new About();
+            if (about == null)
+                about = new About();
+            about.BringToFront();
             about.Show();
         }
 
