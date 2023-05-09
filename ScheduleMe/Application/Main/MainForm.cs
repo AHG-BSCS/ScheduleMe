@@ -4,82 +4,81 @@ namespace ScheduleMe
 {
     public partial class MainForm : Form
     {
-        private static Form? activeForm;
-        private static Calendar? calendar;
-        private static Timeline? timeline;
-        private static Timetable? timetable;
-        private static Note? note;
-        private static Weather? weather;
-        private static Setting? setting;
-        private static About? about;
+        private static Form activeForm;
+        private static Calendar calendar;
+        private static Timeline timeline;
+        private static Timetable timetable;
+        private static Note note;
+        private static Weather weather;
+        private static Setting setting;
+        private static About about;
 
         public MainForm()
         {
             InitializeComponent();
-            getFormInstance(ref activeForm);
-            getFormInstance(ref calendar);
-            openTabForm(calendar);
+            showFormInstance(ref activeForm);
+            showFormInstance(ref calendar);
+            openInTabPanel(calendar);
         }
 
-        private void getFormInstance<T>(ref T instance) where T : Form, new()
+        private void showFormInstance<T>(ref T instance) where T : Form, new()
         {
             if (instance == null)
                 instance = new T();
+            instance.BringToFront();
+            instance.Show();
         }
 
-        private void openTabForm(Form newForm)
+        private void openInTabPanel(Form newForm)
         {
             if (!newForm.Equals(activeForm))
             {
                 activeForm.Hide();
                 activeForm = newForm;
-                newForm.Show();
                 newForm.TopLevel = false;
                 newForm.Dock = DockStyle.Fill;
                 tabPanel.Controls.Add(newForm);
-                newForm.BringToFront();
             }
         }
 
         private void btnCalendarTab_Click(object sender, EventArgs e)
         {
-            getFormInstance(ref calendar);
-            openTabForm(calendar);
+            showFormInstance(ref calendar);
+            openInTabPanel(calendar);
         }
 
         private void btnTimelineTab_Click(object sender, EventArgs e)
         {
-            getFormInstance(ref timeline);
-            openTabForm(timeline);
+            showFormInstance(ref timeline);
+            openInTabPanel(timeline);
         }
 
         private void btnTimetableTab_Click(object sender, EventArgs e)
         {
-            getFormInstance(ref timetable);
+            showFormInstance(ref timetable);
+            openInTabPanel(timetable);
         }
 
         private void btnNoteTab_Click(object sender, EventArgs e)
         {
-            getFormInstance(ref note);
+            showFormInstance(ref note);
+            openInTabPanel(note);
         }
 
         private void btnWeatherTab_Click(object sender, EventArgs e)
         {
-            getFormInstance(ref weather);
+            showFormInstance(ref weather);
+            openInTabPanel(weather);
         }
 
         private void btnSettingWindow_Click(object sender, EventArgs e)
         {
-            getFormInstance(ref setting);
-            setting.BringToFront();
-            setting.Show();
+            showFormInstance(ref setting);
         }
 
         private void btnAboutWindow_Click(object sender, EventArgs e)
         {
-            getFormInstance(ref about);
-            about.BringToFront();
-            about.Show();
+            showFormInstance(ref about);
         }
     }
 }
