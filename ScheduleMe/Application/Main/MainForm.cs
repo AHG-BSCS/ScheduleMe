@@ -41,44 +41,57 @@ namespace ScheduleMe
             }
         }
 
+        private void HighlightButton(Button button)
+        {
+            button.BackColor = Color.White;
+            button.ForeColor = Color.Black;
+        }
+
         private void btnCalendarTab_Click(object sender, EventArgs e)
         {
             showFormInstance(ref calendar);
             openInTabPanel(calendar);
+            HighlightButton(btnCalendarTab);
         }
 
         private void btnTimelineTab_Click(object sender, EventArgs e)
         {
             showFormInstance(ref timeline);
             openInTabPanel(timeline);
+            HighlightButton(btnTimelineTab);
         }
 
         private void btnTimetableTab_Click(object sender, EventArgs e)
         {
             showFormInstance(ref timetable);
             openInTabPanel(timetable);
+            HighlightButton(btnTimetableTab);
         }
 
         private void btnNoteTab_Click(object sender, EventArgs e)
         {
             showFormInstance(ref note);
             openInTabPanel(note);
+            HighlightButton(btnNoteTab);
         }
 
         private void btnWeatherTab_Click(object sender, EventArgs e)
         {
             showFormInstance(ref weather);
             openInTabPanel(weather);
+            HighlightButton(btnWeatherTab);
         }
 
         private void btnSettingWindow_Click(object sender, EventArgs e)
         {
             showFormInstance(ref setting);
+            HighlightButton(btnSettingWindow);
         }
 
         private void btnAboutWindow_Click(object sender, EventArgs e)
         {
             showFormInstance(ref about);
+            HighlightButton(btnAboutWindow);
         }
     }
 }
