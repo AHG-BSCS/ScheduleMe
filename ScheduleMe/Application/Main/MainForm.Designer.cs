@@ -55,7 +55,7 @@
             sideNavPanel.Location = new Point(0, 0);
             sideNavPanel.Margin = new Padding(3, 2, 3, 2);
             sideNavPanel.Name = "sideNavPanel";
-            sideNavPanel.Size = new Size(140, 548);
+            sideNavPanel.Size = new Size(140, 550);
             sideNavPanel.TabIndex = 0;
             // 
             // btnSettingWindow
@@ -65,7 +65,7 @@
             btnSettingWindow.FlatStyle = FlatStyle.Flat;
             btnSettingWindow.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnSettingWindow.ForeColor = Color.White;
-            btnSettingWindow.Location = new Point(0, 460);
+            btnSettingWindow.Location = new Point(0, 462);
             btnSettingWindow.Margin = new Padding(3, 2, 3, 2);
             btnSettingWindow.Name = "btnSettingWindow";
             btnSettingWindow.Padding = new Padding(35, 0, 0, 0);
@@ -83,7 +83,7 @@
             btnAboutWindow.FlatStyle = FlatStyle.Flat;
             btnAboutWindow.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnAboutWindow.ForeColor = Color.White;
-            btnAboutWindow.Location = new Point(0, 504);
+            btnAboutWindow.Location = new Point(0, 506);
             btnAboutWindow.Margin = new Padding(3, 2, 3, 2);
             btnAboutWindow.Name = "btnAboutWindow";
             btnAboutWindow.Padding = new Padding(35, 0, 0, 0);
@@ -189,14 +189,14 @@
             tabPanel.Dock = DockStyle.Fill;
             tabPanel.Location = new Point(140, 0);
             tabPanel.Name = "tabPanel";
-            tabPanel.Size = new Size(850, 548);
+            tabPanel.Size = new Size(850, 550);
             tabPanel.TabIndex = 1;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            ClientSize = new Size(990, 548);
+            ClientSize = new Size(990, 550);
             Controls.Add(tabPanel);
             Controls.Add(sideNavPanel);
             Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);

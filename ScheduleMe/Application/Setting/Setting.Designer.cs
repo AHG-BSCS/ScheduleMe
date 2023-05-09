@@ -44,7 +44,7 @@ partial class Setting
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
-        ClientSize = new Size(834, 509);
+        ClientSize = new Size(834, 511);
         Controls.Add(label1);
         FormBorderStyle = FormBorderStyle.FixedToolWindow;
         Name = "Setting";
