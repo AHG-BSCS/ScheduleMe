@@ -34,7 +34,7 @@ partial class Note
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(800, 450);
+        ClientSize = new Size(850, 548);
         FormBorderStyle = FormBorderStyle.None;
         Name = "Note";
         Text = "Note";
