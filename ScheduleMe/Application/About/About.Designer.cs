@@ -104,6 +104,7 @@ partial class About
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
+        BackColor = Color.White;
         ClientSize = new Size(399, 181);
         Controls.Add(linkLabel1);
         Controls.Add(label4);

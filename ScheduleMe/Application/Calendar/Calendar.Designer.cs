@@ -45,6 +45,7 @@ partial class Calendar
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
+        BackColor = Color.White;
         ClientSize = new Size(850, 550);
         Controls.Add(label1);
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
