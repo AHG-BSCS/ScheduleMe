@@ -141,9 +141,10 @@ partial class Note
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(422, 512);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 20);
+            this.label4.Size = new System.Drawing.Size(134, 20);
             this.label4.TabIndex = 11;
-            this.label4.Text = "dev-unclean ver";
+            this.label4.Text = "dev-unclean ver-cc";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // Note
             // 

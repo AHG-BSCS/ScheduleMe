@@ -74,4 +74,9 @@ public partial class Note : Form
         textBox2.Text = notes.Rows[dataGridView1.CurrentCell.RowIndex].ItemArray[1].ToString();
         editing = true;
     }
+
+    private void label4_Click(object sender, EventArgs e)
+    {
+
+    }
 }
