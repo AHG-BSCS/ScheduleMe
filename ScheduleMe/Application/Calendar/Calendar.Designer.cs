@@ -34,21 +34,25 @@ partial class Calendar
         // label1
         // 
         label1.AutoSize = true;
-        label1.Location = new Point(12, 9);
+        label1.Location = new Point(12, 14);
+        label1.Margin = new Padding(4, 0, 4, 0);
         label1.Name = "label1";
-        label1.Size = new Size(54, 15);
+        label1.Size = new Size(57, 22);
         label1.TabIndex = 0;
         label1.Text = "Calendar";
         // 
         // Calendar
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
-        AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(850, 548);
+        AutoScaleDimensions = new SizeF(96F, 96F);
+        AutoScaleMode = AutoScaleMode.Dpi;
+        ClientSize = new Size(850, 693);
         Controls.Add(label1);
+        Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         FormBorderStyle = FormBorderStyle.None;
+        Margin = new Padding(4);
         Name = "Calendar";
         Text = "Calendar";
+        WindowState = FormWindowState.Maximized;
         ResumeLayout(false);
         PerformLayout();
     }

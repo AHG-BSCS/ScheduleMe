@@ -63,6 +63,8 @@
             btnSettingWindow.Dock = DockStyle.Bottom;
             btnSettingWindow.FlatAppearance.BorderSize = 0;
             btnSettingWindow.FlatStyle = FlatStyle.Flat;
+            btnSettingWindow.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSettingWindow.ForeColor = Color.White;
             btnSettingWindow.Location = new Point(0, 460);
             btnSettingWindow.Margin = new Padding(3, 2, 3, 2);
             btnSettingWindow.Name = "btnSettingWindow";
@@ -79,6 +81,8 @@
             btnAboutWindow.Dock = DockStyle.Bottom;
             btnAboutWindow.FlatAppearance.BorderSize = 0;
             btnAboutWindow.FlatStyle = FlatStyle.Flat;
+            btnAboutWindow.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAboutWindow.ForeColor = Color.White;
             btnAboutWindow.Location = new Point(0, 504);
             btnAboutWindow.Margin = new Padding(3, 2, 3, 2);
             btnAboutWindow.Name = "btnAboutWindow";
@@ -95,6 +99,8 @@
             btnWeatherTab.Dock = DockStyle.Top;
             btnWeatherTab.FlatAppearance.BorderSize = 0;
             btnWeatherTab.FlatStyle = FlatStyle.Flat;
+            btnWeatherTab.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnWeatherTab.ForeColor = Color.White;
             btnWeatherTab.Location = new Point(0, 176);
             btnWeatherTab.Margin = new Padding(3, 2, 3, 2);
             btnWeatherTab.Name = "btnWeatherTab";
@@ -111,6 +117,8 @@
             btnNoteTab.Dock = DockStyle.Top;
             btnNoteTab.FlatAppearance.BorderSize = 0;
             btnNoteTab.FlatStyle = FlatStyle.Flat;
+            btnNoteTab.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnNoteTab.ForeColor = Color.White;
             btnNoteTab.Location = new Point(0, 132);
             btnNoteTab.Margin = new Padding(3, 2, 3, 2);
             btnNoteTab.Name = "btnNoteTab";
@@ -127,6 +135,8 @@
             btnTimetableTab.Dock = DockStyle.Top;
             btnTimetableTab.FlatAppearance.BorderSize = 0;
             btnTimetableTab.FlatStyle = FlatStyle.Flat;
+            btnTimetableTab.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnTimetableTab.ForeColor = Color.White;
             btnTimetableTab.Location = new Point(0, 88);
             btnTimetableTab.Margin = new Padding(3, 2, 3, 2);
             btnTimetableTab.Name = "btnTimetableTab";
@@ -143,6 +153,8 @@
             btnTimelineTab.Dock = DockStyle.Top;
             btnTimelineTab.FlatAppearance.BorderSize = 0;
             btnTimelineTab.FlatStyle = FlatStyle.Flat;
+            btnTimelineTab.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnTimelineTab.ForeColor = Color.White;
             btnTimelineTab.Location = new Point(0, 44);
             btnTimelineTab.Margin = new Padding(3, 2, 3, 2);
             btnTimelineTab.Name = "btnTimelineTab";
@@ -159,6 +171,8 @@
             btnCalendarTab.Dock = DockStyle.Top;
             btnCalendarTab.FlatAppearance.BorderSize = 0;
             btnCalendarTab.FlatStyle = FlatStyle.Flat;
+            btnCalendarTab.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCalendarTab.ForeColor = Color.White;
             btnCalendarTab.Location = new Point(0, 0);
             btnCalendarTab.Margin = new Padding(3, 2, 3, 2);
             btnCalendarTab.Name = "btnCalendarTab";
@@ -185,13 +199,14 @@
             ClientSize = new Size(990, 548);
             Controls.Add(tabPanel);
             Controls.Add(sideNavPanel);
-            Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "MainForm";
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.Manual;
             Text = "ScheduleMe";
             WindowState = FormWindowState.Maximized;
+            Load += MainForm_Load;
             sideNavPanel.ResumeLayout(false);
             ResumeLayout(false);
         }

@@ -67,5 +67,10 @@ namespace ScheduleMe
             About about = new About();
             about.Show();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

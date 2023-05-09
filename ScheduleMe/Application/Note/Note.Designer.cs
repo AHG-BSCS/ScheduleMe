@@ -34,21 +34,24 @@ partial class Note
         // label1
         // 
         label1.AutoSize = true;
-        label1.Location = new Point(12, 9);
+        label1.Location = new Point(12, 13);
         label1.Name = "label1";
-        label1.Size = new Size(33, 15);
+        label1.Size = new Size(37, 22);
         label1.TabIndex = 1;
         label1.Text = "Note";
         // 
         // Note
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
-        AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(850, 548);
+        AutoScaleDimensions = new SizeF(96F, 96F);
+        AutoScaleMode = AutoScaleMode.Dpi;
+        ClientSize = new Size(850, 788);
         Controls.Add(label1);
+        Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         FormBorderStyle = FormBorderStyle.None;
+        Margin = new Padding(3, 4, 3, 4);
         Name = "Note";
         Text = "Note";
+        WindowState = FormWindowState.Maximized;
         ResumeLayout(false);
         PerformLayout();
     }
