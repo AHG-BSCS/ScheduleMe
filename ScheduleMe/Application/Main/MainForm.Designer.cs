@@ -72,6 +72,7 @@
             btnSettingWindow.Text = "Setting";
             btnSettingWindow.TextAlign = ContentAlignment.MiddleLeft;
             btnSettingWindow.UseVisualStyleBackColor = true;
+            btnSettingWindow.Click += btnSettingWindow_Click;
             // 
             // btnAboutWindow
             // 
@@ -87,6 +88,7 @@
             btnAboutWindow.Text = "About";
             btnAboutWindow.TextAlign = ContentAlignment.MiddleLeft;
             btnAboutWindow.UseVisualStyleBackColor = true;
+            btnAboutWindow.Click += btnAboutWindow_Click;
             // 
             // btnWeatherTab
             // 
@@ -102,6 +104,7 @@
             btnWeatherTab.Text = "Weather";
             btnWeatherTab.TextAlign = ContentAlignment.MiddleLeft;
             btnWeatherTab.UseVisualStyleBackColor = true;
+            btnWeatherTab.Click += btnWeatherTab_Click;
             // 
             // btnNoteTab
             // 
@@ -117,6 +120,7 @@
             btnNoteTab.Text = "Note";
             btnNoteTab.TextAlign = ContentAlignment.MiddleLeft;
             btnNoteTab.UseVisualStyleBackColor = true;
+            btnNoteTab.Click += btnNoteTab_Click;
             // 
             // btnTimetableTab
             // 
@@ -132,6 +136,7 @@
             btnTimetableTab.Text = "Timetable";
             btnTimetableTab.TextAlign = ContentAlignment.MiddleLeft;
             btnTimetableTab.UseVisualStyleBackColor = true;
+            btnTimetableTab.Click += btnTimetableTab_Click;
             // 
             // btnTimelineTab
             // 
@@ -147,6 +152,7 @@
             btnTimelineTab.Text = "Timeline";
             btnTimelineTab.TextAlign = ContentAlignment.MiddleLeft;
             btnTimelineTab.UseVisualStyleBackColor = true;
+            btnTimelineTab.Click += btnTimelineTab_Click;
             // 
             // btnCalendarTab
             // 
@@ -162,6 +168,7 @@
             btnCalendarTab.Text = "Calendar";
             btnCalendarTab.TextAlign = ContentAlignment.MiddleLeft;
             btnCalendarTab.UseVisualStyleBackColor = true;
+            btnCalendarTab.Click += btnCalendarTab_Click;
             // 
             // tabPanel
             // 
