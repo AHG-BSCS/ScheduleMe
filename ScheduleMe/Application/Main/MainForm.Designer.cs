@@ -68,10 +68,9 @@
             btnSettingWindow.Location = new Point(0, 462);
             btnSettingWindow.Margin = new Padding(3, 2, 3, 2);
             btnSettingWindow.Name = "btnSettingWindow";
-            btnSettingWindow.Padding = new Padding(35, 0, 0, 0);
             btnSettingWindow.Size = new Size(140, 44);
-            btnSettingWindow.TabIndex = 6;
-            btnSettingWindow.Text = "Setting";
+            btnSettingWindow.TabIndex = 5;
+            btnSettingWindow.Text = "          Setting";
             btnSettingWindow.TextAlign = ContentAlignment.MiddleLeft;
             btnSettingWindow.UseVisualStyleBackColor = true;
             btnSettingWindow.Click += btnSettingWindow_Click;
@@ -86,10 +85,9 @@
             btnAboutWindow.Location = new Point(0, 506);
             btnAboutWindow.Margin = new Padding(3, 2, 3, 2);
             btnAboutWindow.Name = "btnAboutWindow";
-            btnAboutWindow.Padding = new Padding(35, 0, 0, 0);
             btnAboutWindow.Size = new Size(140, 44);
-            btnAboutWindow.TabIndex = 5;
-            btnAboutWindow.Text = "About";
+            btnAboutWindow.TabIndex = 6;
+            btnAboutWindow.Text = "          About";
             btnAboutWindow.TextAlign = ContentAlignment.MiddleLeft;
             btnAboutWindow.UseVisualStyleBackColor = true;
             btnAboutWindow.Click += btnAboutWindow_Click;
@@ -104,10 +102,9 @@
             btnWeatherTab.Location = new Point(0, 176);
             btnWeatherTab.Margin = new Padding(3, 2, 3, 2);
             btnWeatherTab.Name = "btnWeatherTab";
-            btnWeatherTab.Padding = new Padding(35, 0, 0, 0);
             btnWeatherTab.Size = new Size(140, 44);
             btnWeatherTab.TabIndex = 4;
-            btnWeatherTab.Text = "Weather";
+            btnWeatherTab.Text = "          Weather";
             btnWeatherTab.TextAlign = ContentAlignment.MiddleLeft;
             btnWeatherTab.UseVisualStyleBackColor = true;
             btnWeatherTab.Click += btnWeatherTab_Click;
@@ -122,10 +119,9 @@
             btnNoteTab.Location = new Point(0, 132);
             btnNoteTab.Margin = new Padding(3, 2, 3, 2);
             btnNoteTab.Name = "btnNoteTab";
-            btnNoteTab.Padding = new Padding(35, 0, 0, 0);
             btnNoteTab.Size = new Size(140, 44);
-            btnNoteTab.TabIndex = 0;
-            btnNoteTab.Text = "Note";
+            btnNoteTab.TabIndex = 3;
+            btnNoteTab.Text = "          Note";
             btnNoteTab.TextAlign = ContentAlignment.MiddleLeft;
             btnNoteTab.UseVisualStyleBackColor = true;
             btnNoteTab.Click += btnNoteTab_Click;
@@ -140,10 +136,9 @@
             btnTimetableTab.Location = new Point(0, 88);
             btnTimetableTab.Margin = new Padding(3, 2, 3, 2);
             btnTimetableTab.Name = "btnTimetableTab";
-            btnTimetableTab.Padding = new Padding(35, 0, 0, 0);
             btnTimetableTab.Size = new Size(140, 44);
-            btnTimetableTab.TabIndex = 1;
-            btnTimetableTab.Text = "Timetable";
+            btnTimetableTab.TabIndex = 2;
+            btnTimetableTab.Text = "          Timetable";
             btnTimetableTab.TextAlign = ContentAlignment.MiddleLeft;
             btnTimetableTab.UseVisualStyleBackColor = true;
             btnTimetableTab.Click += btnTimetableTab_Click;
@@ -158,10 +153,9 @@
             btnTimelineTab.Location = new Point(0, 44);
             btnTimelineTab.Margin = new Padding(3, 2, 3, 2);
             btnTimelineTab.Name = "btnTimelineTab";
-            btnTimelineTab.Padding = new Padding(35, 0, 0, 0);
             btnTimelineTab.Size = new Size(140, 44);
-            btnTimelineTab.TabIndex = 3;
-            btnTimelineTab.Text = "Timeline";
+            btnTimelineTab.TabIndex = 1;
+            btnTimelineTab.Text = "          Timeline";
             btnTimelineTab.TextAlign = ContentAlignment.MiddleLeft;
             btnTimelineTab.UseVisualStyleBackColor = true;
             btnTimelineTab.Click += btnTimelineTab_Click;
@@ -176,10 +170,9 @@
             btnCalendarTab.Location = new Point(0, 0);
             btnCalendarTab.Margin = new Padding(3, 2, 3, 2);
             btnCalendarTab.Name = "btnCalendarTab";
-            btnCalendarTab.Padding = new Padding(35, 0, 0, 0);
             btnCalendarTab.Size = new Size(140, 44);
-            btnCalendarTab.TabIndex = 2;
-            btnCalendarTab.Text = "Calendar";
+            btnCalendarTab.TabIndex = 0;
+            btnCalendarTab.Text = "          Calendar";
             btnCalendarTab.TextAlign = ContentAlignment.MiddleLeft;
             btnCalendarTab.UseVisualStyleBackColor = true;
             btnCalendarTab.Click += btnCalendarTab_Click;
@@ -190,7 +183,7 @@
             tabPanel.Location = new Point(140, 0);
             tabPanel.Name = "tabPanel";
             tabPanel.Size = new Size(850, 550);
-            tabPanel.TabIndex = 1;
+            tabPanel.TabIndex = 0;
             // 
             // MainForm
             // 
