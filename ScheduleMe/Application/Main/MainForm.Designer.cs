@@ -37,6 +37,7 @@
             btnTimetableTab = new Button();
             btnTimelineTab = new Button();
             btnCalendarTab = new Button();
+            tabPanel = new Panel();
             sideNavPanel.SuspendLayout();
             SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             sideNavPanel.Location = new Point(0, 0);
             sideNavPanel.Margin = new Padding(3, 2, 3, 2);
             sideNavPanel.Name = "sideNavPanel";
-            sideNavPanel.Size = new Size(150, 548);
+            sideNavPanel.Size = new Size(140, 548);
             sideNavPanel.TabIndex = 0;
             // 
             // btnSettingWindow
@@ -65,7 +66,8 @@
             btnSettingWindow.Location = new Point(0, 460);
             btnSettingWindow.Margin = new Padding(3, 2, 3, 2);
             btnSettingWindow.Name = "btnSettingWindow";
-            btnSettingWindow.Size = new Size(150, 44);
+            btnSettingWindow.Padding = new Padding(35, 0, 0, 0);
+            btnSettingWindow.Size = new Size(140, 44);
             btnSettingWindow.TabIndex = 6;
             btnSettingWindow.Text = "Setting";
             btnSettingWindow.TextAlign = ContentAlignment.MiddleLeft;
@@ -79,7 +81,8 @@
             btnAboutWindow.Location = new Point(0, 504);
             btnAboutWindow.Margin = new Padding(3, 2, 3, 2);
             btnAboutWindow.Name = "btnAboutWindow";
-            btnAboutWindow.Size = new Size(150, 44);
+            btnAboutWindow.Padding = new Padding(35, 0, 0, 0);
+            btnAboutWindow.Size = new Size(140, 44);
             btnAboutWindow.TabIndex = 5;
             btnAboutWindow.Text = "About";
             btnAboutWindow.TextAlign = ContentAlignment.MiddleLeft;
@@ -93,7 +96,8 @@
             btnWeatherTab.Location = new Point(0, 176);
             btnWeatherTab.Margin = new Padding(3, 2, 3, 2);
             btnWeatherTab.Name = "btnWeatherTab";
-            btnWeatherTab.Size = new Size(150, 44);
+            btnWeatherTab.Padding = new Padding(35, 0, 0, 0);
+            btnWeatherTab.Size = new Size(140, 44);
             btnWeatherTab.TabIndex = 4;
             btnWeatherTab.Text = "Weather";
             btnWeatherTab.TextAlign = ContentAlignment.MiddleLeft;
@@ -107,7 +111,8 @@
             btnNoteTab.Location = new Point(0, 132);
             btnNoteTab.Margin = new Padding(3, 2, 3, 2);
             btnNoteTab.Name = "btnNoteTab";
-            btnNoteTab.Size = new Size(150, 44);
+            btnNoteTab.Padding = new Padding(35, 0, 0, 0);
+            btnNoteTab.Size = new Size(140, 44);
             btnNoteTab.TabIndex = 0;
             btnNoteTab.Text = "Note";
             btnNoteTab.TextAlign = ContentAlignment.MiddleLeft;
@@ -121,7 +126,8 @@
             btnTimetableTab.Location = new Point(0, 88);
             btnTimetableTab.Margin = new Padding(3, 2, 3, 2);
             btnTimetableTab.Name = "btnTimetableTab";
-            btnTimetableTab.Size = new Size(150, 44);
+            btnTimetableTab.Padding = new Padding(35, 0, 0, 0);
+            btnTimetableTab.Size = new Size(140, 44);
             btnTimetableTab.TabIndex = 1;
             btnTimetableTab.Text = "Timetable";
             btnTimetableTab.TextAlign = ContentAlignment.MiddleLeft;
@@ -135,7 +141,8 @@
             btnTimelineTab.Location = new Point(0, 44);
             btnTimelineTab.Margin = new Padding(3, 2, 3, 2);
             btnTimelineTab.Name = "btnTimelineTab";
-            btnTimelineTab.Size = new Size(150, 44);
+            btnTimelineTab.Padding = new Padding(35, 0, 0, 0);
+            btnTimelineTab.Size = new Size(140, 44);
             btnTimelineTab.TabIndex = 3;
             btnTimelineTab.Text = "Timeline";
             btnTimelineTab.TextAlign = ContentAlignment.MiddleLeft;
@@ -149,17 +156,27 @@
             btnCalendarTab.Location = new Point(0, 0);
             btnCalendarTab.Margin = new Padding(3, 2, 3, 2);
             btnCalendarTab.Name = "btnCalendarTab";
-            btnCalendarTab.Size = new Size(150, 44);
+            btnCalendarTab.Padding = new Padding(35, 0, 0, 0);
+            btnCalendarTab.Size = new Size(140, 44);
             btnCalendarTab.TabIndex = 2;
             btnCalendarTab.Text = "Calendar";
             btnCalendarTab.TextAlign = ContentAlignment.MiddleLeft;
             btnCalendarTab.UseVisualStyleBackColor = true;
+            // 
+            // tabPanel
+            // 
+            tabPanel.Dock = DockStyle.Fill;
+            tabPanel.Location = new Point(140, 0);
+            tabPanel.Name = "tabPanel";
+            tabPanel.Size = new Size(850, 548);
+            tabPanel.TabIndex = 1;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(990, 548);
+            Controls.Add(tabPanel);
             Controls.Add(sideNavPanel);
             Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -182,5 +199,6 @@
         private Button btnWeatherTab;
         private Button btnAboutWindow;
         private Button btnSettingWindow;
+        private Panel tabPanel;
     }
 }
