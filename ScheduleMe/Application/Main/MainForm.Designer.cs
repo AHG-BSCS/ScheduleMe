@@ -30,26 +30,26 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             sideNavPanel = new Panel();
-            button7 = new Button();
-            button6 = new Button();
-            button5 = new Button();
-            button1 = new Button();
-            button2 = new Button();
-            button4 = new Button();
-            button3 = new Button();
+            btnSettingWindow = new Button();
+            btnAboutWindow = new Button();
+            btnWeatherTab = new Button();
+            btnNoteTab = new Button();
+            btnTimetableTab = new Button();
+            btnTimelineTab = new Button();
+            btnCalendarTab = new Button();
             sideNavPanel.SuspendLayout();
             SuspendLayout();
             // 
             // sideNavPanel
             // 
             sideNavPanel.BackColor = Color.FromArgb(15, 76, 129);
-            sideNavPanel.Controls.Add(button7);
-            sideNavPanel.Controls.Add(button6);
-            sideNavPanel.Controls.Add(button5);
-            sideNavPanel.Controls.Add(button1);
-            sideNavPanel.Controls.Add(button2);
-            sideNavPanel.Controls.Add(button4);
-            sideNavPanel.Controls.Add(button3);
+            sideNavPanel.Controls.Add(btnSettingWindow);
+            sideNavPanel.Controls.Add(btnAboutWindow);
+            sideNavPanel.Controls.Add(btnWeatherTab);
+            sideNavPanel.Controls.Add(btnNoteTab);
+            sideNavPanel.Controls.Add(btnTimetableTab);
+            sideNavPanel.Controls.Add(btnTimelineTab);
+            sideNavPanel.Controls.Add(btnCalendarTab);
             sideNavPanel.Dock = DockStyle.Left;
             sideNavPanel.Location = new Point(0, 0);
             sideNavPanel.Margin = new Padding(3, 2, 3, 2);
@@ -57,109 +57,103 @@
             sideNavPanel.Size = new Size(150, 548);
             sideNavPanel.TabIndex = 0;
             // 
-            // button7
+            // btnSettingWindow
             // 
-            button7.Dock = DockStyle.Bottom;
-            button7.FlatAppearance.BorderSize = 0;
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.Location = new Point(0, 460);
-            button7.Margin = new Padding(3, 2, 3, 2);
-            button7.Name = "button7";
-            button7.Size = new Size(150, 44);
-            button7.TabIndex = 6;
-            button7.Text = "Setting";
-            button7.TextAlign = ContentAlignment.MiddleLeft;
-            button7.UseVisualStyleBackColor = true;
+            btnSettingWindow.Dock = DockStyle.Bottom;
+            btnSettingWindow.FlatAppearance.BorderSize = 0;
+            btnSettingWindow.FlatStyle = FlatStyle.Flat;
+            btnSettingWindow.Location = new Point(0, 460);
+            btnSettingWindow.Margin = new Padding(3, 2, 3, 2);
+            btnSettingWindow.Name = "btnSettingWindow";
+            btnSettingWindow.Size = new Size(150, 44);
+            btnSettingWindow.TabIndex = 6;
+            btnSettingWindow.Text = "Setting";
+            btnSettingWindow.TextAlign = ContentAlignment.MiddleLeft;
+            btnSettingWindow.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnAboutWindow
             // 
-            button6.Dock = DockStyle.Bottom;
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Location = new Point(0, 504);
-            button6.Margin = new Padding(3, 2, 3, 2);
-            button6.Name = "button6";
-            button6.Size = new Size(150, 44);
-            button6.TabIndex = 5;
-            button6.Text = "About";
-            button6.TextAlign = ContentAlignment.MiddleLeft;
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            btnAboutWindow.Dock = DockStyle.Bottom;
+            btnAboutWindow.FlatAppearance.BorderSize = 0;
+            btnAboutWindow.FlatStyle = FlatStyle.Flat;
+            btnAboutWindow.Location = new Point(0, 504);
+            btnAboutWindow.Margin = new Padding(3, 2, 3, 2);
+            btnAboutWindow.Name = "btnAboutWindow";
+            btnAboutWindow.Size = new Size(150, 44);
+            btnAboutWindow.TabIndex = 5;
+            btnAboutWindow.Text = "About";
+            btnAboutWindow.TextAlign = ContentAlignment.MiddleLeft;
+            btnAboutWindow.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnWeatherTab
             // 
-            button5.Dock = DockStyle.Top;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Location = new Point(0, 176);
-            button5.Margin = new Padding(3, 2, 3, 2);
-            button5.Name = "button5";
-            button5.Size = new Size(150, 44);
-            button5.TabIndex = 4;
-            button5.Text = "Weather";
-            button5.TextAlign = ContentAlignment.MiddleLeft;
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
+            btnWeatherTab.Dock = DockStyle.Top;
+            btnWeatherTab.FlatAppearance.BorderSize = 0;
+            btnWeatherTab.FlatStyle = FlatStyle.Flat;
+            btnWeatherTab.Location = new Point(0, 176);
+            btnWeatherTab.Margin = new Padding(3, 2, 3, 2);
+            btnWeatherTab.Name = "btnWeatherTab";
+            btnWeatherTab.Size = new Size(150, 44);
+            btnWeatherTab.TabIndex = 4;
+            btnWeatherTab.Text = "Weather";
+            btnWeatherTab.TextAlign = ContentAlignment.MiddleLeft;
+            btnWeatherTab.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnNoteTab
             // 
-            button1.Dock = DockStyle.Top;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(0, 132);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(150, 44);
-            button1.TabIndex = 0;
-            button1.Text = "Note";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnNoteTab.Dock = DockStyle.Top;
+            btnNoteTab.FlatAppearance.BorderSize = 0;
+            btnNoteTab.FlatStyle = FlatStyle.Flat;
+            btnNoteTab.Location = new Point(0, 132);
+            btnNoteTab.Margin = new Padding(3, 2, 3, 2);
+            btnNoteTab.Name = "btnNoteTab";
+            btnNoteTab.Size = new Size(150, 44);
+            btnNoteTab.TabIndex = 0;
+            btnNoteTab.Text = "Note";
+            btnNoteTab.TextAlign = ContentAlignment.MiddleLeft;
+            btnNoteTab.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnTimetableTab
             // 
-            button2.Dock = DockStyle.Top;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(0, 88);
-            button2.Margin = new Padding(3, 2, 3, 2);
-            button2.Name = "button2";
-            button2.Size = new Size(150, 44);
-            button2.TabIndex = 1;
-            button2.Text = "Timetable";
-            button2.TextAlign = ContentAlignment.MiddleLeft;
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnTimetableTab.Dock = DockStyle.Top;
+            btnTimetableTab.FlatAppearance.BorderSize = 0;
+            btnTimetableTab.FlatStyle = FlatStyle.Flat;
+            btnTimetableTab.Location = new Point(0, 88);
+            btnTimetableTab.Margin = new Padding(3, 2, 3, 2);
+            btnTimetableTab.Name = "btnTimetableTab";
+            btnTimetableTab.Size = new Size(150, 44);
+            btnTimetableTab.TabIndex = 1;
+            btnTimetableTab.Text = "Timetable";
+            btnTimetableTab.TextAlign = ContentAlignment.MiddleLeft;
+            btnTimetableTab.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnTimelineTab
             // 
-            button4.Dock = DockStyle.Top;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Location = new Point(0, 44);
-            button4.Margin = new Padding(3, 2, 3, 2);
-            button4.Name = "button4";
-            button4.Size = new Size(150, 44);
-            button4.TabIndex = 3;
-            button4.Text = "Timeline";
-            button4.TextAlign = ContentAlignment.MiddleLeft;
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            btnTimelineTab.Dock = DockStyle.Top;
+            btnTimelineTab.FlatAppearance.BorderSize = 0;
+            btnTimelineTab.FlatStyle = FlatStyle.Flat;
+            btnTimelineTab.Location = new Point(0, 44);
+            btnTimelineTab.Margin = new Padding(3, 2, 3, 2);
+            btnTimelineTab.Name = "btnTimelineTab";
+            btnTimelineTab.Size = new Size(150, 44);
+            btnTimelineTab.TabIndex = 3;
+            btnTimelineTab.Text = "Timeline";
+            btnTimelineTab.TextAlign = ContentAlignment.MiddleLeft;
+            btnTimelineTab.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnCalendarTab
             // 
-            button3.Dock = DockStyle.Top;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Location = new Point(0, 0);
-            button3.Margin = new Padding(3, 2, 3, 2);
-            button3.Name = "button3";
-            button3.Size = new Size(150, 44);
-            button3.TabIndex = 2;
-            button3.Text = "Calendar";
-            button3.TextAlign = ContentAlignment.MiddleLeft;
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            btnCalendarTab.Dock = DockStyle.Top;
+            btnCalendarTab.FlatAppearance.BorderSize = 0;
+            btnCalendarTab.FlatStyle = FlatStyle.Flat;
+            btnCalendarTab.Location = new Point(0, 0);
+            btnCalendarTab.Margin = new Padding(3, 2, 3, 2);
+            btnCalendarTab.Name = "btnCalendarTab";
+            btnCalendarTab.Size = new Size(150, 44);
+            btnCalendarTab.TabIndex = 2;
+            btnCalendarTab.Text = "Calendar";
+            btnCalendarTab.TextAlign = ContentAlignment.MiddleLeft;
+            btnCalendarTab.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -174,7 +168,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ScheduleMe";
             WindowState = FormWindowState.Maximized;
-            Load += MainForm_Load;
             sideNavPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -182,12 +175,12 @@
         #endregion
 
         private Panel sideNavPanel;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private Button button7;
+        private Button btnNoteTab;
+        private Button btnTimetableTab;
+        private Button btnCalendarTab;
+        private Button btnTimelineTab;
+        private Button btnWeatherTab;
+        private Button btnAboutWindow;
+        private Button btnSettingWindow;
     }
 }
