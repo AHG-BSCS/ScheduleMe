@@ -14,12 +14,12 @@ namespace ScheduleMe
             Form about = new About();
             about.Show();
         }
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-        
+
         private void button2_Click(object sender, EventArgs e)
         {
             Form calendar = new Calendar();
@@ -37,7 +37,7 @@ namespace ScheduleMe
             Form timeline = new Timeline();
             timeline.Show();
         }
-        
+
         private void button5_Click(object sender, EventArgs e)
         {
             Form timetable = new Timetable();
