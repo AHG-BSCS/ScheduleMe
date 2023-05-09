@@ -51,6 +51,7 @@ partial class Setting
         Name = "Setting";
         Text = "Setting";
         TopMost = true;
+        FormClosed += Setting_FormClosed;
         ResumeLayout(false);
         PerformLayout();
     }

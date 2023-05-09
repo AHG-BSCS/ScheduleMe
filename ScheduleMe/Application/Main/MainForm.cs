@@ -25,7 +25,7 @@ namespace ScheduleMe
 
         private void showFormInstance<T>(ref T instance) where T : Form, new()
         {
-            if (instance == null)
+            if (instance == null || instance.IsDisposed)
                 instance = new T();
             instance.BringToFront();
             instance.Show();
@@ -55,10 +55,22 @@ namespace ScheduleMe
             }
         }
 
-        private void removeButtonHightlight(Button button)
+        private void highlightButton(Button button)
         {
-            button.BackColor = sideNavPanel.BackColor;
-            button.ForeColor = Color.White;
+            button.BackColor = Color.White;
+            button.ForeColor = Color.Black;
+        }
+
+        private void setting_FormClosedEvent(object sender, FormClosedEventArgs e)
+        {
+            btnSettingWindow.BackColor = sideNavPanel.BackColor;
+            btnSettingWindow.ForeColor = Color.White;
+        }
+
+        private void about_FormClosedEvent(object sender, FormClosedEventArgs e)
+        {
+            btnAboutWindow.BackColor = sideNavPanel.BackColor;
+            btnAboutWindow.ForeColor = Color.White;
         }
 
         private void btnCalendarTab_Click(object sender, EventArgs e)
@@ -99,13 +111,15 @@ namespace ScheduleMe
         private void btnSettingWindow_Click(object sender, EventArgs e)
         {
             showFormInstance(ref setting);
-            highlightButton(btnSettingWindow, setting.Visible);
+            highlightButton(btnSettingWindow);
+            setting.FormClosedEvent += setting_FormClosedEvent;
         }
 
         private void btnAboutWindow_Click(object sender, EventArgs e)
         {
             showFormInstance(ref about);
-            highlightButton(btnAboutWindow, about.Visible);
+            highlightButton(btnAboutWindow);
+            about.FormClosedEvent += about_FormClosedEvent;
         }
     }
 }

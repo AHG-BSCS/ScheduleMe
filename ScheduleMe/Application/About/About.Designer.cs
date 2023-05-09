@@ -118,6 +118,7 @@ partial class About
         Name = "About";
         Text = "About ScheduleMe";
         TopMost = true;
+        FormClosed += About_FormClosed;
         ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
         PerformLayout();

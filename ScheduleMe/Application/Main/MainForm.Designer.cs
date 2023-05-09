@@ -207,15 +207,14 @@
         }
 
         #endregion
-
-        private Panel sideNavPanel;
         private Button btnNoteTab;
         private Button btnTimetableTab;
         private Button btnCalendarTab;
         private Button btnTimelineTab;
         private Button btnWeatherTab;
         private Button btnAboutWindow;
-        private Button btnSettingWindow;
         private Panel tabPanel;
+        public Button btnSettingWindow;
+        public Panel sideNavPanel;
     }
 }
