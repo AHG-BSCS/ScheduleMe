@@ -139,7 +139,7 @@ partial class Note
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(422, 512);
+            this.label4.Location = new System.Drawing.Point(287, 518);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(134, 20);
             this.label4.TabIndex = 11;
