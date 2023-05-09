@@ -12,12 +12,14 @@ namespace ScheduleMe
         private static Weather weather;
         private static Setting setting;
         private static About about;
+        private Button previousButton = new Button();
 
         public MainForm()
         {
             InitializeComponent();
             showFormInstance(ref activeForm);
             showFormInstance(ref calendar);
+            highlightButton(btnCalendarTab, calendar.Visible);
             openInTabPanel(calendar);
         }
 
@@ -41,57 +43,69 @@ namespace ScheduleMe
             }
         }
 
-        private void HighlightButton(Button button)
+        private void highlightButton(Button button, bool visible)
         {
-            button.BackColor = Color.White;
-            button.ForeColor = Color.Black;
+            if (visible && !previousButton.Equals(button))
+            {
+                button.BackColor = Color.White;
+                button.ForeColor = Color.Black;
+                previousButton.BackColor = sideNavPanel.BackColor;
+                previousButton.ForeColor = Color.White;
+                previousButton = button;
+            }
+        }
+
+        private void removeButtonHightlight(Button button)
+        {
+            button.BackColor = sideNavPanel.BackColor;
+            button.ForeColor = Color.White;
         }
 
         private void btnCalendarTab_Click(object sender, EventArgs e)
         {
             showFormInstance(ref calendar);
             openInTabPanel(calendar);
-            HighlightButton(btnCalendarTab);
+            highlightButton(btnCalendarTab, calendar.Visible);
         }
 
         private void btnTimelineTab_Click(object sender, EventArgs e)
         {
             showFormInstance(ref timeline);
             openInTabPanel(timeline);
-            HighlightButton(btnTimelineTab);
+            highlightButton(btnTimelineTab, timeline.Visible);
         }
 
         private void btnTimetableTab_Click(object sender, EventArgs e)
         {
             showFormInstance(ref timetable);
             openInTabPanel(timetable);
-            HighlightButton(btnTimetableTab);
+            highlightButton(btnTimetableTab, timetable.Visible);
         }
 
         private void btnNoteTab_Click(object sender, EventArgs e)
         {
             showFormInstance(ref note);
             openInTabPanel(note);
-            HighlightButton(btnNoteTab);
+            highlightButton(btnNoteTab, note.Visible);
         }
 
         private void btnWeatherTab_Click(object sender, EventArgs e)
         {
             showFormInstance(ref weather);
             openInTabPanel(weather);
-            HighlightButton(btnWeatherTab);
+            highlightButton(btnWeatherTab, weather.Visible);
         }
 
         private void btnSettingWindow_Click(object sender, EventArgs e)
         {
             showFormInstance(ref setting);
-            HighlightButton(btnSettingWindow);
+            highlightButton(btnSettingWindow, setting.Visible);
         }
 
         private void btnAboutWindow_Click(object sender, EventArgs e)
         {
             showFormInstance(ref about);
-            HighlightButton(btnAboutWindow);
+            highlightButton(btnAboutWindow, about.Visible);
         }
     }
 }
