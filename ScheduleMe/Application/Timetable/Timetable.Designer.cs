@@ -28,18 +28,32 @@ partial class Timetable
     /// </summary>
     private void InitializeComponent()
     {
+        label1 = new Label();
         SuspendLayout();
+        // 
+        // label1
+        // 
+        label1.AutoSize = true;
+        label1.Location = new Point(12, 9);
+        label1.Name = "label1";
+        label1.Size = new Size(59, 15);
+        label1.TabIndex = 1;
+        label1.Text = "Timetable";
         // 
         // Timetable
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(850, 548);
+        Controls.Add(label1);
         FormBorderStyle = FormBorderStyle.None;
         Name = "Timetable";
         Text = "Timetable";
         ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
+
+    private Label label1;
 }
