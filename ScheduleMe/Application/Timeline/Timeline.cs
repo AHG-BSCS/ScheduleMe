@@ -12,12 +12,13 @@ public partial class Timeline : Form
     {
         for (DateTime i = startDate; i <= endDate; i = i.AddDays(1))
         {
-            DateCell cell = new DateCell() 
+            DateCell cell = new DateCell()
             {
                 dayName = shortDayName(i.DayOfWeek.ToString()),
                 date = i.Day.ToString()
             };
 
+            // Highlight the currentDay
             if (i.DayOfYear == DateTime.Today.DayOfYear)
             {
                 cell.tlPanelDateCell.BackColor = Color.FromArgb(15, 76, 129);
