@@ -25,5 +25,10 @@ namespace ScheduleMe.Tab
         {
             FormClosedEvent?.Invoke(this, e);
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
