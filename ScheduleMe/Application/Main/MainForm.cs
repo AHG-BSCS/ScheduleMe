@@ -40,6 +40,7 @@ namespace ScheduleMe
                 newForm.TopLevel = false;
                 newForm.Dock = DockStyle.Fill;
                 tabPanel.Controls.Add(newForm);
+                tabPanel.Focus();
             }
         }
 
