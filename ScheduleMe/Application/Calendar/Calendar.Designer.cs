@@ -28,31 +28,54 @@ partial class Calendar
     /// </summary>
     private void InitializeComponent()
     {
+        label1 = new Label();
         monthCalendar1 = new MonthCalendar();
+        button1 = new Button();
         SuspendLayout();
+        // 
+        // label1
+        // 
+        label1.Location = new Point(0, 0);
+        label1.Name = "label1";
+        label1.Size = new Size(100, 23);
+        label1.TabIndex = 0;
         // 
         // monthCalendar1
         // 
-        monthCalendar1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        monthCalendar1.CalendarDimensions = new Size(4, 3);
-        monthCalendar1.Location = new Point(0, 0);
+        monthCalendar1.Location = new Point(340, 95);
         monthCalendar1.Name = "monthCalendar1";
-        monthCalendar1.TabIndex = 0;
-        monthCalendar1.DateChanged += monthCalendar1_DateChanged;
+        monthCalendar1.TabIndex = 1;
+        // 
+        // button1
+        // 
+        button1.Location = new Point(611, 109);
+        button1.Name = "button1";
+        button1.Size = new Size(62, 47);
+        button1.TabIndex = 2;
+        button1.Text = "button1";
+        button1.UseVisualStyleBackColor = true;
         // 
         // Calendar
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
-        AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(978, 566);
+        AutoScaleDimensions = new SizeF(96F, 96F);
+        AutoScaleMode = AutoScaleMode.Dpi;
+        BackColor = Color.White;
+        ClientSize = new Size(850, 550);
+        Controls.Add(button1);
         Controls.Add(monthCalendar1);
+        Controls.Add(label1);
+        Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         FormBorderStyle = FormBorderStyle.None;
+        Margin = new Padding(4);
         Name = "Calendar";
         Text = "Calendar";
+        WindowState = FormWindowState.Maximized;
         ResumeLayout(false);
     }
 
     #endregion
 
+    private Label label1;
     private MonthCalendar monthCalendar1;
+    private Button button1;
 }

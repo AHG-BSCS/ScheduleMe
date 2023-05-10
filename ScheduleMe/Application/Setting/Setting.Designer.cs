@@ -28,18 +28,35 @@ partial class Setting
     /// </summary>
     private void InitializeComponent()
     {
+        label1 = new Label();
         SuspendLayout();
+        // 
+        // label1
+        // 
+        label1.AutoSize = true;
+        label1.Location = new Point(12, 9);
+        label1.Name = "label1";
+        label1.Size = new Size(44, 15);
+        label1.TabIndex = 1;
+        label1.Text = "Setting";
         // 
         // Setting
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
-        AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(834, 509);
+        AutoScaleDimensions = new SizeF(96F, 96F);
+        AutoScaleMode = AutoScaleMode.Dpi;
+        BackColor = Color.White;
+        ClientSize = new Size(834, 511);
+        Controls.Add(label1);
         FormBorderStyle = FormBorderStyle.FixedToolWindow;
         Name = "Setting";
         Text = "Setting";
+        TopMost = true;
+        FormClosed += Setting_FormClosed;
         ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
+
+    private Label label1;
 }
