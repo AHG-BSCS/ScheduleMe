@@ -5,7 +5,7 @@ public partial class Timeline : Form
     public Timeline()
     {
         InitializeComponent();
-        AddDateCell(20);
+        AddDateCell(40);
     }
 
     private void AddDateCell(int count)

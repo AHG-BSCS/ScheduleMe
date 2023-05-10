@@ -99,11 +99,11 @@ partial class Timeline
         // flPanelDateTime
         // 
         flPanelDateTime.AutoScroll = true;
-        flPanelDateTime.Dock = DockStyle.Top;
+        flPanelDateTime.Dock = DockStyle.Fill;
         flPanelDateTime.Location = new Point(0, 35);
         flPanelDateTime.Name = "flPanelDateTime";
-        flPanelDateTime.Size = new Size(850, 230);
-        flPanelDateTime.TabIndex = 1;
+        flPanelDateTime.Size = new Size(850, 515);
+        flPanelDateTime.TabIndex = 0;
         flPanelDateTime.WrapContents = false;
         // 
         // Timeline

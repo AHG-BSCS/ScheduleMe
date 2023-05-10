@@ -41,21 +41,23 @@ partial class DateCell
         tlPanelDateCell.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
         tlPanelDateCell.Controls.Add(lblDate, 0, 1);
         tlPanelDateCell.Controls.Add(lblDayName, 0, 0);
-        tlPanelDateCell.Location = new Point(30, 32);
+        tlPanelDateCell.Dock = DockStyle.Fill;
+        tlPanelDateCell.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        tlPanelDateCell.Location = new Point(0, 0);
         tlPanelDateCell.Name = "tlPanelDateCell";
         tlPanelDateCell.RowCount = 2;
         tlPanelDateCell.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
         tlPanelDateCell.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        tlPanelDateCell.Size = new Size(46, 64);
+        tlPanelDateCell.Size = new Size(45, 46);
         tlPanelDateCell.TabIndex = 1;
         // 
         // lblDate
         // 
         lblDate.AutoSize = true;
         lblDate.Dock = DockStyle.Fill;
-        lblDate.Location = new Point(3, 32);
+        lblDate.Location = new Point(3, 23);
         lblDate.Name = "lblDate";
-        lblDate.Size = new Size(40, 32);
+        lblDate.Size = new Size(39, 23);
         lblDate.TabIndex = 1;
         lblDate.Text = "10";
         lblDate.TextAlign = ContentAlignment.MiddleCenter;
@@ -66,7 +68,7 @@ partial class DateCell
         lblDayName.Dock = DockStyle.Fill;
         lblDayName.Location = new Point(3, 0);
         lblDayName.Name = "lblDayName";
-        lblDayName.Size = new Size(40, 32);
+        lblDayName.Size = new Size(39, 23);
         lblDayName.TabIndex = 0;
         lblDayName.Text = "Wed";
         lblDayName.TextAlign = ContentAlignment.MiddleCenter;
@@ -77,7 +79,7 @@ partial class DateCell
         AutoScaleMode = AutoScaleMode.Font;
         Controls.Add(tlPanelDateCell);
         Name = "DateCell";
-        Size = new Size(116, 146);
+        Size = new Size(45, 46);
         tlPanelDateCell.ResumeLayout(false);
         tlPanelDateCell.PerformLayout();
         ResumeLayout(false);
