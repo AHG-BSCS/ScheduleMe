@@ -28,43 +28,72 @@ partial class Timeline
     /// </summary>
     private void InitializeComponent()
     {
-        tabControl1 = new TabControl();
-        tabPage1 = new TabPage();
-        tabPage2 = new TabPage();
-        tabControl1.SuspendLayout();
+        panelTimelineTab = new Panel();
+        btnAddTab = new Button();
+        btnTab2 = new Button();
+        btnTab1 = new Button();
+        panelTimelineTab.SuspendLayout();
         SuspendLayout();
         // 
-        // tabControl1
+        // panelTimelineTab
         // 
-        tabControl1.Controls.Add(tabPage1);
-        tabControl1.Controls.Add(tabPage2);
-        tabControl1.Dock = DockStyle.Fill;
-        tabControl1.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        tabControl1.Location = new Point(0, 0);
-        tabControl1.Name = "tabControl1";
-        tabControl1.SelectedIndex = 0;
-        tabControl1.Size = new Size(850, 550);
-        tabControl1.TabIndex = 2;
+        panelTimelineTab.Controls.Add(btnAddTab);
+        panelTimelineTab.Controls.Add(btnTab2);
+        panelTimelineTab.Controls.Add(btnTab1);
+        panelTimelineTab.Dock = DockStyle.Top;
+        panelTimelineTab.Location = new Point(0, 0);
+        panelTimelineTab.Name = "panelTimelineTab";
+        panelTimelineTab.Padding = new Padding(10, 0, 10, 0);
+        panelTimelineTab.Size = new Size(850, 35);
+        panelTimelineTab.TabIndex = 0;
         // 
-        // tabPage1
+        // btnAddTab
         // 
-        tabPage1.BackColor = Color.White;
-        tabPage1.Location = new Point(4, 31);
-        tabPage1.Name = "tabPage1";
-        tabPage1.Padding = new Padding(3);
-        tabPage1.Size = new Size(842, 515);
-        tabPage1.TabIndex = 0;
-        tabPage1.Text = "Genshin Impact";
+        btnAddTab.AutoSize = true;
+        btnAddTab.BackColor = Color.FromArgb(0, 0, 64);
+        btnAddTab.Dock = DockStyle.Left;
+        btnAddTab.FlatAppearance.BorderColor = Color.White;
+        btnAddTab.FlatStyle = FlatStyle.Flat;
+        btnAddTab.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        btnAddTab.ForeColor = Color.White;
+        btnAddTab.Location = new Point(224, 0);
+        btnAddTab.Name = "btnAddTab";
+        btnAddTab.Size = new Size(38, 35);
+        btnAddTab.TabIndex = 2;
+        btnAddTab.Text = " +";
+        btnAddTab.UseVisualStyleBackColor = false;
         // 
-        // tabPage2
+        // btnTab2
         // 
-        tabPage2.BackColor = Color.White;
-        tabPage2.Location = new Point(4, 31);
-        tabPage2.Name = "tabPage2";
-        tabPage2.Padding = new Padding(3);
-        tabPage2.Size = new Size(842, 515);
-        tabPage2.TabIndex = 1;
-        tabPage2.Text = "CCS Week";
+        btnTab2.AutoSize = true;
+        btnTab2.BackColor = Color.FromArgb(0, 0, 64);
+        btnTab2.Dock = DockStyle.Left;
+        btnTab2.FlatAppearance.BorderColor = Color.White;
+        btnTab2.FlatStyle = FlatStyle.Flat;
+        btnTab2.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        btnTab2.ForeColor = Color.White;
+        btnTab2.Location = new Point(119, 0);
+        btnTab2.Name = "btnTab2";
+        btnTab2.Size = new Size(105, 35);
+        btnTab2.TabIndex = 1;
+        btnTab2.Text = "CCS Week";
+        btnTab2.UseVisualStyleBackColor = false;
+        // 
+        // btnTab1
+        // 
+        btnTab1.AutoSize = true;
+        btnTab1.BackColor = Color.FromArgb(0, 0, 64);
+        btnTab1.Dock = DockStyle.Left;
+        btnTab1.FlatAppearance.BorderColor = Color.White;
+        btnTab1.FlatStyle = FlatStyle.Flat;
+        btnTab1.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        btnTab1.ForeColor = Color.White;
+        btnTab1.Location = new Point(10, 0);
+        btnTab1.Name = "btnTab1";
+        btnTab1.Size = new Size(109, 35);
+        btnTab1.TabIndex = 0;
+        btnTab1.Text = "Genshin Impact";
+        btnTab1.UseVisualStyleBackColor = false;
         // 
         // Timeline
         // 
@@ -72,20 +101,22 @@ partial class Timeline
         AutoScaleMode = AutoScaleMode.Dpi;
         BackColor = Color.White;
         ClientSize = new Size(850, 550);
-        Controls.Add(tabControl1);
+        Controls.Add(panelTimelineTab);
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(3, 4, 3, 4);
         Name = "Timeline";
         Text = "Timeline";
         WindowState = FormWindowState.Maximized;
-        tabControl1.ResumeLayout(false);
+        panelTimelineTab.ResumeLayout(false);
+        panelTimelineTab.PerformLayout();
         ResumeLayout(false);
     }
 
     #endregion
 
-    private TabControl tabControl1;
-    private TabPage tabPage1;
-    private TabPage tabPage2;
+    private Panel panelTimelineTab;
+    private Button btnTab1;
+    private Button btnTab2;
+    private Button btnAddTab;
 }
