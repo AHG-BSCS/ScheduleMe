@@ -31,6 +31,7 @@ partial class DateCell
         tlPanelDateCell = new TableLayoutPanel();
         lblDate = new Label();
         lblDayName = new Label();
+        lblLine = new Label();
         tlPanelDateCell.SuspendLayout();
         SuspendLayout();
         // 
@@ -41,23 +42,25 @@ partial class DateCell
         tlPanelDateCell.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
         tlPanelDateCell.Controls.Add(lblDate, 0, 1);
         tlPanelDateCell.Controls.Add(lblDayName, 0, 0);
-        tlPanelDateCell.Dock = DockStyle.Fill;
+        tlPanelDateCell.Dock = DockStyle.Top;
         tlPanelDateCell.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         tlPanelDateCell.Location = new Point(0, 0);
+        tlPanelDateCell.Margin = new Padding(0);
         tlPanelDateCell.Name = "tlPanelDateCell";
         tlPanelDateCell.RowCount = 2;
         tlPanelDateCell.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
         tlPanelDateCell.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        tlPanelDateCell.Size = new Size(45, 46);
+        tlPanelDateCell.Size = new Size(47, 35);
         tlPanelDateCell.TabIndex = 1;
         // 
         // lblDate
         // 
         lblDate.AutoSize = true;
         lblDate.Dock = DockStyle.Fill;
-        lblDate.Location = new Point(3, 23);
+        lblDate.Location = new Point(0, 17);
+        lblDate.Margin = new Padding(0);
         lblDate.Name = "lblDate";
-        lblDate.Size = new Size(39, 23);
+        lblDate.Size = new Size(47, 18);
         lblDate.TabIndex = 1;
         lblDate.Text = "10";
         lblDate.TextAlign = ContentAlignment.MiddleCenter;
@@ -66,20 +69,34 @@ partial class DateCell
         // 
         lblDayName.AutoSize = true;
         lblDayName.Dock = DockStyle.Fill;
-        lblDayName.Location = new Point(3, 0);
+        lblDayName.Location = new Point(0, 0);
+        lblDayName.Margin = new Padding(0);
         lblDayName.Name = "lblDayName";
-        lblDayName.Size = new Size(39, 23);
+        lblDayName.Size = new Size(47, 17);
         lblDayName.TabIndex = 0;
         lblDayName.Text = "Wed";
         lblDayName.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // lblLine
+        // 
+        lblLine.BackColor = SystemColors.ActiveBorder;
+        lblLine.Enabled = false;
+        lblLine.Location = new Point(20, 31);
+        lblLine.Margin = new Padding(0);
+        lblLine.Name = "lblLine";
+        lblLine.Size = new Size(3, 250);
+        lblLine.TabIndex = 0;
+        lblLine.Text = "   ";
+        lblLine.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // DateCell
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
+        Controls.Add(lblLine);
         Controls.Add(tlPanelDateCell);
         Name = "DateCell";
-        Size = new Size(45, 46);
+        Size = new Size(47, 289);
         tlPanelDateCell.ResumeLayout(false);
         tlPanelDateCell.PerformLayout();
         ResumeLayout(false);
@@ -90,4 +107,5 @@ partial class DateCell
     private TableLayoutPanel tlPanelDateCell;
     private Label lblDate;
     private Label lblDayName;
+    private Label lblLine;
 }
