@@ -50,19 +50,19 @@ partial class DateCell
         tlPanelDateCell.RowCount = 2;
         tlPanelDateCell.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
         tlPanelDateCell.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        tlPanelDateCell.Size = new Size(47, 35);
+        tlPanelDateCell.Size = new Size(47, 30);
         tlPanelDateCell.TabIndex = 1;
         // 
         // lblDate
         // 
         lblDate.AutoSize = true;
         lblDate.Dock = DockStyle.Fill;
-        lblDate.Location = new Point(0, 17);
+        lblDate.Location = new Point(0, 15);
         lblDate.Margin = new Padding(0);
         lblDate.Name = "lblDate";
-        lblDate.Size = new Size(47, 18);
+        lblDate.Size = new Size(47, 15);
         lblDate.TabIndex = 1;
-        lblDate.Text = "10";
+        lblDate.Text = "0";
         lblDate.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // lblDayName
@@ -72,19 +72,19 @@ partial class DateCell
         lblDayName.Location = new Point(0, 0);
         lblDayName.Margin = new Padding(0);
         lblDayName.Name = "lblDayName";
-        lblDayName.Size = new Size(47, 17);
+        lblDayName.Size = new Size(47, 15);
         lblDayName.TabIndex = 0;
-        lblDayName.Text = "Wed";
+        lblDayName.Text = "Day";
         lblDayName.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // lblLine
         // 
-        lblLine.BackColor = SystemColors.ActiveBorder;
+        lblLine.BackColor = Color.Gray;
         lblLine.Enabled = false;
-        lblLine.Location = new Point(20, 31);
+        lblLine.Location = new Point(22, 30);
         lblLine.Margin = new Padding(0);
         lblLine.Name = "lblLine";
-        lblLine.Size = new Size(3, 250);
+        lblLine.Size = new Size(1, 250);
         lblLine.TabIndex = 0;
         lblLine.Text = "   ";
         lblLine.TextAlign = ContentAlignment.MiddleCenter;
