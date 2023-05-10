@@ -103,9 +103,8 @@ partial class DateCell
     }
 
     #endregion
-
-    private TableLayoutPanel tlPanelDateCell;
     private Label lblDate;
     private Label lblDayName;
-    private Label lblLine;
+    public TableLayoutPanel tlPanelDateCell;
+    public Label lblLine;
 }

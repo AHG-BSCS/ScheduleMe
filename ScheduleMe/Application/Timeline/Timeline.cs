@@ -12,8 +12,19 @@ public partial class Timeline : Form
     {
         for (DateTime i = startDate; i <= endDate; i = i.AddDays(1))
         {
-            flPanelDateTime.Controls.Add(new DateCell()
-            { dayName = shortDayName(i.DayOfWeek.ToString()), date = i.Day.ToString() });
+            DateCell cell = new DateCell() 
+            {
+                dayName = shortDayName(i.DayOfWeek.ToString()),
+                date = i.Day.ToString()
+            };
+
+            if (i.DayOfYear == DateTime.Today.DayOfYear)
+            {
+                cell.tlPanelDateCell.BackColor = Color.FromArgb(15, 76, 129);
+                cell.lblLine.BackColor = Color.FromArgb(15, 76, 129);
+            }
+
+            flPanelDateTime.Controls.Add(cell);
         }
     }
 
