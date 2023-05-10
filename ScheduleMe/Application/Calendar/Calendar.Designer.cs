@@ -33,25 +33,12 @@ partial class Calendar
         // 
         // label1
         // 
-        label1.Location = new Point(0, 0);
+        label1.AutoSize = true;
+        label1.Location = new Point(12, 9);
         label1.Name = "label1";
-        label1.Size = new Size(100, 23);
-        label1.TabIndex = 0;
-        // 
-        // monthCalendar1
-        // 
-        monthCalendar1.Location = new Point(340, 95);
-        monthCalendar1.Name = "monthCalendar1";
-        monthCalendar1.TabIndex = 1;
-        // 
-        // button1
-        // 
-        button1.Location = new Point(611, 109);
-        button1.Name = "button1";
-        button1.Size = new Size(62, 47);
-        button1.TabIndex = 2;
-        button1.Text = "button1";
-        button1.UseVisualStyleBackColor = true;
+        label1.Size = new Size(57, 22);
+        label1.TabIndex = 2;
+        label1.Text = "Calendar";
         // 
         // Calendar
         // 
@@ -59,19 +46,16 @@ partial class Calendar
         AutoScaleMode = AutoScaleMode.Dpi;
         BackColor = Color.White;
         ClientSize = new Size(850, 550);
-        Controls.Add(button1);
-        Controls.Add(monthCalendar1);
         Controls.Add(label1);
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         FormBorderStyle = FormBorderStyle.None;
         Name = "Calendar";
         Text = "Calendar";
         ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
 
     private Label label1;
-    private MonthCalendar monthCalendar1;
-    private Button button1;
 }
