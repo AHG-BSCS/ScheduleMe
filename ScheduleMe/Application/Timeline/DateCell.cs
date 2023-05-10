@@ -7,13 +7,13 @@ public partial class DateCell : UserControl
         InitializeComponent();
     }
 
-    public string DayName
+    public string dayName
     {
         get { return lblDayName.Text; }
         set { lblDayName.Text = value; }
     }
 
-    public string Date
+    public string date
     {
         get { return lblDate.Text; }
         set { lblDate.Text = value; }
