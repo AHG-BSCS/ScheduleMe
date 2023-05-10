@@ -6,4 +6,11 @@ public partial class Setting : Form
     {
         InitializeComponent();
     }
+
+    public event EventHandler<FormClosedEventArgs> FormClosedEvent;
+
+    private void Setting_FormClosed(object sender, FormClosedEventArgs e)
+    {
+        FormClosedEvent?.Invoke(this, e);
+    }
 }

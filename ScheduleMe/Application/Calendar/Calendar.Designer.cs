@@ -28,31 +28,27 @@ partial class Calendar
     /// </summary>
     private void InitializeComponent()
     {
-        monthCalendar1 = new MonthCalendar();
+        label1 = new Label();
         SuspendLayout();
-        // 
-        // monthCalendar1
-        // 
-        monthCalendar1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        monthCalendar1.CalendarDimensions = new Size(4, 3);
-        monthCalendar1.Location = new Point(0, 0);
-        monthCalendar1.Name = "monthCalendar1";
-        monthCalendar1.TabIndex = 0;
-        monthCalendar1.DateChanged += monthCalendar1_DateChanged;
         // 
         // Calendar
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
-        AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(978, 566);
-        Controls.Add(monthCalendar1);
+        AutoScaleDimensions = new SizeF(96F, 96F);
+        AutoScaleMode = AutoScaleMode.Dpi;
+        BackColor = Color.White;
+        ClientSize = new Size(850, 550);
+        Controls.Add(label1);
+        Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         FormBorderStyle = FormBorderStyle.None;
+        Margin = new Padding(4);
         Name = "Calendar";
         Text = "Calendar";
+        WindowState = FormWindowState.Maximized;
         ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
 
-    private MonthCalendar monthCalendar1;
+    private Label label1;
 }

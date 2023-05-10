@@ -63,6 +63,16 @@ namespace ScheduleMe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_placeholder {
+            get {
+                object obj = ResourceManager.GetObject("icon_placeholder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap scheduleme {
             get {
                 object obj = ResourceManager.GetObject("scheduleme", resourceCulture);

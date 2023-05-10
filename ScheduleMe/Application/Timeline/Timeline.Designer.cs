@@ -28,18 +28,36 @@ partial class Timeline
     /// </summary>
     private void InitializeComponent()
     {
+        label1 = new Label();
         SuspendLayout();
+        // 
+        // label1
+        // 
+        label1.AutoSize = true;
+        label1.Location = new Point(12, 13);
+        label1.Name = "label1";
+        label1.Size = new Size(56, 22);
+        label1.TabIndex = 1;
+        label1.Text = "Timeline";
         // 
         // Timeline
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
-        AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(850, 548);
+        AutoScaleDimensions = new SizeF(96F, 96F);
+        AutoScaleMode = AutoScaleMode.Dpi;
+        BackColor = Color.White;
+        ClientSize = new Size(850, 550);
+        Controls.Add(label1);
+        Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         FormBorderStyle = FormBorderStyle.None;
+        Margin = new Padding(3, 4, 3, 4);
         Name = "Timeline";
         Text = "Timeline";
+        WindowState = FormWindowState.Maximized;
         ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
+
+    private Label label1;
 }
