@@ -53,7 +53,7 @@ partial class About
         // 
         lblScheduleMe.AutoSize = true;
         lblScheduleMe.Font = new Font("Dubai", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
-        lblScheduleMe.Location = new Point(190, 11);
+        lblScheduleMe.Location = new Point(189, 11);
         lblScheduleMe.Name = "lblScheduleMe";
         lblScheduleMe.Size = new Size(161, 45);
         lblScheduleMe.TabIndex = 1;
@@ -63,7 +63,7 @@ partial class About
         // 
         lblVersion.AutoSize = true;
         lblVersion.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
-        lblVersion.Location = new Point(195, 44);
+        lblVersion.Location = new Point(194, 44);
         lblVersion.Name = "lblVersion";
         lblVersion.Size = new Size(89, 22);
         lblVersion.TabIndex = 2;
@@ -84,7 +84,7 @@ partial class About
         // 
         lblDeveloper.AutoSize = true;
         lblDeveloper.Font = new Font("Dubai", 8.999999F, FontStyle.Regular, GraphicsUnit.Point);
-        lblDeveloper.Location = new Point(195, 90);
+        lblDeveloper.Location = new Point(194, 90);
         lblDeveloper.Name = "lblDeveloper";
         lblDeveloper.Size = new Size(160, 21);
         lblDeveloper.TabIndex = 4;
