@@ -44,10 +44,19 @@ public partial class Timeline : Form
             events.Width = eventDuration * columnSize;
 
             if (eventDate.Item1.Day > 9)
-                events.Location = new Point(panelTimelineContainer.HorizontalScroll.Value + (eventDate.Item1 - startDate).Days * columnSize + 13, 50);
+            {
+                events.Location = new Point(panelTimelineContainer.HorizontalScroll.Value
+                    + (eventDate.Item1 - startDate).Days
+                    * columnSize
+                    + 13, 50);
+            }
             else
-                events.Location = new Point(panelTimelineContainer.HorizontalScroll.Value + (eventDate.Item1 - startDate).Days * columnSize + 9, 50);
-
+            {
+                events.Location = new Point(panelTimelineContainer.HorizontalScroll.Value
+                    + (eventDate.Item1 - startDate).Days
+                    * columnSize
+                    + 9, 50);
+            }
             panelTimelineContainer.Controls.Add(events);
 
             // Check for overlapping events and stack vertically
@@ -57,8 +66,14 @@ public partial class Timeline : Form
                 {
                     DateTime eventStartDate = eventDate.Item1.AddDays(-1);
                     DateTime eventEndDate = eventDate.Item2.AddDays(1);
-                    DateTime controlStartDate = startDate.AddDays((control.Location.X - panelTimelineContainer.HorizontalScroll.Value) / columnSize);
-                    DateTime controlEndDate = startDate.AddDays((control.Location.X - panelTimelineContainer.HorizontalScroll.Value + control.Width) / columnSize);
+                    DateTime controlStartDate = startDate.AddDays(
+                        (control.Location.X
+                        - panelTimelineContainer.HorizontalScroll.Value)
+                        / columnSize);
+                    DateTime controlEndDate = startDate.AddDays(
+                        (control.Location.X 
+                        - panelTimelineContainer.HorizontalScroll.Value
+                        + control.Width) / columnSize);
 
                     if ((eventStartDate >= controlStartDate && eventStartDate <= controlEndDate)
                         || (eventEndDate >= controlStartDate && eventEndDate <= controlEndDate))
