@@ -32,7 +32,7 @@ partial class Timeline
         btnAddTab = new Button();
         btnTab2 = new Button();
         btnTab1 = new Button();
-        panelDateTimeContainer = new Panel();
+        panelTimelineContainer = new Panel();
         panelTimelineTab.SuspendLayout();
         SuspendLayout();
         // 
@@ -97,14 +97,14 @@ partial class Timeline
         btnTab1.Text = "Genshin Impact";
         btnTab1.UseVisualStyleBackColor = false;
         // 
-        // panelDateTimeContainer
+        // panelTimelineContainer
         // 
-        panelDateTimeContainer.AutoScroll = true;
-        panelDateTimeContainer.Dock = DockStyle.Top;
-        panelDateTimeContainer.Location = new Point(0, 35);
-        panelDateTimeContainer.Name = "panelDateTimeContainer";
-        panelDateTimeContainer.Size = new Size(850, 483);
-        panelDateTimeContainer.TabIndex = 1;
+        panelTimelineContainer.AutoScroll = true;
+        panelTimelineContainer.Dock = DockStyle.Top;
+        panelTimelineContainer.Location = new Point(0, 35);
+        panelTimelineContainer.Name = "panelTimelineContainer";
+        panelTimelineContainer.Size = new Size(850, 483);
+        panelTimelineContainer.TabIndex = 1;
         // 
         // Timeline
         // 
@@ -112,7 +112,7 @@ partial class Timeline
         AutoScaleMode = AutoScaleMode.Dpi;
         BackColor = Color.White;
         ClientSize = new Size(850, 550);
-        Controls.Add(panelDateTimeContainer);
+        Controls.Add(panelTimelineContainer);
         Controls.Add(panelTimelineTab);
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         FormBorderStyle = FormBorderStyle.None;
@@ -132,5 +132,5 @@ partial class Timeline
     private Button btnTab1;
     private Button btnTab2;
     private Button btnAddTab;
-    private Panel panelDateTimeContainer;
+    private Panel panelTimelineContainer;
 }
