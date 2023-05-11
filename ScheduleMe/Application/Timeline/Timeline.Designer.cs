@@ -32,8 +32,7 @@ partial class Timeline
         btnAddTab = new Button();
         btnTab2 = new Button();
         btnTab1 = new Button();
-        panelLineContainer = new Panel();
-        panelDateTimeContainer = new Panel();
+        panelTimelineContainer = new Panel();
         panelTimelineTab.SuspendLayout();
         SuspendLayout();
         // 
@@ -98,23 +97,14 @@ partial class Timeline
         btnTab1.Text = "Genshin Impact";
         btnTab1.UseVisualStyleBackColor = false;
         // 
-        // panelLineContainer
+        // panelTimelineContainer
         // 
-        panelLineContainer.AutoScroll = true;
-        panelLineContainer.Dock = DockStyle.Fill;
-        panelLineContainer.Location = new Point(0, 86);
-        panelLineContainer.Name = "panelLineContainer";
-        panelLineContainer.Size = new Size(850, 464);
-        panelLineContainer.TabIndex = 2;
-        // 
-        // panelDateTimeContainer
-        // 
-        panelDateTimeContainer.AutoScroll = true;
-        panelDateTimeContainer.Dock = DockStyle.Top;
-        panelDateTimeContainer.Location = new Point(0, 35);
-        panelDateTimeContainer.Name = "panelDateTimeContainer";
-        panelDateTimeContainer.Size = new Size(850, 51);
-        panelDateTimeContainer.TabIndex = 1;
+        panelTimelineContainer.AutoScroll = true;
+        panelTimelineContainer.Dock = DockStyle.Top;
+        panelTimelineContainer.Location = new Point(0, 35);
+        panelTimelineContainer.Name = "panelTimelineContainer";
+        panelTimelineContainer.Size = new Size(850, 102);
+        panelTimelineContainer.TabIndex = 1;
         // 
         // Timeline
         // 
@@ -122,8 +112,7 @@ partial class Timeline
         AutoScaleMode = AutoScaleMode.Dpi;
         BackColor = Color.White;
         ClientSize = new Size(850, 550);
-        Controls.Add(panelLineContainer);
-        Controls.Add(panelDateTimeContainer);
+        Controls.Add(panelTimelineContainer);
         Controls.Add(panelTimelineTab);
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         FormBorderStyle = FormBorderStyle.None;
@@ -131,6 +120,7 @@ partial class Timeline
         Name = "Timeline";
         Text = "Timeline";
         WindowState = FormWindowState.Maximized;
+        Load += Timeline_Load;
         panelTimelineTab.ResumeLayout(false);
         panelTimelineTab.PerformLayout();
         ResumeLayout(false);
@@ -142,6 +132,5 @@ partial class Timeline
     private Button btnTab1;
     private Button btnTab2;
     private Button btnAddTab;
-    private Panel panelDateTimeContainer;
-    private Panel panelLineContainer;
+    private Panel panelTimelineContainer;
 }

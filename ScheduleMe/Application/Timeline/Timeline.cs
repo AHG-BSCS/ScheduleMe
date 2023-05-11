@@ -5,48 +5,85 @@ public partial class Timeline : Form
     public Timeline()
     {
         InitializeComponent();
-        addDateCell(new DateTime(2023, 5, 1, 0, 0, 0), new DateTime(2023, 6, 16, 23, 59, 59));
     }
 
-    private void addDateCell(DateTime startDate, DateTime endDate)
-    {
-        for (DateTime i = startDate; i <= endDate; i = i.AddDays(1))
-        {
-            Line line = new Line();
-            //EventContainer events = new EventContainer();
-            DateCell cell = new DateCell()
-            {
-                dayName = shortDayName(i.DayOfWeek.ToString()),
-                date = i.Day.ToString()
-            };
+    private int columnSize = 50;
 
-            // Highlight the currentDay
-            if (i.DayOfYear == DateTime.Today.DayOfYear)
+    private void PopulateDates(DateTime startDate, DateTime endDate)
+    {
+        for (DateTime currentDate = startDate; currentDate <= endDate; currentDate = currentDate.AddDays(1))
+        {
+            Label day = new Label();
+            day.Text = currentDate.ToString("ddd");
+            day.AutoSize = true;
+            day.Location = new Point(columnSize * (currentDate - startDate).Days, 5);
+            panelTimelineContainer.Controls.Add(day);
+
+            Label date = new Label();
+            date.Text = currentDate.Day.ToString();
+            date.AutoSize = true;
+            date.Location = new Point(columnSize * (currentDate - startDate).Days, 25);
+            panelTimelineContainer.Controls.Add(date);
+
+            Panel linePanel = new Panel();
+            linePanel.BackColor = Color.Black;
+            linePanel.Width = 1;
+            linePanel.Height = panelTimelineContainer.Height - 40;
+            linePanel.Location = new Point(date.Left + date.Width / 2, date.Height);
+            panelTimelineContainer.Controls.Add(linePanel);
+        }
+    }
+
+    private void PopulateEvents(List<Tuple<DateTime, DateTime>> eventDates, DateTime startDate)
+    {
+        foreach (Tuple<DateTime, DateTime> eventDate in eventDates)
+        {
+            Events events = new Events();
+
+            int eventDuration = (int)(eventDate.Item2 - eventDate.Item1).TotalDays;
+            events.Width = eventDuration * columnSize;
+
+            if (eventDate.Item1.Day > 9)
+                events.Location = new Point(panelTimelineContainer.HorizontalScroll.Value + (eventDate.Item1 - startDate).Days * columnSize + 13, 50);
+            else
+                events.Location = new Point(panelTimelineContainer.HorizontalScroll.Value + (eventDate.Item1 - startDate).Days * columnSize + 9, 50);
+
+            panelTimelineContainer.Controls.Add(events);
+
+            // Check for overlapping events and stack vertically
+            foreach (Control control in panelTimelineContainer.Controls)
             {
-                cell.tlPanelDateCell.BackColor = Color.FromArgb(15, 76, 129);
-                line.lblLine.BackColor = Color.FromArgb(15, 76, 129);
+                if (control is Button && control != events)
+                {
+                    DateTime eventStartDate = eventDate.Item1.AddDays(-1);
+                    DateTime eventEndDate = eventDate.Item2.AddDays(1);
+                    DateTime controlStartDate = startDate.AddDays((control.Location.X - panelTimelineContainer.HorizontalScroll.Value) / columnSize);
+                    DateTime controlEndDate = startDate.AddDays((control.Location.X - panelTimelineContainer.HorizontalScroll.Value + control.Width) / columnSize);
+
+                    if ((eventStartDate >= controlStartDate && eventStartDate <= controlEndDate)
+                        || (eventEndDate >= controlStartDate && eventEndDate <= controlEndDate))
+                    {
+                        events.Top = control.Bottom + 10;
+                        panelTimelineContainer.Height += 40;
+                    }
+                }
             }
-            cell.Dock = DockStyle.Right;
-            panelDateTimeContainer.Controls.Add(cell);
-            line.Dock = DockStyle.Right;
-            panelLineContainer.Controls.Add(line);
-            //panelLineContainer.Controls.Add(events);
         }
     }
 
-    private string shortDayName(string DayName)
+    private void Timeline_Load(object sender, EventArgs e)
     {
-        switch (DayName)
+        List<Tuple<DateTime, DateTime>> events = new List<Tuple<DateTime, DateTime>>()
         {
-            case "Monday": return "Mon";
-            case "Tuesday": return "Tue";
-            case "Wednesday": return "Wed";
-            case "Thursday": return "Thu";
-            case "Friday": return "Fri";
-            case "Saturday": return "Sat";
-            case "Sunday": return "Sun";
-            default: return "null";
-        }
-    }
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 3), new DateTime(2023, 4, 4)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 5), new DateTime(2023, 4, 6)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 7), new DateTime(2023, 4, 9)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 10), new DateTime(2023, 4, 12)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 13), new DateTime(2023, 4, 16)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 17), new DateTime(2023, 4, 18)),
+        };
 
+        PopulateEvents(events, new DateTime(2023, 4, 1));
+        PopulateDates(new DateTime(2023, 4, 1), new DateTime(2023, 4, 30));
+    }
 }

@@ -1,6 +1,6 @@
 ﻿namespace ScheduleMe.Tab;
 
-partial class EventContainer
+partial class Events
 {
     /// <summary> 
     /// Required designer variable.
@@ -28,28 +28,39 @@ partial class EventContainer
     /// </summary>
     private void InitializeComponent()
     {
-        panelEvent = new Panel();
+        button1 = new Button();
         SuspendLayout();
         // 
-        // panelEvent
+        // button1
         // 
-        panelEvent.Location = new Point(3, 3);
-        panelEvent.Name = "panelEvent";
-        panelEvent.Size = new Size(200, 46);
-        panelEvent.TabIndex = 0;
-        panelEvent.Paint += panelEvent_Paint;
+        button1.BackColor = Color.Transparent;
+        button1.Dock = DockStyle.Fill;
+        button1.FlatAppearance.BorderSize = 0;
+        button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
+        button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
+        button1.FlatStyle = FlatStyle.Flat;
+        button1.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
+        button1.ForeColor = Color.White;
+        button1.Location = new Point(0, 0);
+        button1.Name = "button1";
+        button1.Size = new Size(68, 30);
+        button1.TabIndex = 0;
+        button1.Text = "Event";
+        button1.UseVisualStyleBackColor = false;
         // 
-        // EventContainer
+        // Events
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
-        Controls.Add(panelEvent);
-        Name = "EventContainer";
-        Size = new Size(208, 58);
+        AutoSize = true;
+        BackColor = Color.Black;
+        Controls.Add(button1);
+        Name = "Events";
+        Size = new Size(68, 30);
         ResumeLayout(false);
     }
 
     #endregion
 
-    private Panel panelEvent;
+    private Button button1;
 }
