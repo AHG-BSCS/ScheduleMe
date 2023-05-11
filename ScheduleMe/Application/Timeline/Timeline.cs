@@ -13,6 +13,7 @@ public partial class Timeline : Form
         for (DateTime i = startDate; i <= endDate; i = i.AddDays(1))
         {
             Line line = new Line();
+            //EventContainer events = new EventContainer();
             DateCell cell = new DateCell()
             {
                 dayName = shortDayName(i.DayOfWeek.ToString()),
@@ -26,9 +27,10 @@ public partial class Timeline : Form
                 line.lblLine.BackColor = Color.FromArgb(15, 76, 129);
             }
             cell.Dock = DockStyle.Right;
-            panelTest.Controls.Add(cell);
+            panelDateTimeContainer.Controls.Add(cell);
             line.Dock = DockStyle.Right;
             panelLineContainer.Controls.Add(line);
+            //panelLineContainer.Controls.Add(events);
         }
     }
 
@@ -47,7 +49,4 @@ public partial class Timeline : Form
         }
     }
 
-    private void addEvent()
-    {
-    }
 }
