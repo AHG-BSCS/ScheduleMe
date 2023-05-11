@@ -91,8 +91,8 @@ partial class DateCell
         // 
         // DateCell
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
-        AutoScaleMode = AutoScaleMode.Font;
+        AutoScaleDimensions = new SizeF(96F, 96F);
+        AutoScaleMode = AutoScaleMode.Dpi;
         Controls.Add(lblLine);
         Controls.Add(tlPanelDateCell);
         Name = "DateCell";

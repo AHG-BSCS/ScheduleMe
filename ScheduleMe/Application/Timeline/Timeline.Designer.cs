@@ -33,6 +33,7 @@ partial class Timeline
         btnTab2 = new Button();
         btnTab1 = new Button();
         panelTimelineContainer = new Panel();
+        panelTest = new Panel();
         flPanelDateTimeContainer = new FlowLayoutPanel();
         panelTimelineTab.SuspendLayout();
         panelTimelineContainer.SuspendLayout();
@@ -101,6 +102,7 @@ partial class Timeline
         // 
         // panelTimelineContainer
         // 
+        panelTimelineContainer.Controls.Add(panelTest);
         panelTimelineContainer.Controls.Add(flPanelDateTimeContainer);
         panelTimelineContainer.Dock = DockStyle.Fill;
         panelTimelineContainer.Location = new Point(0, 35);
@@ -108,12 +110,22 @@ partial class Timeline
         panelTimelineContainer.Size = new Size(850, 515);
         panelTimelineContainer.TabIndex = 1;
         // 
+        // panelTest
+        // 
+        panelTest.AutoScroll = true;
+        panelTest.Dock = DockStyle.Top;
+        panelTest.Location = new Point(0, 121);
+        panelTest.Name = "panelTest";
+        panelTest.Size = new Size(850, 137);
+        panelTest.TabIndex = 1;
+        // 
         // flPanelDateTimeContainer
         // 
+        flPanelDateTimeContainer.BackColor = Color.Transparent;
         flPanelDateTimeContainer.Dock = DockStyle.Top;
         flPanelDateTimeContainer.Location = new Point(0, 0);
         flPanelDateTimeContainer.Name = "flPanelDateTimeContainer";
-        flPanelDateTimeContainer.Size = new Size(850, 138);
+        flPanelDateTimeContainer.Size = new Size(850, 121);
         flPanelDateTimeContainer.TabIndex = 0;
         flPanelDateTimeContainer.WrapContents = false;
         // 
@@ -145,4 +157,5 @@ partial class Timeline
     private Button btnAddTab;
     private Panel panelTimelineContainer;
     private FlowLayoutPanel flPanelDateTimeContainer;
+    private Panel panelTest;
 }

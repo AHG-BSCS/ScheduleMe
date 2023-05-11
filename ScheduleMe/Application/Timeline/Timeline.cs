@@ -24,8 +24,8 @@ public partial class Timeline : Form
                 cell.tlPanelDateCell.BackColor = Color.FromArgb(15, 76, 129);
                 cell.lblLine.BackColor = Color.FromArgb(15, 76, 129);
             }
-
-            flPanelDateTimeContainer.Controls.Add(cell);
+            cell.Dock = DockStyle.Right;
+            panelTest.Controls.Add(cell);
         }
     }
 

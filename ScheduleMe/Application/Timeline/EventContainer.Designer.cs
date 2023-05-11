@@ -41,8 +41,8 @@ partial class EventContainer
         // 
         // EventContainer
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
-        AutoScaleMode = AutoScaleMode.Font;
+        AutoScaleDimensions = new SizeF(96F, 96F);
+        AutoScaleMode = AutoScaleMode.Dpi;
         Controls.Add(panelEvent);
         Name = "EventContainer";
         Size = new Size(208, 58);
