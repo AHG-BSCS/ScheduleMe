@@ -28,7 +28,7 @@ public partial class Timeline : Form
             Panel linePanel = new Panel();
             linePanel.BackColor = Color.Black;
             linePanel.Width = 1;
-            linePanel.Height = panelTimelineContainer.Height;
+            linePanel.Height = panelTimelineContainer.Height - 40;
             linePanel.Location = new Point(date.Left + date.Width / 2, date.Height);
             panelTimelineContainer.Controls.Add(linePanel);
         }
@@ -47,7 +47,7 @@ public partial class Timeline : Form
                 events.Location = new Point(panelTimelineContainer.HorizontalScroll.Value + (eventDate.Item1 - startDate).Days * columnSize + 13, 50);
             else
                 events.Location = new Point(panelTimelineContainer.HorizontalScroll.Value + (eventDate.Item1 - startDate).Days * columnSize + 9, 50);
-            
+
             panelTimelineContainer.Controls.Add(events);
 
             // Check for overlapping events and stack vertically
@@ -63,7 +63,8 @@ public partial class Timeline : Form
                     if ((eventStartDate >= controlStartDate && eventStartDate <= controlEndDate)
                         || (eventEndDate >= controlStartDate && eventEndDate <= controlEndDate))
                     {
-                        events.Top = control.Bottom;
+                        events.Top = control.Bottom + 10;
+                        panelTimelineContainer.Height += 40;
                     }
                 }
             }
@@ -82,7 +83,7 @@ public partial class Timeline : Form
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 17), new DateTime(2023, 4, 18)),
         };
 
-        PopulateDates(new DateTime(2023, 4, 1), new DateTime(2023, 4, 30));
         PopulateEvents(events, new DateTime(2023, 4, 1));
+        PopulateDates(new DateTime(2023, 4, 1), new DateTime(2023, 4, 30));
     }
 }
