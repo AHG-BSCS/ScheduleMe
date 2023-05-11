@@ -34,7 +34,7 @@ partial class Timeline
         btnTab1 = new Button();
         panelTimelineContainer = new Panel();
         panelTest = new Panel();
-        flPanelDateTimeContainer = new FlowLayoutPanel();
+        panelLineContainer = new Panel();
         panelTimelineTab.SuspendLayout();
         panelTimelineContainer.SuspendLayout();
         SuspendLayout();
@@ -102,8 +102,8 @@ partial class Timeline
         // 
         // panelTimelineContainer
         // 
+        panelTimelineContainer.Controls.Add(panelLineContainer);
         panelTimelineContainer.Controls.Add(panelTest);
-        panelTimelineContainer.Controls.Add(flPanelDateTimeContainer);
         panelTimelineContainer.Dock = DockStyle.Fill;
         panelTimelineContainer.Location = new Point(0, 35);
         panelTimelineContainer.Name = "panelTimelineContainer";
@@ -114,20 +114,19 @@ partial class Timeline
         // 
         panelTest.AutoScroll = true;
         panelTest.Dock = DockStyle.Top;
-        panelTest.Location = new Point(0, 121);
+        panelTest.Location = new Point(0, 0);
         panelTest.Name = "panelTest";
-        panelTest.Size = new Size(850, 137);
+        panelTest.Size = new Size(850, 51);
         panelTest.TabIndex = 1;
         // 
-        // flPanelDateTimeContainer
+        // panelLineContainer
         // 
-        flPanelDateTimeContainer.BackColor = Color.Transparent;
-        flPanelDateTimeContainer.Dock = DockStyle.Top;
-        flPanelDateTimeContainer.Location = new Point(0, 0);
-        flPanelDateTimeContainer.Name = "flPanelDateTimeContainer";
-        flPanelDateTimeContainer.Size = new Size(850, 121);
-        flPanelDateTimeContainer.TabIndex = 0;
-        flPanelDateTimeContainer.WrapContents = false;
+        panelLineContainer.AutoScroll = true;
+        panelLineContainer.Dock = DockStyle.Fill;
+        panelLineContainer.Location = new Point(0, 51);
+        panelLineContainer.Name = "panelLineContainer";
+        panelLineContainer.Size = new Size(850, 464);
+        panelLineContainer.TabIndex = 2;
         // 
         // Timeline
         // 
@@ -156,6 +155,6 @@ partial class Timeline
     private Button btnTab2;
     private Button btnAddTab;
     private Panel panelTimelineContainer;
-    private FlowLayoutPanel flPanelDateTimeContainer;
     private Panel panelTest;
+    private Panel panelLineContainer;
 }
