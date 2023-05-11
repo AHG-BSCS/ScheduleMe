@@ -5,28 +5,30 @@ public partial class Timeline : Form
     public Timeline()
     {
         InitializeComponent();
-        panelDateTimeContainer.HorizontalScroll.Maximum = 0;
-        panelDateTimeContainer.AutoScroll = false;
-        panelDateTimeContainer.VerticalScroll.Visible = false;
-        panelDateTimeContainer.AutoScroll = true;
     }
 
     private void PopulateDates(DateTime startDate, DateTime endDate)
     {
-        for (DateTime i = startDate; i < endDate; i = i.AddDays(1))
+        for (DateTime currentDate = startDate; currentDate < endDate; currentDate = currentDate.AddDays(1))
         {
-            Label label = new Label();
-            label.Text = i.ToString("ddd, dd MMM");
-            label.AutoSize = true;
-            label.Location = new Point(100 * (i - startDate).Days, 0);
-            panelDateTimeContainer.Controls.Add(label);
+            Label day = new Label();
+            day.Text = currentDate.ToString("ddd");
+            day.AutoSize = true;
+            day.Location = new Point(50 * (currentDate - startDate).Days, 0);
+            panelDateTimeContainer.Controls.Add(day);
+
+            Label date = new Label();
+            date.Text = currentDate.Day.ToString();
+            date.AutoSize = true;
+            date.Location = new Point(50 * (currentDate - startDate).Days, 20);
+            panelDateTimeContainer.Controls.Add(date);
 
             // Create vertical line for each date
             Panel linePanel = new Panel();
             linePanel.BackColor = Color.Black;
             linePanel.Width = 1;
-            linePanel.Height = panelDateTimeContainer.Height - label.Height;
-            linePanel.Location = new Point(label.Left + label.Width / 2, label.Height);
+            linePanel.Height = panelDateTimeContainer.Height - date.Height;
+            linePanel.Location = new Point(date.Left + date.Width / 2, date.Height);
             panelDateTimeContainer.Controls.Add(linePanel);
         }
     }
@@ -59,7 +61,7 @@ public partial class Timeline : Form
             button.AutoSize = true;
             button.Height = 50;
             button.Width = 100;
-            button.Location = new Point(100 * (date - startDate).Days, 50);
+            button.Location = new Point(50 * (date - startDate).Days, 50);
             panelDateTimeContainer.Controls.Add(button);
 
             // Check for overlapping events and stack vertically

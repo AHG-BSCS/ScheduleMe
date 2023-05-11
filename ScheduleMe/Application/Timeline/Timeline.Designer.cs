@@ -103,7 +103,7 @@ partial class Timeline
         panelDateTimeContainer.Dock = DockStyle.Top;
         panelDateTimeContainer.Location = new Point(0, 35);
         panelDateTimeContainer.Name = "panelDateTimeContainer";
-        panelDateTimeContainer.Size = new Size(850, 347);
+        panelDateTimeContainer.Size = new Size(850, 483);
         panelDateTimeContainer.TabIndex = 1;
         // 
         // Timeline
