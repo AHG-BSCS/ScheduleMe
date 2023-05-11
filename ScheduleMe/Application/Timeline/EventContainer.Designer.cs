@@ -28,9 +28,28 @@ partial class EventContainer
     /// </summary>
     private void InitializeComponent()
     {
-        components = new System.ComponentModel.Container();
-        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        panelEvent = new Panel();
+        SuspendLayout();
+        // 
+        // panelEvent
+        // 
+        panelEvent.Location = new Point(14, 24);
+        panelEvent.Name = "panelEvent";
+        panelEvent.Size = new Size(200, 46);
+        panelEvent.TabIndex = 0;
+        panelEvent.Paint += panelEvent_Paint;
+        // 
+        // EventContainer
+        // 
+        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleMode = AutoScaleMode.Font;
+        Controls.Add(panelEvent);
+        Name = "EventContainer";
+        Size = new Size(283, 103);
+        ResumeLayout(false);
     }
 
     #endregion
+
+    private Panel panelEvent;
 }
