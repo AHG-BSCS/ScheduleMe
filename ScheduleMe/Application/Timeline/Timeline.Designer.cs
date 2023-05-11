@@ -32,7 +32,6 @@ partial class Timeline
         btnAddTab = new Button();
         btnTab2 = new Button();
         btnTab1 = new Button();
-        panelLineContainer = new Panel();
         panelDateTimeContainer = new Panel();
         panelTimelineTab.SuspendLayout();
         SuspendLayout();
@@ -98,22 +97,13 @@ partial class Timeline
         btnTab1.Text = "Genshin Impact";
         btnTab1.UseVisualStyleBackColor = false;
         // 
-        // panelLineContainer
-        // 
-        panelLineContainer.AutoScroll = true;
-        panelLineContainer.Dock = DockStyle.Fill;
-        panelLineContainer.Location = new Point(0, 86);
-        panelLineContainer.Name = "panelLineContainer";
-        panelLineContainer.Size = new Size(850, 464);
-        panelLineContainer.TabIndex = 2;
-        // 
         // panelDateTimeContainer
         // 
         panelDateTimeContainer.AutoScroll = true;
         panelDateTimeContainer.Dock = DockStyle.Top;
         panelDateTimeContainer.Location = new Point(0, 35);
         panelDateTimeContainer.Name = "panelDateTimeContainer";
-        panelDateTimeContainer.Size = new Size(850, 51);
+        panelDateTimeContainer.Size = new Size(850, 347);
         panelDateTimeContainer.TabIndex = 1;
         // 
         // Timeline
@@ -122,7 +112,6 @@ partial class Timeline
         AutoScaleMode = AutoScaleMode.Dpi;
         BackColor = Color.White;
         ClientSize = new Size(850, 550);
-        Controls.Add(panelLineContainer);
         Controls.Add(panelDateTimeContainer);
         Controls.Add(panelTimelineTab);
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
@@ -131,6 +120,7 @@ partial class Timeline
         Name = "Timeline";
         Text = "Timeline";
         WindowState = FormWindowState.Maximized;
+        Load += Timeline_Load;
         panelTimelineTab.ResumeLayout(false);
         panelTimelineTab.PerformLayout();
         ResumeLayout(false);
@@ -143,5 +133,4 @@ partial class Timeline
     private Button btnTab2;
     private Button btnAddTab;
     private Panel panelDateTimeContainer;
-    private Panel panelLineContainer;
 }
