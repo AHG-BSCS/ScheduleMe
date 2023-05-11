@@ -7,6 +7,8 @@ public partial class Timeline : Form
         InitializeComponent();
     }
 
+    private int columnSize = 50;
+
     private void PopulateDates(DateTime startDate, DateTime endDate)
     {
         for (DateTime currentDate = startDate; currentDate <= endDate; currentDate = currentDate.AddDays(1))
@@ -14,13 +16,13 @@ public partial class Timeline : Form
             Label day = new Label();
             day.Text = currentDate.ToString("ddd");
             day.AutoSize = true;
-            day.Location = new Point(50 * (currentDate - startDate).Days, 5);
+            day.Location = new Point(columnSize * (currentDate - startDate).Days, 5);
             panelTimelineContainer.Controls.Add(day);
 
             Label date = new Label();
             date.Text = currentDate.Day.ToString();
             date.AutoSize = true;
-            date.Location = new Point(50 * (currentDate - startDate).Days, 25);
+            date.Location = new Point(columnSize * (currentDate - startDate).Days, 25);
             panelTimelineContainer.Controls.Add(date);
 
             Panel linePanel = new Panel();
@@ -39,9 +41,13 @@ public partial class Timeline : Form
             Events events = new Events();
 
             int eventDuration = (int)(eventDate.Item2 - eventDate.Item1).TotalDays;
-            events.Width = eventDuration * 100;
+            events.Width = eventDuration * columnSize;
 
-            events.Location = new Point(panelTimelineContainer.HorizontalScroll.Value + (eventDate.Item1 - startDate).Days * 100, 50);
+            if (eventDate.Item1.Day > 9)
+                events.Location = new Point(panelTimelineContainer.HorizontalScroll.Value + (eventDate.Item1 - startDate).Days * columnSize + 13, 50);
+            else
+                events.Location = new Point(panelTimelineContainer.HorizontalScroll.Value + (eventDate.Item1 - startDate).Days * columnSize + 9, 50);
+            
             panelTimelineContainer.Controls.Add(events);
 
             // Check for overlapping events and stack vertically
@@ -51,8 +57,8 @@ public partial class Timeline : Form
                 {
                     DateTime eventStartDate = eventDate.Item1.AddDays(-1);
                     DateTime eventEndDate = eventDate.Item2.AddDays(1);
-                    DateTime controlStartDate = startDate.AddDays((control.Location.X - panelTimelineContainer.HorizontalScroll.Value) / 100);
-                    DateTime controlEndDate = startDate.AddDays((control.Location.X - panelTimelineContainer.HorizontalScroll.Value + control.Width) / 100);
+                    DateTime controlStartDate = startDate.AddDays((control.Location.X - panelTimelineContainer.HorizontalScroll.Value) / columnSize);
+                    DateTime controlEndDate = startDate.AddDays((control.Location.X - panelTimelineContainer.HorizontalScroll.Value + control.Width) / columnSize);
 
                     if ((eventStartDate >= controlStartDate && eventStartDate <= controlEndDate)
                         || (eventEndDate >= controlStartDate && eventEndDate <= controlEndDate))
@@ -68,15 +74,15 @@ public partial class Timeline : Form
     {
         List<Tuple<DateTime, DateTime>> events = new List<Tuple<DateTime, DateTime>>()
         {
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 12), new DateTime(2023, 4, 13)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 13), new DateTime(2023, 4, 15)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 15), new DateTime(2023, 4, 18)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 17), new DateTime(2023, 4, 21)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 22), new DateTime(2023, 4, 23)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 5, 15), new DateTime(2023, 5, 16)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 3), new DateTime(2023, 4, 4)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 5), new DateTime(2023, 4, 6)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 7), new DateTime(2023, 4, 9)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 10), new DateTime(2023, 4, 12)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 13), new DateTime(2023, 4, 16)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 17), new DateTime(2023, 4, 18)),
         };
 
-        PopulateDates(new DateTime(2023, 4, 12), new DateTime(2023, 5, 16));
-        PopulateEvents(events, new DateTime(2023, 4, 12));
+        PopulateDates(new DateTime(2023, 4, 1), new DateTime(2023, 4, 30));
+        PopulateEvents(events, new DateTime(2023, 4, 1));
     }
 }

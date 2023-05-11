@@ -36,6 +36,8 @@ partial class Events
         button1.BackColor = Color.Transparent;
         button1.Dock = DockStyle.Fill;
         button1.FlatAppearance.BorderSize = 0;
+        button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
+        button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
         button1.FlatStyle = FlatStyle.Flat;
         button1.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
         button1.ForeColor = Color.White;
@@ -51,7 +53,7 @@ partial class Events
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
         AutoSize = true;
-        BackColor = Color.DimGray;
+        BackColor = Color.Black;
         Controls.Add(button1);
         Name = "Events";
         Size = new Size(68, 30);
