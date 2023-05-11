@@ -33,7 +33,7 @@ partial class EventContainer
         // 
         // panelEvent
         // 
-        panelEvent.Location = new Point(14, 24);
+        panelEvent.Location = new Point(3, 3);
         panelEvent.Name = "panelEvent";
         panelEvent.Size = new Size(200, 46);
         panelEvent.TabIndex = 0;
@@ -45,7 +45,7 @@ partial class EventContainer
         AutoScaleMode = AutoScaleMode.Font;
         Controls.Add(panelEvent);
         Name = "EventContainer";
-        Size = new Size(283, 103);
+        Size = new Size(208, 58);
         ResumeLayout(false);
     }
 

@@ -32,8 +32,10 @@ partial class Timeline
         btnAddTab = new Button();
         btnTab2 = new Button();
         btnTab1 = new Button();
-        flPanelDateTime = new FlowLayoutPanel();
+        panelTimelineContainer = new Panel();
+        flPanelDateTimeContainer = new FlowLayoutPanel();
         panelTimelineTab.SuspendLayout();
+        panelTimelineContainer.SuspendLayout();
         SuspendLayout();
         // 
         // panelTimelineTab
@@ -97,15 +99,23 @@ partial class Timeline
         btnTab1.Text = "Genshin Impact";
         btnTab1.UseVisualStyleBackColor = false;
         // 
-        // flPanelDateTime
+        // panelTimelineContainer
         // 
-        flPanelDateTime.AutoScroll = true;
-        flPanelDateTime.Dock = DockStyle.Fill;
-        flPanelDateTime.Location = new Point(0, 35);
-        flPanelDateTime.Name = "flPanelDateTime";
-        flPanelDateTime.Size = new Size(850, 515);
-        flPanelDateTime.TabIndex = 0;
-        flPanelDateTime.WrapContents = false;
+        panelTimelineContainer.Controls.Add(flPanelDateTimeContainer);
+        panelTimelineContainer.Dock = DockStyle.Fill;
+        panelTimelineContainer.Location = new Point(0, 35);
+        panelTimelineContainer.Name = "panelTimelineContainer";
+        panelTimelineContainer.Size = new Size(850, 515);
+        panelTimelineContainer.TabIndex = 1;
+        // 
+        // flPanelDateTimeContainer
+        // 
+        flPanelDateTimeContainer.Dock = DockStyle.Top;
+        flPanelDateTimeContainer.Location = new Point(0, 0);
+        flPanelDateTimeContainer.Name = "flPanelDateTimeContainer";
+        flPanelDateTimeContainer.Size = new Size(850, 138);
+        flPanelDateTimeContainer.TabIndex = 0;
+        flPanelDateTimeContainer.WrapContents = false;
         // 
         // Timeline
         // 
@@ -113,7 +123,7 @@ partial class Timeline
         AutoScaleMode = AutoScaleMode.Dpi;
         BackColor = Color.White;
         ClientSize = new Size(850, 550);
-        Controls.Add(flPanelDateTime);
+        Controls.Add(panelTimelineContainer);
         Controls.Add(panelTimelineTab);
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         FormBorderStyle = FormBorderStyle.None;
@@ -123,6 +133,7 @@ partial class Timeline
         WindowState = FormWindowState.Maximized;
         panelTimelineTab.ResumeLayout(false);
         panelTimelineTab.PerformLayout();
+        panelTimelineContainer.ResumeLayout(false);
         ResumeLayout(false);
     }
 
@@ -132,5 +143,6 @@ partial class Timeline
     private Button btnTab1;
     private Button btnTab2;
     private Button btnAddTab;
-    private FlowLayoutPanel flPanelDateTime;
+    private Panel panelTimelineContainer;
+    private FlowLayoutPanel flPanelDateTimeContainer;
 }

@@ -25,7 +25,7 @@ public partial class Timeline : Form
                 cell.lblLine.BackColor = Color.FromArgb(15, 76, 129);
             }
 
-            flPanelDateTime.Controls.Add(cell);
+            flPanelDateTimeContainer.Controls.Add(cell);
         }
     }
 
@@ -42,5 +42,9 @@ public partial class Timeline : Form
             case "Sunday": return "Sun";
             default: return "null";
         }
+    }
+
+    private void addEvent()
+    {
     }
 }
