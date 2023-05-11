@@ -38,6 +38,7 @@ partial class Timeline
         // 
         // panelTimelineTab
         // 
+        panelTimelineTab.BackColor = Color.FromArgb(15, 76, 129);
         panelTimelineTab.Controls.Add(btnAddTab);
         panelTimelineTab.Controls.Add(btnTab2);
         panelTimelineTab.Controls.Add(btnTab1);
@@ -51,7 +52,7 @@ partial class Timeline
         // btnAddTab
         // 
         btnAddTab.AutoSize = true;
-        btnAddTab.BackColor = Color.FromArgb(0, 0, 64);
+        btnAddTab.BackColor = Color.FromArgb(15, 76, 129);
         btnAddTab.Dock = DockStyle.Left;
         btnAddTab.FlatAppearance.BorderColor = Color.White;
         btnAddTab.FlatStyle = FlatStyle.Flat;
@@ -67,7 +68,7 @@ partial class Timeline
         // btnTab2
         // 
         btnTab2.AutoSize = true;
-        btnTab2.BackColor = Color.FromArgb(0, 0, 64);
+        btnTab2.BackColor = Color.FromArgb(15, 76, 129);
         btnTab2.Dock = DockStyle.Left;
         btnTab2.FlatAppearance.BorderColor = Color.White;
         btnTab2.FlatStyle = FlatStyle.Flat;
@@ -83,12 +84,12 @@ partial class Timeline
         // btnTab1
         // 
         btnTab1.AutoSize = true;
-        btnTab1.BackColor = Color.FromArgb(0, 0, 64);
+        btnTab1.BackColor = Color.White;
         btnTab1.Dock = DockStyle.Left;
         btnTab1.FlatAppearance.BorderColor = Color.White;
         btnTab1.FlatStyle = FlatStyle.Flat;
         btnTab1.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        btnTab1.ForeColor = Color.White;
+        btnTab1.ForeColor = Color.Black;
         btnTab1.Location = new Point(10, 0);
         btnTab1.Name = "btnTab1";
         btnTab1.Size = new Size(109, 35);
