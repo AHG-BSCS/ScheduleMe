@@ -1,4 +1,4 @@
-﻿namespace ScheduleMe.Application.Calendar
+﻿namespace ScheduleMe.Tab
 {
     partial class UserControlBlank
     {
@@ -28,8 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            SuspendLayout();
+            // 
+            // UserControlBlank
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Name = "UserControlBlank";
+            Size = new Size(122, 100);
+            ResumeLayout(false);
         }
 
         #endregion

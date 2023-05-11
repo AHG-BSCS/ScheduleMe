@@ -23,5 +23,6 @@ public partial class Calendar : Form
         days = DateTime.DaysInMonth(currentDateTime.Year, currentDateTime.Month);
 
         dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d"));
+
     }
 }
