@@ -73,26 +73,26 @@ public partial class Timeline : Form
             panelTimelineContainer.Controls.Add(events);
 
             // Check for overlapping events and stack vertically
-            foreach (UserControl control in panelTimelineContainer.Controls)
+            foreach (Events previousEvent in panelTimelineContainer.Controls)
             {
-                if (control is UserControl && control != events)
+                if (previousEvent is UserControl && previousEvent != events)
                 {
                     DateTime eventStartDate = eventDate.Item1;
                     DateTime eventEndDate = eventDate.Item2;
                     DateTime controlStartDate = startDate.AddDays(
-                        (control.Location.X
+                        (previousEvent.Location.X
                         - panelTimelineContainer.HorizontalScroll.Value)
                         / columnSize);
                     DateTime controlEndDate = startDate.AddDays(
-                        (control.Location.X
+                        (previousEvent.Location.X
                         - panelTimelineContainer.HorizontalScroll.Value
-                        + control.Width) / columnSize);
+                        + previousEvent.Width) / columnSize);
 
                     if ((eventStartDate >= controlStartDate && eventStartDate <= controlEndDate)
                         || (eventEndDate >= controlStartDate && eventEndDate <= controlEndDate))
                     {
                         //foreach (UserControl controls in panelTimelineContainer.Controls)
-                        events.Top = control.Bottom + 10;
+                        events.Top = previousEvent.Bottom + 10;
                         panelTimelineContainer.Height += 40;
                     }
                 }
