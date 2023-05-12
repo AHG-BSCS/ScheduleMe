@@ -39,6 +39,8 @@ public partial class Timeline : Form
         foreach (Tuple<DateTime, DateTime> eventDate in eventDates)
         {
             Events events = new Events();
+            events.StartDate = eventDate.Item1;
+            events.EndDate = eventDate.Item2;
 
             int eventDuration = (int)(eventDate.Item2 - eventDate.Item1).TotalDays;
             events.Width = eventDuration * columnSize;
