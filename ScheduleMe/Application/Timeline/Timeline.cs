@@ -43,15 +43,24 @@ public partial class Timeline : Form
             int eventDuration = (int)(eventDate.Item2 - eventDate.Item1).TotalDays;
             events.Width = eventDuration * columnSize;
 
-            if (eventDate.Item1.Day > 9)
+            if (eventDate.Item2.Day > 9)
             {
-                events.Location = new Point(panelTimelineContainer.HorizontalScroll.Value
-                    + (eventDate.Item1 - startDate).Days
-                    * columnSize
-                    + 13, 50);
+                if (eventDate.Item1.Day > 9)
+                {
+                    events.Location = new Point(panelTimelineContainer.HorizontalScroll.Value
+                        + (eventDate.Item1 - startDate).Days
+                        * columnSize
+                        + 13, 50);
+                }
+                else {
+                    events.Location = new Point(panelTimelineContainer.HorizontalScroll.Value
+                        + (eventDate.Item1 - startDate).Days
+                        * columnSize
+                        + 9, 50);
+                    events.Width += 3;
+                }
             }
-            else
-            {
+            else {
                 events.Location = new Point(panelTimelineContainer.HorizontalScroll.Value
                     + (eventDate.Item1 - startDate).Days
                     * columnSize
@@ -60,12 +69,12 @@ public partial class Timeline : Form
             panelTimelineContainer.Controls.Add(events);
 
             // Check for overlapping events and stack vertically
-            foreach (Control control in panelTimelineContainer.Controls)
+            foreach (UserControl control in panelTimelineContainer.Controls)
             {
-                if (control is Button && control != events)
+                if (control is UserControl && control != events)
                 {
-                    DateTime eventStartDate = eventDate.Item1.AddDays(-1);
-                    DateTime eventEndDate = eventDate.Item2.AddDays(1);
+                    DateTime eventStartDate = eventDate.Item1;
+                    DateTime eventEndDate = eventDate.Item2;
                     DateTime controlStartDate = startDate.AddDays(
                         (control.Location.X
                         - panelTimelineContainer.HorizontalScroll.Value)
@@ -90,10 +99,10 @@ public partial class Timeline : Form
     {
         List<Tuple<DateTime, DateTime>> events = new List<Tuple<DateTime, DateTime>>()
         {
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 3), new DateTime(2023, 4, 4)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 5), new DateTime(2023, 4, 6)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 7), new DateTime(2023, 4, 9)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 10), new DateTime(2023, 4, 12)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 3), new DateTime(2023, 4, 5)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 4), new DateTime(2023, 4, 6)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 5), new DateTime(2023, 4, 7)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 12)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 13), new DateTime(2023, 4, 16)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 17), new DateTime(2023, 4, 18)),
         };

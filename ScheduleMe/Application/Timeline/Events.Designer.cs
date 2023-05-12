@@ -53,7 +53,7 @@ partial class Events
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
         AutoSize = true;
-        BackColor = Color.Black;
+        BackColor = Color.FromArgb(15, 76, 129);
         Controls.Add(button1);
         Name = "Events";
         Size = new Size(68, 30);
