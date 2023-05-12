@@ -202,6 +202,7 @@
             StartPosition = FormStartPosition.Manual;
             Text = "ScheduleMe";
             WindowState = FormWindowState.Maximized;
+            Load += MainForm_Load;
             sideNavPanel.ResumeLayout(false);
             ResumeLayout(false);
         }

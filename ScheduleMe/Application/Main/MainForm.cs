@@ -17,6 +17,10 @@ namespace ScheduleMe
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
             showFormInstance(ref activeForm);
             showFormInstance(ref calendar);
             highlightButton(btnCalendarTab, calendar.Visible);
