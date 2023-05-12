@@ -144,7 +144,6 @@ partial class Note
             this.label4.Size = new System.Drawing.Size(134, 20);
             this.label4.TabIndex = 11;
             this.label4.Text = "dev-unclean ver-cc";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // Note
             // 

@@ -68,7 +68,6 @@ partial class About
         lblVersion.Size = new Size(89, 22);
         lblVersion.TabIndex = 2;
         lblVersion.Text = "version dev-gh";
-        lblVersion.Click += label2_Click;
         // 
         // lblProjectType
         // 
