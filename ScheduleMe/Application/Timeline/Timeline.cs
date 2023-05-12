@@ -41,6 +41,9 @@ public partial class Timeline : Form
             Events events = new Events();
             events.StartDate = eventDate.Item1;
             events.EndDate = eventDate.Item2;
+            int eventsXAxis = panelTimelineContainer.HorizontalScroll.Value
+                        + (eventDate.Item1 - startDate).Days
+                        * columnSize;
 
             int eventDuration = (int)(eventDate.Item2 - eventDate.Item1).TotalDays;
             events.Width = eventDuration * columnSize;
@@ -48,28 +51,16 @@ public partial class Timeline : Form
             if (eventDate.Item2.Day > 9)
             {
                 if (eventDate.Item1.Day > 9)
-                {
-                    events.Location = new Point(panelTimelineContainer.HorizontalScroll.Value
-                        + (eventDate.Item1 - startDate).Days
-                        * columnSize
-                        + 13, 50);
-                }
+                    events.Location = new Point(eventsXAxis + 13, 50);
                 else
                 {
-                    events.Location = new Point(panelTimelineContainer.HorizontalScroll.Value
-                        + (eventDate.Item1 - startDate).Days
-                        * columnSize
-                        + 9, 50);
+                    events.Location = new Point(eventsXAxis + 9, 50);
                     events.Width += 3;
                 }
             }
             else
-            {
-                events.Location = new Point(panelTimelineContainer.HorizontalScroll.Value
-                    + (eventDate.Item1 - startDate).Days
-                    * columnSize
-                    + 9, 50);
-            }
+                events.Location = new Point(eventsXAxis + 9, 50);
+
             panelTimelineContainer.Controls.Add(events);
 
             // Check for overlapping events and stack vertically
