@@ -36,11 +36,13 @@ public partial class Timeline : Form
 
     private void PopulateEvents(List<Tuple<DateTime, DateTime>> eventDates, DateTime startDate)
     {
+        int i = 1;
         foreach (Tuple<DateTime, DateTime> eventDate in eventDates)
         {
             Events events = new Events();
             events.StartDate = eventDate.Item1;
             events.EndDate = eventDate.Item2;
+            events.Event = "Event " + i++;
             int eventDuration = (int)(eventDate.Item2 - eventDate.Item1).TotalDays;
             events.Width = eventDuration * columnSize;
             int eventsXAxis = panelTimelineContainer.HorizontalScroll.Value
@@ -61,25 +63,31 @@ public partial class Timeline : Form
                 events.Location = new Point(eventsXAxis + 9, 50);
 
             panelTimelineContainer.Controls.Add(events);
-            ArrangeEventsOverlap(events, eventDate);
+            ArrangeEventsOverlap(events);
         }
     }
 
-    private void ArrangeEventsOverlap(Events events, Tuple<DateTime, DateTime> eventDate)
+    private void ArrangeEventsOverlap(Events events)
     {
         foreach (Events previousEvent in panelTimelineContainer.Controls)
         {
-            if (previousEvent is UserControl && previousEvent != events)
+            if (previousEvent != events)
             {
-                DateTime eventStartDate = eventDate.Item1;
-                DateTime eventEndDate = eventDate.Item2;
+                DateTime eventStartDate = events.StartDate;
+                DateTime eventEndDate = events.EndDate;
                 DateTime previousEventStartDate = previousEvent.StartDate;
                 DateTime previousEventEndDate = previousEvent.EndDate;
 
-                if ((eventStartDate >= previousEventStartDate && eventStartDate <= previousEventEndDate)
+                if (eventStartDate >= previousEventEndDate && eventEndDate >= previousEventStartDate)
+                {
+                    if (eventEndDate >= previousEventStartDate)
+                    {
+                        events.Top = previousEvent.Top;
+                    }
+                }
+                else if ((eventStartDate >= previousEventStartDate && eventStartDate <= previousEventEndDate)
                     || (eventEndDate >= previousEventStartDate && eventEndDate <= previousEventEndDate))
                 {
-                    //foreach (UserControl controls in panelTimelineContainer.Controls)
                     events.Top = previousEvent.Bottom + 10;
                     panelTimelineContainer.Height += 40;
                 }
