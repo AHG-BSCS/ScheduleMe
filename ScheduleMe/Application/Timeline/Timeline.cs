@@ -79,17 +79,11 @@ public partial class Timeline : Form
                 {
                     DateTime eventStartDate = eventDate.Item1;
                     DateTime eventEndDate = eventDate.Item2;
-                    DateTime controlStartDate = startDate.AddDays(
-                        (previousEvent.Location.X
-                        - panelTimelineContainer.HorizontalScroll.Value)
-                        / columnSize);
-                    DateTime controlEndDate = startDate.AddDays(
-                        (previousEvent.Location.X
-                        - panelTimelineContainer.HorizontalScroll.Value
-                        + previousEvent.Width) / columnSize);
+                    DateTime previousEventStartDate = previousEvent.StartDate;
+                    DateTime previousEventEndDate = previousEvent.EndDate;
 
-                    if ((eventStartDate >= controlStartDate && eventStartDate <= controlEndDate)
-                        || (eventEndDate >= controlStartDate && eventEndDate <= controlEndDate))
+                    if ((eventStartDate >= previousEventStartDate && eventStartDate <= previousEventEndDate)
+                        || (eventEndDate >= previousEventStartDate && eventEndDate <= previousEventEndDate))
                     {
                         //foreach (UserControl controls in panelTimelineContainer.Controls)
                         events.Top = previousEvent.Bottom + 10;
