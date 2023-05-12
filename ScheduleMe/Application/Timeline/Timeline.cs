@@ -89,10 +89,7 @@ public partial class Timeline : Form
                     if ((eventStartDate >= controlStartDate && eventStartDate <= controlEndDate)
                         || (eventEndDate >= controlStartDate && eventEndDate <= controlEndDate))
                     {
-                        foreach (UserControl controls in panelTimelineContainer.Controls)
-                        {
-                            if ()
-                        }
+                        //foreach (UserControl controls in panelTimelineContainer.Controls)
                         events.Top = control.Bottom + 10;
                         panelTimelineContainer.Height += 40;
                     }

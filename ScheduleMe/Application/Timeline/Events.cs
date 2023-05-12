@@ -7,6 +7,12 @@ public partial class Events : UserControl
         InitializeComponent();
     }
 
+    public Events(DateTime startDate, DateTime endDate)
+    {
+        StartDate = startDate;
+        EndDate = endDate;
+    }
+
     private DateTime _startDate;
     private DateTime _endDate;
     private Color _color;
