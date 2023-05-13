@@ -69,10 +69,8 @@ public partial class Timeline : Form
 
     private void ArrangeEventsOverlap(Events newEvent)
     {
-        int baseHeight = 50;
-        int availableSpace;
         bool isRepeat = true;
-
+        int previousEventTop = 0;
         foreach (Events previousEvent in panelTimelineContainer.Controls)
         {
             if (previousEvent != newEvent)
@@ -84,15 +82,13 @@ public partial class Timeline : Form
 
                 if ((newEventStartDate >= previousEventStartDate && newEventStartDate <= previousEventEndDate)
                     || (newEventStartDate >= previousEventStartDate && newEventEndDate >= previousEventStartDate)
-                    || (newEventStartDate <= previousEventStartDate && newEventEndDate <= previousEventEndDate)
+                    || (newEventStartDate <= previousEventStartDate && newEventEndDate > previousEventStartDate)
                     || (newEventStartDate <= previousEventStartDate && newEventEndDate >= previousEventEndDate))
                 {
-                    availableSpace = previousEvent.Top - newEvent.Height - 10;
-
-                    
+                    if (previousEvent.Top > previousEventTop)
                     {
-                        baseHeight += 40;
                         newEvent.Top = previousEvent.Bottom + 10;
+                        previousEventTop = previousEvent.Top;
 
                         if (newEvent.Top >= previousEvent.Top && isRepeat)
                         {
@@ -101,19 +97,8 @@ public partial class Timeline : Form
                         }
                     }
                 }
-                else
-                {
-                    MessageBox.Show("catch");
-                    break;
-                }
             }
         }
-
-        /* if there is no overlapping event, set the default top position
-        if (isRepeat)
-        {
-            newEvent.Top = baseHeight;
-        } */
     }
 
 
