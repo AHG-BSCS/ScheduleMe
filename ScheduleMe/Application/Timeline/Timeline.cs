@@ -39,12 +39,12 @@ public partial class Timeline : Form
         int i = 1;
         foreach (Tuple<DateTime, DateTime> eventDate in eventDates)
         {
-            Events events = new Events();
-            events.StartDate = eventDate.Item1;
-            events.EndDate = eventDate.Item2;
-            events.Event = "Event " + i++;
+            Events newEvent = new Events();
+            newEvent.StartDate = eventDate.Item1;
+            newEvent.EndDate = eventDate.Item2;
+            newEvent.Event = "Event " + i++;
             int eventDuration = (int)(eventDate.Item2 - eventDate.Item1).TotalDays;
-            events.Width = eventDuration * columnSize;
+            newEvent.Width = eventDuration * columnSize;
             int eventsXAxis = panelTimelineContainer.HorizontalScroll.Value
                         + (eventDate.Item1 - startDate).Days
                         * columnSize;
@@ -52,58 +52,71 @@ public partial class Timeline : Form
             if (eventDate.Item2.Day > 9)
             {
                 if (eventDate.Item1.Day > 9)
-                    events.Location = new Point(eventsXAxis + 13, 50);
+                    newEvent.Location = new Point(eventsXAxis + 13, 50);
                 else
                 {
-                    events.Location = new Point(eventsXAxis + 9, 50);
-                    events.Width += 3;
+                    newEvent.Location = new Point(eventsXAxis + 9, 50);
+                    newEvent.Width += 3;
                 }
             }
             else
-                events.Location = new Point(eventsXAxis + 9, 50);
+                newEvent.Location = new Point(eventsXAxis + 9, 50);
 
-            panelTimelineContainer.Controls.Add(events);
-            ArrangeEventsOverlap(events);
+            panelTimelineContainer.Controls.Add(newEvent);
+            ArrangeEventsOverlap(newEvent);
         }
     }
 
-    private void ArrangeEventsOverlap(Events events)
+    private void ArrangeEventsOverlap(Events newEvent)
     {
         int baseHeight = 50;
-        int i = 0;
+        bool isRepeat = true;
+
         foreach (Events previousEvent in panelTimelineContainer.Controls)
         {
-            if (previousEvent != events)
+            if (previousEvent != newEvent)
             {
-                DateTime eventStartDate = events.StartDate;
-                DateTime eventEndDate = events.EndDate;
+                DateTime newEventStartDate = newEvent.StartDate;
+                DateTime newEventEndDate = newEvent.EndDate;
                 DateTime previousEventStartDate = previousEvent.StartDate;
                 DateTime previousEventEndDate = previousEvent.EndDate;
 
-                if ((eventStartDate >= previousEventStartDate && eventStartDate <= previousEventEndDate)
-                    || (eventEndDate >= previousEventStartDate && eventEndDate <= previousEventEndDate))
+                if ((newEventStartDate >= previousEventStartDate && newEventStartDate <= previousEventEndDate)
+                    || (newEventEndDate >= previousEventStartDate && newEventEndDate <= previousEventEndDate))
                 {
+                    int availableSpace = previousEvent.Top - newEvent.Height - 10;
 
-                    int availableSpace = previousEvent.Top - events.Height - 10;
                     if (availableSpace >= baseHeight)
                     {
-                        events.Top = availableSpace;
+                        newEvent.Top = availableSpace;
+                        isRepeat = false; // set to false to prevent height increase
                     }
                     else
                     {
-                        events.Top = previousEvent.Bottom + 10;
                         baseHeight += 40;
-                        if (events.Top >= previousEvent.Top && i == 0)
+                        newEvent.Top = previousEvent.Bottom + 10;
+
+                        if (newEvent.Top >= previousEvent.Top && isRepeat)
                         {
                             panelTimelineContainer.Height += 40;
-                            i++;
+                            isRepeat = false; // set to false to prevent height increase
                         }
                     }
                 }
-                else i++;
+                else if ((newEventStartDate <= previousEventEndDate && newEventEndDate < previousEventEndDate))
+                {
+                    MessageBox.Show("catch");
+                }
             }
         }
+
+        /* if there is no overlapping event, set the default top position
+        if (isRepeat)
+        {
+            newEvent.Top = baseHeight;
+        } */
     }
+
 
 
     private void Timeline_Load(object sender, EventArgs e)
@@ -114,7 +127,7 @@ public partial class Timeline : Form
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 13), new DateTime(2023, 4, 16)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 15), new DateTime(2023, 4, 18)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 2), new DateTime(2023, 4, 3)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 2), new DateTime(2023, 4, 3)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 11)),
         };
 
         PopulateEvents(events, new DateTime(2023, 4, 1));
