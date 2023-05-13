@@ -80,8 +80,8 @@ public partial class Timeline : Form
                 DateTime previousEventStartDate = previousEvent.StartDate;
                 DateTime previousEventEndDate = previousEvent.EndDate;
 
-                if ((newEventStartDate >= previousEventStartDate && newEventStartDate <= previousEventEndDate)
-                    || (newEventStartDate >= previousEventStartDate && newEventEndDate >= previousEventStartDate)
+                if ((newEventStartDate > previousEventStartDate && newEventStartDate < previousEventEndDate)
+                    || (newEventStartDate >= previousEventStartDate && newEventEndDate <= previousEventStartDate)
                     || (newEventStartDate <= previousEventStartDate && newEventEndDate > previousEventStartDate)
                     || (newEventStartDate <= previousEventStartDate && newEventEndDate >= previousEventEndDate))
                 {
@@ -101,8 +101,6 @@ public partial class Timeline : Form
         }
     }
 
-
-
     private void Timeline_Load(object sender, EventArgs e)
     {
         List<Tuple<DateTime, DateTime>> events = new List<Tuple<DateTime, DateTime>>()
@@ -112,6 +110,8 @@ public partial class Timeline : Form
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 5), new DateTime(2023, 4, 7)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 2), new DateTime(2023, 4, 4)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 3), new DateTime(2023, 4, 6)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 9), new DateTime(2023, 4, 13)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 10), new DateTime(2023, 4, 12)),
         };
 
         PopulateEvents(events, new DateTime(2023, 4, 1));
