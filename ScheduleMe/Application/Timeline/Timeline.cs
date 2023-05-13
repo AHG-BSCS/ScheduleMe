@@ -70,6 +70,7 @@ public partial class Timeline : Form
     private void ArrangeEventsOverlap(Events newEvent)
     {
         int baseHeight = 50;
+        int availableSpace;
         bool isRepeat = true;
 
         foreach (Events previousEvent in panelTimelineContainer.Controls)
@@ -82,18 +83,13 @@ public partial class Timeline : Form
                 DateTime previousEventEndDate = previousEvent.EndDate;
 
                 if ((newEventStartDate >= previousEventStartDate && newEventStartDate <= previousEventEndDate)
-                    || (newEventEndDate >= previousEventStartDate && newEventEndDate <= previousEventEndDate)
-                    || (newEventStartDate <= previousEventEndDate && newEventEndDate < previousEventEndDate)
+                    || (newEventStartDate >= previousEventStartDate && newEventEndDate >= previousEventStartDate)
+                    || (newEventStartDate <= previousEventStartDate && newEventEndDate <= previousEventEndDate)
                     || (newEventStartDate <= previousEventStartDate && newEventEndDate >= previousEventEndDate))
                 {
-                    int availableSpace = previousEvent.Top - newEvent.Height - 10;
+                    availableSpace = previousEvent.Top - newEvent.Height - 10;
 
-                    if (availableSpace >= baseHeight)
-                    {
-                        newEvent.Top = availableSpace;
-                        isRepeat = false; // set to false to prevent height increase
-                    }
-                    else
+                    
                     {
                         baseHeight += 40;
                         newEvent.Top = previousEvent.Bottom + 10;
@@ -108,6 +104,7 @@ public partial class Timeline : Form
                 else
                 {
                     MessageBox.Show("catch");
+                    break;
                 }
             }
         }
@@ -125,11 +122,11 @@ public partial class Timeline : Form
     {
         List<Tuple<DateTime, DateTime>> events = new List<Tuple<DateTime, DateTime>>()
         {
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 3), new DateTime(2023, 4, 10)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 2), new DateTime(2023, 4, 16)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 15), new DateTime(2023, 4, 18)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 2), new DateTime(2023, 4, 3)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 11)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 9)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 4), new DateTime(2023, 4, 8)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 5), new DateTime(2023, 4, 7)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 2), new DateTime(2023, 4, 4)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 3), new DateTime(2023, 4, 6)),
         };
 
         PopulateEvents(events, new DateTime(2023, 4, 1));
