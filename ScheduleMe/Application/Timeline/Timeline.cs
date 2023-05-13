@@ -78,28 +78,30 @@ public partial class Timeline : Form
                 DateTime previousEventStartDate = previousEvent.StartDate;
                 DateTime previousEventEndDate = previousEvent.EndDate;
 
-                if (eventStartDate >= previousEventEndDate && eventEndDate >= previousEventStartDate)
-                {
-                    if (eventEndDate >= previousEventStartDate)
-                    {
-                        events.Top = previousEvent.Top;
-                    }
-                }
-                else if ((eventStartDate >= previousEventStartDate && eventStartDate <= previousEventEndDate)
+                if ((eventStartDate >= previousEventStartDate && eventStartDate <= previousEventEndDate)
                     || (eventEndDate >= previousEventStartDate && eventEndDate <= previousEventEndDate))
                 {
-                    events.Top = previousEvent.Bottom + 10;
-                    panelTimelineContainer.Height += 40;
+                    int availableSpace = previousEvent.Top - events.Height - 10;
+                    if (availableSpace >= 50)
+                    {
+                        events.Top = availableSpace;
+                    }
+                    else
+                    {
+                        events.Top = previousEvent.Bottom + 10;
+                        panelTimelineContainer.Height += 40;
+                    }
                 }
             }
         }
     }
 
+
     private void Timeline_Load(object sender, EventArgs e)
     {
         List<Tuple<DateTime, DateTime>> events = new List<Tuple<DateTime, DateTime>>()
         {
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 3), new DateTime(2023, 4, 5)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 10)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 4), new DateTime(2023, 4, 6)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 5), new DateTime(2023, 4, 7)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 12)),
