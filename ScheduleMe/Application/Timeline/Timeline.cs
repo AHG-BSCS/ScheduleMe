@@ -69,6 +69,7 @@ public partial class Timeline : Form
 
     private void ArrangeEventsOverlap(Events events)
     {
+        int baseHeight = 50;
         foreach (Events previousEvent in panelTimelineContainer.Controls)
         {
             if (previousEvent != events)
@@ -81,8 +82,9 @@ public partial class Timeline : Form
                 if ((eventStartDate >= previousEventStartDate && eventStartDate <= previousEventEndDate)
                     || (eventEndDate >= previousEventStartDate && eventEndDate <= previousEventEndDate))
                 {
+                    
                     int availableSpace = previousEvent.Top - events.Height - 10;
-                    if (availableSpace >= 50)
+                    if (availableSpace >= baseHeight)
                     {
                         events.Top = availableSpace;
                     }
@@ -90,6 +92,7 @@ public partial class Timeline : Form
                     {
                         events.Top = previousEvent.Bottom + 10;
                         panelTimelineContainer.Height += 40;
+                        baseHeight += 40;
                     }
                 }
             }
