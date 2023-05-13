@@ -82,7 +82,9 @@ public partial class Timeline : Form
                 DateTime previousEventEndDate = previousEvent.EndDate;
 
                 if ((newEventStartDate >= previousEventStartDate && newEventStartDate <= previousEventEndDate)
-                    || (newEventEndDate >= previousEventStartDate && newEventEndDate <= previousEventEndDate))
+                    || (newEventEndDate >= previousEventStartDate && newEventEndDate <= previousEventEndDate)
+                    || (newEventStartDate <= previousEventEndDate && newEventEndDate < previousEventEndDate)
+                    || (newEventStartDate <= previousEventStartDate && newEventEndDate >= previousEventEndDate))
                 {
                     int availableSpace = previousEvent.Top - newEvent.Height - 10;
 
@@ -103,7 +105,7 @@ public partial class Timeline : Form
                         }
                     }
                 }
-                else if ((newEventStartDate <= previousEventEndDate && newEventEndDate < previousEventEndDate))
+                else
                 {
                     MessageBox.Show("catch");
                 }
@@ -123,8 +125,8 @@ public partial class Timeline : Form
     {
         List<Tuple<DateTime, DateTime>> events = new List<Tuple<DateTime, DateTime>>()
         {
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 10)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 13), new DateTime(2023, 4, 16)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 3), new DateTime(2023, 4, 10)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 2), new DateTime(2023, 4, 16)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 15), new DateTime(2023, 4, 18)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 2), new DateTime(2023, 4, 3)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 11)),
