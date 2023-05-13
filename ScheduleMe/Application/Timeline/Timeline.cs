@@ -95,6 +95,10 @@ public partial class Timeline : Form
                         baseHeight += 40;
                     }
                 }
+                else
+                {
+                    panelTimelineContainer.Height -= 20;
+                }
             }
         }
     }
