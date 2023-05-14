@@ -66,7 +66,7 @@ public partial class Timeline : Form
             ArrangeEventsOverlap(newEvent);
         }
     }
-
+    
     private void ArrangeEventsOverlap(Events newEvent)
     {
         bool isRepeat = true;
@@ -92,12 +92,15 @@ public partial class Timeline : Form
 
                         if (newEvent.Top >= previousEvent.Top && isRepeat)
                         {
-                            panelTimelineContainer.Height += 40;
                             isRepeat = false; // set to false to prevent height increase
                         }
                     }
                 }
             }
+        }
+        if (isRepeat)
+        {
+            panelTimelineContainer.Height += 40;
         }
     }
 
@@ -112,6 +115,8 @@ public partial class Timeline : Form
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 3), new DateTime(2023, 4, 6)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 9), new DateTime(2023, 4, 13)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 10), new DateTime(2023, 4, 12)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 5)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 13))
         };
 
         PopulateEvents(events, new DateTime(2023, 4, 1));
