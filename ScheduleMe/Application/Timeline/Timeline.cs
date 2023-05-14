@@ -88,42 +88,28 @@ public partial class Timeline : Form
                     || (newEventStartDate <= previousEventStartDate && newEventEndDate >= previousEventEndDate))
                 {
                     if (newEvent.Bottom > previousEvent.Bottom || noOverflowTop == 0) // Ignore bringing the event to the bottom of upper events
-                    { // if newEvent is lower than previous event
+                    {
                         newEvent.Top = previousEvent.Bottom + 10;
                         previousEventTop = previousEvent.Top;
 
                         if (newEvent.Top >= previousEvent.Top && isRepeat) // prevent adding uneccessary heights
-                        {
-                            isRepeat = false;
-                        }
+                        isRepeat = false;
                     }
                     else if (newEvent.Bottom == previousEvent.Bottom) // if newEvent and previousEvent is the same row
-                    {
-                        newEvent.Top = previousOverFlowBottom;
-                    }
+                    newEvent.Top = previousOverFlowBottom;
+                    
                     else if (previousEvent.Top > previousEventTop) // if previousEvent is lower than prev-Prev
                     {
                         newEvent.Top = noOverflowTop;
                         previousOverFlowBottom = previousEvent.Bottom + 10;
                     }
                 }
-                else // Get previous top if no Overflow: to be used if there is overflow at some point
-                {
-                    if (noOverflowTop <= previousEvent.Top)
-                    {
-                        noOverflowTop = previousEvent.Top;
-                    }
-                }
-            }
-            else
-            {
-                
+                else if (noOverflowTop <= previousEvent.Top)// Get previous top if no Overflow: to be used if there is overflow at some point
+                noOverflowTop = previousEvent.Top;
             }
         }
         if (isRepeat)
-        {
-            panelTimelineContainer.Height += 40;
-        }
+        panelTimelineContainer.Height += 40;
     }
 
     private void Timeline_Load(object sender, EventArgs e)
@@ -137,6 +123,7 @@ public partial class Timeline : Form
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 3), new DateTime(2023, 4, 6)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 5)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 2)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 3)),
         };
 
         PopulateEvents(events, new DateTime(2023, 4, 1));
