@@ -71,31 +71,53 @@ public partial class Timeline : Form
     {
         bool isRepeat = true;
         int previousEventTop = 0;
+        int previousOverFlowBottom = 0;
+        int noOverflowTop = 0;
         foreach (Events previousEvent in panelTimelineContainer.Controls)
         {
-            if (previousEvent != newEvent)
+            if (previousEvent != newEvent && newEvent.Top <= previousEvent.Top) // Not the same object and newEvent is above previousEvent
             {
                 DateTime newEventStartDate = newEvent.StartDate;
                 DateTime newEventEndDate = newEvent.EndDate;
                 DateTime previousEventStartDate = previousEvent.StartDate;
                 DateTime previousEventEndDate = previousEvent.EndDate;
 
-                if ((newEventStartDate > previousEventStartDate && newEventStartDate < previousEventEndDate)
+                if ((newEventStartDate > previousEventStartDate && newEventStartDate < previousEventEndDate) // Possible Overflows
                     || (newEventStartDate >= previousEventStartDate && newEventEndDate <= previousEventStartDate)
                     || (newEventStartDate <= previousEventStartDate && newEventEndDate > previousEventStartDate)
                     || (newEventStartDate <= previousEventStartDate && newEventEndDate >= previousEventEndDate))
                 {
-                    if (previousEvent.Top > previousEventTop)
-                    {
+                    if (newEvent.Bottom > previousEvent.Bottom || noOverflowTop == 0) // Ignore bringing the event to the bottom of upper events
+                    { // if newEvent is lower than previous event
                         newEvent.Top = previousEvent.Bottom + 10;
                         previousEventTop = previousEvent.Top;
 
-                        if (newEvent.Top >= previousEvent.Top && isRepeat)
+                        if (newEvent.Top >= previousEvent.Top && isRepeat) // prevent adding uneccessary heights
                         {
-                            isRepeat = false; // set to false to prevent height increase
+                            isRepeat = false;
                         }
                     }
+                    else if (newEvent.Bottom == previousEvent.Bottom) // if newEvent and previousEvent is the same row
+                    {
+                        newEvent.Top = previousOverFlowBottom;
+                    }
+                    else if (previousEvent.Top > previousEventTop) // if previousEvent is lower than prev-Prev
+                    {
+                        newEvent.Top = noOverflowTop;
+                        previousOverFlowBottom = previousEvent.Bottom + 10;
+                    }
                 }
+                else // Get previous top if no Overflow: to be used if there is overflow at some point
+                {
+                    if (noOverflowTop <= previousEvent.Top)
+                    {
+                        noOverflowTop = previousEvent.Top;
+                    }
+                }
+            }
+            else
+            {
+                
             }
         }
         if (isRepeat)
@@ -113,10 +135,8 @@ public partial class Timeline : Form
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 5), new DateTime(2023, 4, 7)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 2), new DateTime(2023, 4, 4)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 3), new DateTime(2023, 4, 6)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 9), new DateTime(2023, 4, 13)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 10), new DateTime(2023, 4, 12)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 5)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 13))
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 2)),
         };
 
         PopulateEvents(events, new DateTime(2023, 4, 1));
