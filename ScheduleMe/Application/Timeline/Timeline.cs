@@ -74,6 +74,7 @@ public partial class Timeline : Form
         int previousEventTop = 0;
         int previousOverFlowBottom = 0;
         int noOverflowTop = 0;
+        int noOverflowCounter = 0;
         foreach (Events previousEvent in panelTimelineContainer.Controls)
         {
             if (previousEvent != newEvent && newEvent.Top <= previousEvent.Top) // Not the same object and newEvent is above previousEvent
@@ -88,7 +89,7 @@ public partial class Timeline : Form
                     || (newEventStartDate <= previousEventStartDate && newEventEndDate > previousEventStartDate)
                     || (newEventStartDate <= previousEventStartDate && newEventEndDate >= previousEventEndDate))
                 {
-                    if (newEvent.Bottom > previousEvent.Bottom || noOverflowTop == 0) // Ignore bringing the event to the bottom of upper events
+                    if (newEvent.Bottom > previousEvent.Bottom || noOverflowTop < newEvent.Top) // Ignore bringing the event to the bottom of upper events
                     {
                         newEvent.Top = previousEvent.Bottom + 10;
                         previousEventTop = previousEvent.Top;
@@ -102,8 +103,11 @@ public partial class Timeline : Form
                         previousOverFlowBottom = previousEvent.Bottom + 10;
                     }
                 }
-                else if (noOverflowTop <= previousEvent.Top || newEvent.Top != noOverflowTop) // Get previous top if no Overflow: to be used if there is overflow at some point
-                noOverflowTop = previousEvent.Top;
+                else if (noOverflowTop <= previousEvent.Top || newEvent.Top <= noOverflowTop) // Get previous top if no Overflow: to be used if there is overflow at some point
+                {
+                    noOverflowTop = previousEvent.Top;
+                    noOverflowCounter++;
+                }
             }
         }
         lowestBottom = Math.Max(newEvent.Bottom, lowestBottom);
@@ -123,7 +127,7 @@ public partial class Timeline : Form
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 3)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 16)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 17)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 17)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 9), new DateTime(2023, 4, 16)),
         }; 
         events.Sort();
 
