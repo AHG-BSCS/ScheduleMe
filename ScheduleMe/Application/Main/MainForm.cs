@@ -126,5 +126,6 @@ namespace ScheduleMe
             highlightButton(btnAboutWindow);
             about.FormClosedEvent += about_FormClosedEvent;
         }
+
     }
 }

@@ -129,6 +129,7 @@ partial class About
         Name = "About";
         Text = "About ScheduleMe";
         TopMost = true;
+        FormClosed += About_FormClosed;
         ((System.ComponentModel.ISupportInitialize)logoScheduleMe).EndInit();
         ResumeLayout(false);
         PerformLayout();
