@@ -102,7 +102,7 @@ public partial class Timeline : Form
                         previousOverFlowBottom = previousEvent.Bottom + 10;
                     }
                 }
-                else if (noOverflowTop <= previousEvent.Top) // Get previous top if no Overflow: to be used if there is overflow at some point
+                else if (noOverflowTop <= previousEvent.Top || newEvent.Top != noOverflowTop) // Get previous top if no Overflow: to be used if there is overflow at some point
                 noOverflowTop = previousEvent.Top;
             }
         }
@@ -121,9 +121,11 @@ public partial class Timeline : Form
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 5)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 2)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 3)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 16)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 17)),
-        };
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 16)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 17)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 17)),
+        }; 
+        events.Sort();
 
         PopulateEvents(events, new DateTime(2023, 4, 1));
         PopulateDates(new DateTime(2023, 4, 1), new DateTime(2023, 4, 30));
