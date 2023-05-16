@@ -40,7 +40,7 @@ partial class DayDates
         lblDay.ForeColor = Color.Black;
         lblDay.Location = new Point(0, 0);
         lblDay.Name = "lblDay";
-        lblDay.Size = new Size(37, 20);
+        lblDay.Size = new Size(35, 20);
         lblDay.TabIndex = 0;
         lblDay.Text = "Day";
         lblDay.TextAlign = ContentAlignment.TopCenter;
@@ -53,7 +53,7 @@ partial class DayDates
         lblDate.ForeColor = Color.Black;
         lblDate.Location = new Point(0, 20);
         lblDate.Name = "lblDate";
-        lblDate.Size = new Size(37, 20);
+        lblDate.Size = new Size(35, 20);
         lblDate.TabIndex = 1;
         lblDate.Text = "12";
         lblDate.TextAlign = ContentAlignment.TopCenter;
@@ -66,7 +66,7 @@ partial class DayDates
         Controls.Add(lblDay);
         Controls.Add(lblDate);
         Name = "DayDates";
-        Size = new Size(37, 40);
+        Size = new Size(35, 40);
         ResumeLayout(false);
     }
 

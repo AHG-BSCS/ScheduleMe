@@ -7,7 +7,7 @@ public partial class Timeline : Form
         InitializeComponent();
     }
 
-    private int columnSize = 50;
+    private int columnSize = 42;
 
     private void PopulateDates(DateTime startDate, DateTime endDate)
     {
@@ -44,21 +44,8 @@ public partial class Timeline : Form
             newEvent.StartDate = eventDate.Item1;
             newEvent.EndDate = eventDate.Item2;
             newEvent.Event = "Event " + tempIncrement++;
-            newEvent.Width = eventDuration * columnSize;
-
-            if (eventDate.Item2.Day > 9)
-            {
-                if (eventDate.Item1.Day > 9)
-                newEvent.Location = new Point(eventsXAxis + 13, 50);
-
-                else
-                {
-                    newEvent.Location = new Point(eventsXAxis + 9, 50);
-                    newEvent.Width += 3;
-                }
-            }
-            else
-            newEvent.Location = new Point(eventsXAxis + 9, 50);
+            newEvent.Width = eventDuration * columnSize + 1;
+            newEvent.Location = new Point(eventsXAxis + 17, 50);
 
             panelTimelineContainer.Controls.Add(newEvent);
             ArrangeEventsOverlap(newEvent, ref lowestBottom);
