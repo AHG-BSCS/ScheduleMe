@@ -8,7 +8,6 @@ public partial class Timeline : Form
     }
 
     private int columnSize = 50;
-    private int lowestBottom = 0;
 
     private void PopulateDates(DateTime startDate, DateTime endDate)
     {
@@ -37,23 +36,26 @@ public partial class Timeline : Form
 
     private void PopulateEvents(List<Tuple<DateTime, DateTime>> eventDates, DateTime startDate)
     {
-        int i = 1;
+        int tempIncrement = 1;
+        int lowestBottom = 0;
         foreach (Tuple<DateTime, DateTime> eventDate in eventDates)
         {
-            Events newEvent = new Events();
-            newEvent.StartDate = eventDate.Item1;
-            newEvent.EndDate = eventDate.Item2;
-            newEvent.Event = "Event " + i++;
             int eventDuration = (int)(eventDate.Item2 - eventDate.Item1).TotalDays;
-            newEvent.Width = eventDuration * columnSize;
             int eventsXAxis = panelTimelineContainer.HorizontalScroll.Value
                         + (eventDate.Item1 - startDate).Days
                         * columnSize;
 
+            Events newEvent = new Events();
+            newEvent.StartDate = eventDate.Item1;
+            newEvent.EndDate = eventDate.Item2;
+            newEvent.Event = "Event " + tempIncrement++;
+            newEvent.Width = eventDuration * columnSize;
+
             if (eventDate.Item2.Day > 9)
             {
                 if (eventDate.Item1.Day > 9)
-                    newEvent.Location = new Point(eventsXAxis + 13, 50);
+                newEvent.Location = new Point(eventsXAxis + 13, 50);
+
                 else
                 {
                     newEvent.Location = new Point(eventsXAxis + 9, 50);
@@ -61,33 +63,29 @@ public partial class Timeline : Form
                 }
             }
             else
-                newEvent.Location = new Point(eventsXAxis + 9, 50);
+            newEvent.Location = new Point(eventsXAxis + 9, 50);
 
             panelTimelineContainer.Controls.Add(newEvent);
-            ArrangeEventsOverlap(newEvent);
+            ArrangeEventsOverlap(newEvent, ref lowestBottom);
         }
         panelTimelineContainer.Height = lowestBottom + 20;
     }
     
-    private void ArrangeEventsOverlap(Events newEvent)
+    private void ArrangeEventsOverlap(Events newEvent, ref int lowestBottom)
     {
         int previousEventTop = 0;
         int previousOverFlowBottom = 0;
         int noOverflowTop = 0;
         int noOverflowCounter = 0;
+
         foreach (Events previousEvent in panelTimelineContainer.Controls)
         {
             if (previousEvent != newEvent && newEvent.Top <= previousEvent.Top) // Not the same object and newEvent is above previousEvent
             {
-                DateTime newEventStartDate = newEvent.StartDate;
-                DateTime newEventEndDate = newEvent.EndDate;
-                DateTime previousEventStartDate = previousEvent.StartDate;
-                DateTime previousEventEndDate = previousEvent.EndDate;
-
-                if ((newEventStartDate > previousEventStartDate && newEventStartDate < previousEventEndDate) // Possible Overflows
-                    || (newEventStartDate >= previousEventStartDate && newEventEndDate <= previousEventStartDate)
-                    || (newEventStartDate <= previousEventStartDate && newEventEndDate > previousEventStartDate)
-                    || (newEventStartDate <= previousEventStartDate && newEventEndDate >= previousEventEndDate))
+                if ((newEvent.StartDate > previousEvent.StartDate && newEvent.StartDate < previousEvent.EndDate) // Possible Overflows
+                    || (newEvent.StartDate >= previousEvent.StartDate && newEvent.EndDate <= previousEvent.StartDate)
+                    || (newEvent.StartDate <= previousEvent.StartDate && newEvent.EndDate > previousEvent.StartDate)
+                    || (newEvent.StartDate <= previousEvent.StartDate && newEvent.EndDate >= previousEvent.EndDate))
                 {
                     if (newEvent.Bottom > previousEvent.Bottom || noOverflowTop < newEvent.Top) // Ignore bringing the event to the bottom of upper events
                     {
@@ -126,11 +124,11 @@ public partial class Timeline : Form
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 2)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 3)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 16)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 17)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 9), new DateTime(2023, 4, 16)),
-        }; 
-        events.Sort();
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 11), new DateTime(2023, 4, 17)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 12), new DateTime(2023, 4, 16)),
+        };
 
+        events.Sort();
         PopulateEvents(events, new DateTime(2023, 4, 1));
         PopulateDates(new DateTime(2023, 4, 1), new DateTime(2023, 4, 30));
     }
