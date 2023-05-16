@@ -6,4 +6,14 @@ public partial class DayDates : UserControl
     {
         InitializeComponent();
     }
+
+    public string Day
+    {
+        set => lblDay.Text = value;
+    }
+
+    public string Date
+    {
+        set => lblDate.Text = value;
+    }
 }

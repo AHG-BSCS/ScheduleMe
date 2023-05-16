@@ -13,23 +13,17 @@ public partial class Timeline : Form
     {
         for (DateTime currentDate = startDate; currentDate <= endDate; currentDate = currentDate.AddDays(1))
         {
-            Label day = new Label();
-            day.Text = currentDate.ToString("ddd");
-            day.AutoSize = true;
-            day.Location = new Point(columnSize * (currentDate - startDate).Days, 5);
-            panelTimelineContainer.Controls.Add(day);
-
-            Label date = new Label();
-            date.Text = currentDate.Day.ToString();
-            date.AutoSize = true;
-            date.Location = new Point(columnSize * (currentDate - startDate).Days, 25);
-            panelTimelineContainer.Controls.Add(date);
+            DayDates dayDates = new DayDates();
+            dayDates.Day = currentDate.ToString("ddd");
+            dayDates.Date = currentDate.Day.ToString();
+            dayDates.Location = new Point(columnSize * (currentDate - startDate).Days, 5);
+            panelTimelineContainer.Controls.Add(dayDates);
 
             Panel linePanel = new Panel();
             linePanel.BackColor = Color.Black;
             linePanel.Width = 1;
             linePanel.Height = panelTimelineContainer.Height - 40;
-            linePanel.Location = new Point(date.Left + date.Width / 2, date.Height);
+            linePanel.Location = new Point(dayDates.Left + dayDates.Width / 2, dayDates.Height);
             panelTimelineContainer.Controls.Add(linePanel);
         }
     }

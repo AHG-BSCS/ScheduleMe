@@ -34,37 +34,39 @@ partial class DayDates
         // 
         // lblDay
         // 
+        lblDay.BackColor = Color.Transparent;
         lblDay.Dock = DockStyle.Top;
         lblDay.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         lblDay.ForeColor = Color.Black;
         lblDay.Location = new Point(0, 0);
         lblDay.Name = "lblDay";
-        lblDay.Size = new Size(47, 30);
+        lblDay.Size = new Size(37, 20);
         lblDay.TabIndex = 0;
         lblDay.Text = "Day";
-        lblDay.TextAlign = ContentAlignment.MiddleCenter;
+        lblDay.TextAlign = ContentAlignment.TopCenter;
         // 
         // lblDate
         // 
-        lblDate.Dock = DockStyle.Top;
+        lblDate.BackColor = Color.Transparent;
+        lblDate.Dock = DockStyle.Bottom;
         lblDate.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         lblDate.ForeColor = Color.Black;
-        lblDate.Location = new Point(0, 30);
+        lblDate.Location = new Point(0, 20);
         lblDate.Name = "lblDate";
-        lblDate.Size = new Size(47, 15);
+        lblDate.Size = new Size(37, 20);
         lblDate.TabIndex = 1;
         lblDate.Text = "12";
-        lblDate.TextAlign = ContentAlignment.MiddleCenter;
+        lblDate.TextAlign = ContentAlignment.TopCenter;
         // 
         // DayDates
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
-        AutoScaleMode = AutoScaleMode.Font;
-        BackColor = Color.Transparent;
-        Controls.Add(lblDate);
+        AutoScaleDimensions = new SizeF(96F, 96F);
+        AutoScaleMode = AutoScaleMode.Dpi;
+        BackColor = Color.White;
         Controls.Add(lblDay);
+        Controls.Add(lblDate);
         Name = "DayDates";
-        Size = new Size(47, 66);
+        Size = new Size(37, 40);
         ResumeLayout(false);
     }
 
