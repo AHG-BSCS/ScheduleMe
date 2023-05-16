@@ -38,6 +38,7 @@ public partial class Timeline : Form
     {
         int tempIncrement = 1;
         int lowestBottom = 0;
+
         foreach (Tuple<DateTime, DateTime> eventDate in eventDates)
         {
             int eventDuration = (int)(eventDate.Item2 - eventDate.Item1).TotalDays;
