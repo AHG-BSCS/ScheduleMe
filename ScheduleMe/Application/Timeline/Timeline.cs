@@ -22,7 +22,7 @@ public partial class Timeline : Form
             Panel linePanel = new Panel();
             linePanel.BackColor = Color.Black;
             linePanel.Width = 1;
-            linePanel.Height = panelTimelineContainer.Height - 40;
+            linePanel.Height = panelTimelineContainer.Height - 58;
             linePanel.Location = new Point(dayDates.Left + dayDates.Width / 2, dayDates.Height);
             panelTimelineContainer.Controls.Add(linePanel);
         }
@@ -45,12 +45,12 @@ public partial class Timeline : Form
             newEvent.EndDate = eventDate.Item2;
             newEvent.Event = "Event " + tempIncrement++;
             newEvent.Width = eventDuration * columnSize + 1;
-            newEvent.Location = new Point(eventsXAxis + 17, 50);
+            newEvent.Location = new Point(eventsXAxis + 17, 55);
 
             panelTimelineContainer.Controls.Add(newEvent);
             ArrangeEventsOverlap(newEvent, ref lowestBottom);
         }
-        panelTimelineContainer.Height = lowestBottom + 20;
+        panelTimelineContainer.Height = lowestBottom + 30;
     }
     
     private void ArrangeEventsOverlap(Events newEvent, ref int lowestBottom)
