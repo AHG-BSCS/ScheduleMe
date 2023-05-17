@@ -33,7 +33,7 @@ partial class Events
         // 
         // eventName
         // 
-        eventName.BackColor = Color.Transparent;
+        eventName.BackColor = Color.FromArgb(15, 76, 129);
         eventName.Dock = DockStyle.Fill;
         eventName.FlatAppearance.BorderSize = 0;
         eventName.FlatAppearance.MouseDownBackColor = Color.Transparent;
@@ -43,7 +43,7 @@ partial class Events
         eventName.ForeColor = Color.White;
         eventName.Location = new Point(0, 0);
         eventName.Name = "eventName";
-        eventName.Size = new Size(68, 30);
+        eventName.Size = new Size(65, 30);
         eventName.TabIndex = 0;
         eventName.Text = "Event";
         eventName.UseVisualStyleBackColor = false;
@@ -53,9 +53,11 @@ partial class Events
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
         AutoSize = true;
-        BackColor = Color.FromArgb(15, 76, 129);
+        BackColor = Color.White;
         Controls.Add(eventName);
+        Margin = new Padding(0);
         Name = "Events";
+        Padding = new Padding(0, 0, 3, 0);
         Size = new Size(68, 30);
         ResumeLayout(false);
     }
