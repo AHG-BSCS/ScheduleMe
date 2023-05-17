@@ -40,9 +40,11 @@ public partial class Timeline : Form
             {
                 Panel liveLine = new Panel();
                 liveLine.BackColor = Color.FromArgb(15, 76, 129);
-                liveLine.Width = 1;
-                liveLine.Height = panelTimelineContainer.Height - 58;
-                liveLine.Location = new Point(dayDates.Left + dayDates.Width, dayDates.Height);
+                liveLine.Width = 2;
+                liveLine.Height = panelTimelineContainer.Height - 77;
+                liveLine.Location = new Point((dayDates.Left + dayDates.Width / 2)
+                    + (columnSize - (24 - DateTime.Now.Hour)),
+                    dayDates.Height + 19);
                 panelTimelineContainer.Controls.Add(liveLine);
             }
 
