@@ -50,7 +50,7 @@ public partial class Timeline : Form
                 liveLine.Width = 2;
                 liveLine.Height = panelTimelineContainer.Height - 77;
                 liveLine.Location = new Point((dayDates.Left + dayDates.Width / 2)
-                    + (columnSize - (24 - DateTime.Now.Hour)),
+                    + ((int)((float)columnSize * (float)(DateTime.Now.Hour / 24.0))),
                     dayDates.Height + 19);
                 panelTimelineContainer.Controls.Add(liveLine);
 
@@ -83,7 +83,7 @@ public partial class Timeline : Form
         }
         panelTimelineContainer.Height = lowestBottom + 30;
     }
-    
+
     private void ArrangeEventsOverlap(Events newEvent, ref int lowestBottom)
     {
         int previousEventTop = 0;
@@ -106,8 +106,8 @@ public partial class Timeline : Form
                         previousEventTop = previousEvent.Top;
                     }
                     else if (newEvent.Bottom == previousEvent.Bottom) // if newEvent and previousEvent is the same row
-                    newEvent.Top = previousOverFlowBottom;
-                    
+                        newEvent.Top = previousOverFlowBottom;
+
                     else if (previousEvent.Top > previousEventTop) // if previousEvent is lower than prev-Prev
                     {
                         newEvent.Top = noOverflowTop;
@@ -142,6 +142,7 @@ public partial class Timeline : Form
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 16)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 11), new DateTime(2023, 4, 17)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 12), new DateTime(2023, 4, 16)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 5, 16), new DateTime(2023, 5, 19)),
         };
 
         events.Sort();

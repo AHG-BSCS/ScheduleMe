@@ -58,7 +58,7 @@ partial class Timeline
         btnAddTab.FlatStyle = FlatStyle.Flat;
         btnAddTab.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
         btnAddTab.ForeColor = Color.White;
-        btnAddTab.Location = new Point(224, 0);
+        btnAddTab.Location = new Point(238, 0);
         btnAddTab.Name = "btnAddTab";
         btnAddTab.Size = new Size(38, 35);
         btnAddTab.TabIndex = 2;
@@ -74,7 +74,7 @@ partial class Timeline
         btnTab2.FlatStyle = FlatStyle.Flat;
         btnTab2.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
         btnTab2.ForeColor = Color.White;
-        btnTab2.Location = new Point(119, 0);
+        btnTab2.Location = new Point(133, 0);
         btnTab2.Name = "btnTab2";
         btnTab2.Size = new Size(105, 35);
         btnTab2.TabIndex = 1;
@@ -92,7 +92,7 @@ partial class Timeline
         btnTab1.ForeColor = Color.Black;
         btnTab1.Location = new Point(10, 0);
         btnTab1.Name = "btnTab1";
-        btnTab1.Size = new Size(109, 35);
+        btnTab1.Size = new Size(123, 35);
         btnTab1.TabIndex = 0;
         btnTab1.Text = "Genshin Impact";
         btnTab1.UseVisualStyleBackColor = false;
