@@ -61,7 +61,7 @@ public partial class Timeline : Form
             newEvent.EndDate = eventDate.Item2;
             newEvent.Event = "Event " + tempIncrement++;
             newEvent.Width = eventDuration * columnSize + 4;
-            newEvent.Location = new Point(eventsXAxis + 17, 55);
+            newEvent.Location = new Point(eventsXAxis + 17, 70);
 
             panelTimelineContainer.Controls.Add(newEvent);
             ArrangeEventsOverlap(newEvent, ref lowestBottom);
@@ -111,6 +111,9 @@ public partial class Timeline : Form
 
     private void Timeline_Load(object sender, EventArgs e)
     {
+        DateTime startDate = new DateTime(2023, 4, 1);
+        DateTime endDate = new DateTime(2023, 5, 5);
+
         List<Tuple<DateTime, DateTime>> events = new List<Tuple<DateTime, DateTime>>()
         {
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 9)),
@@ -127,7 +130,7 @@ public partial class Timeline : Form
         };
 
         events.Sort();
-        PopulateEvents(events, new DateTime(2023, 4, 1));
-        PopulateDates(new DateTime(2023, 4, 1), new DateTime(2023, 4, 30));
+        PopulateEvents(events, startDate);
+        PopulateDates(startDate, endDate);
     }
 }
