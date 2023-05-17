@@ -20,7 +20,7 @@ public partial class Timeline : Form
 
         for (DateTime currentDate = startDate; currentDate <= endDate; currentDate = currentDate.AddDays(1))
         {
-            if (currentDate.Day == 1)
+            if (currentDate.Day == 1) // This can produce overlapping month if the first day is 1 but can't be notice
             {
                 Label nextMonths = new Label();
                 nextMonths.Text = currentDate.ToString("MMMM yyyy");
@@ -29,18 +29,29 @@ public partial class Timeline : Form
                 nextMonths.AutoSize = true;
                 panelTimelineContainer.Controls.Add(nextMonths);
             }
+
             DayDates dayDates = new DayDates();
             dayDates.Day = currentDate.ToString("ddd");
             dayDates.Date = currentDate.Day.ToString();
             dayDates.Location = new Point(columnSize * (currentDate - startDate).Days, firstMonth.Height - 5);
             panelTimelineContainer.Controls.Add(dayDates);
 
-            Panel linePanel = new Panel();
-            linePanel.BackColor = Color.Black;
-            linePanel.Width = 1;
-            linePanel.Height = panelTimelineContainer.Height - 58;
-            linePanel.Location = new Point(dayDates.Left + dayDates.Width / 2, dayDates.Height);
-            panelTimelineContainer.Controls.Add(linePanel);
+            if (currentDate.DayOfYear == DateTime.Now.DayOfYear)
+            {
+                Panel liveLine = new Panel();
+                liveLine.BackColor = Color.FromArgb(15, 76, 129);
+                liveLine.Width = 1;
+                liveLine.Height = panelTimelineContainer.Height - 58;
+                liveLine.Location = new Point(dayDates.Left + dayDates.Width, dayDates.Height);
+                panelTimelineContainer.Controls.Add(liveLine);
+            }
+
+            Panel line = new Panel();
+            line.BackColor = Color.Black;
+            line.Width = 1;
+            line.Height = panelTimelineContainer.Height - 58;
+            line.Location = new Point(dayDates.Left + dayDates.Width / 2, dayDates.Height);
+            panelTimelineContainer.Controls.Add(line);
         }
     }
 
@@ -112,7 +123,7 @@ public partial class Timeline : Form
     private void Timeline_Load(object sender, EventArgs e)
     {
         DateTime startDate = new DateTime(2023, 4, 1);
-        DateTime endDate = new DateTime(2023, 5, 5);
+        DateTime endDate = new DateTime(2023, 5, 20);
 
         List<Tuple<DateTime, DateTime>> events = new List<Tuple<DateTime, DateTime>>()
         {

@@ -14,6 +14,8 @@ namespace ScheduleMe
         private static About about;
         private Button previousButton = new Button();
 
+        public Color accentColor = Color.FromArgb(15, 76, 129);
+
         public MainForm()
         {
             InitializeComponent();
