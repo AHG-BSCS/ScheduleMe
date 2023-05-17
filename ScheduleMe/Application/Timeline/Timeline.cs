@@ -11,12 +11,28 @@ public partial class Timeline : Form
 
     private void PopulateDates(DateTime startDate, DateTime endDate)
     {
+        Label firstMonth = new Label();
+        firstMonth.Text = startDate.ToString("MMMM yyyy");
+        firstMonth.Font = new Font("Dubai", 10, FontStyle.Bold);
+        firstMonth.Location = new Point(0, 0);
+        firstMonth.AutoSize = true;
+        panelTimelineContainer.Controls.Add(firstMonth);
+
         for (DateTime currentDate = startDate; currentDate <= endDate; currentDate = currentDate.AddDays(1))
         {
+            if (currentDate.Day == 1)
+            {
+                Label nextMonths = new Label();
+                nextMonths.Text = currentDate.ToString("MMMM yyyy");
+                nextMonths.Font = new Font("Dubai", 10, FontStyle.Bold);
+                nextMonths.Location = new Point(columnSize * (currentDate - startDate).Days, 0);
+                nextMonths.AutoSize = true;
+                panelTimelineContainer.Controls.Add(nextMonths);
+            }
             DayDates dayDates = new DayDates();
             dayDates.Day = currentDate.ToString("ddd");
             dayDates.Date = currentDate.Day.ToString();
-            dayDates.Location = new Point(columnSize * (currentDate - startDate).Days, 5);
+            dayDates.Location = new Point(columnSize * (currentDate - startDate).Days, firstMonth.Height - 5);
             panelTimelineContainer.Controls.Add(dayDates);
 
             Panel linePanel = new Panel();
