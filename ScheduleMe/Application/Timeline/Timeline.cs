@@ -36,6 +36,13 @@ public partial class Timeline : Form
             dayDates.Location = new Point(columnSize * (currentDate - startDate).Days, firstMonth.Height - 5);
             panelTimelineContainer.Controls.Add(dayDates);
 
+            Panel line = new Panel();
+            line.BackColor = Color.Black;
+            line.Width = 1;
+            line.Height = panelTimelineContainer.Height - 58;
+            line.Location = new Point(dayDates.Left + dayDates.Width / 2, dayDates.Height);
+            panelTimelineContainer.Controls.Add(line);
+
             if (currentDate.DayOfYear == DateTime.Now.DayOfYear)
             {
                 Panel liveLine = new Panel();
@@ -46,14 +53,9 @@ public partial class Timeline : Form
                     + (columnSize - (24 - DateTime.Now.Hour)),
                     dayDates.Height + 19);
                 panelTimelineContainer.Controls.Add(liveLine);
-            }
 
-            Panel line = new Panel();
-            line.BackColor = Color.Black;
-            line.Width = 1;
-            line.Height = panelTimelineContainer.Height - 58;
-            line.Location = new Point(dayDates.Left + dayDates.Width / 2, dayDates.Height);
-            panelTimelineContainer.Controls.Add(line);
+                line.Width = 2;
+            }
         }
     }
 
