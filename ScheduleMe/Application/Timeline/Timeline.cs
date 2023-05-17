@@ -44,7 +44,7 @@ public partial class Timeline : Form
             newEvent.StartDate = eventDate.Item1;
             newEvent.EndDate = eventDate.Item2;
             newEvent.Event = "Event " + tempIncrement++;
-            newEvent.Width = eventDuration * columnSize + 1;
+            newEvent.Width = eventDuration * columnSize + 4;
             newEvent.Location = new Point(eventsXAxis + 17, 55);
 
             panelTimelineContainer.Controls.Add(newEvent);
