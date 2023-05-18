@@ -58,7 +58,7 @@ partial class TimelineTab
         Controls.Add(eventTab);
         Margin = new Padding(0);
         Name = "TimelineTab";
-        Size = new Size(72, 36);
+        Size = new Size(72, 35);
         ResumeLayout(false);
         PerformLayout();
     }
