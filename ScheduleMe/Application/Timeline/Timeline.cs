@@ -47,7 +47,7 @@ public partial class Timeline : Form
             {
                 Panel timeIndicator = new Panel();
                 timeIndicator.BackColor = Color.FromArgb(15, 76, 129);
-                timeIndicator.Width = 2;
+                timeIndicator.Width = 3;
                 timeIndicator.Height = panelTimelineContainer.Height - 62;
                 timeIndicator.Location = new Point((dayDates.Left + dayDates.Width / 2)
                     + ((int)((float)columnSize * (float)(DateTime.Now.Hour / 24.0))),
@@ -60,7 +60,7 @@ public partial class Timeline : Form
                 Label timeIndicatorText = new Label();
                 timeIndicatorText.BackColor = Color.FromArgb(15, 76, 129);
                 timeIndicatorText.ForeColor = Color.White;
-                timeIndicatorText.Text = currentDate.ToString("HH:MM");
+                timeIndicatorText.Text = DateTime.Now.ToString("hh:mm tt");
                 timeIndicatorText.Font = new Font("Dubai", 8, FontStyle.Bold);
                 timeIndicatorText.Location = new Point(timeIndicator.Left, timeIndicator.Top - 14);
                 timeIndicatorText.AutoSize = true;
