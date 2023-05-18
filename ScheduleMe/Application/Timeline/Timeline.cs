@@ -1,9 +1,16 @@
-﻿namespace ScheduleMe.Tab;
+﻿using LiteDB;
+using System.IO;
+
+namespace ScheduleMe.Tab;
 
 public partial class Timeline : Form
 {
+    private string timelineConnection = @"C:\Users\Jhondale\Documents\CODE\C#\GitHub\ScheduleMe\ScheduleMe\Database\Timelines.db";
     private byte columnSize = 42;
     private short currentDateTimePosition = 0;
+    private string timelineName;
+    private DateTime startDate;
+    private DateTime endDate;
 
     public Timeline()
     {
@@ -12,6 +19,7 @@ public partial class Timeline : Form
 
     private void Timeline_Load(object sender, EventArgs e)
     {
+        /*
         DateTime startDate = new DateTime(2023, 4, 1);
         DateTime endDate = new DateTime(2023, 6, 20);
 
@@ -30,10 +38,27 @@ public partial class Timeline : Form
             new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 12), new DateTime(2023, 4, 16)),
             new Tuple<DateTime, DateTime>(new DateTime(2023, 5, 16), new DateTime(2023, 5, 19)),
         };
-
         events.Sort();
         PopulateEvents(events, startDate);
-        PopulateDates(startDate, endDate);
+        */
+
+        using (var timelineDB = new LiteDatabase(timelineConnection))
+        {
+            var timelines = timelineDB.GetCollection<AddTimelineTab>("Timeline");
+            var timeline = timelines.FindAll().ToArray();
+
+            foreach (var timelineName in timeline)
+            {
+                this.timelineName = timelineName.timelineName;
+                startDate = timelineName.startDate;
+                endDate = timelineName.endDate;
+                addNewTab();
+            }
+        }
+        if (startDate.Year != 00001)
+        {
+            PopulateDates(startDate, endDate);
+        }
     }
 
     private void PopulateDates(DateTime startDate, DateTime endDate)
@@ -166,6 +191,7 @@ public partial class Timeline : Form
     private void addNewTab()
     {
         TimelineTab newTimelineTab = new TimelineTab();
+        newTimelineTab.tabName = timelineName;
         newTimelineTab.Location = new Point(timelineAddTab.Left, timelineAddTab.Top);
         panelTimelineTab.Controls.Add(newTimelineTab);
         newTimelineTab.BringToFront();
@@ -190,6 +216,16 @@ public partial class Timeline : Form
     {
         AddTimelineTab addTimelineTab = new AddTimelineTab();
         addTimelineTab.ShowDialog();
+
+        using (var timelineDB = new LiteDatabase(timelineConnection))
+        {
+            var timelines = timelineDB.GetCollection<AddTimelineTab>("Timeline");
+            var timeline1 = timelines.FindById(1);
+
+            timelineName = timeline1.timelineName;
+            startDate = timeline1.startDate;
+            endDate = timeline1.endDate;
+        }
         addNewTab();
     }
 }
