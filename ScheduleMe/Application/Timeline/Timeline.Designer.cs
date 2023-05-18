@@ -80,7 +80,6 @@ partial class Timeline
         // timelineAddTab
         // 
         timelineAddTab.BackColor = Color.FromArgb(15, 76, 129);
-        timelineAddTab.Dock = DockStyle.Left;
         timelineAddTab.FlatAppearance.BorderColor = Color.White;
         timelineAddTab.FlatAppearance.BorderSize = 2;
         timelineAddTab.FlatStyle = FlatStyle.Flat;
