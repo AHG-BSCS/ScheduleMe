@@ -45,16 +45,27 @@ public partial class Timeline : Form
 
             if (currentDate.DayOfYear == DateTime.Now.DayOfYear)
             {
-                Panel liveLine = new Panel();
-                liveLine.BackColor = Color.FromArgb(15, 76, 129);
-                liveLine.Width = 2;
-                liveLine.Height = panelTimelineContainer.Height - 77;
-                liveLine.Location = new Point((dayDates.Left + dayDates.Width / 2)
+                Panel timeIndicator = new Panel();
+                timeIndicator.BackColor = Color.FromArgb(15, 76, 129);
+                timeIndicator.Width = 2;
+                timeIndicator.Height = panelTimelineContainer.Height - 62;
+                timeIndicator.Location = new Point((dayDates.Left + dayDates.Width / 2)
                     + ((int)((float)columnSize * (float)(DateTime.Now.Hour / 24.0))),
-                    dayDates.Height + 19);
-                panelTimelineContainer.Controls.Add(liveLine);
+                    dayDates.Height + 4);
+                panelTimelineContainer.Controls.Add(timeIndicator);
+                timeIndicator.BringToFront();
 
                 line.Width = 2;
+
+                Label timeIndicatorText = new Label();
+                timeIndicatorText.BackColor = Color.FromArgb(15, 76, 129);
+                timeIndicatorText.ForeColor = Color.White;
+                timeIndicatorText.Text = currentDate.ToString("HH:MM");
+                timeIndicatorText.Font = new Font("Dubai", 8, FontStyle.Bold);
+                timeIndicatorText.Location = new Point(timeIndicator.Left, timeIndicator.Top - 14);
+                timeIndicatorText.AutoSize = true;
+                panelTimelineContainer.Controls.Add(timeIndicatorText);
+                timeIndicatorText.BringToFront();
             }
         }
     }
