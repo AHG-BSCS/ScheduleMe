@@ -7,8 +7,8 @@ public partial class Timeline : Form
         InitializeComponent();
     }
 
-    private int columnSize = 42;
-    private int currentDateTime = 0;
+    private byte columnSize = 42;
+    private short currentDateTimePosition = 0;
 
     private void PopulateDates(DateTime startDate, DateTime endDate)
     {
@@ -67,14 +67,14 @@ public partial class Timeline : Form
                 timeIndicatorText.BringToFront();
 
                 line.Width = 2;
-                currentDateTime = timeIndicatorLine.Left;
+                currentDateTimePosition = (short)timeIndicatorLine.Left;
             }
         }
     }
 
     private void PopulateEvents(List<Tuple<DateTime, DateTime>> eventDates, DateTime startDate)
     {
-        int tempIncrement = 1;
+        short tempIncrement = 1;
         int lowestBottom = 0;
 
         foreach (Tuple<DateTime, DateTime> eventDate in eventDates)
@@ -166,13 +166,17 @@ public partial class Timeline : Form
     private void currentDate_Click(object sender, EventArgs e)
     {
         Screen screen = Screen.PrimaryScreen;
-        int screenWidth = screen.Bounds.Width;
-        panelTimelineContainer.HorizontalScroll.Value = currentDateTime - (screenWidth / 2);
-
+        short screenWidth = (short)screen.Bounds.Width;
+        panelTimelineContainer.AutoScrollPosition = new Point(currentDateTimePosition - (screenWidth / 2));
     }
 
     private void additionalInfo_Click(object sender, EventArgs e)
     {
 
+    }
+
+    private void timelineAddTab_Click(object sender, EventArgs e)
+    {
+        
     }
 }

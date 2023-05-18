@@ -31,9 +31,9 @@ partial class Timeline
         panelTimelineTab = new Panel();
         additionalInfo = new PictureBox();
         currentDate = new PictureBox();
-        btnAddTab = new Button();
-        btnTab2 = new Button();
-        btnTab1 = new Button();
+        timelineAddTab = new Button();
+        timelineTab2 = new Button();
+        timelineTab1 = new Button();
         panelTimelineContainer = new Panel();
         panelTimelineTab.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)additionalInfo).BeginInit();
@@ -45,9 +45,9 @@ partial class Timeline
         panelTimelineTab.BackColor = Color.FromArgb(15, 76, 129);
         panelTimelineTab.Controls.Add(additionalInfo);
         panelTimelineTab.Controls.Add(currentDate);
-        panelTimelineTab.Controls.Add(btnAddTab);
-        panelTimelineTab.Controls.Add(btnTab2);
-        panelTimelineTab.Controls.Add(btnTab1);
+        panelTimelineTab.Controls.Add(timelineAddTab);
+        panelTimelineTab.Controls.Add(timelineTab2);
+        panelTimelineTab.Controls.Add(timelineTab1);
         panelTimelineTab.Dock = DockStyle.Top;
         panelTimelineTab.Location = new Point(0, 0);
         panelTimelineTab.Name = "panelTimelineTab";
@@ -81,53 +81,54 @@ partial class Timeline
         currentDate.TabStop = false;
         currentDate.Click += currentDate_Click;
         // 
-        // btnAddTab
+        // timelineAddTab
         // 
-        btnAddTab.AutoSize = true;
-        btnAddTab.BackColor = Color.FromArgb(15, 76, 129);
-        btnAddTab.Dock = DockStyle.Left;
-        btnAddTab.FlatAppearance.BorderColor = Color.White;
-        btnAddTab.FlatStyle = FlatStyle.Flat;
-        btnAddTab.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        btnAddTab.ForeColor = Color.White;
-        btnAddTab.Location = new Point(238, 0);
-        btnAddTab.Name = "btnAddTab";
-        btnAddTab.Size = new Size(38, 35);
-        btnAddTab.TabIndex = 2;
-        btnAddTab.Text = " +";
-        btnAddTab.UseVisualStyleBackColor = false;
+        timelineAddTab.AutoSize = true;
+        timelineAddTab.BackColor = Color.FromArgb(15, 76, 129);
+        timelineAddTab.Dock = DockStyle.Left;
+        timelineAddTab.FlatAppearance.BorderColor = Color.White;
+        timelineAddTab.FlatStyle = FlatStyle.Flat;
+        timelineAddTab.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        timelineAddTab.ForeColor = Color.White;
+        timelineAddTab.Location = new Point(238, 0);
+        timelineAddTab.Name = "timelineAddTab";
+        timelineAddTab.Size = new Size(38, 35);
+        timelineAddTab.TabIndex = 2;
+        timelineAddTab.Text = " +";
+        timelineAddTab.UseVisualStyleBackColor = false;
+        timelineAddTab.Click += timelineAddTab_Click;
         // 
-        // btnTab2
+        // timelineTab2
         // 
-        btnTab2.AutoSize = true;
-        btnTab2.BackColor = Color.FromArgb(15, 76, 129);
-        btnTab2.Dock = DockStyle.Left;
-        btnTab2.FlatAppearance.BorderColor = Color.White;
-        btnTab2.FlatStyle = FlatStyle.Flat;
-        btnTab2.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        btnTab2.ForeColor = Color.White;
-        btnTab2.Location = new Point(133, 0);
-        btnTab2.Name = "btnTab2";
-        btnTab2.Size = new Size(105, 35);
-        btnTab2.TabIndex = 1;
-        btnTab2.Text = "CCS Week";
-        btnTab2.UseVisualStyleBackColor = false;
+        timelineTab2.AutoSize = true;
+        timelineTab2.BackColor = Color.FromArgb(15, 76, 129);
+        timelineTab2.Dock = DockStyle.Left;
+        timelineTab2.FlatAppearance.BorderColor = Color.White;
+        timelineTab2.FlatStyle = FlatStyle.Flat;
+        timelineTab2.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        timelineTab2.ForeColor = Color.White;
+        timelineTab2.Location = new Point(133, 0);
+        timelineTab2.Name = "timelineTab2";
+        timelineTab2.Size = new Size(105, 35);
+        timelineTab2.TabIndex = 1;
+        timelineTab2.Text = "CCS Week";
+        timelineTab2.UseVisualStyleBackColor = false;
         // 
-        // btnTab1
+        // timelineTab1
         // 
-        btnTab1.AutoSize = true;
-        btnTab1.BackColor = Color.White;
-        btnTab1.Dock = DockStyle.Left;
-        btnTab1.FlatAppearance.BorderColor = Color.White;
-        btnTab1.FlatStyle = FlatStyle.Flat;
-        btnTab1.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        btnTab1.ForeColor = Color.Black;
-        btnTab1.Location = new Point(10, 0);
-        btnTab1.Name = "btnTab1";
-        btnTab1.Size = new Size(123, 35);
-        btnTab1.TabIndex = 0;
-        btnTab1.Text = "Genshin Impact";
-        btnTab1.UseVisualStyleBackColor = false;
+        timelineTab1.AutoSize = true;
+        timelineTab1.BackColor = Color.White;
+        timelineTab1.Dock = DockStyle.Left;
+        timelineTab1.FlatAppearance.BorderColor = Color.White;
+        timelineTab1.FlatStyle = FlatStyle.Flat;
+        timelineTab1.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        timelineTab1.ForeColor = Color.Black;
+        timelineTab1.Location = new Point(10, 0);
+        timelineTab1.Name = "timelineTab1";
+        timelineTab1.Size = new Size(123, 35);
+        timelineTab1.TabIndex = 0;
+        timelineTab1.Text = "Genshin Impact";
+        timelineTab1.UseVisualStyleBackColor = false;
         // 
         // panelTimelineContainer
         // 
@@ -163,9 +164,9 @@ partial class Timeline
     #endregion
 
     private Panel panelTimelineTab;
-    private Button btnTab1;
-    private Button btnTab2;
-    private Button btnAddTab;
+    private Button timelineTab1;
+    private Button timelineTab2;
+    private Button timelineAddTab;
     private Panel panelTimelineContainer;
     private PictureBox currentDate;
     private PictureBox additionalInfo;
