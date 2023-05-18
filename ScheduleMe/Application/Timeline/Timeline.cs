@@ -8,6 +8,7 @@ public partial class Timeline : Form
     }
 
     private int columnSize = 42;
+    private int currentDateTime = 0;
 
     private void PopulateDates(DateTime startDate, DateTime endDate)
     {
@@ -55,8 +56,6 @@ public partial class Timeline : Form
                 panelTimelineContainer.Controls.Add(timeIndicatorLine);
                 timeIndicatorLine.BringToFront();
 
-                line.Width = 2;
-
                 Label timeIndicatorText = new Label();
                 timeIndicatorText.BackColor = Color.FromArgb(15, 76, 129);
                 timeIndicatorText.ForeColor = Color.White;
@@ -66,6 +65,9 @@ public partial class Timeline : Form
                 timeIndicatorText.AutoSize = true;
                 panelTimelineContainer.Controls.Add(timeIndicatorText);
                 timeIndicatorText.BringToFront();
+
+                line.Width = 2;
+                currentDateTime = timeIndicatorLine.Left;
             }
         }
     }
@@ -138,7 +140,7 @@ public partial class Timeline : Form
     private void Timeline_Load(object sender, EventArgs e)
     {
         DateTime startDate = new DateTime(2023, 4, 1);
-        DateTime endDate = new DateTime(2023, 5, 20);
+        DateTime endDate = new DateTime(2023, 6, 20);
 
         List<Tuple<DateTime, DateTime>> events = new List<Tuple<DateTime, DateTime>>()
         {
@@ -163,6 +165,9 @@ public partial class Timeline : Form
 
     private void currentDate_Click(object sender, EventArgs e)
     {
+        Screen screen = Screen.PrimaryScreen;
+        int screenWidth = screen.Bounds.Width;
+        panelTimelineContainer.HorizontalScroll.Value = currentDateTime - (screenWidth / 2);
 
     }
 
