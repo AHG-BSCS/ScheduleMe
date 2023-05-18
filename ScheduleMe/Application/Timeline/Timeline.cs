@@ -2,13 +2,39 @@
 
 public partial class Timeline : Form
 {
+    private byte columnSize = 42;
+    private short currentDateTimePosition = 0;
+
     public Timeline()
     {
         InitializeComponent();
     }
 
-    private byte columnSize = 42;
-    private short currentDateTimePosition = 0;
+    private void Timeline_Load(object sender, EventArgs e)
+    {
+        DateTime startDate = new DateTime(2023, 4, 1);
+        DateTime endDate = new DateTime(2023, 6, 20);
+
+        List<Tuple<DateTime, DateTime>> events = new List<Tuple<DateTime, DateTime>>()
+        {
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 9)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 4), new DateTime(2023, 4, 8)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 5), new DateTime(2023, 4, 7)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 2), new DateTime(2023, 4, 4)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 3), new DateTime(2023, 4, 6)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 5)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 2)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 3)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 16)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 11), new DateTime(2023, 4, 17)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 12), new DateTime(2023, 4, 16)),
+            new Tuple<DateTime, DateTime>(new DateTime(2023, 5, 16), new DateTime(2023, 5, 19)),
+        };
+
+        events.Sort();
+        PopulateEvents(events, startDate);
+        PopulateDates(startDate, endDate);
+    }
 
     private void PopulateDates(DateTime startDate, DateTime endDate)
     {
@@ -137,30 +163,15 @@ public partial class Timeline : Form
         lowestBottom = Math.Max(newEvent.Bottom, lowestBottom);
     }
 
-    private void Timeline_Load(object sender, EventArgs e)
+    private void addNewTab()
     {
-        DateTime startDate = new DateTime(2023, 4, 1);
-        DateTime endDate = new DateTime(2023, 6, 20);
+        TimelineTab newTimelineTab = new TimelineTab();
+        newTimelineTab.Location = new Point(timelineAddTab.Left, timelineAddTab.Top);
+        panelTimelineTab.Controls.Add(newTimelineTab);
+        newTimelineTab.BringToFront();
 
-        List<Tuple<DateTime, DateTime>> events = new List<Tuple<DateTime, DateTime>>()
-        {
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 9)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 4), new DateTime(2023, 4, 8)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 5), new DateTime(2023, 4, 7)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 2), new DateTime(2023, 4, 4)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 3), new DateTime(2023, 4, 6)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 5)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 2)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 3)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 16)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 11), new DateTime(2023, 4, 17)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 12), new DateTime(2023, 4, 16)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 5, 16), new DateTime(2023, 5, 19)),
-        };
-
-        events.Sort();
-        PopulateEvents(events, startDate);
-        PopulateDates(startDate, endDate);
+        timelineAddTab.Location = new Point(newTimelineTab.Right, newTimelineTab.Top);
+        newTimelineTab.Dock = DockStyle.Left;
     }
 
     private void currentDate_Click(object sender, EventArgs e)
@@ -177,17 +188,8 @@ public partial class Timeline : Form
 
     private void timelineAddTab_Click(object sender, EventArgs e)
     {
+        AddTimelineTab addTimelineTab = new AddTimelineTab();
+        addTimelineTab.ShowDialog();
         addNewTab();
-    }
-
-    private void addNewTab()
-    {
-        TimelineTab newTimelineTab = new TimelineTab();
-        newTimelineTab.Location = new Point(timelineAddTab.Left, timelineAddTab.Top);
-        panelTimelineTab.Controls.Add(newTimelineTab);
-        newTimelineTab.BringToFront();
-
-        timelineAddTab.Location = new Point(newTimelineTab.Right, newTimelineTab.Top);
-        newTimelineTab.Dock = DockStyle.Left;
     }
 }

@@ -108,6 +108,7 @@ partial class AddTimelineTab
         btnSaveTimeline.TabStop = false;
         btnSaveTimeline.Text = "Add";
         btnSaveTimeline.UseVisualStyleBackColor = false;
+        btnSaveTimeline.Click += btnSaveTimeline_Click;
         // 
         // btnCancelTimeline
         // 
@@ -123,6 +124,7 @@ partial class AddTimelineTab
         btnCancelTimeline.TabStop = false;
         btnCancelTimeline.Text = "Cancel";
         btnCancelTimeline.UseVisualStyleBackColor = false;
+        btnCancelTimeline.Click += btnCancelTimeline_Click;
         // 
         // endDatePicker
         // 
@@ -156,6 +158,7 @@ partial class AddTimelineTab
         Margin = new Padding(3, 4, 3, 4);
         Name = "AddTimelineTab";
         Text = "Add Timeline";
+        TopMost = true;
         ResumeLayout(false);
         PerformLayout();
     }
