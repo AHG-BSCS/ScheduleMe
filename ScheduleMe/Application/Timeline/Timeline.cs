@@ -70,7 +70,7 @@ public partial class Timeline : Form
             line.Location = new Point(dayDates.Left + dayDates.Width / 2, dayDates.Height);
             panelTimelineContainer.Controls.Add(line);
 
-            if (currentDate.DayOfYear == DateTime.Now.DayOfYear)
+            if (currentDate.DayOfYear == DateTime.Now.DayOfYear && currentDate.Year == DateTime.Now.Year)
             {
                 Panel timeIndicatorLine = new Panel();
                 timeIndicatorLine.BackColor = Color.FromArgb(15, 76, 129);

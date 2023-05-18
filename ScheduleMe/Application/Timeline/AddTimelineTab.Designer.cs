@@ -157,8 +157,8 @@ partial class AddTimelineTab
         FormBorderStyle = FormBorderStyle.FixedToolWindow;
         Margin = new Padding(3, 4, 3, 4);
         Name = "AddTimelineTab";
+        StartPosition = FormStartPosition.CenterScreen;
         Text = "Add Timeline";
-        TopMost = true;
         ResumeLayout(false);
         PerformLayout();
     }
