@@ -177,6 +177,13 @@ public partial class Timeline : Form
 
     private void timelineAddTab_Click(object sender, EventArgs e)
     {
-        
+        TimelineTab newTimelineTab = new TimelineTab();
+        newTimelineTab.Location = new Point(timelineAddTab.Left, timelineAddTab.Top);
+        panelTimelineTab.Controls.Add(newTimelineTab);
+        newTimelineTab.BringToFront();
+
+        timelineAddTab.Dock = DockStyle.None;
+        timelineAddTab.Location = new Point(newTimelineTab.Right, newTimelineTab.Top);
+        newTimelineTab.Dock = DockStyle.Left;
     }
 }
