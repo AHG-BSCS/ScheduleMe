@@ -1,8 +1,8 @@
 ﻿namespace ScheduleMe.Tab;
 
-public partial class DayDates : UserControl
+public partial class DatesLabelBase : UserControl
 {
-    public DayDates()
+    public DatesLabelBase()
     {
         InitializeComponent();
     }

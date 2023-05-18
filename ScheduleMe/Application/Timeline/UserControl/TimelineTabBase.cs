@@ -1,13 +1,13 @@
 ﻿namespace ScheduleMe.Tab;
 
-public partial class TimelineTab : UserControl
+public partial class TimelineTabBase : UserControl
 {
     public string tabName
     {
         set { eventTab.Text = value; }
     }
 
-    public TimelineTab()
+    public TimelineTabBase()
     {
         InitializeComponent();
     }

@@ -1,8 +1,8 @@
 ﻿namespace ScheduleMe.Tab;
 
-public partial class Events : UserControl
+public partial class EventButtonBase : UserControl
 {
-    public Events()
+    public EventButtonBase()
     {
         InitializeComponent();
     }

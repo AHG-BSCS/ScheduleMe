@@ -82,7 +82,7 @@ public partial class Timeline : Form
                 panelTimelineContainer.Controls.Add(nextMonths);
             }
 
-            DayDates dayDates = new DayDates();
+            DatesLabelBase dayDates = new DatesLabelBase();
             dayDates.Day = currentDate.ToString("ddd");
             dayDates.Date = currentDate.Day.ToString();
             dayDates.Location = new Point(columnSize * (currentDate - startDate).Days, firstMonth.Height - 5);
@@ -135,7 +135,7 @@ public partial class Timeline : Form
                         + (eventDate.Item1 - startDate).Days
                         * columnSize;
 
-            Events newEvent = new Events();
+            EventButtonBase newEvent = new EventButtonBase();
             newEvent.StartDate = eventDate.Item1;
             newEvent.EndDate = eventDate.Item2;
             newEvent.Event = "Event " + tempIncrement++;
@@ -148,14 +148,14 @@ public partial class Timeline : Form
         panelTimelineContainer.Height = lowestBottom + 30;
     }
 
-    private void ArrangeEventsOverlap(Events newEvent, ref int lowestBottom)
+    private void ArrangeEventsOverlap(EventButtonBase newEvent, ref int lowestBottom)
     {
         int previousEventTop = 0;
         int previousOverFlowBottom = 0;
         int noOverflowTop = 0;
         int noOverflowCounter = 0;
 
-        foreach (Events previousEvent in panelTimelineContainer.Controls)
+        foreach (EventButtonBase previousEvent in panelTimelineContainer.Controls)
         {
             if (previousEvent != newEvent && newEvent.Top <= previousEvent.Top) // Not the same object and newEvent is above previousEvent
             {
@@ -190,7 +190,7 @@ public partial class Timeline : Form
 
     private void addNewTab()
     {
-        TimelineTab newTimelineTab = new TimelineTab();
+        TimelineTabBase newTimelineTab = new TimelineTabBase();
         newTimelineTab.tabName = timelineName;
         newTimelineTab.Location = new Point(timelineAddTab.Left, timelineAddTab.Top);
         panelTimelineTab.Controls.Add(newTimelineTab);

@@ -1,6 +1,5 @@
 ﻿namespace ScheduleMe.Tab;
-
-partial class Events
+partial class TimelineTabBase
 {
     /// <summary> 
     /// Required designer variable.
@@ -28,41 +27,43 @@ partial class Events
     /// </summary>
     private void InitializeComponent()
     {
-        eventName = new Button();
+        eventTab = new Button();
         SuspendLayout();
         // 
-        // eventName
+        // eventTab
         // 
-        eventName.BackColor = Color.FromArgb(15, 76, 129);
-        eventName.Dock = DockStyle.Fill;
-        eventName.FlatAppearance.BorderSize = 0;
-        eventName.FlatAppearance.MouseDownBackColor = Color.Transparent;
-        eventName.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
-        eventName.FlatStyle = FlatStyle.Flat;
-        eventName.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
-        eventName.ForeColor = Color.White;
-        eventName.Location = new Point(0, 0);
-        eventName.Name = "eventName";
-        eventName.Size = new Size(65, 30);
-        eventName.TabIndex = 0;
-        eventName.Text = "Event";
-        eventName.UseVisualStyleBackColor = false;
+        eventTab.AutoSize = true;
+        eventTab.BackColor = Color.FromArgb(15, 76, 129);
+        eventTab.Dock = DockStyle.Fill;
+        eventTab.FlatAppearance.BorderColor = Color.White;
+        eventTab.FlatAppearance.BorderSize = 2;
+        eventTab.FlatStyle = FlatStyle.Flat;
+        eventTab.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        eventTab.ForeColor = Color.White;
+        eventTab.Location = new Point(0, 0);
+        eventTab.Margin = new Padding(0);
+        eventTab.Name = "eventTab";
+        eventTab.Size = new Size(72, 36);
+        eventTab.TabIndex = 0;
+        eventTab.TabStop = false;
+        eventTab.Text = "New Tab";
+        eventTab.UseVisualStyleBackColor = false;
         // 
-        // Events
+        // TimelineTab
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
         AutoSize = true;
-        BackColor = Color.White;
-        Controls.Add(eventName);
+        BackColor = Color.Transparent;
+        Controls.Add(eventTab);
         Margin = new Padding(0);
-        Name = "Events";
-        Padding = new Padding(0, 0, 3, 0);
-        Size = new Size(68, 30);
+        Name = "TimelineTab";
+        Size = new Size(72, 35);
         ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
 
-    private Button eventName;
+    private Button eventTab;
 }
