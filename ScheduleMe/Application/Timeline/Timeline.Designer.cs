@@ -29,16 +29,22 @@ partial class Timeline
     private void InitializeComponent()
     {
         panelTimelineTab = new Panel();
+        additionalInfo = new PictureBox();
+        currentDate = new PictureBox();
         btnAddTab = new Button();
         btnTab2 = new Button();
         btnTab1 = new Button();
         panelTimelineContainer = new Panel();
         panelTimelineTab.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)additionalInfo).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)currentDate).BeginInit();
         SuspendLayout();
         // 
         // panelTimelineTab
         // 
         panelTimelineTab.BackColor = Color.FromArgb(15, 76, 129);
+        panelTimelineTab.Controls.Add(additionalInfo);
+        panelTimelineTab.Controls.Add(currentDate);
         panelTimelineTab.Controls.Add(btnAddTab);
         panelTimelineTab.Controls.Add(btnTab2);
         panelTimelineTab.Controls.Add(btnTab1);
@@ -48,6 +54,32 @@ partial class Timeline
         panelTimelineTab.Padding = new Padding(10, 0, 10, 0);
         panelTimelineTab.Size = new Size(850, 35);
         panelTimelineTab.TabIndex = 0;
+        // 
+        // additionalInfo
+        // 
+        additionalInfo.BackColor = Color.Transparent;
+        additionalInfo.BackgroundImage = Properties.Resources.icon_placeholder;
+        additionalInfo.BackgroundImageLayout = ImageLayout.Zoom;
+        additionalInfo.Dock = DockStyle.Right;
+        additionalInfo.Location = new Point(770, 0);
+        additionalInfo.Name = "additionalInfo";
+        additionalInfo.Size = new Size(35, 35);
+        additionalInfo.TabIndex = 4;
+        additionalInfo.TabStop = false;
+        additionalInfo.Click += additionalInfo_Click;
+        // 
+        // currentDate
+        // 
+        currentDate.BackColor = Color.Transparent;
+        currentDate.BackgroundImage = Properties.Resources.icon_placeholder;
+        currentDate.BackgroundImageLayout = ImageLayout.Zoom;
+        currentDate.Dock = DockStyle.Right;
+        currentDate.Location = new Point(805, 0);
+        currentDate.Name = "currentDate";
+        currentDate.Size = new Size(35, 35);
+        currentDate.TabIndex = 3;
+        currentDate.TabStop = false;
+        currentDate.Click += currentDate_Click;
         // 
         // btnAddTab
         // 
@@ -123,6 +155,8 @@ partial class Timeline
         Load += Timeline_Load;
         panelTimelineTab.ResumeLayout(false);
         panelTimelineTab.PerformLayout();
+        ((System.ComponentModel.ISupportInitialize)additionalInfo).EndInit();
+        ((System.ComponentModel.ISupportInitialize)currentDate).EndInit();
         ResumeLayout(false);
     }
 
@@ -133,4 +167,6 @@ partial class Timeline
     private Button btnTab2;
     private Button btnAddTab;
     private Panel panelTimelineContainer;
+    private PictureBox currentDate;
+    private PictureBox additionalInfo;
 }

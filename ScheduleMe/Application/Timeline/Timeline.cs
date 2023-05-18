@@ -160,4 +160,14 @@ public partial class Timeline : Form
         PopulateEvents(events, startDate);
         PopulateDates(startDate, endDate);
     }
+
+    private void currentDate_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void additionalInfo_Click(object sender, EventArgs e)
+    {
+
+    }
 }
