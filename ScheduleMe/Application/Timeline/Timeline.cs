@@ -45,15 +45,15 @@ public partial class Timeline : Form
 
             if (currentDate.DayOfYear == DateTime.Now.DayOfYear)
             {
-                Panel timeIndicator = new Panel();
-                timeIndicator.BackColor = Color.FromArgb(15, 76, 129);
-                timeIndicator.Width = 3;
-                timeIndicator.Height = panelTimelineContainer.Height - 62;
-                timeIndicator.Location = new Point((dayDates.Left + dayDates.Width / 2)
+                Panel timeIndicatorLine = new Panel();
+                timeIndicatorLine.BackColor = Color.FromArgb(15, 76, 129);
+                timeIndicatorLine.Width = 3;
+                timeIndicatorLine.Height = panelTimelineContainer.Height - 35;
+                timeIndicatorLine.Location = new Point((dayDates.Left + dayDates.Width / 2)
                     + ((int)((float)columnSize * (float)(DateTime.Now.Hour / 24.0))),
-                    dayDates.Height + 4);
-                panelTimelineContainer.Controls.Add(timeIndicator);
-                timeIndicator.BringToFront();
+                    dayDates.Height - 22);
+                panelTimelineContainer.Controls.Add(timeIndicatorLine);
+                timeIndicatorLine.BringToFront();
 
                 line.Width = 2;
 
@@ -62,7 +62,7 @@ public partial class Timeline : Form
                 timeIndicatorText.ForeColor = Color.White;
                 timeIndicatorText.Text = DateTime.Now.ToString("hh:mm tt");
                 timeIndicatorText.Font = new Font("Dubai", 8, FontStyle.Bold);
-                timeIndicatorText.Location = new Point(timeIndicator.Left, timeIndicator.Top - 14);
+                timeIndicatorText.Location = new Point(timeIndicatorLine.Left, timeIndicatorLine.Top - 14);
                 timeIndicatorText.AutoSize = true;
                 panelTimelineContainer.Controls.Add(timeIndicatorText);
                 timeIndicatorText.BringToFront();
