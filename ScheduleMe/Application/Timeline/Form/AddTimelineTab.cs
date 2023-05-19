@@ -5,9 +5,7 @@ namespace ScheduleMe.Tab;
 public partial class AddTimelineTab : Form
 {
     private string timelineConnection = @"C:\Users\Jhondale\Documents\CODE\C#\GitHub\ScheduleMe\ScheduleMe\Database\Timelines.db";
-    public string timelineName { get; set; }
-    public DateTime startDate { get; set; }
-    public DateTime endDate { get; set; }
+    public ObjectId Id { get; set; }
 
     public AddTimelineTab()
     {
@@ -18,18 +16,17 @@ public partial class AddTimelineTab : Form
     {
         using (var timelineDB = new LiteDatabase(timelineConnection))
         {
-            var timelines = timelineDB.GetCollection<AddTimelineTab>(tBoxName.Text);
+            var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
 
-            var timeline1 = new AddTimelineTab();
+            var newTimeline = new TimelineTab
             {
-                timelineName = tBoxName.Text;
-                startDate = startDatePicker.Value;
-                endDate = endDatePicker.Value;
+                TimelineName = tBoxName.Text,
+                TimelineStartDate = startDatePicker.Value,
+                TimelineEndDate = endDatePicker.Value
             };
-
-            timelines.Insert(timeline1);
+            timelines.Insert(newTimeline);
+            Id = newTimeline.Id;
         }
-
         this.Close();
     }
 

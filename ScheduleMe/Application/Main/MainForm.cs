@@ -5,7 +5,6 @@ namespace ScheduleMe
 {
     public partial class MainForm : Form
     {
-        public string events = "Filename=events.liteDB; Mode:Exclusive;";
         private static Form activeForm;
         private static Calendar calendar;
         private static Timeline timeline;

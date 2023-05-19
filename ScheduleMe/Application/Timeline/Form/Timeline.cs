@@ -6,11 +6,9 @@ namespace ScheduleMe.Tab;
 public partial class Timeline : Form
 {
     private string timelineConnection = @"C:\Users\Jhondale\Documents\CODE\C#\GitHub\ScheduleMe\ScheduleMe\Database\Timelines.db";
+    public ObjectId Id;
     private byte columnSize = 42;
     private short currentDateTimePosition = 0;
-    private string timelineName;
-    private DateTime startDate;
-    private DateTime endDate;
 
     public Timeline()
     {
@@ -42,22 +40,17 @@ public partial class Timeline : Form
         PopulateEvents(events, startDate);
         */
 
+        // Load all the Timeline in the database
         using (var timelineDB = new LiteDatabase(timelineConnection))
         {
-            var timelines = timelineDB.GetCollection<AddTimelineTab>("Timeline");
-            var timeline = timelines.FindAll().ToArray();
+            var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
+            var timelineTabs = timelines.FindAll();
 
-            foreach (var timelineName in timeline)
+            foreach (TimelineTab tab in timelineTabs)
             {
-                this.timelineName = timelineName.timelineName;
-                startDate = timelineName.startDate;
-                endDate = timelineName.endDate;
-                addNewTab();
+                addNewTab(tab.TimelineName);
+                PopulateDates(tab.TimelineStartDate, tab.TimelineEndDate);
             }
-        }
-        if (startDate.Year != 00001)
-        {
-            PopulateDates(startDate, endDate);
         }
     }
 
@@ -188,7 +181,7 @@ public partial class Timeline : Form
         lowestBottom = Math.Max(newEvent.Bottom, lowestBottom);
     }
 
-    private void addNewTab()
+    private void addNewTab(string timelineName)
     {
         TimelineTabBase newTimelineTab = new TimelineTabBase();
         newTimelineTab.tabName = timelineName;
@@ -217,15 +210,15 @@ public partial class Timeline : Form
         AddTimelineTab addTimelineTab = new AddTimelineTab();
         addTimelineTab.ShowDialog();
 
+        // Load the new added timeline
         using (var timelineDB = new LiteDatabase(timelineConnection))
         {
-            var timelines = timelineDB.GetCollection<AddTimelineTab>("Timeline");
-            var timeline1 = timelines.FindById(1);
+            var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
+            var newtTab = new TimelineTab();
+            newtTab = timelines.FindById(addTimelineTab.Id);
 
-            timelineName = timeline1.timelineName;
-            startDate = timeline1.startDate;
-            endDate = timeline1.endDate;
+            addNewTab(newtTab.TimelineName);
+            PopulateDates(newtTab.TimelineStartDate, newtTab.TimelineEndDate);
         }
-        addNewTab();
     }
 }

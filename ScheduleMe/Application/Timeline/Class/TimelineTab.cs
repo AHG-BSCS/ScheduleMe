@@ -1,10 +1,15 @@
-﻿namespace ScheduleMe.Tab;
+﻿using LiteDB;
+
+namespace ScheduleMe.Tab;
 
 internal class TimelineTab
 {
-    public string timelineName { get; set; }
-    public string description { get; set; }
-    public DateTime startDate { get; set; }
-    public DateTime endDate { get; set; }
+    [BsonId]
+    public ObjectId Id { get; set; }
+
+    public string TimelineName { get; set; }
+    public string Description { get; set; }
+    public DateTime TimelineStartDate { get; set; }
+    public DateTime TimelineEndDate { get; set; }
     // Logo if possible
 }

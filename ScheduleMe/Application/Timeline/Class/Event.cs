@@ -1,10 +1,12 @@
-﻿namespace ScheduleMe.Tab;
+﻿using LiteDB;
+
+namespace ScheduleMe.Tab;
 
 internal class Event : TimelineTab
 {
-    public string eventTitle { get; set; }
-    public string eventDescription { get; set; }
-    public Color color { get; set; }
-    public DateTime startDate { get; set; }
-    public DateTime endDate { get; set; }
+    public string EventTitle { get; set; }
+    public string EventDescription { get; set; }
+    public Color Color { get; set; }
+    public DateTime EventStartDate { get; set; }
+    public DateTime EventEndDate { get; set; }
 }
