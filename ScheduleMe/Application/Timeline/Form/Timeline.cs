@@ -50,6 +50,7 @@ public partial class Timeline : Form
             {
                 addNewTab(tab.TimelineName);
                 PopulateDates(tab.TimelineStartDate, tab.TimelineEndDate);
+                PopulateEvents(tab.Events, tab.TimelineStartDate);
             }
         }
     }
@@ -116,21 +117,21 @@ public partial class Timeline : Form
         }
     }
 
-    private void PopulateEvents(List<Tuple<DateTime, DateTime>> eventDates, DateTime startDate)
+    private void PopulateEvents(List<Event> events, DateTime startDate)
     {
         short tempIncrement = 1;
         int lowestBottom = 0;
 
-        foreach (Tuple<DateTime, DateTime> eventDate in eventDates)
+        foreach (Event eventDate in events)
         {
-            int eventDuration = (int)(eventDate.Item2 - eventDate.Item1).TotalDays;
+            int eventDuration = (int)(eventDate.EventEndDate - eventDate.EventStartDate).TotalDays;
             int eventsXAxis = panelTimelineContainer.HorizontalScroll.Value
-                        + (eventDate.Item1 - startDate).Days
+                        + (eventDate.EventStartDate - startDate).Days
                         * columnSize;
 
             EventButtonBase newEvent = new EventButtonBase();
-            newEvent.StartDate = eventDate.Item1;
-            newEvent.EndDate = eventDate.Item2;
+            newEvent.StartDate = eventDate.EventStartDate;
+            newEvent.EndDate = eventDate.EventEndDate;
             newEvent.Event = "Event " + tempIncrement++;
             newEvent.Width = eventDuration * columnSize + 4;
             newEvent.Location = new Point(eventsXAxis + 17, 70);
