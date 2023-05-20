@@ -50,7 +50,10 @@ public partial class Timeline : Form
             {
                 addNewTab(tab.TimelineName);
                 PopulateDates(tab.TimelineStartDate, tab.TimelineEndDate);
-                PopulateEvents(tab.Events, tab.TimelineStartDate);
+                if (tab.Events != null)
+                {
+                    PopulateEvents(tab.Events, tab.TimelineStartDate);
+                }
             }
         }
     }
