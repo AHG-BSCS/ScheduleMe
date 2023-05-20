@@ -5,7 +5,7 @@ namespace ScheduleMe.Tab;
 
 public partial class Timeline : Form
 {
-    private string timelineConnection = @"C:\Users\Jhondale\Documents\CODE\C#\GitHub\ScheduleMe\ScheduleMe\Database\Timelines.db";
+    private string timelineConnection = @"C:\Users\Jhondale\Downloads\Timelines.db";
     public ObjectId Id;
     private byte columnSize = 42;
     private short currentDateTimePosition = 0;
@@ -17,29 +17,6 @@ public partial class Timeline : Form
 
     private void Timeline_Load(object sender, EventArgs e)
     {
-        /*
-        DateTime startDate = new DateTime(2023, 4, 1);
-        DateTime endDate = new DateTime(2023, 6, 20);
-
-        List<Tuple<DateTime, DateTime>> events = new List<Tuple<DateTime, DateTime>>()
-        {
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 9)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 4), new DateTime(2023, 4, 8)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 5), new DateTime(2023, 4, 7)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 2), new DateTime(2023, 4, 4)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 3), new DateTime(2023, 4, 6)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 5)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 2)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 1), new DateTime(2023, 4, 3)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 6), new DateTime(2023, 4, 16)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 11), new DateTime(2023, 4, 17)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 4, 12), new DateTime(2023, 4, 16)),
-            new Tuple<DateTime, DateTime>(new DateTime(2023, 5, 16), new DateTime(2023, 5, 19)),
-        };
-        events.Sort();
-        PopulateEvents(events, startDate);
-        */
-
         // Load all the Timeline in the database
         using (var timelineDB = new LiteDatabase(timelineConnection))
         {
@@ -48,12 +25,13 @@ public partial class Timeline : Form
 
             foreach (TimelineTab tab in timelineTabs)
             {
-                addNewTab(tab.TimelineName);
-                PopulateDates(tab.TimelineStartDate, tab.TimelineEndDate);
                 if (tab.Events != null)
                 {
+                    //tab.Events.Sort((e1, e2) => e1.EventStartDate.CompareTo(e2.EventStartDate));
                     PopulateEvents(tab.Events, tab.TimelineStartDate);
                 }
+                addNewTab(tab.TimelineName);
+                PopulateDates(tab.TimelineStartDate, tab.TimelineEndDate);
             }
         }
     }
@@ -152,7 +130,7 @@ public partial class Timeline : Form
         int noOverflowTop = 0;
         int noOverflowCounter = 0;
 
-        foreach (EventButtonBase previousEvent in panelTimelineContainer.Controls)
+        foreach (EventButtonBase previousEvent in panelTimelineContainer.Controls.OfType<EventButtonBase>())
         {
             if (previousEvent != newEvent && newEvent.Top <= previousEvent.Top) // Not the same object and newEvent is above previousEvent
             {
