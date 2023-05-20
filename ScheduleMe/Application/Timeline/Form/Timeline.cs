@@ -1,5 +1,6 @@
 ﻿using LiteDB;
 using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ScheduleMe.Tab;
 
@@ -27,7 +28,7 @@ public partial class Timeline : Form
             {
                 if (tab.Events != null)
                 {
-                    //tab.Events.Sort((e1, e2) => e1.EventStartDate.CompareTo(e2.EventStartDate));
+                    tab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
                     PopulateEvents(tab.Events, tab.TimelineStartDate);
                 }
                 addNewTab(tab.TimelineName);
@@ -199,6 +200,7 @@ public partial class Timeline : Form
             var newtTab = new TimelineTab();
             newtTab = timelines.FindById(addTimelineTab.Id);
 
+            PopulateEvents(newtTab.Events, newtTab.TimelineStartDate);
             addNewTab(newtTab.TimelineName);
             PopulateDates(newtTab.TimelineStartDate, newtTab.TimelineEndDate);
         }
