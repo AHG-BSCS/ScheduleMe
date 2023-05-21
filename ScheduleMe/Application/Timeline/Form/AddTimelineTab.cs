@@ -24,7 +24,7 @@ public partial class AddTimelineTab : Form
                 TimelineName = tBoxName.Text,
                 TimelineStartDate = startDatePicker.Value,
                 TimelineEndDate = endDatePicker.Value,
-                
+
             };
 
             // For testing purpose only. Remove later

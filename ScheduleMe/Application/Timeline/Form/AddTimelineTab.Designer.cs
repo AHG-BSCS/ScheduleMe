@@ -85,6 +85,7 @@ partial class AddTimelineTab
         // startDatePicker
         // 
         startDatePicker.CustomFormat = "dddd, MMM dd, yyyy";
+        startDatePicker.Format = DateTimePickerFormat.Custom;
         startDatePicker.Location = new Point(84, 47);
         startDatePicker.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
         startDatePicker.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
@@ -129,6 +130,7 @@ partial class AddTimelineTab
         // endDatePicker
         // 
         endDatePicker.CustomFormat = "dddd, MMM dd, yyyy";
+        endDatePicker.Format = DateTimePickerFormat.Custom;
         endDatePicker.Location = new Point(84, 82);
         endDatePicker.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
         endDatePicker.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);

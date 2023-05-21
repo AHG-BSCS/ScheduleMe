@@ -207,4 +207,10 @@ public partial class Timeline : Form
             PopulateDates(newtTab.TimelineStartDate, newtTab.TimelineEndDate);
         }
     }
+
+    private void timelineOption_Click(object sender, EventArgs e)
+    {
+        EditEvent editEvents = new EditEvent();
+        editEvents.ShowDialog();
+    }
 }

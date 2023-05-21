@@ -28,14 +28,18 @@ partial class Timeline
     /// </summary>
     private void InitializeComponent()
     {
+        components = new System.ComponentModel.Container();
         panelTimelineTab = new Panel();
         additionalInfo = new PictureBox();
         currentDate = new PictureBox();
         timelineAddTab = new Button();
         panelTimelineContainer = new Panel();
+        timelineOption = new ContextMenuStrip(components);
+        editOption = new ToolStripMenuItem();
         panelTimelineTab.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)additionalInfo).BeginInit();
         ((System.ComponentModel.ISupportInitialize)currentDate).BeginInit();
+        timelineOption.SuspendLayout();
         SuspendLayout();
         // 
         // panelTimelineTab
@@ -99,11 +103,28 @@ partial class Timeline
         // 
         panelTimelineContainer.AutoScroll = true;
         panelTimelineContainer.BackColor = Color.Transparent;
+        panelTimelineContainer.ContextMenuStrip = timelineOption;
         panelTimelineContainer.Dock = DockStyle.Top;
         panelTimelineContainer.Location = new Point(0, 35);
         panelTimelineContainer.Name = "panelTimelineContainer";
         panelTimelineContainer.Size = new Size(850, 102);
         panelTimelineContainer.TabIndex = 1;
+        // 
+        // timelineOption
+        // 
+        timelineOption.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        timelineOption.Items.AddRange(new ToolStripItem[] { editOption });
+        timelineOption.Name = "timelineOption";
+        timelineOption.Size = new Size(181, 52);
+        timelineOption.Text = "Option";
+        timelineOption.Click += timelineOption_Click;
+        // 
+        // editOption
+        // 
+        editOption.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        editOption.Name = "editOption";
+        editOption.Size = new Size(180, 26);
+        editOption.Text = "Edit";
         // 
         // Timeline
         // 
@@ -123,6 +144,7 @@ partial class Timeline
         panelTimelineTab.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)additionalInfo).EndInit();
         ((System.ComponentModel.ISupportInitialize)currentDate).EndInit();
+        timelineOption.ResumeLayout(false);
         ResumeLayout(false);
     }
 
@@ -133,4 +155,6 @@ partial class Timeline
     private PictureBox currentDate;
     private PictureBox additionalInfo;
     internal Panel panelTimelineContainer;
+    private ContextMenuStrip timelineOption;
+    private ToolStripMenuItem editOption;
 }

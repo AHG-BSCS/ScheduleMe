@@ -6,4 +6,14 @@ public partial class EditEvent : Form
     {
         InitializeComponent();
     }
+
+    private void timelineAddTab_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void addRowBtn_Click(object sender, EventArgs e)
+    {
+
+    }
 }
