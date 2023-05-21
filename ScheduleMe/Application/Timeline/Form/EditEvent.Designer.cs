@@ -37,9 +37,12 @@ partial class EditEvent
         eventDescriptionHeader = new Label();
         eventTitleHeader = new Label();
         eventInfoPanel = new Panel();
+        addSavePanel = new Panel();
+        saveBtn = new Button();
         addRowBtn = new Button();
         timelineTabPanel.SuspendLayout();
         eventsInfoTLPanel.SuspendLayout();
+        addSavePanel.SuspendLayout();
         SuspendLayout();
         // 
         // timelineTabPanel
@@ -170,20 +173,49 @@ partial class EditEvent
         eventInfoPanel.Size = new Size(984, 0);
         eventInfoPanel.TabIndex = 0;
         // 
+        // addSavePanel
+        // 
+        addSavePanel.BackColor = Color.Transparent;
+        addSavePanel.Controls.Add(saveBtn);
+        addSavePanel.Controls.Add(addRowBtn);
+        addSavePanel.Dock = DockStyle.Top;
+        addSavePanel.Location = new Point(0, 70);
+        addSavePanel.Name = "addSavePanel";
+        addSavePanel.Padding = new Padding(200, 10, 200, 0);
+        addSavePanel.Size = new Size(984, 39);
+        addSavePanel.TabIndex = 0;
+        // 
+        // saveBtn
+        // 
+        saveBtn.BackColor = SystemColors.ControlDark;
+        saveBtn.Dock = DockStyle.Right;
+        saveBtn.FlatAppearance.BorderSize = 0;
+        saveBtn.FlatStyle = FlatStyle.Flat;
+        saveBtn.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
+        saveBtn.ForeColor = Color.Black;
+        saveBtn.Location = new Point(719, 10);
+        saveBtn.Name = "saveBtn";
+        saveBtn.Size = new Size(65, 29);
+        saveBtn.TabIndex = 0;
+        saveBtn.TabStop = false;
+        saveBtn.Text = "Save";
+        saveBtn.UseVisualStyleBackColor = false;
+        saveBtn.Click += saveBtn_Click;
+        // 
         // addRowBtn
         // 
         addRowBtn.BackColor = SystemColors.ControlDark;
-        addRowBtn.Dock = DockStyle.Top;
+        addRowBtn.Dock = DockStyle.Left;
         addRowBtn.FlatAppearance.BorderSize = 0;
         addRowBtn.FlatStyle = FlatStyle.Flat;
-        addRowBtn.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+        addRowBtn.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
         addRowBtn.ForeColor = Color.Black;
-        addRowBtn.Location = new Point(0, 70);
+        addRowBtn.Location = new Point(200, 10);
         addRowBtn.Name = "addRowBtn";
-        addRowBtn.Size = new Size(984, 35);
-        addRowBtn.TabIndex = 1;
+        addRowBtn.Size = new Size(65, 29);
+        addRowBtn.TabIndex = 0;
         addRowBtn.TabStop = false;
-        addRowBtn.Text = "+";
+        addRowBtn.Text = "Add Row";
         addRowBtn.UseVisualStyleBackColor = false;
         addRowBtn.Click += addRowBtn_Click;
         // 
@@ -191,9 +223,10 @@ partial class EditEvent
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
+        AutoScroll = true;
         BackColor = Color.White;
         ClientSize = new Size(984, 511);
-        Controls.Add(addRowBtn);
+        Controls.Add(addSavePanel);
         Controls.Add(eventInfoPanel);
         Controls.Add(eventsInfoTLPanel);
         Controls.Add(timelineTabPanel);
@@ -206,6 +239,7 @@ partial class EditEvent
         timelineTabPanel.ResumeLayout(false);
         eventsInfoTLPanel.ResumeLayout(false);
         eventsInfoTLPanel.PerformLayout();
+        addSavePanel.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -218,7 +252,9 @@ partial class EditEvent
     private Label eventDescriptionHeader;
     private Label eventColorHeader;
     private Label eventEndDateHeader;
-    private Button addRowBtn;
     internal Panel timelineTabPanel;
     internal Panel eventInfoPanel;
+    private Panel addSavePanel;
+    private Button addRowBtn;
+    private Button saveBtn;
 }

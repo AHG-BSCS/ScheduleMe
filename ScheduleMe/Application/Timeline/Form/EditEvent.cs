@@ -43,6 +43,20 @@ public partial class EditEvent : Form
         }
     }
 
+    private void addNewTab(string timelineName, ObjectId Id)
+    {
+        EditEventTabBase newTimelineTab = new EditEventTabBase();
+        newTimelineTab.tabName = timelineName;
+        newTimelineTab.Id = Id;
+        newTimelineTab.editEventInstance = this;
+        newTimelineTab.Location = new Point(timelineAddTab.Left, timelineAddTab.Top);
+        timelineTabPanel.Controls.Add(newTimelineTab);
+        newTimelineTab.BringToFront();
+
+        timelineAddTab.Location = new Point(newTimelineTab.Right, newTimelineTab.Top);
+        newTimelineTab.Dock = DockStyle.Left;
+    }
+
     private void timelineAddTab_Click(object sender, EventArgs e)
     {
         AddTimelineTab addTimelineTab = new AddTimelineTab();
@@ -67,17 +81,8 @@ public partial class EditEvent : Form
         eventInfoPanel.Controls.Add(newRow);
     }
 
-    private void addNewTab(string timelineName, ObjectId Id)
+    private void saveBtn_Click(object sender, EventArgs e)
     {
-        EditEventTabBase newTimelineTab = new EditEventTabBase();
-        newTimelineTab.tabName = timelineName;
-        newTimelineTab.Id = Id;
-        newTimelineTab.editEventInstance = this;
-        newTimelineTab.Location = new Point(timelineAddTab.Left, timelineAddTab.Top);
-        timelineTabPanel.Controls.Add(newTimelineTab);
-        newTimelineTab.BringToFront();
 
-        timelineAddTab.Location = new Point(newTimelineTab.Right, newTimelineTab.Top);
-        newTimelineTab.Dock = DockStyle.Left;
     }
 }
