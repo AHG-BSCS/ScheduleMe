@@ -94,7 +94,7 @@ public partial class EditEvent : Form
             var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
             TimelineTab timeline = timelines.FindById(currentID);
 
-            foreach (AddEventRow newEvent in newEventRows)  // Null Reference Exception
+            foreach (AddEventRow newEvent in eventInfoPanel.Controls)  // Null Reference Exception
             {
                 timeline.Events = new List<Event>
                 {
