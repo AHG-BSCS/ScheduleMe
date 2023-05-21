@@ -48,8 +48,9 @@ partial class TimelineTabBase
         eventTab.TabStop = false;
         eventTab.Text = "New Tab";
         eventTab.UseVisualStyleBackColor = false;
+        eventTab.Click += eventTab_Click;
         // 
-        // TimelineTab
+        // TimelineTabBase
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
@@ -57,8 +58,8 @@ partial class TimelineTabBase
         BackColor = Color.Transparent;
         Controls.Add(eventTab);
         Margin = new Padding(0);
-        Name = "TimelineTab";
-        Size = new Size(72, 35);
+        Name = "TimelineTabBase";
+        Size = new Size(72, 36);
         ResumeLayout(false);
         PerformLayout();
     }

@@ -33,7 +33,7 @@ public partial class Timeline : Form
 
             foreach (var tab in timelineTabs)
             {
-                addNewTab(tab.TimelineName);
+                addNewTab(tab.TimelineName, tab.Id);
             }
         }
     }
@@ -165,10 +165,11 @@ public partial class Timeline : Form
         lowestBottom = Math.Max(newEvent.Bottom, lowestBottom);
     }
 
-    private void addNewTab(string timelineName)
+    private void addNewTab(string timelineName, ObjectId Id)
     {
         TimelineTabBase newTimelineTab = new TimelineTabBase();
         newTimelineTab.tabName = timelineName;
+        newTimelineTab.Id = Id;
         newTimelineTab.Location = new Point(timelineAddTab.Left, timelineAddTab.Top);
         panelTimelineTab.Controls.Add(newTimelineTab);
         newTimelineTab.BringToFront();
@@ -201,7 +202,7 @@ public partial class Timeline : Form
             var newtTab = new TimelineTab();
             newtTab = timelines.FindById(addTimelineTab.Id);
 
-            addNewTab(newtTab.TimelineName);
+            addNewTab(newtTab.TimelineName, newtTab.Id);
             PopulateDates(newtTab.TimelineStartDate, newtTab.TimelineEndDate);
         }
     }
