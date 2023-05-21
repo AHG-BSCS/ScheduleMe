@@ -31,6 +31,8 @@ public partial class EditEvent : Form
                         EndDate = firstEvents.EventEndDate,
                         Color = firstEvents.EventColor,
                     };
+                    newRow.Dock = DockStyle.Top;
+                    eventInfoPanel.Controls.Add(newRow);
                 }
             }
 

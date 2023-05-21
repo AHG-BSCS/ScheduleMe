@@ -218,7 +218,7 @@ partial class EditEvent
     private Label eventDescriptionHeader;
     private Label eventColorHeader;
     private Label eventEndDateHeader;
-    private Panel eventInfoPanel;
     private Button addRowBtn;
     internal Panel timelineTabPanel;
+    internal Panel eventInfoPanel;
 }

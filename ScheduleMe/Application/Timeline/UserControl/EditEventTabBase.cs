@@ -20,7 +20,7 @@ public partial class EditEventTabBase : UserControl
 
     private void eventTab_Click(object sender, EventArgs e)
     {
-        editEventInstance.timelineTabPanel.Controls.Clear();
+        editEventInstance.eventInfoPanel.Controls.Clear();
         using (var timelineDB = new LiteDatabase(timelineConnection))
         {
             var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
@@ -29,6 +29,19 @@ public partial class EditEventTabBase : UserControl
             if (timelineTabs.Events != null)
             {
                 // Load DateTime
+                foreach (Event firstEvents in timelineTabs.Events)
+                {
+                    AddEventRow newRow = new AddEventRow
+                    {
+                        Title = firstEvents.EventTitle,
+                        Description = firstEvents.EventDescription,
+                        StartDate = firstEvents.EventStartDate,
+                        EndDate = firstEvents.EventEndDate,
+                        Color = firstEvents.EventColor,
+                    };
+                    newRow.Dock = DockStyle.Top;
+                    editEventInstance.eventInfoPanel.Controls.Add(newRow);
+                }
 
             }
         }
