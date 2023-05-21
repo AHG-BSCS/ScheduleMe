@@ -14,6 +14,8 @@ public partial class EditEvent : Form
 
     private void addRowBtn_Click(object sender, EventArgs e)
     {
-
+        AddEventRow newRow = new AddEventRow();
+        newRow.Dock = DockStyle.Top;
+        eventInfoPanel.Controls.Add(newRow);
     }
 }

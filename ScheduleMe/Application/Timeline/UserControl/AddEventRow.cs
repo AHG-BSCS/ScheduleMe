@@ -1,8 +1,8 @@
 ﻿namespace ScheduleMe.Tab;
 
-public partial class EditEventRow : UserControl
+public partial class AddEventRow : UserControl
 {
-    public EditEventRow()
+    public AddEventRow()
     {
         InitializeComponent();
     }

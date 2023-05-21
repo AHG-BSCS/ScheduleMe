@@ -36,6 +36,7 @@ partial class EditEvent
         eventStartDateHeader = new Label();
         eventDescriptionHeader = new Label();
         eventTitleHeader = new Label();
+        eventInfoPanel = new Panel();
         addRowBtn = new Button();
         timelineTabPanel.SuspendLayout();
         eventsInfoTLPanel.SuspendLayout();
@@ -160,17 +161,27 @@ partial class EditEvent
         eventTitleHeader.Text = "Title";
         eventTitleHeader.TextAlign = ContentAlignment.MiddleLeft;
         // 
+        // eventInfoPanel
+        // 
+        eventInfoPanel.AutoSize = true;
+        eventInfoPanel.Dock = DockStyle.Top;
+        eventInfoPanel.Location = new Point(0, 70);
+        eventInfoPanel.Name = "eventInfoPanel";
+        eventInfoPanel.Size = new Size(984, 0);
+        eventInfoPanel.TabIndex = 0;
+        // 
         // addRowBtn
         // 
         addRowBtn.BackColor = SystemColors.ControlDark;
+        addRowBtn.Dock = DockStyle.Top;
         addRowBtn.FlatAppearance.BorderSize = 0;
         addRowBtn.FlatStyle = FlatStyle.Flat;
         addRowBtn.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
         addRowBtn.ForeColor = Color.Black;
         addRowBtn.Location = new Point(0, 70);
         addRowBtn.Name = "addRowBtn";
-        addRowBtn.Size = new Size(37, 35);
-        addRowBtn.TabIndex = 0;
+        addRowBtn.Size = new Size(984, 35);
+        addRowBtn.TabIndex = 1;
         addRowBtn.TabStop = false;
         addRowBtn.Text = "+";
         addRowBtn.UseVisualStyleBackColor = false;
@@ -183,6 +194,7 @@ partial class EditEvent
         BackColor = Color.White;
         ClientSize = new Size(984, 511);
         Controls.Add(addRowBtn);
+        Controls.Add(eventInfoPanel);
         Controls.Add(eventsInfoTLPanel);
         Controls.Add(timelineTabPanel);
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
@@ -194,6 +206,7 @@ partial class EditEvent
         eventsInfoTLPanel.ResumeLayout(false);
         eventsInfoTLPanel.PerformLayout();
         ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
@@ -206,5 +219,6 @@ partial class EditEvent
     private Label eventDescriptionHeader;
     private Label eventColorHeader;
     private Label eventEndDateHeader;
+    private Panel eventInfoPanel;
     private Button addRowBtn;
 }
