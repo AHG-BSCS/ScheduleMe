@@ -181,8 +181,8 @@ partial class EditEvent
         addSavePanel.Dock = DockStyle.Top;
         addSavePanel.Location = new Point(0, 70);
         addSavePanel.Name = "addSavePanel";
-        addSavePanel.Padding = new Padding(200, 10, 200, 0);
-        addSavePanel.Size = new Size(984, 39);
+        addSavePanel.Padding = new Padding(200, 10, 200, 10);
+        addSavePanel.Size = new Size(984, 49);
         addSavePanel.TabIndex = 0;
         // 
         // saveBtn

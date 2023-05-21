@@ -5,6 +5,8 @@ namespace ScheduleMe.Tab;
 public partial class EditEvent : Form
 {
     private string timelineConnection = @"C:\Users\Jhondale\Downloads\Timelines.db";
+    public ObjectId currentID;
+    public List<AddEventRow> newEventRows = new List<AddEventRow>();
 
     public EditEvent()
     {
@@ -34,6 +36,7 @@ public partial class EditEvent : Form
                     newRow.Dock = DockStyle.Top;
                     eventInfoPanel.Controls.Add(newRow);
                 }
+                currentID = firstToLoad.Id;
             }
 
             foreach (var tab in timelineTabs)
@@ -55,6 +58,8 @@ public partial class EditEvent : Form
 
         timelineAddTab.Location = new Point(newTimelineTab.Right, newTimelineTab.Top);
         newTimelineTab.Dock = DockStyle.Left;
+        currentID = newTimelineTab.Id;
+        newEventRows.Clear();
     }
 
     private void timelineAddTab_Click(object sender, EventArgs e)
@@ -77,12 +82,34 @@ public partial class EditEvent : Form
     private void addRowBtn_Click(object sender, EventArgs e)
     {
         AddEventRow newRow = new AddEventRow();
+        newEventRows.Add(newRow);
         newRow.Dock = DockStyle.Top;
         eventInfoPanel.Controls.Add(newRow);
     }
 
     private void saveBtn_Click(object sender, EventArgs e)
     {
+        using (var timelineDB = new LiteDatabase(timelineConnection))
+        {
+            var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
+            TimelineTab timeline = timelines.FindById(currentID);
 
+            foreach (AddEventRow newEvent in newEventRows)
+            {
+                timeline.Events.Add
+                (
+                    new Event
+                    {
+                        EventTitle = newEvent.Title,
+                        EventDescription = newEvent.Description,
+                        EventStartDate = newEvent.StartDate,
+                        EventEndDate = newEvent.EndDate,
+                        EventColor = newEvent.Color
+                    }
+                );
+            }
+            timelines.Insert(timeline);
+            newEventRows.Clear();
+        }
     }
 }

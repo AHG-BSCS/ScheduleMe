@@ -6,7 +6,7 @@ public partial class EditEventTabBase : UserControl
 {
     private string timelineConnection = @"C:\Users\Jhondale\Downloads\Timelines.db";
     public ObjectId Id { get; set; }
-    public EditEvent editEventInstance;
+    public EditEvent editEventInstance; // instance that created this UserControl
 
     public string tabName
     {
@@ -25,6 +25,7 @@ public partial class EditEventTabBase : UserControl
         {
             var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
             var timelineTabs = timelines.FindById(Id);
+            editEventInstance.currentID = Id;
 
             if (timelineTabs.Events != null)
             {
@@ -42,8 +43,8 @@ public partial class EditEventTabBase : UserControl
                     newRow.Dock = DockStyle.Top;
                     editEventInstance.eventInfoPanel.Controls.Add(newRow);
                 }
-
             }
+            editEventInstance.newEventRows.Clear();
         }
     }
 }
