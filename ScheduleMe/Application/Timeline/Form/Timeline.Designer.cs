@@ -98,6 +98,7 @@ partial class Timeline
         // panelTimelineContainer
         // 
         panelTimelineContainer.AutoScroll = true;
+        panelTimelineContainer.BackColor = Color.Transparent;
         panelTimelineContainer.Dock = DockStyle.Top;
         panelTimelineContainer.Location = new Point(0, 35);
         panelTimelineContainer.Name = "panelTimelineContainer";
