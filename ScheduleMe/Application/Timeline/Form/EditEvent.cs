@@ -45,7 +45,19 @@ public partial class EditEvent : Form
 
     private void timelineAddTab_Click(object sender, EventArgs e)
     {
+        AddTimelineTab addTimelineTab = new AddTimelineTab();
+        addTimelineTab.ShowDialog();
 
+        // Load the new added timeline
+        using (var timelineDB = new LiteDatabase(timelineConnection))
+        {
+            var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
+            var newtTab = new TimelineTab();
+            newtTab = timelines.FindById(addTimelineTab.Id);
+
+            addNewTab(newtTab.TimelineName, newtTab.Id);
+            eventInfoPanel.Controls.Clear();
+        }
     }
 
     private void addRowBtn_Click(object sender, EventArgs e)
