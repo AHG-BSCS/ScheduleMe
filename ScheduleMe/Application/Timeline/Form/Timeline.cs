@@ -38,7 +38,7 @@ public partial class Timeline : Form
         }
     }
 
-    private void PopulateDates(DateTime startDate, DateTime endDate)
+    public void PopulateDates(DateTime startDate, DateTime endDate)
     {
         Label firstMonth = new Label();
         firstMonth.Text = startDate.ToString("MMMM yyyy");
@@ -100,7 +100,7 @@ public partial class Timeline : Form
         }
     }
 
-    private void PopulateEvents(List<Event> events, DateTime startDate)
+    internal void PopulateEvents(List<Event> events, DateTime startDate)
     {
         short tempIncrement = 1;
         int lowestBottom = 0;
@@ -170,6 +170,7 @@ public partial class Timeline : Form
         TimelineTabBase newTimelineTab = new TimelineTabBase();
         newTimelineTab.tabName = timelineName;
         newTimelineTab.Id = Id;
+        newTimelineTab.timelineInstance = this;
         newTimelineTab.Location = new Point(timelineAddTab.Left, timelineAddTab.Top);
         panelTimelineTab.Controls.Add(newTimelineTab);
         newTimelineTab.BringToFront();

@@ -129,7 +129,7 @@ partial class Timeline
 
     private Panel panelTimelineTab;
     private Button timelineAddTab;
-    private Panel panelTimelineContainer;
     private PictureBox currentDate;
     private PictureBox additionalInfo;
+    internal Panel panelTimelineContainer;
 }
