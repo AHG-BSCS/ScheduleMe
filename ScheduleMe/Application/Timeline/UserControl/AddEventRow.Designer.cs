@@ -136,13 +136,13 @@ partial class AddEventRow
         colorPickerBtn.UseVisualStyleBackColor = false;
         colorPickerBtn.Click += colorPickerBtn_Click;
         // 
-        // EditEventRow
+        // AddEventRow
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
         BackColor = Color.White;
         Controls.Add(eventsInfoTLPanel);
-        Name = "EditEventRow";
+        Name = "AddEventRow";
         Size = new Size(1000, 31);
         eventsInfoTLPanel.ResumeLayout(false);
         eventsInfoTLPanel.PerformLayout();

@@ -202,6 +202,7 @@ partial class EditEvent
         Margin = new Padding(3, 4, 3, 4);
         Name = "EditEvent";
         Text = "Edit Event";
+        Load += EditEvent_Load;
         timelineTabPanel.ResumeLayout(false);
         eventsInfoTLPanel.ResumeLayout(false);
         eventsInfoTLPanel.PerformLayout();
@@ -210,8 +211,6 @@ partial class EditEvent
     }
 
     #endregion
-
-    private Panel timelineTabPanel;
     private Button timelineAddTab;
     private TableLayoutPanel eventsInfoTLPanel;
     private Label eventTitleHeader;
@@ -221,4 +220,5 @@ partial class EditEvent
     private Label eventEndDateHeader;
     private Panel eventInfoPanel;
     private Button addRowBtn;
+    internal Panel timelineTabPanel;
 }
