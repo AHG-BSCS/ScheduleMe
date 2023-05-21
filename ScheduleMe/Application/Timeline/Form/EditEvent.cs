@@ -94,10 +94,10 @@ public partial class EditEvent : Form
             var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
             TimelineTab timeline = timelines.FindById(currentID);
 
-            foreach (AddEventRow newEvent in newEventRows)
+            foreach (AddEventRow newEvent in newEventRows)  // Null Reference Exception
             {
-                timeline.Events.Add
-                (
+                timeline.Events = new List<Event>
+                {
                     new Event
                     {
                         EventTitle = newEvent.Title,
@@ -106,9 +106,9 @@ public partial class EditEvent : Form
                         EventEndDate = newEvent.EndDate,
                         EventColor = newEvent.Color
                     }
-                );
+                };
             }
-            timelines.Insert(timeline);
+            timelines.Update(timeline);
             newEventRows.Clear();
         }
     }
