@@ -205,16 +205,19 @@ public partial class Timeline : Form
     {
         AddTimelineTab addTimelineTab = new AddTimelineTab();
         addTimelineTab.ShowDialog();
-
-        // Load the new added TimelineTab
-        using (var timelineDB = new LiteDatabase(timelineConnection))
+        
+        if (addTimelineTab.Id != null)
         {
-            var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
-            var newtTab = new TimelineTab();
-            newtTab = timelines.FindById(addTimelineTab.Id);
+            // Load the new added TimelineTab
+            using (var timelineDB = new LiteDatabase(timelineConnection))
+            {
+                var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
+                var newtTab = new TimelineTab();
+                newtTab = timelines.FindById(addTimelineTab.Id);
 
-            addNewTab(newtTab.TimelineName, newtTab.Id);
-            PopulateDates(newtTab.TimelineStartDate, newtTab.TimelineEndDate);
+                addNewTab(newtTab.TimelineName, newtTab.Id);
+                PopulateDates(newtTab.TimelineStartDate, newtTab.TimelineEndDate);
+            }
         }
     }
 
