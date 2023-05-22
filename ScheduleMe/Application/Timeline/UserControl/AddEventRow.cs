@@ -7,6 +7,8 @@ public partial class AddEventRow : UserControl
         InitializeComponent();
     }
 
+    internal Event eventInfo = new Event();
+
     public string Title
     {
         get { return titleTBox.Text; }
@@ -41,5 +43,25 @@ public partial class AddEventRow : UserControl
     {
         colorDialog.ShowDialog();
         colorPickerBtn.BackColor = colorDialog.Color;
+    }
+
+    internal Event GetEventInfo()
+    {
+        eventInfo.EventTitle = titleTBox.Text;
+        eventInfo.EventDescription = descriptionTBox.Text;
+        eventInfo.EventStartDate = startDatePicker.Value;
+        eventInfo.EventEndDate = endDatePicker.Value;
+        eventInfo.EventColor = colorPickerBtn.BackColor;
+
+        return eventInfo;
+    }
+
+    internal void SetEventInfo(Event eventInfo)
+    {
+        titleTBox.Text = eventInfo.EventTitle;
+        descriptionTBox.Text = eventInfo.EventDescription;
+        startDatePicker.Value = eventInfo.EventStartDate;
+        endDatePicker.Value = eventInfo.EventEndDate;
+        colorPickerBtn.BackColor = eventInfo.EventColor;
     }
 }

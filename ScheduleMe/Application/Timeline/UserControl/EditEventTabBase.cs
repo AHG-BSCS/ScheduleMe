@@ -44,7 +44,6 @@ public partial class EditEventTabBase : UserControl
                     editEventInstance.eventInfoPanel.Controls.Add(newRow);
                 }
             }
-            editEventInstance.newEventRows.Clear();
         }
     }
 }

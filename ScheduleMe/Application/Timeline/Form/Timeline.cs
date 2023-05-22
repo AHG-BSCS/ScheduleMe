@@ -22,18 +22,21 @@ public partial class Timeline : Form
         {
             var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
             var timelineTabs = timelines.FindAll();
-            TimelineTab firstToLoad = timelineTabs.First();
-
-            if (firstToLoad.Events != null)
+            if (timelineTabs.Count() != 0)
             {
-                firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-                PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate);
-            }
-            PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
+                TimelineTab firstToLoad = timelineTabs.First();
 
-            foreach (var tab in timelineTabs)
-            {
-                addNewTab(tab.TimelineName, tab.Id);
+                if (firstToLoad.Events != null)
+                {
+                    firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
+                    PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate);
+                }
+                PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
+
+                foreach (var tab in timelineTabs)
+                {
+                    addNewTab(tab.TimelineName, tab.Id);
+                }
             }
         }
     }

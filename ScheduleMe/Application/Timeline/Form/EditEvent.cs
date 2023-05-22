@@ -6,7 +6,6 @@ public partial class EditEvent : Form
 {
     private string timelineConnection = @"C:\Users\Jhondale\Downloads\Timelines.db";
     public ObjectId currentID;
-    public List<AddEventRow> newEventRows = new List<AddEventRow>();
 
     public EditEvent()
     {
@@ -19,30 +18,39 @@ public partial class EditEvent : Form
         {
             var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
             var timelineTabs = timelines.FindAll();
-            TimelineTab firstToLoad = timelineTabs.First();
-
-            if (firstToLoad.Events != null)
+            if (timelineTabs.Count() != 0)
             {
-                foreach (Event firstEvents in firstToLoad.Events)
+                TimelineTab firstToLoad = timelineTabs.First();
+
+                if (firstToLoad.Events != null)
                 {
-                    AddEventRow newRow = new AddEventRow
-                    {
-                        Title = firstEvents.EventTitle,
-                        Description = firstEvents.EventDescription,
-                        StartDate = firstEvents.EventStartDate,
-                        EndDate = firstEvents.EventEndDate,
-                        Color = firstEvents.EventColor,
-                    };
+                    AddEventRow newRow = new AddEventRow();
+                    newRow.SetEventInfo(firstToLoad.Events.GetEnumerator().Current);
                     newRow.Dock = DockStyle.Top;
                     eventInfoPanel.Controls.Add(newRow);
+                    /*
+                    foreach (Event firstEvents in firstToLoad.Events)
+                    {
+                        AddEventRow newRow = new AddEventRow
+                        {
+                            Title = firstEvents.EventTitle,
+                            Description = firstEvents.EventDescription,
+                            StartDate = firstEvents.EventStartDate,
+                            EndDate = firstEvents.EventEndDate,
+                            Color = firstEvents.EventColor,
+                        };
+                        newRow.Dock = DockStyle.Top;
+                        eventInfoPanel.Controls.Add(newRow);
+                    } */
+                    currentID = firstToLoad.Id;
                 }
-                currentID = firstToLoad.Id;
-            }
 
-            foreach (var tab in timelineTabs)
-            {
-                addNewTab(tab.TimelineName, tab.Id);
+                foreach (var tab in timelineTabs)
+                {
+                    addNewTab(tab.TimelineName, tab.Id);
+                }
             }
+            
         }
     }
 
@@ -59,7 +67,6 @@ public partial class EditEvent : Form
         timelineAddTab.Location = new Point(newTimelineTab.Right, newTimelineTab.Top);
         newTimelineTab.Dock = DockStyle.Left;
         currentID = newTimelineTab.Id;
-        newEventRows.Clear();
     }
 
     private void timelineAddTab_Click(object sender, EventArgs e)
@@ -82,34 +89,26 @@ public partial class EditEvent : Form
     private void addRowBtn_Click(object sender, EventArgs e)
     {
         AddEventRow newRow = new AddEventRow();
-        newEventRows.Add(newRow);
         newRow.Dock = DockStyle.Top;
         eventInfoPanel.Controls.Add(newRow);
     }
 
     private void saveBtn_Click(object sender, EventArgs e)
     {
-        using (var timelineDB = new LiteDatabase(timelineConnection))
+        if (currentID != null)
         {
-            var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
-            TimelineTab timeline = timelines.FindById(currentID);
-
-            foreach (AddEventRow newEvent in eventInfoPanel.Controls)  // Null Reference Exception
+            using (var timelineDB = new LiteDatabase(timelineConnection))
             {
-                timeline.Events = new List<Event>
+                var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
+                TimelineTab timeline = timelines.FindById(currentID);
+                timeline.Events.Clear();
+
+                foreach (AddEventRow newEvent in eventInfoPanel.Controls)  // Null Reference Exception
                 {
-                    new Event
-                    {
-                        EventTitle = newEvent.Title,
-                        EventDescription = newEvent.Description,
-                        EventStartDate = newEvent.StartDate,
-                        EventEndDate = newEvent.EndDate,
-                        EventColor = newEvent.Color
-                    }
-                };
+                    timeline.Events.Add(newEvent.GetEventInfo());
+                }
+                timelines.Upsert(timeline);
             }
-            timelines.Update(timeline);
-            newEventRows.Clear();
         }
     }
 }
