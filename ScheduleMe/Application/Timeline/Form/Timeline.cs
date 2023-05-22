@@ -177,7 +177,7 @@ public partial class Timeline : Form
         lowestBottom = Math.Max(newEvent.Bottom, lowestBottom);
     }
 
-    private void addNewTab(string timelineName, ObjectId Id)
+    public void addNewTab(string timelineName, ObjectId Id)
     {
         TimelineTabBase newTimelineTab = new TimelineTabBase();
         newTimelineTab.tabName = timelineName;

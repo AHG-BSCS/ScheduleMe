@@ -19,7 +19,8 @@ public partial class EventButtonBase : UserControl
     {
         get => eventName.Text;
         set => eventName.Text = value;
-
     }
     public string Description { get => _description; set => _description = value; }
+
+
 }

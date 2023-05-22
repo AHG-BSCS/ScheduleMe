@@ -64,8 +64,9 @@ partial class TimelineTabBase
         timelineTabMenu.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         timelineTabMenu.Items.AddRange(new ToolStripItem[] { editOption, addOption, deleteOption, optionSeparator, openAtBottomOption });
         timelineTabMenu.Name = "timelineOption";
-        timelineTabMenu.Size = new Size(189, 114);
+        timelineTabMenu.Size = new Size(189, 136);
         timelineTabMenu.Text = "Option";
+        timelineTabMenu.ItemClicked += timelineTabMenu_ItemClicked;
         // 
         // editOption
         // 

@@ -34,4 +34,38 @@ public partial class TimelineTabBase : UserControl
             timelineInstance.PopulateDates(timelineTabs.TimelineStartDate, timelineTabs.TimelineEndDate);
         }
     }
+
+    private void timelineTabMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+    {
+        if (e.ClickedItem == editOption)
+        {
+            EditEvent editEvent = new EditEvent();
+            editEvent.ShowDialog();
+        }
+
+        else if (e.ClickedItem == addOption)
+        {
+            AddTimelineTab addTab = new AddTimelineTab();
+            addTab.ShowDialog();
+
+            if (Id != null)
+            {
+                // Load the new added TimelineTab
+                using (var timelineDB = new LiteDatabase(timelineConnection))
+                {
+                    var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
+                    var newtTab = new TimelineTab();
+                    newtTab = timelines.FindById(Id);
+
+                    timelineInstance.addNewTab(newtTab.TimelineName, newtTab.Id);
+                    timelineInstance.PopulateDates(newtTab.TimelineStartDate, newtTab.TimelineEndDate);
+                }
+            }
+        }
+
+        else if (e.ClickedItem == deleteOption)
+        {
+
+        }
+    }
 }
