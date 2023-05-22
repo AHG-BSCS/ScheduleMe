@@ -34,7 +34,7 @@ public partial class Timeline : Form
                 {
                     // Need to improve the sorting or the overlapping method. Too difficult
                     firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-                    PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate);
+                    PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate, firstToLoad.Id);
                 }
                 PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
             }
@@ -105,7 +105,7 @@ public partial class Timeline : Form
         }
     }
 
-    internal void PopulateEvents(List<Event> events, DateTime startDate)
+    internal void PopulateEvents(List<Event> events, DateTime startDate, ObjectId id)
     {
         short tempIncrement = 1;
         int lowestBottom = 0;
@@ -117,9 +117,11 @@ public partial class Timeline : Form
                         + (eventDate.EventStartDate - startDate).Days
                         * columnSize;
 
+            // Set other event property here
             EventButtonBase newEvent = new EventButtonBase();
             newEvent.StartDate = eventDate.EventStartDate;
             newEvent.EndDate = eventDate.EventEndDate;
+            newEvent.Id = id;
             newEvent.Event = "Event " + tempIncrement++;
             newEvent.Width = eventDuration * columnSize + 4;
             newEvent.Location = new Point(eventsXAxis + 17, 70);

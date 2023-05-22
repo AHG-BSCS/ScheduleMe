@@ -28,7 +28,7 @@ public partial class TimelineTabBase : UserControl
             if (timelineTabs.Events != null)
             {
                 timelineTabs.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-                timelineInstance.PopulateEvents(timelineTabs.Events, timelineTabs.TimelineStartDate);
+                timelineInstance.PopulateEvents(timelineTabs.Events, timelineTabs.TimelineStartDate, timelineTabs.Id);
             }
             timelineInstance.PopulateDates(timelineTabs.TimelineStartDate, timelineTabs.TimelineEndDate);
         }
