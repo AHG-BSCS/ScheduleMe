@@ -48,14 +48,14 @@ public partial class TimelineTabBase : UserControl
             AddTimelineTab addTab = new AddTimelineTab();
             addTab.ShowDialog();
 
-            if (Id != null)
+            if (addTab.Id != null)
             {
                 // Load the new added TimelineTab
                 using (var timelineDB = new LiteDatabase(timelineConnection))
                 {
                     var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
                     var newtTab = new TimelineTab();
-                    newtTab = timelines.FindById(Id);
+                    newtTab = timelines.FindById(addTab.Id);
 
                     timelineInstance.addNewTab(newtTab.TimelineName, newtTab.Id);
                     timelineInstance.PopulateDates(newtTab.TimelineStartDate, newtTab.TimelineEndDate);

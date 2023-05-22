@@ -22,5 +22,17 @@ public partial class EventButtonBase : UserControl
     }
     public string Description { get => _description; set => _description = value; }
 
+    private void eventButtonMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+    {
+        if (e.ClickedItem == editOption)
+        {
+            EditEvent editEvent = new EditEvent();
+            editEvent.ShowDialog();
+        }
 
+        else if (e.ClickedItem == deleteOption)
+        {
+
+        }
+    }
 }

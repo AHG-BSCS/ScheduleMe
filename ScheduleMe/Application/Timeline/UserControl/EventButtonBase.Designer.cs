@@ -32,7 +32,6 @@ partial class EventButtonBase
         eventName = new Button();
         eventButtonMenu = new ContextMenuStrip(components);
         editOption = new ToolStripMenuItem();
-        addOption = new ToolStripMenuItem();
         deleteOption = new ToolStripMenuItem();
         eventButtonMenu.SuspendLayout();
         SuspendLayout();
@@ -58,10 +57,11 @@ partial class EventButtonBase
         // eventButtonMenu
         // 
         eventButtonMenu.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
-        eventButtonMenu.Items.AddRange(new ToolStripItem[] { editOption, addOption, deleteOption });
+        eventButtonMenu.Items.AddRange(new ToolStripItem[] { editOption, deleteOption });
         eventButtonMenu.Name = "timelineOption";
-        eventButtonMenu.Size = new Size(116, 82);
+        eventButtonMenu.Size = new Size(181, 78);
         eventButtonMenu.Text = "Option";
+        eventButtonMenu.ItemClicked += eventButtonMenu_ItemClicked;
         // 
         // editOption
         // 
@@ -69,12 +69,6 @@ partial class EventButtonBase
         editOption.Name = "editOption";
         editOption.Size = new Size(180, 26);
         editOption.Text = "Edit";
-        // 
-        // addOption
-        // 
-        addOption.Name = "addOption";
-        addOption.Size = new Size(180, 26);
-        addOption.Text = "Add";
         // 
         // deleteOption
         // 
@@ -102,6 +96,5 @@ partial class EventButtonBase
     private Button eventName;
     private ContextMenuStrip eventButtonMenu;
     private ToolStripMenuItem editOption;
-    private ToolStripMenuItem addOption;
     private ToolStripMenuItem deleteOption;
 }
