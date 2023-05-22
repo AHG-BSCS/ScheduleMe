@@ -28,12 +28,19 @@ partial class EventButtonBase
     /// </summary>
     private void InitializeComponent()
     {
+        components = new System.ComponentModel.Container();
         eventName = new Button();
+        eventButtonMenu = new ContextMenuStrip(components);
+        editOption = new ToolStripMenuItem();
+        addOption = new ToolStripMenuItem();
+        deleteOption = new ToolStripMenuItem();
+        eventButtonMenu.SuspendLayout();
         SuspendLayout();
         // 
         // eventName
         // 
         eventName.BackColor = Color.FromArgb(15, 76, 129);
+        eventName.ContextMenuStrip = eventButtonMenu;
         eventName.Dock = DockStyle.Fill;
         eventName.FlatAppearance.BorderSize = 0;
         eventName.FlatAppearance.MouseDownBackColor = Color.Transparent;
@@ -48,7 +55,34 @@ partial class EventButtonBase
         eventName.Text = "Event";
         eventName.UseVisualStyleBackColor = false;
         // 
-        // Events
+        // eventButtonMenu
+        // 
+        eventButtonMenu.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        eventButtonMenu.Items.AddRange(new ToolStripItem[] { editOption, addOption, deleteOption });
+        eventButtonMenu.Name = "timelineOption";
+        eventButtonMenu.Size = new Size(116, 82);
+        eventButtonMenu.Text = "Option";
+        // 
+        // editOption
+        // 
+        editOption.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        editOption.Name = "editOption";
+        editOption.Size = new Size(180, 26);
+        editOption.Text = "Edit";
+        // 
+        // addOption
+        // 
+        addOption.Name = "addOption";
+        addOption.Size = new Size(180, 26);
+        addOption.Text = "Add";
+        // 
+        // deleteOption
+        // 
+        deleteOption.Name = "deleteOption";
+        deleteOption.Size = new Size(180, 26);
+        deleteOption.Text = "Delete";
+        // 
+        // EventButtonBase
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
@@ -56,13 +90,18 @@ partial class EventButtonBase
         BackColor = Color.White;
         Controls.Add(eventName);
         Margin = new Padding(0);
-        Name = "Events";
+        Name = "EventButtonBase";
         Padding = new Padding(0, 0, 3, 0);
         Size = new Size(68, 30);
+        eventButtonMenu.ResumeLayout(false);
         ResumeLayout(false);
     }
 
     #endregion
 
     private Button eventName;
+    private ContextMenuStrip eventButtonMenu;
+    private ToolStripMenuItem editOption;
+    private ToolStripMenuItem addOption;
+    private ToolStripMenuItem deleteOption;
 }

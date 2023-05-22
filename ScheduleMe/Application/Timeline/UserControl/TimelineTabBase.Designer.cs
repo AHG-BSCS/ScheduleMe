@@ -27,13 +27,22 @@ partial class TimelineTabBase
     /// </summary>
     private void InitializeComponent()
     {
+        components = new System.ComponentModel.Container();
         eventTab = new Button();
+        timelineTabMenu = new ContextMenuStrip(components);
+        editOption = new ToolStripMenuItem();
+        addOption = new ToolStripMenuItem();
+        deleteOption = new ToolStripMenuItem();
+        optionSeparator = new ToolStripSeparator();
+        openAtBottomOption = new ToolStripMenuItem();
+        timelineTabMenu.SuspendLayout();
         SuspendLayout();
         // 
         // eventTab
         // 
         eventTab.AutoSize = true;
         eventTab.BackColor = Color.FromArgb(15, 76, 129);
+        eventTab.ContextMenuStrip = timelineTabMenu;
         eventTab.Dock = DockStyle.Fill;
         eventTab.FlatAppearance.BorderColor = Color.White;
         eventTab.FlatAppearance.BorderSize = 2;
@@ -50,6 +59,44 @@ partial class TimelineTabBase
         eventTab.UseVisualStyleBackColor = false;
         eventTab.Click += eventTab_Click;
         // 
+        // timelineTabMenu
+        // 
+        timelineTabMenu.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        timelineTabMenu.Items.AddRange(new ToolStripItem[] { editOption, addOption, deleteOption, optionSeparator, openAtBottomOption });
+        timelineTabMenu.Name = "timelineOption";
+        timelineTabMenu.Size = new Size(189, 114);
+        timelineTabMenu.Text = "Option";
+        // 
+        // editOption
+        // 
+        editOption.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        editOption.Name = "editOption";
+        editOption.Size = new Size(188, 26);
+        editOption.Text = "Edit";
+        // 
+        // addOption
+        // 
+        addOption.Name = "addOption";
+        addOption.Size = new Size(188, 26);
+        addOption.Text = "Add";
+        // 
+        // deleteOption
+        // 
+        deleteOption.Name = "deleteOption";
+        deleteOption.Size = new Size(188, 26);
+        deleteOption.Text = "Delete";
+        // 
+        // optionSeparator
+        // 
+        optionSeparator.Name = "optionSeparator";
+        optionSeparator.Size = new Size(185, 6);
+        // 
+        // openAtBottomOption
+        // 
+        openAtBottomOption.Name = "openAtBottomOption";
+        openAtBottomOption.Size = new Size(188, 26);
+        openAtBottomOption.Text = "Open at the bottom";
+        // 
         // TimelineTabBase
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
@@ -60,6 +107,7 @@ partial class TimelineTabBase
         Margin = new Padding(0);
         Name = "TimelineTabBase";
         Size = new Size(72, 36);
+        timelineTabMenu.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -67,4 +115,10 @@ partial class TimelineTabBase
     #endregion
 
     private Button eventTab;
+    private ContextMenuStrip timelineTabMenu;
+    private ToolStripMenuItem editOption;
+    private ToolStripMenuItem addOption;
+    private ToolStripMenuItem deleteOption;
+    private ToolStripSeparator optionSeparator;
+    private ToolStripMenuItem openAtBottomOption;
 }

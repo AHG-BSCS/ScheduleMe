@@ -36,6 +36,8 @@ partial class Timeline
         panelTimelineContainer = new Panel();
         timelineOption = new ContextMenuStrip(components);
         editOption = new ToolStripMenuItem();
+        addOption = new ToolStripMenuItem();
+        deleteOption = new ToolStripMenuItem();
         panelTimelineTab.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)additionalInfo).BeginInit();
         ((System.ComponentModel.ISupportInitialize)currentDate).BeginInit();
@@ -113,9 +115,9 @@ partial class Timeline
         // timelineOption
         // 
         timelineOption.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
-        timelineOption.Items.AddRange(new ToolStripItem[] { editOption });
+        timelineOption.Items.AddRange(new ToolStripItem[] { editOption, addOption, deleteOption });
         timelineOption.Name = "timelineOption";
-        timelineOption.Size = new Size(181, 52);
+        timelineOption.Size = new Size(181, 104);
         timelineOption.Text = "Option";
         timelineOption.Click += timelineOption_Click;
         // 
@@ -125,6 +127,18 @@ partial class Timeline
         editOption.Name = "editOption";
         editOption.Size = new Size(180, 26);
         editOption.Text = "Edit";
+        // 
+        // addOption
+        // 
+        addOption.Name = "addOption";
+        addOption.Size = new Size(180, 26);
+        addOption.Text = "Add";
+        // 
+        // deleteOption
+        // 
+        deleteOption.Name = "deleteOption";
+        deleteOption.Size = new Size(180, 26);
+        deleteOption.Text = "Delete";
         // 
         // Timeline
         // 
@@ -157,4 +171,6 @@ partial class Timeline
     internal Panel panelTimelineContainer;
     private ContextMenuStrip timelineOption;
     private ToolStripMenuItem editOption;
+    private ToolStripMenuItem addOption;
+    private ToolStripMenuItem deleteOption;
 }

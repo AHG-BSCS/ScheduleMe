@@ -27,6 +27,7 @@ public partial class Timeline : Form
 
                 if (firstToLoad.Events != null)
                 {
+                    // Need to improve the sorting or the overlapping method. Too difficult
                     firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
                     PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate);
                 }
@@ -76,6 +77,7 @@ public partial class Timeline : Form
             line.Location = new Point(dayDates.Left + dayDates.Width / 2, dayDates.Height);
             panelTimelineContainer.Controls.Add(line);
 
+            // I was planning to move this outside later
             if (currentDate.DayOfYear == DateTime.Now.DayOfYear && currentDate.Year == DateTime.Now.Year)
             {
                 Panel timeIndicatorLine = new Panel();
@@ -205,7 +207,7 @@ public partial class Timeline : Form
     {
         AddTimelineTab addTimelineTab = new AddTimelineTab();
         addTimelineTab.ShowDialog();
-        
+
         if (addTimelineTab.Id != null)
         {
             // Load the new added TimelineTab
