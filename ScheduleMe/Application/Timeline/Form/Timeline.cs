@@ -1,5 +1,4 @@
 ﻿using LiteDB;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ScheduleMe.Tab;
 
@@ -17,13 +16,13 @@ public partial class Timeline : Form
 
     private void Timeline_Load(object sender, EventArgs e)
     {
-        // Load all the Timeline in the database
         using (var timelineDB = new LiteDatabase(timelineConnection))
         {
             var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
             var timelineTabs = timelines.FindAll();
             if (timelineTabs.Count() != 0)
             {
+                // Load the first Timeline.Event List only
                 TimelineTab firstToLoad = timelineTabs.First();
 
                 if (firstToLoad.Events != null)
@@ -33,6 +32,7 @@ public partial class Timeline : Form
                 }
                 PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
 
+                // Load all the Timeline Tabs
                 foreach (var tab in timelineTabs)
                 {
                     addNewTab(tab.TimelineName, tab.Id);
@@ -52,7 +52,8 @@ public partial class Timeline : Form
 
         for (DateTime currentDate = startDate; currentDate <= endDate; currentDate = currentDate.AddDays(1))
         {
-            if (currentDate.Day == 1) // This can produce overlapping month if the first day is 1 but can't be notice
+            // This can produce overlapping month if the first day is 1 but can't be notice
+            if (currentDate.Day == 1)
             {
                 Label nextMonths = new Label();
                 nextMonths.Text = currentDate.ToString("MMMM yyyy");
@@ -137,28 +138,34 @@ public partial class Timeline : Form
 
         foreach (EventButtonBase previousEvent in panelTimelineContainer.Controls.OfType<EventButtonBase>())
         {
-            if (previousEvent != newEvent && newEvent.Top <= previousEvent.Top) // Not the same object and newEvent is above previousEvent
+            // Not the same object and newEvent is above previousEvent
+            if (previousEvent != newEvent && newEvent.Top <= previousEvent.Top)
             {
-                if ((newEvent.StartDate > previousEvent.StartDate && newEvent.StartDate < previousEvent.EndDate) // Possible Overflows
+                // Possible overflows
+                if ((newEvent.StartDate > previousEvent.StartDate && newEvent.StartDate < previousEvent.EndDate)
                     || (newEvent.StartDate >= previousEvent.StartDate && newEvent.EndDate <= previousEvent.StartDate)
                     || (newEvent.StartDate <= previousEvent.StartDate && newEvent.EndDate > previousEvent.StartDate)
                     || (newEvent.StartDate <= previousEvent.StartDate && newEvent.EndDate >= previousEvent.EndDate))
                 {
-                    if (newEvent.Bottom > previousEvent.Bottom || noOverflowTop < newEvent.Top) // Ignore bringing the event to the bottom of upper events
+                    // Ignore bringing the event to the bottom of upper events
+                    if (newEvent.Bottom > previousEvent.Bottom || noOverflowTop < newEvent.Top)
                     {
                         newEvent.Top = previousEvent.Bottom + 10;
                         previousEventTop = previousEvent.Top;
                     }
-                    else if (newEvent.Bottom == previousEvent.Bottom) // if newEvent and previousEvent is the same row
+                    // if newEvent and previousEvent is the same row
+                    else if (newEvent.Bottom == previousEvent.Bottom)
                         newEvent.Top = previousOverFlowBottom;
 
-                    else if (previousEvent.Top > previousEventTop) // if previousEvent is lower than prev-Prev
+                    // if previousEvent is lower than prev-Prev
+                    else if (previousEvent.Top > previousEventTop)
                     {
                         newEvent.Top = noOverflowTop;
                         previousOverFlowBottom = previousEvent.Bottom + 10;
                     }
                 }
-                else if (noOverflowTop <= previousEvent.Top || newEvent.Top <= noOverflowTop) // Get previous top if no Overflow: to be used if there is overflow at some point
+                // Get previous top if no Overflow: to be used if there is overflow at some point
+                else if (noOverflowTop <= previousEvent.Top || newEvent.Top <= noOverflowTop)
                 {
                     noOverflowTop = previousEvent.Top;
                     noOverflowCounter++;
@@ -199,7 +206,7 @@ public partial class Timeline : Form
         AddTimelineTab addTimelineTab = new AddTimelineTab();
         addTimelineTab.ShowDialog();
 
-        // Load the new added timeline
+        // Load the new added TimelineTab
         using (var timelineDB = new LiteDatabase(timelineConnection))
         {
             var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");

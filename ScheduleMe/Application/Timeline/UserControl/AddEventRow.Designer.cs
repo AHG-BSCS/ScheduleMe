@@ -107,7 +107,6 @@ partial class AddEventRow
         descriptionTBox.Size = new Size(321, 22);
         descriptionTBox.TabIndex = 0;
         descriptionTBox.TabStop = false;
-        descriptionTBox.Text = "Description";
         // 
         // titleTBox
         // 
@@ -120,11 +119,10 @@ partial class AddEventRow
         titleTBox.Size = new Size(211, 22);
         titleTBox.TabIndex = 0;
         titleTBox.TabStop = false;
-        titleTBox.Text = "Title";
         // 
         // colorPickerBtn
         // 
-        colorPickerBtn.BackColor = Color.Black;
+        colorPickerBtn.BackColor = Color.Transparent;
         colorPickerBtn.FlatAppearance.BorderSize = 0;
         colorPickerBtn.ForeColor = Color.White;
         colorPickerBtn.Location = new Point(964, 4);

@@ -5,8 +5,8 @@ namespace ScheduleMe.Tab;
 public partial class EditEventTabBase : UserControl
 {
     private string timelineConnection = @"C:\Users\Jhondale\Downloads\Timelines.db";
-    public ObjectId Id { get; set; }
-    public EditEvent editEventInstance; // instance that created this UserControl
+    public ObjectId Id { get; set; }    // Reference Id from the database
+    public EditEvent editEventInstance; // Instance that created this UserControl
 
     public string tabName
     {
@@ -29,11 +29,10 @@ public partial class EditEventTabBase : UserControl
 
             if (timelineTabs.Events != null)
             {
-                // Load DateTime
                 foreach (Event firstEvents in timelineTabs.Events)
                 {
                     AddEventRow newRow = new AddEventRow();
-                    newRow.SetEventInfo(firstEvents);
+                    newRow.SetRowInfo(firstEvents);
                     newRow.Dock = DockStyle.Top;
                     editEventInstance.eventInfoPanel.Controls.Add(newRow);
                 }

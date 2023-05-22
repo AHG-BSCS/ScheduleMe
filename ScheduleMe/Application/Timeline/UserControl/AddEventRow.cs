@@ -45,7 +45,7 @@ public partial class AddEventRow : UserControl
         colorPickerBtn.BackColor = colorDialog.Color;
     }
 
-    internal Event GetEventInfo()
+    internal Event GetRowInfo()
     {
         eventInfo.EventTitle = titleTBox.Text;
         eventInfo.EventDescription = descriptionTBox.Text;
@@ -56,7 +56,7 @@ public partial class AddEventRow : UserControl
         return eventInfo;
     }
 
-    internal void SetEventInfo(Event eventInfo)
+    internal void SetRowInfo(Event eventInfo)
     {
         this.eventInfo = eventInfo;
 

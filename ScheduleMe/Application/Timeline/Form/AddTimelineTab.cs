@@ -27,7 +27,7 @@ public partial class AddTimelineTab : Form
 
             };
 
-            // For testing purpose only. Remove later
+            // For testing purpose only. To be remove later
             if (tBoxName.Text == "Test")
             {
                 newTimeline.Events = new List<Event>
