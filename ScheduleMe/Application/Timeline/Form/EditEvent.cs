@@ -4,7 +4,6 @@ namespace ScheduleMe.Tab;
 
 public partial class EditEvent : Form
 {
-    private string timelineConnection = @"C:\Users\Jhondale\Downloads\Timelines.db";
     public ObjectId currentID;
 
     public EditEvent()
@@ -14,7 +13,7 @@ public partial class EditEvent : Form
 
     private void EditEvent_Load(object sender, EventArgs e)
     {
-        using (var timelineDB = new LiteDatabase(timelineConnection))
+        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
             var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
             var timelineTabs = timelines.FindAll();
@@ -66,7 +65,7 @@ public partial class EditEvent : Form
         addTimelineTab.ShowDialog();
 
         // Load new added timeline
-        using (var timelineDB = new LiteDatabase(timelineConnection))
+        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
             var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
             TimelineTab newtTab = new TimelineTab();
@@ -89,7 +88,7 @@ public partial class EditEvent : Form
     {
         if (currentID != null)
         {
-            using (var timelineDB = new LiteDatabase(timelineConnection))
+            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
                 var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
                 TimelineTab timeline = timelines.FindById(currentID);

@@ -4,7 +4,6 @@ namespace ScheduleMe.Tab;
 
 public partial class Timeline : Form
 {
-    private string timelineConnection = @"C:\Users\Jhondale\Downloads\Timelines.db";
     public ObjectId Id;
     private byte columnSize = 42;
     private short currentDateTimePosition = 0;
@@ -16,7 +15,7 @@ public partial class Timeline : Form
 
     private void Timeline_Load(object sender, EventArgs e)
     {
-        using (var timelineDB = new LiteDatabase(timelineConnection))
+        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
             var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
             var timelineTabs = timelines.FindAll();
@@ -213,7 +212,7 @@ public partial class Timeline : Form
         if (addTimelineTab.Id != null)
         {
             // Load the new added TimelineTab
-            using (var timelineDB = new LiteDatabase(timelineConnection))
+            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
                 var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
                 var newtTab = new TimelineTab();

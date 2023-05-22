@@ -6,6 +6,7 @@ public partial class EventButtonBase : UserControl
 {
     public ObjectId Id { get; set; }
 
+    // Find a way to simplified this variables
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public Color Color { get; set; }
@@ -20,7 +21,6 @@ public partial class EventButtonBase : UserControl
     {
         InitializeComponent();
     }
-
 
     private void eventButtonMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {

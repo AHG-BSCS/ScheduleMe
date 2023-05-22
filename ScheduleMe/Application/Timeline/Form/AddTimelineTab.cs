@@ -4,7 +4,6 @@ namespace ScheduleMe.Tab;
 
 public partial class AddTimelineTab : Form
 {
-    private string timelineConnection = @"C:\Users\Jhondale\Downloads\Timelines.db";
     public ObjectId Id { get; set; }
 
     public AddTimelineTab()
@@ -14,7 +13,7 @@ public partial class AddTimelineTab : Form
 
     private void btnSaveTimeline_Click(object sender, EventArgs e)
     {
-        using (var timelineDB = new LiteDatabase(timelineConnection))
+        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
             var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
 

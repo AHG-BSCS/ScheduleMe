@@ -4,7 +4,6 @@ namespace ScheduleMe.Tab;
 
 public partial class TimelineTabBase : UserControl
 {
-    private string timelineConnection = @"C:\Users\Jhondale\Downloads\Timelines.db";
     public ObjectId Id { get; set; }
     public Timeline timelineInstance;
 
@@ -21,7 +20,7 @@ public partial class TimelineTabBase : UserControl
     private void eventTab_Click(object sender, EventArgs e)
     {
         timelineInstance.panelTimelineContainer.Controls.Clear();
-        using (var timelineDB = new LiteDatabase(timelineConnection))
+        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
             var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
             var timelineTabs = timelines.FindById(Id);
@@ -51,7 +50,7 @@ public partial class TimelineTabBase : UserControl
             if (addTab.Id != null)
             {
                 // Load the new added TimelineTab
-                using (var timelineDB = new LiteDatabase(timelineConnection))
+                using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
                 {
                     var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
                     var newtTab = new TimelineTab();
@@ -65,7 +64,7 @@ public partial class TimelineTabBase : UserControl
 
         else if (e.ClickedItem == deleteOption)
         {
-            using (var timelineDB = new LiteDatabase(timelineConnection))
+            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
                 timelineDB.GetCollection("Timeline").Delete(Id);
                 timelineInstance.Update();

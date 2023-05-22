@@ -4,7 +4,6 @@ namespace ScheduleMe.Tab;
 
 public partial class EditEventTabBase : UserControl
 {
-    private string timelineConnection = @"C:\Users\Jhondale\Downloads\Timelines.db";
     public ObjectId Id { get; set; }    // Reference Id from the database
     public EditEvent editEventInstance; // Instance that created this UserControl
 
@@ -21,7 +20,7 @@ public partial class EditEventTabBase : UserControl
     private void eventTab_Click(object sender, EventArgs e)
     {
         editEventInstance.eventInfoPanel.Controls.Clear();
-        using (var timelineDB = new LiteDatabase(timelineConnection))
+        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
             var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
             var timelineTabs = timelines.FindById(Id);
