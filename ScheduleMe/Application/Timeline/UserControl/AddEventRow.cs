@@ -7,7 +7,7 @@ public partial class AddEventRow : UserControl
         InitializeComponent();
     }
 
-    internal Event eventInfo = new Event();
+    internal Event eventInfo;
 
     public string Title
     {
@@ -58,6 +58,8 @@ public partial class AddEventRow : UserControl
 
     internal void SetEventInfo(Event eventInfo)
     {
+        this.eventInfo = eventInfo;
+
         titleTBox.Text = eventInfo.EventTitle;
         descriptionTBox.Text = eventInfo.EventDescription;
         startDatePicker.Value = eventInfo.EventStartDate;

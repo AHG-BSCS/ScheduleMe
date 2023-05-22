@@ -32,14 +32,8 @@ public partial class EditEventTabBase : UserControl
                 // Load DateTime
                 foreach (Event firstEvents in timelineTabs.Events)
                 {
-                    AddEventRow newRow = new AddEventRow
-                    {
-                        Title = firstEvents.EventTitle,
-                        Description = firstEvents.EventDescription,
-                        StartDate = firstEvents.EventStartDate,
-                        EndDate = firstEvents.EventEndDate,
-                        Color = firstEvents.EventColor,
-                    };
+                    AddEventRow newRow = new AddEventRow();
+                    newRow.SetEventInfo(firstEvents);
                     newRow.Dock = DockStyle.Top;
                     editEventInstance.eventInfoPanel.Controls.Add(newRow);
                 }

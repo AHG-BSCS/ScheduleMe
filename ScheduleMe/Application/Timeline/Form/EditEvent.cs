@@ -24,24 +24,13 @@ public partial class EditEvent : Form
 
                 if (firstToLoad.Events != null)
                 {
-                    AddEventRow newRow = new AddEventRow();
-                    newRow.SetEventInfo(firstToLoad.Events.GetEnumerator().Current);
-                    newRow.Dock = DockStyle.Top;
-                    eventInfoPanel.Controls.Add(newRow);
-                    /*
                     foreach (Event firstEvents in firstToLoad.Events)
                     {
-                        AddEventRow newRow = new AddEventRow
-                        {
-                            Title = firstEvents.EventTitle,
-                            Description = firstEvents.EventDescription,
-                            StartDate = firstEvents.EventStartDate,
-                            EndDate = firstEvents.EventEndDate,
-                            Color = firstEvents.EventColor,
-                        };
+                        AddEventRow newRow = new AddEventRow();
+                        newRow.SetEventInfo(firstEvents);
                         newRow.Dock = DockStyle.Top;
                         eventInfoPanel.Controls.Add(newRow);
-                    } */
+                    }
                     currentID = firstToLoad.Id;
                 }
 
@@ -110,5 +99,6 @@ public partial class EditEvent : Form
                 timelines.Upsert(timeline);
             }
         }
+        
     }
 }
