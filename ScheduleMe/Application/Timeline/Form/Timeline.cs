@@ -22,6 +22,12 @@ public partial class Timeline : Form
             var timelineTabs = timelines.FindAll();
             if (timelineTabs.Count() != 0)
             {
+                // Load all the Timeline Tabs
+                foreach (var tab in timelineTabs)
+                {
+                    addNewTab(tab.TimelineName, tab.Id);
+                }
+
                 // Load the first Timeline.Event List only
                 TimelineTab firstToLoad = timelineTabs.First();
 
@@ -32,12 +38,6 @@ public partial class Timeline : Form
                     PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate);
                 }
                 PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
-
-                // Load all the Timeline Tabs
-                foreach (var tab in timelineTabs)
-                {
-                    addNewTab(tab.TimelineName, tab.Id);
-                }
             }
         }
     }
@@ -185,6 +185,7 @@ public partial class Timeline : Form
         newTimelineTab.timelineInstance = this;
         newTimelineTab.Dock = DockStyle.Left;
         //newTimelineTab.Location = new Point(timelineAddTab.Left, timelineAddTab.Top);
+        panelTimelineContainer.Controls.Clear();
         panelTimelineTab.Controls.Add(newTimelineTab);
         newTimelineTab.BringToFront();
 

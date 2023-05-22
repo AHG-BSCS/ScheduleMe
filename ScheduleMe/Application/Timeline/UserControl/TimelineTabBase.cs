@@ -70,7 +70,9 @@ public partial class TimelineTabBase : UserControl
                 timelineDB.GetCollection("Timeline").Delete(Id);
                 timelineInstance.Update();
             }
+            timelineInstance.panelTimelineContainer.Controls.Clear();
             this.Dispose();
+            // Also switch to previous Tab if possible
         }
     }
 }

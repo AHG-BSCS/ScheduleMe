@@ -1,26 +1,26 @@
-﻿namespace ScheduleMe.Tab;
+﻿using LiteDB;
+
+namespace ScheduleMe.Tab;
 
 public partial class EventButtonBase : UserControl
 {
+    public ObjectId Id { get; set; }
+
+    public DateTime StartDate { get; set; }
+    public DateTime EndDate { get; set; }
+    public Color Color { get; set; }
+    public string Description { get; set; }
+    public string Event
+    {
+        get { return eventName.Text; }
+        set { eventName.Text = value; }
+    }
+
     public EventButtonBase()
     {
         InitializeComponent();
     }
 
-    private DateTime _startDate;
-    private DateTime _endDate;
-    private Color _color;
-    private string _description;
-
-    public DateTime StartDate { get => _startDate; set => _startDate = value; }
-    public DateTime EndDate { get => _endDate; set => _endDate = value; }
-    public Color Color { get => _color; set => _color = value; }
-    public string Event
-    {
-        get => eventName.Text;
-        set => eventName.Text = value;
-    }
-    public string Description { get => _description; set => _description = value; }
 
     private void eventButtonMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {
