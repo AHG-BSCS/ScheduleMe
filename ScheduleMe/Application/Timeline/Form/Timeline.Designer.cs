@@ -86,6 +86,7 @@ partial class Timeline
         // timelineAddTab
         // 
         timelineAddTab.BackColor = Color.FromArgb(15, 76, 129);
+        timelineAddTab.Dock = DockStyle.Left;
         timelineAddTab.FlatAppearance.BorderColor = Color.White;
         timelineAddTab.FlatAppearance.BorderSize = 2;
         timelineAddTab.FlatStyle = FlatStyle.Flat;
@@ -117,7 +118,7 @@ partial class Timeline
         timelineOption.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         timelineOption.Items.AddRange(new ToolStripItem[] { editOption, addOption, deleteOption });
         timelineOption.Name = "timelineOption";
-        timelineOption.Size = new Size(181, 104);
+        timelineOption.Size = new Size(116, 82);
         timelineOption.Text = "Option";
         timelineOption.Click += timelineOption_Click;
         // 
@@ -125,19 +126,19 @@ partial class Timeline
         // 
         editOption.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         editOption.Name = "editOption";
-        editOption.Size = new Size(180, 26);
+        editOption.Size = new Size(115, 26);
         editOption.Text = "Edit";
         // 
         // addOption
         // 
         addOption.Name = "addOption";
-        addOption.Size = new Size(180, 26);
+        addOption.Size = new Size(115, 26);
         addOption.Text = "Add";
         // 
         // deleteOption
         // 
         deleteOption.Name = "deleteOption";
-        deleteOption.Size = new Size(180, 26);
+        deleteOption.Size = new Size(115, 26);
         deleteOption.Text = "Delete";
         // 
         // Timeline

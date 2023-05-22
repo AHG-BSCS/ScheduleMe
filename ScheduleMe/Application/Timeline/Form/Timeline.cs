@@ -183,7 +183,8 @@ public partial class Timeline : Form
         newTimelineTab.tabName = timelineName;
         newTimelineTab.Id = Id;
         newTimelineTab.timelineInstance = this;
-        newTimelineTab.Location = new Point(timelineAddTab.Left, timelineAddTab.Top);
+        newTimelineTab.Dock = DockStyle.Left;
+        //newTimelineTab.Location = new Point(timelineAddTab.Left, timelineAddTab.Top);
         panelTimelineTab.Controls.Add(newTimelineTab);
         newTimelineTab.BringToFront();
 

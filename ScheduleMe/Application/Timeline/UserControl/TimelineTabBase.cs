@@ -65,7 +65,12 @@ public partial class TimelineTabBase : UserControl
 
         else if (e.ClickedItem == deleteOption)
         {
-
+            using (var timelineDB = new LiteDatabase(timelineConnection))
+            {
+                timelineDB.GetCollection("Timeline").Delete(Id);
+                timelineInstance.Update();
+            }
+            this.Dispose();
         }
     }
 }
