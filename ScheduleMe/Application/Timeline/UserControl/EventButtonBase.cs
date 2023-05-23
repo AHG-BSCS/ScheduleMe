@@ -40,8 +40,7 @@ public partial class EventButtonBase : UserControl
                 timeline.Events.RemoveAt(Index);
                 timelines.Update(timeline);
             }
-            this.Invalidate();
-            this.ParentForm.Update();
+            this.Dispose();
         }
     }
 }

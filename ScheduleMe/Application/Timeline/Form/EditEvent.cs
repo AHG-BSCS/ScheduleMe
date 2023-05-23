@@ -24,10 +24,11 @@ public partial class EditEvent : Form
 
                 if (firstToLoad.Events != null)
                 {
-                    foreach (Event firstEvents in firstToLoad.Events)
+                    for (ushort i = 0; i < firstToLoad.Events.Count; i++)
                     {
                         AddEventRow newRow = new AddEventRow();
-                        newRow.SetRowInfo(firstEvents);
+                        newRow.SetRowInfo(firstToLoad.Events[i]);
+                        newRow.Index = i;
                         newRow.Dock = DockStyle.Top;
                         eventInfoPanel.Controls.Add(newRow);
                     }

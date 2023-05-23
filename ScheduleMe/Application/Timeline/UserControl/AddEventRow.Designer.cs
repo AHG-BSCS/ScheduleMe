@@ -28,6 +28,7 @@ partial class AddEventRow
     /// </summary>
     private void InitializeComponent()
     {
+        components = new System.ComponentModel.Container();
         eventsInfoTLPanel = new TableLayoutPanel();
         endDatePicker = new DateTimePicker();
         startDatePicker = new DateTimePicker();
@@ -35,7 +36,10 @@ partial class AddEventRow
         titleTBox = new TextBox();
         colorPickerBtn = new Button();
         colorDialog = new ColorDialog();
+        rowMenu = new ContextMenuStrip(components);
+        deleteOption = new ToolStripMenuItem();
         eventsInfoTLPanel.SuspendLayout();
+        rowMenu.SuspendLayout();
         SuspendLayout();
         // 
         // eventsInfoTLPanel
@@ -134,6 +138,21 @@ partial class AddEventRow
         colorPickerBtn.UseVisualStyleBackColor = false;
         colorPickerBtn.Click += colorPickerBtn_Click;
         // 
+        // rowMenu
+        // 
+        rowMenu.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        rowMenu.Items.AddRange(new ToolStripItem[] { deleteOption });
+        rowMenu.Name = "timelineOption";
+        rowMenu.Size = new Size(181, 52);
+        rowMenu.Text = "Option";
+        rowMenu.ItemClicked += rowMenu_ItemClicked;
+        // 
+        // deleteOption
+        // 
+        deleteOption.Name = "deleteOption";
+        deleteOption.Size = new Size(180, 26);
+        deleteOption.Text = "Delete";
+        // 
         // AddEventRow
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
@@ -144,6 +163,7 @@ partial class AddEventRow
         Size = new Size(1000, 31);
         eventsInfoTLPanel.ResumeLayout(false);
         eventsInfoTLPanel.PerformLayout();
+        rowMenu.ResumeLayout(false);
         ResumeLayout(false);
     }
 
@@ -156,4 +176,6 @@ partial class AddEventRow
     private DateTimePicker endDatePicker;
     private ColorDialog colorDialog;
     private Button colorPickerBtn;
+    private ContextMenuStrip rowMenu;
+    private ToolStripMenuItem deleteOption;
 }

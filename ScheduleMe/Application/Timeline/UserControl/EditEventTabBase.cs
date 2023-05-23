@@ -28,10 +28,11 @@ public partial class EditEventTabBase : UserControl
 
             if (timelineTabs.Events != null)
             {
-                foreach (Event firstEvents in timelineTabs.Events)
+                for (ushort i = 0; i < timelineTabs.Events.Count; i++)
                 {
                     AddEventRow newRow = new AddEventRow();
-                    newRow.SetRowInfo(firstEvents);
+                    newRow.SetRowInfo(timelineTabs.Events[i]);
+                    newRow.Index = i;
                     newRow.Dock = DockStyle.Top;
                     editEventInstance.eventInfoPanel.Controls.Add(newRow);
                 }

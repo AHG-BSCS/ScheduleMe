@@ -1,4 +1,6 @@
-﻿namespace ScheduleMe.Tab;
+﻿using LiteDB;
+
+namespace ScheduleMe.Tab;
 
 public partial class AddEventRow : UserControl
 {
@@ -8,6 +10,8 @@ public partial class AddEventRow : UserControl
     }
 
     internal Event eventInfo;
+    public ObjectId Id { get; set; }
+    public ushort Index { get; set; }
 
     public string Title
     {
@@ -65,5 +69,20 @@ public partial class AddEventRow : UserControl
         startDatePicker.Value = eventInfo.EventStartDate;
         endDatePicker.Value = eventInfo.EventEndDate;
         colorPickerBtn.BackColor = eventInfo.EventColor;
+    }
+
+    private void rowMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+    {
+        if (e.ClickedItem == deleteOption)
+        {
+            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+            {
+                var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
+                var timeline = timelines.FindById(Id);
+                timeline.Events.RemoveAt(Index);
+                timelines.Update(timeline);
+            }
+            this.Dispose();
+        }
     }
 }
