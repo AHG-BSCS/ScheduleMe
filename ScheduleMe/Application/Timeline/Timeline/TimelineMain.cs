@@ -4,7 +4,7 @@ namespace ScheduleMe.Tab;
 
 public partial class TimelineMain : Form
 {
-    public ObjectId Id;
+    public ObjectId currentID { get; set; }
     private byte columnSize = 42;
     private short currentDateTimePosition = 0;
 
@@ -21,6 +21,9 @@ public partial class TimelineMain : Form
             var timelineTabs = timelines.FindAll();
             if (timelineTabs.Count() != 0)
             {
+                Timeline firstToLoad = timelineTabs.First();
+                currentID = firstToLoad.Id;
+
                 // Load all the Timeline Tabs
                 foreach (var tab in timelineTabs)
                 {
@@ -28,8 +31,6 @@ public partial class TimelineMain : Form
                 }
 
                 // Load the first Timeline.Event List only
-                Timeline firstToLoad = timelineTabs.First();
-
                 if (firstToLoad.Events != null)
                 {
                     // Need to improve the sorting or the overlapping method. Too difficult
@@ -182,7 +183,7 @@ public partial class TimelineMain : Form
     public void addNewTab(string timelineName, ObjectId Id)
     {
         TimelineTab newTimelineTab = new TimelineTab();
-        newTimelineTab.tabName = timelineName;
+        newTimelineTab.TabName = timelineName;
         newTimelineTab.Id = Id;
         newTimelineTab.timelineInstance = this;
         newTimelineTab.Dock = DockStyle.Left;
@@ -191,8 +192,12 @@ public partial class TimelineMain : Form
         panelTimelineTab.Controls.Add(newTimelineTab);
         newTimelineTab.BringToFront();
 
-        timelineAddTab.Location = new Point(newTimelineTab.Right, newTimelineTab.Top);
-        newTimelineTab.Dock = DockStyle.Left;
+        // Highlight the current tab
+        if (currentID == Id)
+        {
+            newTimelineTab.timelineTabBtn.BackColor = Color.White;
+            newTimelineTab.timelineTabBtn.ForeColor = Color.Black;
+        }
     }
 
     private void currentDate_Click(object sender, EventArgs e)

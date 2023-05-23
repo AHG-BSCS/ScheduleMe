@@ -56,8 +56,6 @@ public partial class EditEvent : Form
         newTimelineTab.BringToFront();
 
         // Adjust the add button next to new tab
-        timelineAddTab.Location = new Point(newTimelineTab.Right, newTimelineTab.Top);
-        newTimelineTab.Dock = DockStyle.Left;
         currentID = newTimelineTab.Id;
     }
 

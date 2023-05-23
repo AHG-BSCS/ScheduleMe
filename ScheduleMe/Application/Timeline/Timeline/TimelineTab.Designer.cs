@@ -114,12 +114,11 @@ partial class TimelineTab
     }
 
     #endregion
-
-    private Button timelineTabBtn;
     private ContextMenuStrip timelineTabMenu;
     private ToolStripMenuItem editOption;
     private ToolStripMenuItem addOption;
     private ToolStripMenuItem deleteOption;
     private ToolStripSeparator optionSeparator;
     private ToolStripMenuItem openAtBottomOption;
+    public Button timelineTabBtn;
 }

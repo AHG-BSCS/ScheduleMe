@@ -7,7 +7,7 @@ public partial class TimelineTab : UserControl
     public ObjectId Id { get; set; }
     public TimelineMain timelineInstance;
 
-    public string tabName
+    public string TabName
     {
         set { timelineTabBtn.Text = value; }
     }
@@ -17,9 +17,25 @@ public partial class TimelineTab : UserControl
         InitializeComponent();
     }
 
-    private void timelineTabBtn_Click(object sender, EventArgs e)
+    private void HighlightButton()
     {
         timelineInstance.panelTimelineContainer.Controls.Clear();
+        foreach (TimelineTab tab in timelineInstance.panelTimelineTab.Controls.OfType<TimelineTab>())
+        {
+            if (timelineInstance.currentID == tab.Id)
+            {
+                tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
+                tab.timelineTabBtn.ForeColor = Color.White;
+                break;
+            }
+        }
+        timelineTabBtn.BackColor = Color.White;
+        timelineTabBtn.ForeColor = Color.Black;
+    }
+
+    private void timelineTabBtn_Click(object sender, EventArgs e)
+    {
+        HighlightButton();
         using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
             var timelines = timelineDB.GetCollection<Timeline>("Timeline");
@@ -31,6 +47,7 @@ public partial class TimelineTab : UserControl
                 timelineInstance.PopulateEvents(timelineTabs.Events, timelineTabs.TimelineStartDate, timelineTabs.Id);
             }
             timelineInstance.PopulateDates(timelineTabs.TimelineStartDate, timelineTabs.TimelineEndDate);
+            timelineInstance.currentID = timelineTabs.Id;
         }
     }
 
