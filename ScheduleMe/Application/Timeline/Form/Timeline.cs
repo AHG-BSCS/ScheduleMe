@@ -110,18 +110,19 @@ public partial class Timeline : Form
         short tempIncrement = 1;
         int lowestBottom = 0;
 
-        foreach (Event eventDate in events)
+        for (ushort i = 0; i < events.Count; i++)
         {
-            int eventDuration = (int)(eventDate.EventEndDate - eventDate.EventStartDate).TotalDays;
+            int eventDuration = (int)(events[i].EventEndDate - events[i].EventStartDate).TotalDays;
             int eventsXAxis = panelTimelineContainer.HorizontalScroll.Value
-                        + (eventDate.EventStartDate - startDate).Days
+                        + (events[i].EventStartDate - startDate).Days
                         * columnSize;
 
             // Set other event property here
             EventButtonBase newEvent = new EventButtonBase();
-            newEvent.StartDate = eventDate.EventStartDate;
-            newEvent.EndDate = eventDate.EventEndDate;
+            newEvent.StartDate = events[i].EventStartDate;
+            newEvent.EndDate = events[i].EventEndDate;
             newEvent.Id = id;
+            newEvent.Index = i;
             newEvent.Event = "Event " + tempIncrement++;
             newEvent.Width = eventDuration * columnSize + 4;
             newEvent.Location = new Point(eventsXAxis + 17, 70);

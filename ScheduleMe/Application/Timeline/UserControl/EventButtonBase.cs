@@ -5,6 +5,7 @@ namespace ScheduleMe.Tab;
 public partial class EventButtonBase : UserControl
 {
     public ObjectId Id { get; set; }
+    public ushort Index { get; set; }
 
     // Find a way to simplified this variables
     public DateTime StartDate { get; set; }
@@ -32,7 +33,15 @@ public partial class EventButtonBase : UserControl
 
         else if (e.ClickedItem == deleteOption)
         {
-
+            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+            {
+                var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
+                var timeline = timelines.FindById(Id);
+                timeline.Events.RemoveAt(Index);
+                timelines.Update(timeline);
+            }
+            this.Invalidate();
+            this.ParentForm.Update();
         }
     }
 }
