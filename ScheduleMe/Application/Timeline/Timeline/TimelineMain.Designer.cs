@@ -28,15 +28,21 @@ partial class TimelineMain
     /// </summary>
     private void InitializeComponent()
     {
+        components = new System.ComponentModel.Container();
         timelineTabToolPanel = new Panel();
         panelTimelineTab = new Panel();
         additionalInfo = new PictureBox();
         currentDate = new PictureBox();
         timelineAddTab = new Button();
         panelTimelineContainer = new Panel();
+        timelineMenu = new ContextMenuStrip(components);
+        editOption = new ToolStripMenuItem();
+        optionSeparator = new ToolStripSeparator();
+        openAtBottomOption = new ToolStripMenuItem();
         timelineTabToolPanel.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)additionalInfo).BeginInit();
         ((System.ComponentModel.ISupportInitialize)currentDate).BeginInit();
+        timelineMenu.SuspendLayout();
         SuspendLayout();
         // 
         // timelineTabToolPanel
@@ -110,11 +116,39 @@ partial class TimelineMain
         // 
         panelTimelineContainer.AutoScroll = true;
         panelTimelineContainer.BackColor = Color.Transparent;
+        panelTimelineContainer.ContextMenuStrip = timelineMenu;
         panelTimelineContainer.Dock = DockStyle.Top;
         panelTimelineContainer.Location = new Point(0, 35);
         panelTimelineContainer.Name = "panelTimelineContainer";
         panelTimelineContainer.Size = new Size(850, 102);
         panelTimelineContainer.TabIndex = 1;
+        // 
+        // timelineMenu
+        // 
+        timelineMenu.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        timelineMenu.Items.AddRange(new ToolStripItem[] { editOption, optionSeparator, openAtBottomOption });
+        timelineMenu.Name = "timelineOption";
+        timelineMenu.Size = new Size(189, 84);
+        timelineMenu.Text = "Option";
+        timelineMenu.ItemClicked += timelineMenu_ItemClicked;
+        // 
+        // editOption
+        // 
+        editOption.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        editOption.Name = "editOption";
+        editOption.Size = new Size(188, 26);
+        editOption.Text = "Edit";
+        // 
+        // optionSeparator
+        // 
+        optionSeparator.Name = "optionSeparator";
+        optionSeparator.Size = new Size(185, 6);
+        // 
+        // openAtBottomOption
+        // 
+        openAtBottomOption.Name = "openAtBottomOption";
+        openAtBottomOption.Size = new Size(188, 26);
+        openAtBottomOption.Text = "Open at the bottom";
         // 
         // TimelineMain
         // 
@@ -134,6 +168,7 @@ partial class TimelineMain
         timelineTabToolPanel.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)additionalInfo).EndInit();
         ((System.ComponentModel.ISupportInitialize)currentDate).EndInit();
+        timelineMenu.ResumeLayout(false);
         ResumeLayout(false);
     }
 
@@ -144,4 +179,8 @@ partial class TimelineMain
     internal Panel panelTimelineContainer;
     public Panel timelineTabToolPanel;
     public Panel panelTimelineTab;
+    private ContextMenuStrip timelineMenu;
+    private ToolStripMenuItem editOption;
+    private ToolStripSeparator optionSeparator;
+    private ToolStripMenuItem openAtBottomOption;
 }

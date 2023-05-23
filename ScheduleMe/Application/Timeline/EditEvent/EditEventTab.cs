@@ -55,23 +55,26 @@ public partial class EditEventTab : UserControl
 
     private void eventTab_Click(object sender, EventArgs e)
     {
-        HighlightButton();
-        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+        if (editEventInstance.currentID != Id)
         {
-            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-            var timelineTabs = timelines.FindById(Id);
-            editEventInstance.currentID = Id;
-
-            if (timelineTabs.Events != null)
+            HighlightButton();
+            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
-                for (ushort i = 0; i < timelineTabs.Events.Count; i++)
+                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                var timelineTabs = timelines.FindById(Id);
+                editEventInstance.currentID = Id;
+
+                if (timelineTabs.Events != null)
                 {
-                    AddEventRow newRow = new AddEventRow();
-                    newRow.SetRowInfo(timelineTabs.Events[i]);
-                    newRow.Id = timelineTabs.Id;
-                    newRow.Index = i;
-                    newRow.Dock = DockStyle.Top;
-                    editEventInstance.eventInfoPanel.Controls.Add(newRow);
+                    for (ushort i = 0; i < timelineTabs.Events.Count; i++)
+                    {
+                        AddEventRow newRow = new AddEventRow();
+                        newRow.SetRowInfo(timelineTabs.Events[i]);
+                        newRow.Id = timelineTabs.Id;
+                        newRow.Index = i;
+                        newRow.Dock = DockStyle.Top;
+                        editEventInstance.eventInfoPanel.Controls.Add(newRow);
+                    }
                 }
             }
         }
@@ -103,24 +106,27 @@ public partial class EditEventTab : UserControl
             {
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 timelines.Delete(Id); // Delete this Timeline
-                Timeline firstToLoad = timelines.FindAll().First();
-
-                if (editEventInstance.currentID == Id)
+                var timeline = timelines.FindAll();
+                if (timeline.Any() == true)
                 {
-                    editEventInstance.currentID = firstToLoad.Id;
-                    ReverseHighlight();
-                    if (firstToLoad != null)
+                    Timeline firstToLoad = timeline.First();
+                    if (editEventInstance.currentID == Id)
                     {
-                        if (firstToLoad.Events != null)
+                        editEventInstance.currentID = firstToLoad.Id;
+                        ReverseHighlight();
+                        if (firstToLoad != null)
                         {
-                            for (ushort i = 0; i < firstToLoad.Events.Count; i++)
+                            if (firstToLoad.Events != null)
                             {
-                                AddEventRow newRow = new AddEventRow();
-                                newRow.SetRowInfo(firstToLoad.Events[i]);
-                                newRow.Id = firstToLoad.Id;
-                                newRow.Index = i;
-                                newRow.Dock = DockStyle.Top;
-                                editEventInstance.eventInfoPanel.Controls.Add(newRow);
+                                for (ushort i = 0; i < firstToLoad.Events.Count; i++)
+                                {
+                                    AddEventRow newRow = new AddEventRow();
+                                    newRow.SetRowInfo(firstToLoad.Events[i]);
+                                    newRow.Id = firstToLoad.Id;
+                                    newRow.Index = i;
+                                    newRow.Dock = DockStyle.Top;
+                                    editEventInstance.eventInfoPanel.Controls.Add(newRow);
+                                }
                             }
                         }
                     }

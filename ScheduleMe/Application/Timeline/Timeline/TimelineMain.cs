@@ -244,4 +244,59 @@ public partial class TimelineMain : Form
             }
         }
     }
+
+    private void timelineMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+    {
+        if (e.ClickedItem == editOption)
+        {
+            EditEvent editEvent = new EditEvent();
+            editEvent.ShowDialog();
+
+            panelTimelineTab.Controls.Clear();
+            panelTimelineContainer.Controls.Clear();
+
+            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+            {
+                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                var timeline = timelines.FindAll();
+                if (timeline.Any() == true)
+                {
+                    var lastTab = timelines.FindById(currentID);
+
+                    // Load all the Timeline Tabs
+                    foreach (var tab in timeline)
+                    {
+                        addNewTab(tab.TimelineName, tab.Id);
+                    }
+
+                    if (lastTab != null) // last tab still exist
+                    {
+                        if (lastTab.Events != null)
+                        {
+                            // Need to improve the sorting or the overlapping method. Too difficult
+                            lastTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
+                            PopulateEvents(lastTab.Events, lastTab.TimelineStartDate, lastTab.Id);
+                        }
+                        PopulateDates(lastTab.TimelineStartDate, lastTab.TimelineEndDate);
+                    }
+                    else // last tab doesn't exist
+                    {
+                        Timeline firstTab = timelines.FindAll().First();
+                        currentID = firstTab.Id;
+
+                        if (firstTab != null) // Load the first Timeline.Event List only
+                        {
+                            if (firstTab.Events != null)
+                            {
+                                // Need to improve the sorting or the overlapping method. Too difficult
+                                firstTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
+                                PopulateEvents(firstTab.Events, firstTab.TimelineStartDate, firstTab.Id);
+                            }
+                            PopulateDates(firstTab.TimelineStartDate, firstTab.TimelineEndDate);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
