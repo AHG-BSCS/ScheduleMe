@@ -15,9 +15,9 @@ public partial class AddTimelineTab : Form
     {
         using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
-            var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
+            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
 
-            var newTimeline = new TimelineTab
+            var newTimeline = new Timeline
             {
                 TimelineName = tBoxName.Text,
                 TimelineStartDate = startDatePicker.Value,

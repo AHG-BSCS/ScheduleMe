@@ -2,7 +2,7 @@
 
 namespace ScheduleMe.Tab;
 
-internal class TimelineTab
+internal class Timeline
 {
     [BsonId]
     public ObjectId Id { get; set; }

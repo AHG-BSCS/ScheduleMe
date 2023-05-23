@@ -2,13 +2,13 @@
 
 namespace ScheduleMe.Tab;
 
-public partial class Timeline : Form
+public partial class TimelineMain : Form
 {
     public ObjectId Id;
     private byte columnSize = 42;
     private short currentDateTimePosition = 0;
 
-    public Timeline()
+    public TimelineMain()
     {
         InitializeComponent();
     }
@@ -17,7 +17,7 @@ public partial class Timeline : Form
     {
         using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
-            var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
+            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
             var timelineTabs = timelines.FindAll();
             if (timelineTabs.Count() != 0)
             {
@@ -28,7 +28,7 @@ public partial class Timeline : Form
                 }
 
                 // Load the first Timeline.Event List only
-                TimelineTab firstToLoad = timelineTabs.First();
+                Timeline firstToLoad = timelineTabs.First();
 
                 if (firstToLoad.Events != null)
                 {
@@ -217,8 +217,8 @@ public partial class Timeline : Form
             // Load the new added TimelineTab
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
-                var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
-                var newtTab = new TimelineTab();
+                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                var newtTab = new Timeline();
                 newtTab = timelines.FindById(addTimelineTab.Id);
 
                 addNewTab(newtTab.TimelineName, newtTab.Id);

@@ -5,7 +5,7 @@ namespace ScheduleMe.Tab;
 public partial class TimelineTabBase : UserControl
 {
     public ObjectId Id { get; set; }
-    public Timeline timelineInstance;
+    public TimelineMain timelineInstance;
 
     public string tabName
     {
@@ -22,7 +22,7 @@ public partial class TimelineTabBase : UserControl
         timelineInstance.panelTimelineContainer.Controls.Clear();
         using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
-            var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
+            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
             var timelineTabs = timelines.FindById(Id);
 
             if (timelineTabs.Events != null)
@@ -52,8 +52,8 @@ public partial class TimelineTabBase : UserControl
                 // Load the new added TimelineTab
                 using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
                 {
-                    var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
-                    var newtTab = new TimelineTab();
+                    var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                    var newtTab = new Timeline();
                     newtTab = timelines.FindById(addTab.Id);
 
                     timelineInstance.addNewTab(newtTab.TimelineName, newtTab.Id);

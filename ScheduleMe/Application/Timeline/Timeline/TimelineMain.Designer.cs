@@ -1,6 +1,6 @@
 ﻿namespace ScheduleMe.Tab;
 
-partial class Timeline
+partial class TimelineMain
 {
     /// <summary>
     /// Required designer variable.

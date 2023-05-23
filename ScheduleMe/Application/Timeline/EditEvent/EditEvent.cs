@@ -15,12 +15,12 @@ public partial class EditEvent : Form
     {
         using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
-            var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
+            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
             var timelineTabs = timelines.FindAll();
             if (timelineTabs.Count() != 0)
             {
                 // Load the first TimelineTab.Event List only
-                TimelineTab firstToLoad = timelineTabs.First();
+                Timeline firstToLoad = timelineTabs.First();
 
                 if (firstToLoad.Events != null)
                 {
@@ -69,8 +69,8 @@ public partial class EditEvent : Form
         // Load new added timeline
         using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
-            var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
-            TimelineTab newtTab = new TimelineTab();
+            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+            Timeline newtTab = new Timeline();
             newtTab = timelines.FindById(addTimelineTab.Id);
 
             // Add new tab and clear since there is no events yet as expected
@@ -94,8 +94,8 @@ public partial class EditEvent : Form
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
-                var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
-                TimelineTab timeline = timelines.FindById(currentID);
+                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                Timeline timeline = timelines.FindById(currentID);
 
                 // This will clear the current Events in class and replace with new list of Events
                 // Kind of ineficient but I don't know how to fix this right now

@@ -77,7 +77,7 @@ public partial class AddEventRow : UserControl
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
-                var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
+                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 var timeline = timelines.FindById(Id);
                 timeline.Events.RemoveAt(Index);
                 timelines.Update(timeline);

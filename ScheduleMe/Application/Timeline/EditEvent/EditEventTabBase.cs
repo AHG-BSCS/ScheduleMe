@@ -23,7 +23,7 @@ public partial class EditEventTabBase : UserControl
         editEventInstance.eventInfoPanel.Controls.Clear();
         using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
-            var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
+            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
             var timelineTabs = timelines.FindById(Id);
             editEventInstance.currentID = Id;
 
@@ -54,8 +54,8 @@ public partial class EditEventTabBase : UserControl
                 // Load the new added TimelineTab
                 using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
                 {
-                    var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
-                    var newtTab = new TimelineTab();
+                    var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                    var newtTab = new Timeline();
                     newtTab = timelines.FindById(addTab.Id);
                     editEventInstance.addNewTab(newtTab.TimelineName, newtTab.Id);
                 }
