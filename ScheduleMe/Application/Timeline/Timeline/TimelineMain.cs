@@ -217,19 +217,20 @@ public partial class TimelineMain : Form
         AddTimeline addTimelineTab = new AddTimeline();
         addTimelineTab.ShowDialog();
 
-        // Remove the highlight of active Tab
-        foreach (TimelineTab tab in panelTimelineTab.Controls.OfType<TimelineTab>())
-        {
-            if (currentID == tab.Id)
-            {
-                tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
-                tab.timelineTabBtn.ForeColor = Color.White;
-                break;
-            }
-        }
+        
 
         if (addTimelineTab.Id != null)
         {
+            // Remove the highlight of active Tab
+            foreach (TimelineTab tab in panelTimelineTab.Controls.OfType<TimelineTab>())
+            {
+                if (currentID == tab.Id)
+                {
+                    tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
+                    tab.timelineTabBtn.ForeColor = Color.White;
+                    break;
+                }
+            }
             // Load the new added TimelineTab
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
