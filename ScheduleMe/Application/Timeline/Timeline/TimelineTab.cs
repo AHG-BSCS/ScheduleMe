@@ -80,6 +80,48 @@ public partial class TimelineTab : UserControl
         {
             EditEvent editEvent = new EditEvent();
             editEvent.ShowDialog();
+
+            timelineInstance.panelTimelineTab.Controls.Clear();
+            timelineInstance.panelTimelineContainer.Controls.Clear();
+
+            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+            {
+                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                var lastTab = timelines.FindById(timelineInstance.currentID);
+
+                // Load all the Timeline Tabs
+                foreach (var tab in timelines.FindAll())
+                {
+                    timelineInstance.addNewTab(tab.TimelineName, tab.Id);
+                }
+
+                if (lastTab != null) // last tab still exist
+                {
+                    if (lastTab.Events != null)
+                    {
+                        // Need to improve the sorting or the overlapping method. Too difficult
+                        lastTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
+                        timelineInstance.PopulateEvents(lastTab.Events, lastTab.TimelineStartDate, lastTab.Id);
+                    }
+                    timelineInstance.PopulateDates(lastTab.TimelineStartDate, lastTab.TimelineEndDate);
+                }
+                else // last tab doesn't exist
+                {
+                    Timeline firstTab = timelines.FindAll().First();
+                    timelineInstance.currentID = firstTab.Id;
+                    
+                    if (firstTab != null) // Load the first Timeline.Event List only
+                    {
+                        if (firstTab.Events != null)
+                        {
+                            // Need to improve the sorting or the overlapping method. Too difficult
+                            firstTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
+                            timelineInstance.PopulateEvents(firstTab.Events, firstTab.TimelineStartDate, firstTab.Id);
+                        }
+                        timelineInstance.PopulateDates(firstTab.TimelineStartDate, firstTab.TimelineEndDate);
+                    }
+                }
+            }
         }
 
         else if (e.ClickedItem == addOption)
@@ -109,7 +151,6 @@ public partial class TimelineTab : UserControl
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 timelines.Delete(Id); // Delete this Timeline
                 Timeline firstToLoad = timelines.FindAll().First();
-                
 
                 if (timelineInstance.currentID == Id)
                 {
