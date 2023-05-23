@@ -33,6 +33,26 @@ public partial class TimelineTab : UserControl
         timelineTabBtn.ForeColor = Color.Black;
     }
 
+    private void ReverseHighlight()
+    {
+        timelineInstance.panelTimelineContainer.Controls.Clear();
+        foreach (TimelineTab tab in timelineInstance.panelTimelineTab.Controls.OfType<TimelineTab>())
+        {
+            if (timelineInstance.currentID == tab.Id)
+            {
+                tab.timelineTabBtn.BackColor = Color.White;
+                tab.timelineTabBtn.ForeColor = Color.Black;
+                break;
+            }
+            else
+            {
+                tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
+                tab.timelineTabBtn.ForeColor = Color.White;
+            }
+
+        }
+    }
+
     private void timelineTabBtn_Click(object sender, EventArgs e)
     {
         HighlightButton();
@@ -86,11 +106,28 @@ public partial class TimelineTab : UserControl
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
-                timelineDB.GetCollection("Timeline").Delete(Id);
+                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                timelines.Delete(Id); // Delete this Timeline
+                Timeline firstToLoad = timelines.FindAll().First();
+                
+
+                if (timelineInstance.currentID == Id)
+                {
+                    timelineInstance.currentID = firstToLoad.Id;
+                    ReverseHighlight();
+                    if (firstToLoad != null)
+                    {
+                        if (firstToLoad.Events != null)
+                        {
+                            // Need to improve the sorting or the overlapping method. Too difficult
+                            firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
+                            timelineInstance.PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate, firstToLoad.Id);
+                        }
+                        timelineInstance.PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
+                    }
+                }
             }
-            timelineInstance.panelTimelineContainer.Controls.Clear();
             this.Dispose();
-            // Also switch to previous Tab if possible
         }
     }
 }
