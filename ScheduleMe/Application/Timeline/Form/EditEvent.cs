@@ -82,6 +82,8 @@ public partial class EditEvent : Form
     private void addRowBtn_Click(object sender, EventArgs e)
     {
         AddEventRow newRow = new AddEventRow();
+        newRow.eventInfo = new Event();
+        newRow.SetRowInfo(newRow.eventInfo);
         newRow.Dock = DockStyle.Top; // Need some fix to docked at the bottom instead
         eventInfoPanel.Controls.Add(newRow);
     }
@@ -97,7 +99,11 @@ public partial class EditEvent : Form
 
                 // This will clear the current Events in class and replace with new list of Events
                 // Kind of ineficient but I don't know how to fix this right now
-                timeline.Events.Clear();
+                if (timeline.Events != null)
+                {
+                    timeline.Events.Clear();
+                }
+                
                 foreach (AddEventRow newEvent in eventInfoPanel.Controls)
                 {
                     timeline.Events.Add(newEvent.GetRowInfo());
@@ -105,6 +111,5 @@ public partial class EditEvent : Form
                 timelines.Update(timeline);
             }
         }
-
     }
 }

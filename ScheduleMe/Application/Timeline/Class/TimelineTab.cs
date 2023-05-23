@@ -11,6 +11,13 @@ internal class TimelineTab
     public string Description { get; set; }
     public DateTime TimelineStartDate { get; set; }
     public DateTime TimelineEndDate { get; set; }
-    public List<Event> Events { get; set; }
+
+    private List<Event> _events = new List<Event>();
+
+    public List<Event> Events
+    {
+        get { return _events; }
+        set { _events = value; }
+    }
     // Logo if possible
 }
