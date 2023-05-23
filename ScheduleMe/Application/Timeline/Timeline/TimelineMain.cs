@@ -240,7 +240,7 @@ public partial class TimelineMain : Form
 
                 addNewTab(newtTab.TimelineName, newtTab.Id);
                 panelTimelineContainer.Controls.Clear();
-                panelTimelineContainer.Height = 0;
+                panelTimelineContainer.Height = 130;
                 PopulateDates(newtTab.TimelineStartDate, newtTab.TimelineEndDate);
             }
         }
