@@ -112,15 +112,14 @@ public partial class EditEvent : Form
                 // This will clear the current Events in class and replace with new list of Events
                 // Kind of ineficient but I don't know how to fix this right now
                 if (timeline.Events != null)
-                {
-                    timeline.Events.Clear();
-                }
+                timeline.Events.Clear();
 
                 foreach (AddEventRow newEvent in eventInfoPanel.Controls)
                 {
                     timeline.Events.Add(newEvent.GetRowInfo());
                 }
                 timelines.Update(timeline);
+                MessageBox.Show("Saved");
             }
         }
     }
