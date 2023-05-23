@@ -103,7 +103,7 @@ public partial class EditEvent : Form
                 {
                     timeline.Events.Clear();
                 }
-                
+
                 foreach (AddEventRow newEvent in eventInfoPanel.Controls)
                 {
                     timeline.Events.Add(newEvent.GetRowInfo());
