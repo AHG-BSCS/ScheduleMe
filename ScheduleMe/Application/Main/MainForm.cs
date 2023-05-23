@@ -1,3 +1,4 @@
+using LiteDB;
 using ScheduleMe.Tab;
 
 namespace ScheduleMe
@@ -14,9 +15,15 @@ namespace ScheduleMe
         private static About about;
         private Button previousButton = new Button();
 
+        public Color accentColor = Color.FromArgb(15, 76, 129);
+
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
             showFormInstance(ref activeForm);
             showFormInstance(ref calendar);
             highlightButton(btnCalendarTab, calendar.Visible);
@@ -122,5 +129,6 @@ namespace ScheduleMe
             highlightButton(btnAboutWindow);
             about.FormClosedEvent += about_FormClosedEvent;
         }
+
     }
 }

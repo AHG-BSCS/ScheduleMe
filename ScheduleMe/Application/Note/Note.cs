@@ -1,13 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Data;
+﻿using System.Data;
 
 namespace ScheduleMe.Tab;
 
 public partial class Note : Form
 {
 
-    DataTable notes = new DataTable();
-    bool editing = false;
+    private DataTable notes = new DataTable();
+    private bool editing = false;
     
     public Note()
     {
@@ -18,7 +17,6 @@ public partial class Note : Form
     {
         notes.Columns.Add("Title");
         notes.Columns.Add("Note");
-
         dataGridView1.DataSource = notes;
     }
 
@@ -37,35 +35,27 @@ public partial class Note : Form
             notes.Rows[dataGridView1.CurrentCell.RowIndex]["Note"] = textBox2.Text;
         }
         else
-        {
             notes.Rows.Add(textBox1.Text, textBox2.Text);
-        }
-        textBox1.Text = "";
-        textBox2.Text = "";
+
+        textBox1.Text = null;
+        textBox2.Text = null;
         editing = false;
     }
 
     private void button4_Click(object sender, EventArgs e)
     {
-        textBox1.Text = "";
-        textBox2.Text = "";
+        textBox1.Text = null;
+        textBox2.Text = null;
     }
 
     private void button2_Click(object sender, EventArgs e)
     {
-        try
-        {
+        try {
             notes.Rows[dataGridView1.CurrentCell.RowIndex].Delete();
         }
-        catch (Exception ex)
-        {
-            MessageBox.Show(ex.Message);
+        catch (Exception exception) {
+            MessageBox.Show(exception.Message);
         }
-    }
-
-    private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-    {
-
     }
 
     private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -73,10 +63,5 @@ public partial class Note : Form
         textBox1.Text = notes.Rows[dataGridView1.CurrentCell.RowIndex].ItemArray[0].ToString();
         textBox2.Text = notes.Rows[dataGridView1.CurrentCell.RowIndex].ItemArray[1].ToString();
         editing = true;
-    }
-
-    private void label4_Click(object sender, EventArgs e)
-    {
-
     }
 }

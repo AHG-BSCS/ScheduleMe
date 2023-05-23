@@ -13,22 +13,13 @@ namespace ScheduleMe.Tab
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string url = "https://github.com/AHG-BSCS1A";
-            Process.Start(new ProcessStartInfo
-            {
-                FileName = url,
-                UseShellExecute = true
-            });
+            string url = "https://github.com/AHG-BSCS1A/ScheduleMe";
+            Process.Start(new ProcessStartInfo { FileName = url, UseShellExecute = true });
         }
 
         private void About_FormClosed(object sender, FormClosedEventArgs e)
         {
             FormClosedEvent?.Invoke(this, e);
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

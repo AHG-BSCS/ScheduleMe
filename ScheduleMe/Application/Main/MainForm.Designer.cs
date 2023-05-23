@@ -55,7 +55,7 @@
             sideNavPanel.Location = new Point(0, 0);
             sideNavPanel.Margin = new Padding(3, 2, 3, 2);
             sideNavPanel.Name = "sideNavPanel";
-            sideNavPanel.Padding = new Padding(0, 10, 0, 10);
+            sideNavPanel.Padding = new Padding(0, 35, 0, 10);
             sideNavPanel.Size = new Size(140, 550);
             sideNavPanel.TabIndex = 0;
             // 
@@ -100,7 +100,7 @@
             btnWeatherTab.FlatStyle = FlatStyle.Flat;
             btnWeatherTab.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnWeatherTab.ForeColor = Color.White;
-            btnWeatherTab.Location = new Point(0, 186);
+            btnWeatherTab.Location = new Point(0, 211);
             btnWeatherTab.Margin = new Padding(3, 2, 3, 2);
             btnWeatherTab.Name = "btnWeatherTab";
             btnWeatherTab.Size = new Size(140, 44);
@@ -117,7 +117,7 @@
             btnNoteTab.FlatStyle = FlatStyle.Flat;
             btnNoteTab.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnNoteTab.ForeColor = Color.White;
-            btnNoteTab.Location = new Point(0, 142);
+            btnNoteTab.Location = new Point(0, 167);
             btnNoteTab.Margin = new Padding(3, 2, 3, 2);
             btnNoteTab.Name = "btnNoteTab";
             btnNoteTab.Size = new Size(140, 44);
@@ -134,7 +134,7 @@
             btnTimetableTab.FlatStyle = FlatStyle.Flat;
             btnTimetableTab.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnTimetableTab.ForeColor = Color.White;
-            btnTimetableTab.Location = new Point(0, 98);
+            btnTimetableTab.Location = new Point(0, 123);
             btnTimetableTab.Margin = new Padding(3, 2, 3, 2);
             btnTimetableTab.Name = "btnTimetableTab";
             btnTimetableTab.Size = new Size(140, 44);
@@ -151,7 +151,7 @@
             btnTimelineTab.FlatStyle = FlatStyle.Flat;
             btnTimelineTab.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnTimelineTab.ForeColor = Color.White;
-            btnTimelineTab.Location = new Point(0, 54);
+            btnTimelineTab.Location = new Point(0, 79);
             btnTimelineTab.Margin = new Padding(3, 2, 3, 2);
             btnTimelineTab.Name = "btnTimelineTab";
             btnTimelineTab.Size = new Size(140, 44);
@@ -168,7 +168,7 @@
             btnCalendarTab.FlatStyle = FlatStyle.Flat;
             btnCalendarTab.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnCalendarTab.ForeColor = Color.White;
-            btnCalendarTab.Location = new Point(0, 10);
+            btnCalendarTab.Location = new Point(0, 35);
             btnCalendarTab.Margin = new Padding(3, 2, 3, 2);
             btnCalendarTab.Name = "btnCalendarTab";
             btnCalendarTab.Size = new Size(140, 44);
@@ -202,6 +202,7 @@
             StartPosition = FormStartPosition.Manual;
             Text = "ScheduleMe";
             WindowState = FormWindowState.Maximized;
+            Load += MainForm_Load;
             sideNavPanel.ResumeLayout(false);
             ResumeLayout(false);
         }

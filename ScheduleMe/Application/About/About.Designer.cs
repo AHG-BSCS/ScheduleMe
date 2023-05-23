@@ -68,7 +68,6 @@ partial class About
         lblVersion.Size = new Size(89, 22);
         lblVersion.TabIndex = 2;
         lblVersion.Text = "version dev-gh";
-        lblVersion.Click += label2_Click;
         // 
         // lblProjectType
         // 
@@ -130,6 +129,7 @@ partial class About
         Name = "About";
         Text = "About ScheduleMe";
         TopMost = true;
+        FormClosed += About_FormClosed;
         ((System.ComponentModel.ISupportInitialize)logoScheduleMe).EndInit();
         ResumeLayout(false);
         PerformLayout();

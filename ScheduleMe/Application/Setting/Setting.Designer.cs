@@ -28,35 +28,51 @@ partial class Setting
     /// </summary>
     private void InitializeComponent()
     {
-        label1 = new Label();
-        SuspendLayout();
-        // 
-        // label1
-        // 
-        label1.AutoSize = true;
-        label1.Location = new Point(12, 9);
-        label1.Name = "label1";
-        label1.Size = new Size(44, 15);
-        label1.TabIndex = 1;
-        label1.Text = "Setting";
-        // 
-        // Setting
-        // 
-        AutoScaleDimensions = new SizeF(96F, 96F);
-        AutoScaleMode = AutoScaleMode.Dpi;
-        BackColor = Color.White;
-        ClientSize = new Size(834, 511);
-        Controls.Add(label1);
-        FormBorderStyle = FormBorderStyle.FixedToolWindow;
-        Name = "Setting";
-        Text = "Setting";
-        TopMost = true;
-        FormClosed += Setting_FormClosed;
-        ResumeLayout(false);
-        PerformLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Setting";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(15, 63);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(105, 24);
+            this.checkBox1.TabIndex = 2;
+            this.checkBox1.Text = "Dark Mode";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // Setting
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1042, 639);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "Setting";
+            this.Text = "Setting";
+            this.TopMost = true;
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
     }
 
     #endregion
 
     private Label label1;
+    private CheckBox checkBox1;
 }
