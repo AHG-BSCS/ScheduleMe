@@ -2,11 +2,11 @@
 
 namespace ScheduleMe.Tab;
 
-public partial class AddTimelineTab : Form
+public partial class AddTimeline : Form
 {
     public ObjectId Id { get; set; }
 
-    public AddTimelineTab()
+    public AddTimeline()
     {
         InitializeComponent();
     }

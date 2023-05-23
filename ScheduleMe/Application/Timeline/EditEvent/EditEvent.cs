@@ -63,7 +63,7 @@ public partial class EditEvent : Form
 
     private void timelineAddTab_Click(object sender, EventArgs e)
     {
-        AddTimelineTab addTimelineTab = new AddTimelineTab();
+        AddTimeline addTimelineTab = new AddTimeline();
         addTimelineTab.ShowDialog();
 
         // Load new added timeline

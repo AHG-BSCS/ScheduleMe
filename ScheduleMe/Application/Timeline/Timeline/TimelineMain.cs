@@ -209,7 +209,7 @@ public partial class TimelineMain : Form
 
     private void timelineAddTab_Click(object sender, EventArgs e)
     {
-        AddTimelineTab addTimelineTab = new AddTimelineTab();
+        AddTimeline addTimelineTab = new AddTimeline();
         addTimelineTab.ShowDialog();
 
         if (addTimelineTab.Id != null)

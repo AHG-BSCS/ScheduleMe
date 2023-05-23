@@ -46,7 +46,7 @@ public partial class EditEventTab : UserControl
     {
         if (e.ClickedItem == addOption)
         {
-            AddTimelineTab addTab = new AddTimelineTab();
+            AddTimeline addTab = new AddTimeline();
             addTab.ShowDialog();
 
             if (addTab.Id != null)

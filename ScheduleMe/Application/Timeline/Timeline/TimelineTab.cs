@@ -9,7 +9,7 @@ public partial class TimelineTab : UserControl
 
     public string tabName
     {
-        set { eventTab.Text = value; }
+        set { timelineTabBtn.Text = value; }
     }
 
     public TimelineTab()
@@ -17,7 +17,7 @@ public partial class TimelineTab : UserControl
         InitializeComponent();
     }
 
-    private void eventTab_Click(object sender, EventArgs e)
+    private void timelineTabBtn_Click(object sender, EventArgs e)
     {
         timelineInstance.panelTimelineContainer.Controls.Clear();
         using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
@@ -44,7 +44,7 @@ public partial class TimelineTab : UserControl
 
         else if (e.ClickedItem == addOption)
         {
-            AddTimelineTab addTab = new AddTimelineTab();
+            AddTimeline addTab = new AddTimeline();
             addTab.ShowDialog();
 
             if (addTab.Id != null)
