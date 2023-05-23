@@ -27,13 +27,19 @@ partial class EditEventTabBase
     /// </summary>
     private void InitializeComponent()
     {
+        components = new System.ComponentModel.Container();
         eventTab = new Button();
+        editEventTabMenu = new ContextMenuStrip(components);
+        addOption = new ToolStripMenuItem();
+        deleteOption = new ToolStripMenuItem();
+        editEventTabMenu.SuspendLayout();
         SuspendLayout();
         // 
         // eventTab
         // 
         eventTab.AutoSize = true;
         eventTab.BackColor = Color.FromArgb(15, 76, 129);
+        eventTab.ContextMenuStrip = editEventTabMenu;
         eventTab.Dock = DockStyle.Fill;
         eventTab.FlatAppearance.BorderColor = Color.White;
         eventTab.FlatAppearance.BorderSize = 2;
@@ -50,7 +56,28 @@ partial class EditEventTabBase
         eventTab.UseVisualStyleBackColor = false;
         eventTab.Click += eventTab_Click;
         // 
-        // TimelineTabBase
+        // editEventTabMenu
+        // 
+        editEventTabMenu.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        editEventTabMenu.Items.AddRange(new ToolStripItem[] { addOption, deleteOption });
+        editEventTabMenu.Name = "timelineOption";
+        editEventTabMenu.Size = new Size(116, 56);
+        editEventTabMenu.Text = "Option";
+        editEventTabMenu.ItemClicked += editEventTabMenu_ItemClicked;
+        // 
+        // addOption
+        // 
+        addOption.Name = "addOption";
+        addOption.Size = new Size(115, 26);
+        addOption.Text = "Add";
+        // 
+        // deleteOption
+        // 
+        deleteOption.Name = "deleteOption";
+        deleteOption.Size = new Size(115, 26);
+        deleteOption.Text = "Delete";
+        // 
+        // EditEventTabBase
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
@@ -58,8 +85,9 @@ partial class EditEventTabBase
         BackColor = Color.Transparent;
         Controls.Add(eventTab);
         Margin = new Padding(0);
-        Name = "TimelineTabBase";
+        Name = "EditEventTabBase";
         Size = new Size(72, 36);
+        editEventTabMenu.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -67,4 +95,7 @@ partial class EditEventTabBase
     #endregion
 
     private Button eventTab;
+    private ContextMenuStrip editEventTabMenu;
+    private ToolStripMenuItem addOption;
+    private ToolStripMenuItem deleteOption;
 }

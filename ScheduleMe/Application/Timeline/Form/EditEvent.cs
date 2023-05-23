@@ -28,6 +28,7 @@ public partial class EditEvent : Form
                     {
                         AddEventRow newRow = new AddEventRow();
                         newRow.SetRowInfo(firstToLoad.Events[i]);
+                        newRow.Id = firstToLoad.Id;
                         newRow.Index = i;
                         newRow.Dock = DockStyle.Top;
                         eventInfoPanel.Controls.Add(newRow);
@@ -44,7 +45,7 @@ public partial class EditEvent : Form
         }
     }
 
-    private void addNewTab(string timelineName, ObjectId Id)
+    internal void addNewTab(string timelineName, ObjectId Id)
     {
         EditEventTabBase newTimelineTab = new EditEventTabBase();
         newTimelineTab.tabName = timelineName;
@@ -93,7 +94,7 @@ public partial class EditEvent : Form
             {
                 var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
                 TimelineTab timeline = timelines.FindById(currentID);
-                
+
                 // This will clear the current Events in class and replace with new list of Events
                 // Kind of ineficient but I don't know how to fix this right now
                 timeline.Events.Clear();
@@ -104,6 +105,6 @@ public partial class EditEvent : Form
                 timelines.Update(timeline);
             }
         }
-        
+
     }
 }

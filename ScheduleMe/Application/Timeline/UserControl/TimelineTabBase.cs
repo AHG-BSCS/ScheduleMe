@@ -67,7 +67,6 @@ public partial class TimelineTabBase : UserControl
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
                 timelineDB.GetCollection("Timeline").Delete(Id);
-                timelineInstance.Update();
             }
             timelineInstance.panelTimelineContainer.Controls.Clear();
             this.Dispose();
