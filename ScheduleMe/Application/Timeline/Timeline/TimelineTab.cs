@@ -41,11 +41,14 @@ public partial class TimelineTab : UserControl
             var timelines = timelineDB.GetCollection<Timeline>("Timeline");
             var timelineTabs = timelines.FindById(Id);
 
-            if (timelineTabs.Events != null)
+            if (timelineTabs.Events.Count > 0)
             {
                 timelineTabs.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
                 timelineInstance.PopulateEvents(timelineTabs.Events, timelineTabs.TimelineStartDate, timelineTabs.Id);
             }
+            else
+            timelineInstance.panelTimelineContainer.Height = 130;
+
             timelineInstance.PopulateDates(timelineTabs.TimelineStartDate, timelineTabs.TimelineEndDate);
             timelineInstance.currentID = timelineTabs.Id;
         }
