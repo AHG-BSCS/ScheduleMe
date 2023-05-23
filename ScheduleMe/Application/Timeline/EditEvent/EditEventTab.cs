@@ -10,7 +10,7 @@ public partial class EditEventTab : UserControl
 
     public string tabName
     {
-        set { eventTab.Text = value; }
+        set { timelineTabBtn.Text = value; }
     }
 
     public EditEventTab()
@@ -18,9 +18,25 @@ public partial class EditEventTab : UserControl
         InitializeComponent();
     }
 
-    private void eventTab_Click(object sender, EventArgs e)
+    private void HighlightButton()
     {
         editEventInstance.eventInfoPanel.Controls.Clear();
+        foreach (EditEventTab tab in editEventInstance.timelineTabPanel.Controls.OfType<EditEventTab>())
+        {
+            if (editEventInstance.currentID == tab.Id)
+            {
+                tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
+                tab.timelineTabBtn.ForeColor = Color.White;
+                break;
+            }
+        }
+        timelineTabBtn.BackColor = Color.White;
+        timelineTabBtn.ForeColor = Color.Black;
+    }
+
+    private void eventTab_Click(object sender, EventArgs e)
+    {
+        HighlightButton();
         using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
             var timelines = timelineDB.GetCollection<Timeline>("Timeline");

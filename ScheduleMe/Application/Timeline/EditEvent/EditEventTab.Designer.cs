@@ -28,33 +28,33 @@ partial class EditEventTab
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
-        eventTab = new Button();
+        timelineTabBtn = new Button();
         editEventTabMenu = new ContextMenuStrip(components);
         addOption = new ToolStripMenuItem();
         deleteOption = new ToolStripMenuItem();
         editEventTabMenu.SuspendLayout();
         SuspendLayout();
         // 
-        // eventTab
+        // timelineTabBtn
         // 
-        eventTab.AutoSize = true;
-        eventTab.BackColor = Color.FromArgb(15, 76, 129);
-        eventTab.ContextMenuStrip = editEventTabMenu;
-        eventTab.Dock = DockStyle.Fill;
-        eventTab.FlatAppearance.BorderColor = Color.White;
-        eventTab.FlatAppearance.BorderSize = 2;
-        eventTab.FlatStyle = FlatStyle.Flat;
-        eventTab.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        eventTab.ForeColor = Color.White;
-        eventTab.Location = new Point(0, 0);
-        eventTab.Margin = new Padding(0);
-        eventTab.Name = "eventTab";
-        eventTab.Size = new Size(72, 36);
-        eventTab.TabIndex = 0;
-        eventTab.TabStop = false;
-        eventTab.Text = "New Tab";
-        eventTab.UseVisualStyleBackColor = false;
-        eventTab.Click += eventTab_Click;
+        timelineTabBtn.AutoSize = true;
+        timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
+        timelineTabBtn.ContextMenuStrip = editEventTabMenu;
+        timelineTabBtn.Dock = DockStyle.Fill;
+        timelineTabBtn.FlatAppearance.BorderColor = Color.White;
+        timelineTabBtn.FlatAppearance.BorderSize = 2;
+        timelineTabBtn.FlatStyle = FlatStyle.Flat;
+        timelineTabBtn.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        timelineTabBtn.ForeColor = Color.White;
+        timelineTabBtn.Location = new Point(0, 0);
+        timelineTabBtn.Margin = new Padding(0);
+        timelineTabBtn.Name = "timelineTabBtn";
+        timelineTabBtn.Size = new Size(72, 36);
+        timelineTabBtn.TabIndex = 0;
+        timelineTabBtn.TabStop = false;
+        timelineTabBtn.Text = "New Tab";
+        timelineTabBtn.UseVisualStyleBackColor = false;
+        timelineTabBtn.Click += eventTab_Click;
         // 
         // editEventTabMenu
         // 
@@ -77,15 +77,15 @@ partial class EditEventTab
         deleteOption.Size = new Size(115, 26);
         deleteOption.Text = "Delete";
         // 
-        // EditEventTabBase
+        // EditEventTab
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
         AutoSize = true;
         BackColor = Color.Transparent;
-        Controls.Add(eventTab);
+        Controls.Add(timelineTabBtn);
         Margin = new Padding(0);
-        Name = "EditEventTabBase";
+        Name = "EditEventTab";
         Size = new Size(72, 36);
         editEventTabMenu.ResumeLayout(false);
         ResumeLayout(false);
@@ -93,9 +93,8 @@ partial class EditEventTab
     }
 
     #endregion
-
-    private Button eventTab;
     private ContextMenuStrip editEventTabMenu;
     private ToolStripMenuItem addOption;
     private ToolStripMenuItem deleteOption;
+    public Button timelineTabBtn;
 }

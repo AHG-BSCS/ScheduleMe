@@ -21,6 +21,7 @@ public partial class EditEvent : Form
             {
                 // Load the first TimelineTab.Event List only
                 Timeline firstToLoad = timelineTabs.First();
+                currentID = firstToLoad.Id;
 
                 if (firstToLoad.Events != null)
                 {
@@ -33,9 +34,7 @@ public partial class EditEvent : Form
                         newRow.Dock = DockStyle.Top;
                         eventInfoPanel.Controls.Add(newRow);
                     }
-                    currentID = firstToLoad.Id;
                 }
-
                 // Load all the Timeline Tabs
                 foreach (var tab in timelineTabs)
                 {
@@ -51,12 +50,16 @@ public partial class EditEvent : Form
         newTimelineTab.tabName = timelineName;
         newTimelineTab.Id = Id;
         newTimelineTab.editEventInstance = this;
-        newTimelineTab.Location = new Point(timelineAddTab.Left, timelineAddTab.Top);
+        newTimelineTab.Dock = DockStyle.Left;
         timelineTabPanel.Controls.Add(newTimelineTab);
         newTimelineTab.BringToFront();
 
-        // Adjust the add button next to new tab
-        currentID = newTimelineTab.Id;
+        // Highlight the current tab
+        if (currentID == Id)
+        {
+            newTimelineTab.timelineTabBtn.BackColor = Color.White;
+            newTimelineTab.timelineTabBtn.ForeColor = Color.Black;
+        }
     }
 
     private void timelineAddTab_Click(object sender, EventArgs e)
@@ -64,12 +67,23 @@ public partial class EditEvent : Form
         AddTimeline addTimelineTab = new AddTimeline();
         addTimelineTab.ShowDialog();
 
+        // Remove the highlight of active Tab
+        foreach (EditEventTab tab in timelineTabPanel.Controls.OfType<EditEventTab>())
+        {
+            if (currentID == tab.Id)
+            {
+                tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
+                tab.timelineTabBtn.ForeColor = Color.White;
+                break;
+            }
+        }
         // Load new added timeline
         using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
             var timelines = timelineDB.GetCollection<Timeline>("Timeline");
             Timeline newtTab = new Timeline();
             newtTab = timelines.FindById(addTimelineTab.Id);
+            currentID = newtTab.Id;
 
             // Add new tab and clear since there is no events yet as expected
             addNewTab(newtTab.TimelineName, newtTab.Id);

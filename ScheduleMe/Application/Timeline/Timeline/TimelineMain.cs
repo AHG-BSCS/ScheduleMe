@@ -217,6 +217,7 @@ public partial class TimelineMain : Form
         AddTimeline addTimelineTab = new AddTimeline();
         addTimelineTab.ShowDialog();
 
+        // Remove the highlight of active Tab
         foreach (TimelineTab tab in panelTimelineTab.Controls.OfType<TimelineTab>())
         {
             if (currentID == tab.Id)
@@ -238,6 +239,8 @@ public partial class TimelineMain : Form
                 currentID = newtTab.Id;
 
                 addNewTab(newtTab.TimelineName, newtTab.Id);
+                panelTimelineContainer.Controls.Clear();
+                panelTimelineContainer.Height = 0;
                 PopulateDates(newtTab.TimelineStartDate, newtTab.TimelineEndDate);
             }
         }
