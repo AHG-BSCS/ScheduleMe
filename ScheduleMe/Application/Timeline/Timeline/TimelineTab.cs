@@ -2,7 +2,7 @@
 
 namespace ScheduleMe.Tab;
 
-public partial class TimelineTabBase : UserControl
+public partial class TimelineTab : UserControl
 {
     public ObjectId Id { get; set; }
     public TimelineMain timelineInstance;
@@ -12,7 +12,7 @@ public partial class TimelineTabBase : UserControl
         set { eventTab.Text = value; }
     }
 
-    public TimelineTabBase()
+    public TimelineTab()
     {
         InitializeComponent();
     }

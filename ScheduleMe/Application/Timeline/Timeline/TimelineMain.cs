@@ -63,7 +63,7 @@ public partial class TimelineMain : Form
                 panelTimelineContainer.Controls.Add(nextMonths);
             }
 
-            DatesLabelBase dayDates = new DatesLabelBase();
+            DatesLabel dayDates = new DatesLabel();
             dayDates.Day = currentDate.ToString("ddd");
             dayDates.Date = currentDate.Day.ToString();
             dayDates.Location = new Point(columnSize * (currentDate - startDate).Days, firstMonth.Height - 5);
@@ -118,7 +118,7 @@ public partial class TimelineMain : Form
                         * columnSize;
 
             // Set other event property here
-            EventButtonBase newEvent = new EventButtonBase();
+            EventButton newEvent = new EventButton();
             newEvent.StartDate = events[i].EventStartDate;
             newEvent.EndDate = events[i].EventEndDate;
             newEvent.Id = id;
@@ -133,14 +133,14 @@ public partial class TimelineMain : Form
         panelTimelineContainer.Height = lowestBottom + 30;
     }
 
-    private void ArrangeEventsOverlap(EventButtonBase newEvent, ref int lowestBottom)
+    private void ArrangeEventsOverlap(EventButton newEvent, ref int lowestBottom)
     {
         int previousEventTop = 0;
         int previousOverFlowBottom = 0;
         int noOverflowTop = 0;
         int noOverflowCounter = 0;
 
-        foreach (EventButtonBase previousEvent in panelTimelineContainer.Controls.OfType<EventButtonBase>())
+        foreach (EventButton previousEvent in panelTimelineContainer.Controls.OfType<EventButton>())
         {
             // Not the same object and newEvent is above previousEvent
             if (previousEvent != newEvent && newEvent.Top <= previousEvent.Top)
@@ -181,7 +181,7 @@ public partial class TimelineMain : Form
 
     public void addNewTab(string timelineName, ObjectId Id)
     {
-        TimelineTabBase newTimelineTab = new TimelineTabBase();
+        TimelineTab newTimelineTab = new TimelineTab();
         newTimelineTab.tabName = timelineName;
         newTimelineTab.Id = Id;
         newTimelineTab.timelineInstance = this;

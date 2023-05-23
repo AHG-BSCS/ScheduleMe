@@ -2,7 +2,7 @@
 
 namespace ScheduleMe.Tab;
 
-public partial class EventButtonBase : UserControl
+public partial class EventButton : UserControl
 {
     public ObjectId Id { get; set; }
     public ushort Index { get; set; }
@@ -18,7 +18,7 @@ public partial class EventButtonBase : UserControl
         set { eventName.Text = value; }
     }
 
-    public EventButtonBase()
+    public EventButton()
     {
         InitializeComponent();
     }

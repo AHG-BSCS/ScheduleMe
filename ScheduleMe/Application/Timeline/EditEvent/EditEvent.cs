@@ -47,7 +47,7 @@ public partial class EditEvent : Form
 
     internal void addNewTab(string timelineName, ObjectId Id)
     {
-        EditEventTabBase newTimelineTab = new EditEventTabBase();
+        EditEventTab newTimelineTab = new EditEventTab();
         newTimelineTab.tabName = timelineName;
         newTimelineTab.Id = Id;
         newTimelineTab.editEventInstance = this;

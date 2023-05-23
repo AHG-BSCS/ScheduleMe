@@ -3,7 +3,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ScheduleMe.Tab;
 
-public partial class EditEventTabBase : UserControl
+public partial class EditEventTab : UserControl
 {
     public ObjectId Id { get; set; }    // Reference Id from the database
     public EditEvent editEventInstance; // Instance that created this UserControl
@@ -13,7 +13,7 @@ public partial class EditEventTabBase : UserControl
         set { eventTab.Text = value; }
     }
 
-    public EditEventTabBase()
+    public EditEventTab()
     {
         InitializeComponent();
     }

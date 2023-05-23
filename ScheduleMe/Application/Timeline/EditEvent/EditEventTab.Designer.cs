@@ -1,5 +1,5 @@
 ﻿namespace ScheduleMe.Tab;
-partial class TimelineTabBase
+partial class EditEventTab
 {
     /// <summary> 
     /// Required designer variable.
@@ -29,20 +29,17 @@ partial class TimelineTabBase
     {
         components = new System.ComponentModel.Container();
         eventTab = new Button();
-        timelineTabMenu = new ContextMenuStrip(components);
-        editOption = new ToolStripMenuItem();
+        editEventTabMenu = new ContextMenuStrip(components);
         addOption = new ToolStripMenuItem();
         deleteOption = new ToolStripMenuItem();
-        optionSeparator = new ToolStripSeparator();
-        openAtBottomOption = new ToolStripMenuItem();
-        timelineTabMenu.SuspendLayout();
+        editEventTabMenu.SuspendLayout();
         SuspendLayout();
         // 
         // eventTab
         // 
         eventTab.AutoSize = true;
         eventTab.BackColor = Color.FromArgb(15, 76, 129);
-        eventTab.ContextMenuStrip = timelineTabMenu;
+        eventTab.ContextMenuStrip = editEventTabMenu;
         eventTab.Dock = DockStyle.Fill;
         eventTab.FlatAppearance.BorderColor = Color.White;
         eventTab.FlatAppearance.BorderSize = 2;
@@ -59,46 +56,28 @@ partial class TimelineTabBase
         eventTab.UseVisualStyleBackColor = false;
         eventTab.Click += eventTab_Click;
         // 
-        // timelineTabMenu
+        // editEventTabMenu
         // 
-        timelineTabMenu.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
-        timelineTabMenu.Items.AddRange(new ToolStripItem[] { editOption, addOption, deleteOption, optionSeparator, openAtBottomOption });
-        timelineTabMenu.Name = "timelineOption";
-        timelineTabMenu.Size = new Size(189, 136);
-        timelineTabMenu.Text = "Option";
-        timelineTabMenu.ItemClicked += timelineTabMenu_ItemClicked;
-        // 
-        // editOption
-        // 
-        editOption.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
-        editOption.Name = "editOption";
-        editOption.Size = new Size(188, 26);
-        editOption.Text = "Edit";
+        editEventTabMenu.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        editEventTabMenu.Items.AddRange(new ToolStripItem[] { addOption, deleteOption });
+        editEventTabMenu.Name = "timelineOption";
+        editEventTabMenu.Size = new Size(116, 56);
+        editEventTabMenu.Text = "Option";
+        editEventTabMenu.ItemClicked += editEventTabMenu_ItemClicked;
         // 
         // addOption
         // 
         addOption.Name = "addOption";
-        addOption.Size = new Size(188, 26);
+        addOption.Size = new Size(115, 26);
         addOption.Text = "Add";
         // 
         // deleteOption
         // 
         deleteOption.Name = "deleteOption";
-        deleteOption.Size = new Size(188, 26);
+        deleteOption.Size = new Size(115, 26);
         deleteOption.Text = "Delete";
         // 
-        // optionSeparator
-        // 
-        optionSeparator.Name = "optionSeparator";
-        optionSeparator.Size = new Size(185, 6);
-        // 
-        // openAtBottomOption
-        // 
-        openAtBottomOption.Name = "openAtBottomOption";
-        openAtBottomOption.Size = new Size(188, 26);
-        openAtBottomOption.Text = "Open at the bottom";
-        // 
-        // TimelineTabBase
+        // EditEventTabBase
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
@@ -106,9 +85,9 @@ partial class TimelineTabBase
         BackColor = Color.Transparent;
         Controls.Add(eventTab);
         Margin = new Padding(0);
-        Name = "TimelineTabBase";
+        Name = "EditEventTabBase";
         Size = new Size(72, 36);
-        timelineTabMenu.ResumeLayout(false);
+        editEventTabMenu.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -116,10 +95,7 @@ partial class TimelineTabBase
     #endregion
 
     private Button eventTab;
-    private ContextMenuStrip timelineTabMenu;
-    private ToolStripMenuItem editOption;
+    private ContextMenuStrip editEventTabMenu;
     private ToolStripMenuItem addOption;
     private ToolStripMenuItem deleteOption;
-    private ToolStripSeparator optionSeparator;
-    private ToolStripMenuItem openAtBottomOption;
 }
