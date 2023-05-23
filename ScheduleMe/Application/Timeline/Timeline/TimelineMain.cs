@@ -217,8 +217,6 @@ public partial class TimelineMain : Form
         AddTimeline addTimelineTab = new AddTimeline();
         addTimelineTab.ShowDialog();
 
-        
-
         if (addTimelineTab.Id != null)
         {
             // Remove the highlight of active Tab
