@@ -25,13 +25,7 @@ public partial class EventButton : UserControl
 
     private void eventButtonMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {
-        if (e.ClickedItem == editOption)
-        {
-            EditEvent editEvent = new EditEvent();
-            editEvent.ShowDialog();
-        }
-
-        else if (e.ClickedItem == deleteOption)
+        if (e.ClickedItem == deleteOption)
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {

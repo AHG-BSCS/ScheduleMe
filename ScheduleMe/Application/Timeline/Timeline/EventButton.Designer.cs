@@ -31,7 +31,6 @@ partial class EventButton
         components = new System.ComponentModel.Container();
         eventName = new Button();
         eventButtonMenu = new ContextMenuStrip(components);
-        editOption = new ToolStripMenuItem();
         deleteOption = new ToolStripMenuItem();
         eventButtonMenu.SuspendLayout();
         SuspendLayout();
@@ -57,18 +56,11 @@ partial class EventButton
         // eventButtonMenu
         // 
         eventButtonMenu.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
-        eventButtonMenu.Items.AddRange(new ToolStripItem[] { editOption, deleteOption });
+        eventButtonMenu.Items.AddRange(new ToolStripItem[] { deleteOption });
         eventButtonMenu.Name = "timelineOption";
-        eventButtonMenu.Size = new Size(181, 78);
+        eventButtonMenu.Size = new Size(181, 52);
         eventButtonMenu.Text = "Option";
         eventButtonMenu.ItemClicked += eventButtonMenu_ItemClicked;
-        // 
-        // editOption
-        // 
-        editOption.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
-        editOption.Name = "editOption";
-        editOption.Size = new Size(180, 26);
-        editOption.Text = "Edit";
         // 
         // deleteOption
         // 
@@ -76,7 +68,7 @@ partial class EventButton
         deleteOption.Size = new Size(180, 26);
         deleteOption.Text = "Delete";
         // 
-        // EventButtonBase
+        // EventButton
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
@@ -84,7 +76,7 @@ partial class EventButton
         BackColor = Color.White;
         Controls.Add(eventName);
         Margin = new Padding(0);
-        Name = "EventButtonBase";
+        Name = "EventButton";
         Padding = new Padding(0, 0, 3, 0);
         Size = new Size(68, 30);
         eventButtonMenu.ResumeLayout(false);
@@ -95,6 +87,5 @@ partial class EventButton
 
     private Button eventName;
     private ContextMenuStrip eventButtonMenu;
-    private ToolStripMenuItem editOption;
     private ToolStripMenuItem deleteOption;
 }

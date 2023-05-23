@@ -244,10 +244,4 @@ public partial class TimelineMain : Form
             }
         }
     }
-
-    private void timelineOption_Click(object sender, EventArgs e)
-    {
-        EditEvent editEvents = new EditEvent();
-        editEvents.ShowDialog();
-    }
 }

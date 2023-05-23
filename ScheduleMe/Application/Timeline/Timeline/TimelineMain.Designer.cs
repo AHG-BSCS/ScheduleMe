@@ -28,21 +28,15 @@ partial class TimelineMain
     /// </summary>
     private void InitializeComponent()
     {
-        components = new System.ComponentModel.Container();
         timelineTabToolPanel = new Panel();
+        panelTimelineTab = new Panel();
         additionalInfo = new PictureBox();
         currentDate = new PictureBox();
         timelineAddTab = new Button();
         panelTimelineContainer = new Panel();
-        timelineOption = new ContextMenuStrip(components);
-        editOption = new ToolStripMenuItem();
-        addOption = new ToolStripMenuItem();
-        deleteOption = new ToolStripMenuItem();
-        panelTimelineTab = new Panel();
         timelineTabToolPanel.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)additionalInfo).BeginInit();
         ((System.ComponentModel.ISupportInitialize)currentDate).BeginInit();
-        timelineOption.SuspendLayout();
         SuspendLayout();
         // 
         // timelineTabToolPanel
@@ -58,6 +52,14 @@ partial class TimelineMain
         timelineTabToolPanel.Padding = new Padding(10, 0, 10, 0);
         timelineTabToolPanel.Size = new Size(850, 35);
         timelineTabToolPanel.TabIndex = 0;
+        // 
+        // panelTimelineTab
+        // 
+        panelTimelineTab.Dock = DockStyle.Fill;
+        panelTimelineTab.Location = new Point(48, 0);
+        panelTimelineTab.Name = "panelTimelineTab";
+        panelTimelineTab.Size = new Size(722, 35);
+        panelTimelineTab.TabIndex = 0;
         // 
         // additionalInfo
         // 
@@ -108,48 +110,11 @@ partial class TimelineMain
         // 
         panelTimelineContainer.AutoScroll = true;
         panelTimelineContainer.BackColor = Color.Transparent;
-        panelTimelineContainer.ContextMenuStrip = timelineOption;
         panelTimelineContainer.Dock = DockStyle.Top;
         panelTimelineContainer.Location = new Point(0, 35);
         panelTimelineContainer.Name = "panelTimelineContainer";
         panelTimelineContainer.Size = new Size(850, 102);
         panelTimelineContainer.TabIndex = 1;
-        // 
-        // timelineOption
-        // 
-        timelineOption.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
-        timelineOption.Items.AddRange(new ToolStripItem[] { editOption, addOption, deleteOption });
-        timelineOption.Name = "timelineOption";
-        timelineOption.Size = new Size(116, 82);
-        timelineOption.Text = "Option";
-        timelineOption.Click += timelineOption_Click;
-        // 
-        // editOption
-        // 
-        editOption.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
-        editOption.Name = "editOption";
-        editOption.Size = new Size(115, 26);
-        editOption.Text = "Edit";
-        // 
-        // addOption
-        // 
-        addOption.Name = "addOption";
-        addOption.Size = new Size(115, 26);
-        addOption.Text = "Add";
-        // 
-        // deleteOption
-        // 
-        deleteOption.Name = "deleteOption";
-        deleteOption.Size = new Size(115, 26);
-        deleteOption.Text = "Delete";
-        // 
-        // panelTimelineTab
-        // 
-        panelTimelineTab.Dock = DockStyle.Fill;
-        panelTimelineTab.Location = new Point(48, 0);
-        panelTimelineTab.Name = "panelTimelineTab";
-        panelTimelineTab.Size = new Size(722, 35);
-        panelTimelineTab.TabIndex = 0;
         // 
         // TimelineMain
         // 
@@ -169,7 +134,6 @@ partial class TimelineMain
         timelineTabToolPanel.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)additionalInfo).EndInit();
         ((System.ComponentModel.ISupportInitialize)currentDate).EndInit();
-        timelineOption.ResumeLayout(false);
         ResumeLayout(false);
     }
 
@@ -178,10 +142,6 @@ partial class TimelineMain
     private PictureBox currentDate;
     private PictureBox additionalInfo;
     internal Panel panelTimelineContainer;
-    private ContextMenuStrip timelineOption;
-    private ToolStripMenuItem editOption;
-    private ToolStripMenuItem addOption;
-    private ToolStripMenuItem deleteOption;
     public Panel timelineTabToolPanel;
     public Panel panelTimelineTab;
 }
