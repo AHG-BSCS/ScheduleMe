@@ -4,7 +4,6 @@ namespace ScheduleMe.Tab;
 
 public partial class EditEvent : Form
 {
-    private string timelineConnection = @"C:\Users\Jhondale\Downloads\Timelines.db";
     public ObjectId currentID;
 
     public EditEvent()
@@ -14,27 +13,28 @@ public partial class EditEvent : Form
 
     private void EditEvent_Load(object sender, EventArgs e)
     {
-        using (var timelineDB = new LiteDatabase(timelineConnection))
+        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
-            var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
+            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
             var timelineTabs = timelines.FindAll();
             if (timelineTabs.Count() != 0)
             {
                 // Load the first TimelineTab.Event List only
-                TimelineTab firstToLoad = timelineTabs.First();
+                Timeline firstToLoad = timelineTabs.First();
+                currentID = firstToLoad.Id;
 
                 if (firstToLoad.Events != null)
                 {
-                    foreach (Event firstEvents in firstToLoad.Events)
+                    for (ushort i = 0; i < firstToLoad.Events.Count; i++)
                     {
                         AddEventRow newRow = new AddEventRow();
-                        newRow.SetRowInfo(firstEvents);
+                        newRow.SetRowInfo(firstToLoad.Events[i]);
+                        newRow.Id = firstToLoad.Id;
+                        newRow.Index = i;
                         newRow.Dock = DockStyle.Top;
                         eventInfoPanel.Controls.Add(newRow);
                     }
-                    currentID = firstToLoad.Id;
                 }
-
                 // Load all the Timeline Tabs
                 foreach (var tab in timelineTabs)
                 {
@@ -44,33 +44,46 @@ public partial class EditEvent : Form
         }
     }
 
-    private void addNewTab(string timelineName, ObjectId Id)
+    internal void addNewTab(string timelineName, ObjectId Id)
     {
-        EditEventTabBase newTimelineTab = new EditEventTabBase();
+        EditEventTab newTimelineTab = new EditEventTab();
         newTimelineTab.tabName = timelineName;
         newTimelineTab.Id = Id;
         newTimelineTab.editEventInstance = this;
-        newTimelineTab.Location = new Point(timelineAddTab.Left, timelineAddTab.Top);
+        newTimelineTab.Dock = DockStyle.Left;
         timelineTabPanel.Controls.Add(newTimelineTab);
         newTimelineTab.BringToFront();
 
-        // Adjust the add button next to new tab
-        timelineAddTab.Location = new Point(newTimelineTab.Right, newTimelineTab.Top);
-        newTimelineTab.Dock = DockStyle.Left;
-        currentID = newTimelineTab.Id;
+        // Highlight the current tab
+        if (currentID == Id)
+        {
+            newTimelineTab.timelineTabBtn.BackColor = Color.White;
+            newTimelineTab.timelineTabBtn.ForeColor = Color.Black;
+        }
     }
 
     private void timelineAddTab_Click(object sender, EventArgs e)
     {
-        AddTimelineTab addTimelineTab = new AddTimelineTab();
+        AddTimeline addTimelineTab = new AddTimeline();
         addTimelineTab.ShowDialog();
 
-        // Load new added timeline
-        using (var timelineDB = new LiteDatabase(timelineConnection))
+        // Remove the highlight of active Tab
+        foreach (EditEventTab tab in timelineTabPanel.Controls.OfType<EditEventTab>())
         {
-            var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
-            TimelineTab newtTab = new TimelineTab();
+            if (currentID == tab.Id)
+            {
+                tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
+                tab.timelineTabBtn.ForeColor = Color.White;
+                break;
+            }
+        }
+        // Load new added timeline
+        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+        {
+            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+            Timeline newtTab = new Timeline();
             newtTab = timelines.FindById(addTimelineTab.Id);
+            currentID = newtTab.Id;
 
             // Add new tab and clear since there is no events yet as expected
             addNewTab(newtTab.TimelineName, newtTab.Id);
@@ -81,6 +94,8 @@ public partial class EditEvent : Form
     private void addRowBtn_Click(object sender, EventArgs e)
     {
         AddEventRow newRow = new AddEventRow();
+        newRow.eventInfo = new Event();
+        newRow.SetRowInfo(newRow.eventInfo);
         newRow.Dock = DockStyle.Top; // Need some fix to docked at the bottom instead
         eventInfoPanel.Controls.Add(newRow);
     }
@@ -89,14 +104,18 @@ public partial class EditEvent : Form
     {
         if (currentID != null)
         {
-            using (var timelineDB = new LiteDatabase(timelineConnection))
+            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
-                var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
-                TimelineTab timeline = timelines.FindById(currentID);
-                
+                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                Timeline timeline = timelines.FindById(currentID);
+
                 // This will clear the current Events in class and replace with new list of Events
                 // Kind of ineficient but I don't know how to fix this right now
-                timeline.Events.Clear();
+                if (timeline.Events != null)
+                {
+                    timeline.Events.Clear();
+                }
+
                 foreach (AddEventRow newEvent in eventInfoPanel.Controls)
                 {
                     timeline.Events.Add(newEvent.GetRowInfo());
@@ -104,6 +123,5 @@ public partial class EditEvent : Form
                 timelines.Update(timeline);
             }
         }
-        
     }
 }

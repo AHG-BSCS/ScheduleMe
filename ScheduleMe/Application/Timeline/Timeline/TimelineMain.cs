@@ -2,42 +2,42 @@
 
 namespace ScheduleMe.Tab;
 
-public partial class Timeline : Form
+public partial class TimelineMain : Form
 {
-    private string timelineConnection = @"C:\Users\Jhondale\Downloads\Timelines.db";
-    public ObjectId Id;
+    public ObjectId currentID { get; set; }
     private byte columnSize = 42;
     private short currentDateTimePosition = 0;
 
-    public Timeline()
+    public TimelineMain()
     {
         InitializeComponent();
     }
 
     private void Timeline_Load(object sender, EventArgs e)
     {
-        using (var timelineDB = new LiteDatabase(timelineConnection))
+        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
-            var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
+            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
             var timelineTabs = timelines.FindAll();
             if (timelineTabs.Count() != 0)
             {
-                // Load the first Timeline.Event List only
-                TimelineTab firstToLoad = timelineTabs.First();
-
-                if (firstToLoad.Events != null)
-                {
-                    // Need to improve the sorting or the overlapping method. Too difficult
-                    firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-                    PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate);
-                }
-                PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
+                Timeline firstToLoad = timelineTabs.First();
+                currentID = firstToLoad.Id;
 
                 // Load all the Timeline Tabs
                 foreach (var tab in timelineTabs)
                 {
                     addNewTab(tab.TimelineName, tab.Id);
                 }
+
+                // Load the first Timeline.Event List only
+                if (firstToLoad.Events != null)
+                {
+                    // Need to improve the sorting or the overlapping method. Too difficult
+                    firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
+                    PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate, firstToLoad.Id);
+                }
+                PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
             }
         }
     }
@@ -64,7 +64,7 @@ public partial class Timeline : Form
                 panelTimelineContainer.Controls.Add(nextMonths);
             }
 
-            DatesLabelBase dayDates = new DatesLabelBase();
+            DatesLabel dayDates = new DatesLabel();
             dayDates.Day = currentDate.ToString("ddd");
             dayDates.Date = currentDate.Day.ToString();
             dayDates.Location = new Point(columnSize * (currentDate - startDate).Days, firstMonth.Height - 5);
@@ -106,21 +106,24 @@ public partial class Timeline : Form
         }
     }
 
-    internal void PopulateEvents(List<Event> events, DateTime startDate)
+    internal void PopulateEvents(List<Event> events, DateTime startDate, ObjectId id)
     {
         short tempIncrement = 1;
         int lowestBottom = 0;
 
-        foreach (Event eventDate in events)
+        for (ushort i = 0; i < events.Count; i++)
         {
-            int eventDuration = (int)(eventDate.EventEndDate - eventDate.EventStartDate).TotalDays;
+            int eventDuration = (int)(events[i].EventEndDate - events[i].EventStartDate).TotalDays;
             int eventsXAxis = panelTimelineContainer.HorizontalScroll.Value
-                        + (eventDate.EventStartDate - startDate).Days
+                        + (events[i].EventStartDate - startDate).Days
                         * columnSize;
 
-            EventButtonBase newEvent = new EventButtonBase();
-            newEvent.StartDate = eventDate.EventStartDate;
-            newEvent.EndDate = eventDate.EventEndDate;
+            // Set other event property here
+            EventButton newEvent = new EventButton();
+            newEvent.StartDate = events[i].EventStartDate;
+            newEvent.EndDate = events[i].EventEndDate;
+            newEvent.Id = id;
+            newEvent.Index = i;
             newEvent.Event = "Event " + tempIncrement++;
             newEvent.Width = eventDuration * columnSize + 4;
             newEvent.Location = new Point(eventsXAxis + 17, 70);
@@ -131,14 +134,14 @@ public partial class Timeline : Form
         panelTimelineContainer.Height = lowestBottom + 30;
     }
 
-    private void ArrangeEventsOverlap(EventButtonBase newEvent, ref int lowestBottom)
+    private void ArrangeEventsOverlap(EventButton newEvent, ref int lowestBottom)
     {
         int previousEventTop = 0;
         int previousOverFlowBottom = 0;
         int noOverflowTop = 0;
         int noOverflowCounter = 0;
 
-        foreach (EventButtonBase previousEvent in panelTimelineContainer.Controls.OfType<EventButtonBase>())
+        foreach (EventButton previousEvent in panelTimelineContainer.Controls.OfType<EventButton>())
         {
             // Not the same object and newEvent is above previousEvent
             if (previousEvent != newEvent && newEvent.Top <= previousEvent.Top)
@@ -179,17 +182,22 @@ public partial class Timeline : Form
 
     public void addNewTab(string timelineName, ObjectId Id)
     {
-        TimelineTabBase newTimelineTab = new TimelineTabBase();
-        newTimelineTab.tabName = timelineName;
+        TimelineTab newTimelineTab = new TimelineTab();
+        newTimelineTab.TabName = timelineName;
         newTimelineTab.Id = Id;
         newTimelineTab.timelineInstance = this;
         newTimelineTab.Dock = DockStyle.Left;
         //newTimelineTab.Location = new Point(timelineAddTab.Left, timelineAddTab.Top);
+        panelTimelineContainer.Controls.Clear();
         panelTimelineTab.Controls.Add(newTimelineTab);
         newTimelineTab.BringToFront();
 
-        timelineAddTab.Location = new Point(newTimelineTab.Right, newTimelineTab.Top);
-        newTimelineTab.Dock = DockStyle.Left;
+        // Highlight the current tab
+        if (currentID == Id)
+        {
+            newTimelineTab.timelineTabBtn.BackColor = Color.White;
+            newTimelineTab.timelineTabBtn.ForeColor = Color.Black;
+        }
     }
 
     private void currentDate_Click(object sender, EventArgs e)
@@ -206,19 +214,33 @@ public partial class Timeline : Form
 
     private void timelineAddTab_Click(object sender, EventArgs e)
     {
-        AddTimelineTab addTimelineTab = new AddTimelineTab();
+        AddTimeline addTimelineTab = new AddTimeline();
         addTimelineTab.ShowDialog();
+
+        // Remove the highlight of active Tab
+        foreach (TimelineTab tab in panelTimelineTab.Controls.OfType<TimelineTab>())
+        {
+            if (currentID == tab.Id)
+            {
+                tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
+                tab.timelineTabBtn.ForeColor = Color.White;
+                break;
+            }
+        }
 
         if (addTimelineTab.Id != null)
         {
             // Load the new added TimelineTab
-            using (var timelineDB = new LiteDatabase(timelineConnection))
+            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
-                var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
-                var newtTab = new TimelineTab();
+                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                var newtTab = new Timeline();
                 newtTab = timelines.FindById(addTimelineTab.Id);
+                currentID = newtTab.Id;
 
                 addNewTab(newtTab.TimelineName, newtTab.Id);
+                panelTimelineContainer.Controls.Clear();
+                panelTimelineContainer.Height = 0;
                 PopulateDates(newtTab.TimelineStartDate, newtTab.TimelineEndDate);
             }
         }

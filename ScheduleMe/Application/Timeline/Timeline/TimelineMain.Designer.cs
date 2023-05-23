@@ -1,6 +1,6 @@
 ﻿namespace ScheduleMe.Tab;
 
-partial class Timeline
+partial class TimelineMain
 {
     /// <summary>
     /// Required designer variable.
@@ -141,7 +141,7 @@ partial class Timeline
         deleteOption.Size = new Size(115, 26);
         deleteOption.Text = "Delete";
         // 
-        // Timeline
+        // TimelineMain
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
@@ -152,7 +152,7 @@ partial class Timeline
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(3, 4, 3, 4);
-        Name = "Timeline";
+        Name = "TimelineMain";
         Text = "Timeline";
         WindowState = FormWindowState.Maximized;
         Load += Timeline_Load;
@@ -164,8 +164,6 @@ partial class Timeline
     }
 
     #endregion
-
-    private Panel panelTimelineTab;
     private Button timelineAddTab;
     private PictureBox currentDate;
     private PictureBox additionalInfo;
@@ -174,4 +172,5 @@ partial class Timeline
     private ToolStripMenuItem editOption;
     private ToolStripMenuItem addOption;
     private ToolStripMenuItem deleteOption;
+    public Panel panelTimelineTab;
 }

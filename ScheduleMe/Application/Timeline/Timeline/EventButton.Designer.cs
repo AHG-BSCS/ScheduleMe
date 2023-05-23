@@ -1,6 +1,6 @@
 ﻿namespace ScheduleMe.Tab;
 
-partial class EventButtonBase
+partial class EventButton
 {
     /// <summary> 
     /// Required designer variable.

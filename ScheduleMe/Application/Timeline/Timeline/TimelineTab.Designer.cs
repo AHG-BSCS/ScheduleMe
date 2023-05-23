@@ -1,5 +1,5 @@
 ﻿namespace ScheduleMe.Tab;
-partial class TimelineTabBase
+partial class TimelineTab
 {
     /// <summary> 
     /// Required designer variable.
@@ -28,7 +28,7 @@ partial class TimelineTabBase
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
-        eventTab = new Button();
+        timelineTabBtn = new Button();
         timelineTabMenu = new ContextMenuStrip(components);
         editOption = new ToolStripMenuItem();
         addOption = new ToolStripMenuItem();
@@ -38,33 +38,33 @@ partial class TimelineTabBase
         timelineTabMenu.SuspendLayout();
         SuspendLayout();
         // 
-        // eventTab
+        // timelineTabBtn
         // 
-        eventTab.AutoSize = true;
-        eventTab.BackColor = Color.FromArgb(15, 76, 129);
-        eventTab.ContextMenuStrip = timelineTabMenu;
-        eventTab.Dock = DockStyle.Fill;
-        eventTab.FlatAppearance.BorderColor = Color.White;
-        eventTab.FlatAppearance.BorderSize = 2;
-        eventTab.FlatStyle = FlatStyle.Flat;
-        eventTab.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        eventTab.ForeColor = Color.White;
-        eventTab.Location = new Point(0, 0);
-        eventTab.Margin = new Padding(0);
-        eventTab.Name = "eventTab";
-        eventTab.Size = new Size(72, 36);
-        eventTab.TabIndex = 0;
-        eventTab.TabStop = false;
-        eventTab.Text = "New Tab";
-        eventTab.UseVisualStyleBackColor = false;
-        eventTab.Click += eventTab_Click;
+        timelineTabBtn.AutoSize = true;
+        timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
+        timelineTabBtn.ContextMenuStrip = timelineTabMenu;
+        timelineTabBtn.Dock = DockStyle.Fill;
+        timelineTabBtn.FlatAppearance.BorderColor = Color.White;
+        timelineTabBtn.FlatAppearance.BorderSize = 2;
+        timelineTabBtn.FlatStyle = FlatStyle.Flat;
+        timelineTabBtn.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        timelineTabBtn.ForeColor = Color.White;
+        timelineTabBtn.Location = new Point(0, 0);
+        timelineTabBtn.Margin = new Padding(0);
+        timelineTabBtn.Name = "timelineTabBtn";
+        timelineTabBtn.Size = new Size(72, 36);
+        timelineTabBtn.TabIndex = 0;
+        timelineTabBtn.TabStop = false;
+        timelineTabBtn.Text = "New Tab";
+        timelineTabBtn.UseVisualStyleBackColor = false;
+        timelineTabBtn.Click += timelineTabBtn_Click;
         // 
         // timelineTabMenu
         // 
         timelineTabMenu.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         timelineTabMenu.Items.AddRange(new ToolStripItem[] { editOption, addOption, deleteOption, optionSeparator, openAtBottomOption });
         timelineTabMenu.Name = "timelineOption";
-        timelineTabMenu.Size = new Size(189, 136);
+        timelineTabMenu.Size = new Size(189, 114);
         timelineTabMenu.Text = "Option";
         timelineTabMenu.ItemClicked += timelineTabMenu_ItemClicked;
         // 
@@ -98,15 +98,15 @@ partial class TimelineTabBase
         openAtBottomOption.Size = new Size(188, 26);
         openAtBottomOption.Text = "Open at the bottom";
         // 
-        // TimelineTabBase
+        // TimelineTab
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
         AutoSize = true;
         BackColor = Color.Transparent;
-        Controls.Add(eventTab);
+        Controls.Add(timelineTabBtn);
         Margin = new Padding(0);
-        Name = "TimelineTabBase";
+        Name = "TimelineTab";
         Size = new Size(72, 36);
         timelineTabMenu.ResumeLayout(false);
         ResumeLayout(false);
@@ -114,12 +114,11 @@ partial class TimelineTabBase
     }
 
     #endregion
-
-    private Button eventTab;
     private ContextMenuStrip timelineTabMenu;
     private ToolStripMenuItem editOption;
     private ToolStripMenuItem addOption;
     private ToolStripMenuItem deleteOption;
     private ToolStripSeparator optionSeparator;
     private ToolStripMenuItem openAtBottomOption;
+    public Button timelineTabBtn;
 }

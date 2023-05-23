@@ -1,25 +1,23 @@
 ﻿using LiteDB;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ScheduleMe.Tab;
 
-public partial class AddTimelineTab : Form
+public partial class AddTimeline : Form
 {
-    private string timelineConnection = @"C:\Users\Jhondale\Downloads\Timelines.db";
     public ObjectId Id { get; set; }
 
-    public AddTimelineTab()
+    public AddTimeline()
     {
         InitializeComponent();
     }
 
     private void btnSaveTimeline_Click(object sender, EventArgs e)
     {
-        using (var timelineDB = new LiteDatabase(timelineConnection))
+        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
-            var timelines = timelineDB.GetCollection<TimelineTab>("Timeline");
+            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
 
-            var newTimeline = new TimelineTab
+            var newTimeline = new Timeline
             {
                 TimelineName = tBoxName.Text,
                 TimelineStartDate = startDatePicker.Value,

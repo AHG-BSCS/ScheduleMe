@@ -28,7 +28,10 @@ partial class AddEventRow
     /// </summary>
     private void InitializeComponent()
     {
+        components = new System.ComponentModel.Container();
         eventsInfoTLPanel = new TableLayoutPanel();
+        rowMenu = new ContextMenuStrip(components);
+        deleteOption = new ToolStripMenuItem();
         endDatePicker = new DateTimePicker();
         startDatePicker = new DateTimePicker();
         descriptionTBox = new TextBox();
@@ -36,6 +39,7 @@ partial class AddEventRow
         colorPickerBtn = new Button();
         colorDialog = new ColorDialog();
         eventsInfoTLPanel.SuspendLayout();
+        rowMenu.SuspendLayout();
         SuspendLayout();
         // 
         // eventsInfoTLPanel
@@ -48,6 +52,7 @@ partial class AddEventRow
         eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F));
         eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F));
         eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 45F));
+        eventsInfoTLPanel.ContextMenuStrip = rowMenu;
         eventsInfoTLPanel.Controls.Add(endDatePicker, 3, 0);
         eventsInfoTLPanel.Controls.Add(startDatePicker, 2, 0);
         eventsInfoTLPanel.Controls.Add(descriptionTBox, 1, 0);
@@ -64,8 +69,24 @@ partial class AddEventRow
         eventsInfoTLPanel.Size = new Size(1000, 31);
         eventsInfoTLPanel.TabIndex = 0;
         // 
+        // rowMenu
+        // 
+        rowMenu.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        rowMenu.Items.AddRange(new ToolStripItem[] { deleteOption });
+        rowMenu.Name = "timelineOption";
+        rowMenu.Size = new Size(116, 30);
+        rowMenu.Text = "Option";
+        rowMenu.ItemClicked += rowMenu_ItemClicked;
+        // 
+        // deleteOption
+        // 
+        deleteOption.Name = "deleteOption";
+        deleteOption.Size = new Size(115, 26);
+        deleteOption.Text = "Delete";
+        // 
         // endDatePicker
         // 
+        endDatePicker.ContextMenuStrip = rowMenu;
         endDatePicker.CustomFormat = "MMM dd, yyyy hh:MM tt";
         endDatePicker.Dock = DockStyle.Fill;
         endDatePicker.Format = DateTimePickerFormat.Custom;
@@ -82,6 +103,7 @@ partial class AddEventRow
         // 
         // startDatePicker
         // 
+        startDatePicker.ContextMenuStrip = rowMenu;
         startDatePicker.CustomFormat = "MMM dd, yyyy hh:MM tt";
         startDatePicker.Dock = DockStyle.Fill;
         startDatePicker.Format = DateTimePickerFormat.Custom;
@@ -100,6 +122,7 @@ partial class AddEventRow
         // 
         descriptionTBox.BackColor = Color.White;
         descriptionTBox.BorderStyle = BorderStyle.None;
+        descriptionTBox.ContextMenuStrip = rowMenu;
         descriptionTBox.Dock = DockStyle.Fill;
         descriptionTBox.Location = new Point(226, 5);
         descriptionTBox.Margin = new Padding(5, 4, 3, 3);
@@ -112,6 +135,7 @@ partial class AddEventRow
         // 
         titleTBox.BackColor = Color.White;
         titleTBox.BorderStyle = BorderStyle.None;
+        titleTBox.ContextMenuStrip = rowMenu;
         titleTBox.Dock = DockStyle.Fill;
         titleTBox.Location = new Point(6, 5);
         titleTBox.Margin = new Padding(5, 4, 3, 3);
@@ -123,6 +147,7 @@ partial class AddEventRow
         // colorPickerBtn
         // 
         colorPickerBtn.BackColor = Color.Transparent;
+        colorPickerBtn.ContextMenuStrip = rowMenu;
         colorPickerBtn.FlatAppearance.BorderSize = 0;
         colorPickerBtn.ForeColor = Color.White;
         colorPickerBtn.Location = new Point(964, 4);
@@ -139,11 +164,13 @@ partial class AddEventRow
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
         BackColor = Color.White;
+        ContextMenuStrip = rowMenu;
         Controls.Add(eventsInfoTLPanel);
         Name = "AddEventRow";
         Size = new Size(1000, 31);
         eventsInfoTLPanel.ResumeLayout(false);
         eventsInfoTLPanel.PerformLayout();
+        rowMenu.ResumeLayout(false);
         ResumeLayout(false);
     }
 
@@ -156,4 +183,6 @@ partial class AddEventRow
     private DateTimePicker endDatePicker;
     private ColorDialog colorDialog;
     private Button colorPickerBtn;
+    private ContextMenuStrip rowMenu;
+    private ToolStripMenuItem deleteOption;
 }
