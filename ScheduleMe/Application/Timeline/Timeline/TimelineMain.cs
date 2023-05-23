@@ -217,6 +217,16 @@ public partial class TimelineMain : Form
         AddTimeline addTimelineTab = new AddTimeline();
         addTimelineTab.ShowDialog();
 
+        foreach (TimelineTab tab in panelTimelineTab.Controls.OfType<TimelineTab>())
+        {
+            if (currentID == tab.Id)
+            {
+                tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
+                tab.timelineTabBtn.ForeColor = Color.White;
+                break;
+            }
+        }
+
         if (addTimelineTab.Id != null)
         {
             // Load the new added TimelineTab
@@ -225,6 +235,7 @@ public partial class TimelineMain : Form
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 var newtTab = new Timeline();
                 newtTab = timelines.FindById(addTimelineTab.Id);
+                currentID = newtTab.Id;
 
                 addNewTab(newtTab.TimelineName, newtTab.Id);
                 PopulateDates(newtTab.TimelineStartDate, newtTab.TimelineEndDate);
