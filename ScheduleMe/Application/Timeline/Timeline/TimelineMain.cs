@@ -7,6 +7,7 @@ public partial class TimelineMain : Form
     public ObjectId currentID { get; set; }
     private byte columnSize = 42;
     private short currentDateTimePosition = 0;
+    private int currentRow = 0;
 
     public TimelineMain()
     {
@@ -131,17 +132,14 @@ public partial class TimelineMain : Form
             newEvent.Location = new Point(eventsXAxis + 17, 70);
 
             panelTimelineContainer.Controls.Add(newEvent);
-            ArrangeEventsOverlap(newEvent, ref lowestBottom);
+            StackEvents(newEvent, ref lowestBottom);
         }
         panelTimelineContainer.Height = lowestBottom + 30;
     }
 
-    private void ArrangeEventsOverlap(EventButton newEvent, ref int lowestBottom)
+    private void StackEvents(EventButton newEvent, ref int lowestBottom)
     {
-        int previousEventTop = 0;
-        int previousOverFlowBottom = 0;
-        int noOverflowTop = 0;
-        int noOverflowCounter = 0;
+        int currentRow = 70;
 
         foreach (EventButton previousEvent in panelTimelineContainer.Controls.OfType<EventButton>())
         {
@@ -154,31 +152,11 @@ public partial class TimelineMain : Form
                     || (newEvent.StartDate <= previousEvent.StartDate && newEvent.EndDate > previousEvent.StartDate)
                     || (newEvent.StartDate <= previousEvent.StartDate && newEvent.EndDate >= previousEvent.EndDate))
                 {
-                    // Ignore bringing the event to the bottom of upper events
-                    if (newEvent.Bottom > previousEvent.Bottom || noOverflowTop < newEvent.Top)
-                    {
-                        newEvent.Top = previousEvent.Bottom + 10;
-                        previousEventTop = previousEvent.Top;
-                    }
-                    // if newEvent and previousEvent is the same row
-                    else if (newEvent.Bottom == previousEvent.Bottom)
-                        newEvent.Top = previousOverFlowBottom;
-
-                    // if previousEvent is lower than prev-Prev
-                    else if (previousEvent.Top > previousEventTop)
-                    {
-                        newEvent.Top = noOverflowTop;
-                        previousOverFlowBottom = previousEvent.Bottom + 10;
-                    }
-                }
-                // Get previous top if no Overflow: to be used if there is overflow at some point
-                else if (noOverflowTop <= previousEvent.Top || newEvent.Top <= noOverflowTop)
-                {
-                    noOverflowTop = previousEvent.Top;
-                    noOverflowCounter++;
+                    currentRow += 40;
                 }
             }
         }
+        newEvent.Top = currentRow;
         lowestBottom = Math.Max(newEvent.Bottom, lowestBottom);
     }
 
@@ -189,7 +167,6 @@ public partial class TimelineMain : Form
         newTimelineTab.Id = Id;
         newTimelineTab.timelineInstance = this;
         newTimelineTab.Dock = DockStyle.Left;
-        //newTimelineTab.Location = new Point(timelineAddTab.Left, timelineAddTab.Top);
         panelTimelineContainer.Controls.Clear();
         panelTimelineTab.Controls.Add(newTimelineTab);
         newTimelineTab.BringToFront();
