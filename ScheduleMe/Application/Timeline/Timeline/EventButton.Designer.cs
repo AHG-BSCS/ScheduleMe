@@ -48,6 +48,7 @@ partial class EventButton
         eventName.Name = "eventName";
         eventName.Size = new Size(68, 30);
         eventName.TabIndex = 0;
+        eventName.TabStop = false;
         eventName.Text = "Event";
         eventName.UseVisualStyleBackColor = false;
         // 

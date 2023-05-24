@@ -95,6 +95,8 @@ public partial class EditEvent : Form
     {
         AddEventRow newRow = new AddEventRow();
         newRow.eventInfo = new Event();
+        // newRow.Id = currentID; this can produce wrong deletion of data if Index was not accurate
+        // newRow.Index is can't be set since it wasn't save to database yet
         newRow.SetRowInfo(newRow.eventInfo);
         newRow.Dock = DockStyle.Bottom;
         eventInfoPanel.Controls.Add(newRow);
@@ -120,6 +122,19 @@ public partial class EditEvent : Form
                 }
                 timelines.Update(timeline);
                 MessageBox.Show(timeline.TimelineName + " is Saved");
+
+                // Reload the timeline events to assign a property to newly added rows
+                eventInfoPanel.Controls.Clear();
+                timeline = timelines.FindById(currentID);
+                for (ushort i = 0; i < timeline.Events.Count; i++)
+                {
+                    AddEventRow newRow = new AddEventRow();
+                    newRow.SetRowInfo(timeline.Events[i]);
+                    newRow.Id = timeline.Id;
+                    newRow.Index = i;
+                    newRow.Dock = DockStyle.Bottom;
+                    eventInfoPanel.Controls.Add(newRow);
+                }
             }
         }
     }

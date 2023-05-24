@@ -71,7 +71,7 @@ public partial class AddEventRow : UserControl
 
     private void rowMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {
-        if (e.ClickedItem == deleteOption)
+        if (e.ClickedItem == deleteOption && Id != null)
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
@@ -83,5 +83,7 @@ public partial class AddEventRow : UserControl
             MessageBox.Show(titleTBox.Text + " is Deleted");
             this.Dispose();
         }
+        else
+            MessageBox.Show("Can't be found. Please save first.");
     }
 }
