@@ -111,7 +111,6 @@ public partial class TimelineMain : Form
 
     internal void PopulateEvents(List<Event> events, DateTime startDate, ObjectId id)
     {
-        short tempIncrement = 1;
         int lowestBottom = 0;
 
         for (ushort i = 0; i < events.Count; i++)
@@ -121,13 +120,15 @@ public partial class TimelineMain : Form
                         + (events[i].EventStartDate - startDate).Days
                         * columnSize;
 
-            // Set other event property here
             EventButton newEvent = new EventButton();
-            newEvent.StartDate = events[i].EventStartDate;
-            newEvent.EndDate = events[i].EventEndDate;
+            newEvent.SetEventProperty(
+                events[i].EventTitle,
+                events[i].EventDescription,
+                events[i].EventStartDate,
+                events[i].EventEndDate,
+                events[i].EventColor);
             newEvent.Id = id;
             newEvent.Index = i;
-            newEvent.Event = "Event " + tempIncrement++;
             newEvent.Width = eventDuration * columnSize + 1;
             newEvent.Location = new Point(eventsXAxis + 17, 70);
 

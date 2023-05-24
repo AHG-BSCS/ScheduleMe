@@ -6,17 +6,9 @@ public partial class EventButton : UserControl
 {
     public ObjectId Id { get; set; }
     public ushort Index { get; set; }
-
-    // Find a way to simplified this variables
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
-    public Color Color { get; set; }
     public string Description { get; set; }
-    public string Event
-    {
-        get { return eventName.Text; }
-        set { eventName.Text = value; }
-    }
 
     public EventButton()
     {
@@ -36,5 +28,14 @@ public partial class EventButton : UserControl
             }
             this.Dispose();
         }
+    }
+
+    public void SetEventProperty(string eventTitle, string description, DateTime startDate, DateTime endDate, int color)
+    {
+        eventName.Text = eventTitle;
+        Description = description;
+        StartDate = startDate;
+        EndDate = endDate;
+        eventName.BackColor = Color.FromArgb(color);
     }
 }
