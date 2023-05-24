@@ -6,10 +6,10 @@ internal class Event
 {
     public string EventTitle { get; set; }
     public string EventDescription { get; set; }
-    public int EventColor { get; set; }
 
     private DateTime _startDate = DateTime.Now;
     private DateTime _endDate = DateTime.Now.AddDays(1);
+    private int _eventColor = Color.FromArgb(15, 76, 129).ToArgb();
 
     public DateTime EventStartDate
     {
@@ -21,5 +21,11 @@ internal class Event
     {
         get { return _endDate; }
         set { _endDate = value; }
+    }
+
+    public int EventColor
+    {
+        get { return _eventColor; }
+        set { _eventColor = value; }
     }
 }
