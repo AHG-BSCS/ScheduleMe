@@ -128,7 +128,7 @@ public partial class TimelineMain : Form
             newEvent.Id = id;
             newEvent.Index = i;
             newEvent.Event = "Event " + tempIncrement++;
-            newEvent.Width = eventDuration * columnSize + 4;
+            newEvent.Width = eventDuration * columnSize + 1;
             newEvent.Location = new Point(eventsXAxis + 17, 70);
 
             panelTimelineContainer.Controls.Add(newEvent);

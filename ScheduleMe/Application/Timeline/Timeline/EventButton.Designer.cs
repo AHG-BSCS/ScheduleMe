@@ -48,7 +48,7 @@ partial class EventButton
         eventName.ForeColor = Color.White;
         eventName.Location = new Point(0, 0);
         eventName.Name = "eventName";
-        eventName.Size = new Size(65, 30);
+        eventName.Size = new Size(68, 30);
         eventName.TabIndex = 0;
         eventName.Text = "Event";
         eventName.UseVisualStyleBackColor = false;
@@ -58,14 +58,14 @@ partial class EventButton
         eventButtonMenu.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         eventButtonMenu.Items.AddRange(new ToolStripItem[] { deleteOption });
         eventButtonMenu.Name = "timelineOption";
-        eventButtonMenu.Size = new Size(181, 52);
+        eventButtonMenu.Size = new Size(116, 30);
         eventButtonMenu.Text = "Option";
         eventButtonMenu.ItemClicked += eventButtonMenu_ItemClicked;
         // 
         // deleteOption
         // 
         deleteOption.Name = "deleteOption";
-        deleteOption.Size = new Size(180, 26);
+        deleteOption.Size = new Size(115, 26);
         deleteOption.Text = "Delete";
         // 
         // EventButton
@@ -77,7 +77,6 @@ partial class EventButton
         Controls.Add(eventName);
         Margin = new Padding(0);
         Name = "EventButton";
-        Padding = new Padding(0, 0, 3, 0);
         Size = new Size(68, 30);
         eventButtonMenu.ResumeLayout(false);
         ResumeLayout(false);
