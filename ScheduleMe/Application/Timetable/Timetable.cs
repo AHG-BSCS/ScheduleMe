@@ -1,4 +1,6 @@
-﻿namespace ScheduleMe.Tab;
+﻿using System.Net.NetworkInformation;
+
+namespace ScheduleMe.Tab;
 
 public partial class Timetable : Form
 {
@@ -7,21 +9,48 @@ public partial class Timetable : Form
         InitializeComponent();
     }
 
+    private bool IsInternetConnected()
+    {
+        try
+        {
+            using (Ping ping = new Ping())
+            {
+                PingReply reply = ping.Send("api.vldz.tk", 1000); // Replace with a reliable host address
+                return (reply != null && reply.Status == IPStatus.Success);
+            }
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+    }
+
     private async void Timetable_Load(object sender, EventArgs e)
     {
+     
+
         HttpClient client = new HttpClient();
         client.BaseAddress = new Uri("https://api.vldz.tk/1a/sched/all");
-        HttpResponseMessage response = await client.GetAsync(client.BaseAddress);
-        string result = await response.Content.ReadAsStringAsync();
-        dynamic post = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+        if (IsInternetConnected() == true)
+        {
+            HttpResponseMessage response = await client.GetAsync(client.BaseAddress);
+            string result = await response.Content.ReadAsStringAsync();
+            dynamic post = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
 
-        label10.Text = post.data.monday;
-        label11.Text = post.data.tuesday;
-        label12.Text = post.data.wednesday;
-        label13.Text = post.data.thursday;
-        label14.Text = post.data.friday;
-        label15.Text = post.data.saturday;
-        label16.Text = post.data.sunday;
+            label10.Text = post.data.monday;
+            label11.Text = post.data.tuesday;
+            label12.Text = post.data.wednesday;
+            label13.Text = post.data.thursday;
+            label14.Text = post.data.friday;
+            label15.Text = post.data.saturday;
+            label16.Text = post.data.sunday;
+        }
+
+        else
+        {
+            MessageBox.Show("Cannot reach VLDZ API, please check your network connection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        
     }
 
     private void label10_Click(object sender, EventArgs e)
