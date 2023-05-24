@@ -131,6 +131,8 @@ public partial class EditEventTab : UserControl
                         }
                     }
                 }
+                else
+                    editEventInstance.eventInfoPanel.Controls.Clear();
             }
             this.Dispose();
         }

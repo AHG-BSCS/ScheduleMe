@@ -6,7 +6,7 @@ internal class Event
 {
     public string EventTitle { get; set; }
     public string EventDescription { get; set; }
-    public Color EventColor { get; set; }
+    public int EventColor { get; set; }
 
     private DateTime _startDate = DateTime.Now;
     private DateTime _endDate = DateTime.Now.AddDays(1);

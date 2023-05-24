@@ -19,7 +19,7 @@ public partial class TimelineMain : Form
         {
             var timelines = timelineDB.GetCollection<Timeline>("Timeline");
             var timelineTabs = timelines.FindAll();
-            if (timelineTabs.Count() != 0)
+            if (timelineTabs.Any() == true)
             {
                 Timeline firstToLoad = timelineTabs.First();
                 currentID = firstToLoad.Id;
@@ -31,12 +31,14 @@ public partial class TimelineMain : Form
                 }
 
                 // Load the first Timeline.Event List only
-                if (firstToLoad.Events != null)
+                if (firstToLoad.Events.Any() == true)
                 {
                     // Need to improve the sorting or the overlapping method. Too difficult
                     firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
                     PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate, firstToLoad.Id);
                 }
+                else
+                    panelTimelineContainer.Height = 130;
                 PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
             }
         }

@@ -90,16 +90,17 @@ public partial class TimelineTab : UserControl
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                var lastTab = timelines.FindById(timelineInstance.currentID);
+                var timeline = timelines.FindAll();
 
                 // Load all the Timeline Tabs
-                foreach (var tab in timelines.FindAll())
+                foreach (var tab in timeline)
                 {
                     timelineInstance.addNewTab(tab.TimelineName, tab.Id);
                 }
 
-                if (lastTab != null) // last tab still exist
+                if (timelines.FindById(timelineInstance.currentID) != null) // last tab still exist
                 {
+                    var lastTab = timelines.FindById(timelineInstance.currentID);
                     if (lastTab.Events != null)
                     {
                         // Need to improve the sorting or the overlapping method. Too difficult
@@ -108,7 +109,7 @@ public partial class TimelineTab : UserControl
                     }
                     timelineInstance.PopulateDates(lastTab.TimelineStartDate, lastTab.TimelineEndDate);
                 }
-                else // last tab doesn't exist
+                else if (timeline.Any() == true)// last tab doesn't exist
                 {
                     Timeline firstTab = timelines.FindAll().First();
                     timelineInstance.currentID = firstTab.Id;
@@ -153,23 +154,30 @@ public partial class TimelineTab : UserControl
             {
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 timelines.Delete(Id); // Delete this Timeline
-                Timeline firstToLoad = timelines.FindAll().First();
-
-                if (timelineInstance.currentID == Id)
+                var timeline = timelines.FindAll();
+                if (timeline.Any() == true)
                 {
-                    timelineInstance.currentID = firstToLoad.Id;
-                    ReverseHighlight();
-                    if (firstToLoad != null)
+                    Timeline firstToLoad = timelines.FindAll().First();
+                    if (timelineInstance.currentID == Id)
                     {
-                        if (firstToLoad.Events != null)
+                        timelineInstance.currentID = firstToLoad.Id;
+                        ReverseHighlight();
+                        if (firstToLoad != null)
                         {
-                            // Need to improve the sorting or the overlapping method. Too difficult
-                            firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-                            timelineInstance.PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate, firstToLoad.Id);
+                            if (firstToLoad.Events.Any() == true)
+                            {
+                                // Need to improve the sorting or the overlapping method. Too difficult
+                                firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
+                                timelineInstance.PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate, firstToLoad.Id);
+                            }
+                            else
+                                timelineInstance.panelTimelineContainer.Height = 130;
+                            timelineInstance.PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
                         }
-                        timelineInstance.PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
                     }
                 }
+                else
+                    timelineInstance.panelTimelineContainer.Controls.Clear();
             }
             this.Dispose();
         }
