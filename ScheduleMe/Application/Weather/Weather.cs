@@ -57,6 +57,8 @@ public partial class Weather : Form
 
     private async void button1_Click(object sender, EventArgs e)
     {
+        try
+        {
         HttpClient client = new HttpClient();
         var url_calix = "https://api.weatherapi.com/v1/forecast.json?key=168c66e6792c4e7dbe5122918232305&q=" + textBox1.Text + "&aqi=no";
         client.BaseAddress = new Uri(url_calix);
@@ -72,7 +74,12 @@ public partial class Weather : Form
 
         pictureBox2.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[0].day.condition.icon)));
         label5.Text = "Expect " + post.forecast.forecastday[0].day.condition.text + " with a " + post.forecast.forecastday[0].day.daily_chance_of_rain + "%" + " chance of rain";
-    }
+        }
+        catch (Exception )
+        {
+            MessageBox.Show("There is no such place named " + textBox1.Text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        }
     
     private void textBox1_TextChanged(object sender, EventArgs e)
     {
