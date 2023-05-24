@@ -21,5 +21,9 @@ namespace ScheduleMe.Tab
         {
             FormClosedEvent?.Invoke(this, e);
         }
+
+        private void About_Load(object sender, EventArgs e)
+        {
+        }
     }
 }
