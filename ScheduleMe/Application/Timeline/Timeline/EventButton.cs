@@ -26,6 +26,7 @@ public partial class EventButton : UserControl
                 timeline.Events.RemoveAt(Index);
                 timelines.Update(timeline);
             }
+            MessageBox.Show(eventName.Text + " is Deleted");
             this.Dispose();
         }
     }

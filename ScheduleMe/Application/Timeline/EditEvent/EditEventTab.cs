@@ -106,7 +106,9 @@ public partial class EditEventTab : UserControl
             {
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 timelines.Delete(Id); // Delete this Timeline
+                MessageBox.Show(timelineTabBtn.Text + " is Deleted");
                 var timeline = timelines.FindAll();
+
                 if (timeline.Any() == true)
                 {
                     Timeline firstToLoad = timeline.First();

@@ -257,6 +257,9 @@ public partial class TimelineMain : Form
                             lastTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
                             PopulateEvents(lastTab.Events, lastTab.TimelineStartDate, lastTab.Id);
                         }
+                        else
+                            panelTimelineContainer.Height = 130;
+
                         PopulateDates(lastTab.TimelineStartDate, lastTab.TimelineEndDate);
                     }
                     else // last tab doesn't exist
@@ -272,6 +275,8 @@ public partial class TimelineMain : Form
                                 firstTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
                                 PopulateEvents(firstTab.Events, firstTab.TimelineStartDate, firstTab.Id);
                             }
+                            else
+                                panelTimelineContainer.Height = 130;
                             PopulateDates(firstTab.TimelineStartDate, firstTab.TimelineEndDate);
                         }
                     }

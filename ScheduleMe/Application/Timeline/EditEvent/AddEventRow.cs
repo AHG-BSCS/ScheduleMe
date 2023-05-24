@@ -9,7 +9,7 @@ public partial class AddEventRow : UserControl
         InitializeComponent();
     }
 
-    internal Event eventInfo;
+    internal Event eventInfo; // Fix the access modifier
     public ObjectId Id { get; set; }
     public ushort Index { get; set; }
 
@@ -56,14 +56,12 @@ public partial class AddEventRow : UserControl
         eventInfo.EventStartDate = StartDate;
         eventInfo.EventEndDate = EndDate;
         eventInfo.EventColor = Colour;
-
         return eventInfo;
     }
 
     internal void SetRowInfo(Event eventInfo)
     {
         this.eventInfo = eventInfo;
-
         Title = eventInfo.EventTitle;
         Description = eventInfo.EventDescription;
         StartDate = eventInfo.EventStartDate;
@@ -82,6 +80,7 @@ public partial class AddEventRow : UserControl
                 timeline.Events.RemoveAt(Index);
                 timelines.Update(timeline);
             }
+            MessageBox.Show(titleTBox.Text + " is Deleted");
             this.Dispose();
         }
     }

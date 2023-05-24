@@ -96,7 +96,7 @@ public partial class EditEvent : Form
         AddEventRow newRow = new AddEventRow();
         newRow.eventInfo = new Event();
         newRow.SetRowInfo(newRow.eventInfo);
-        newRow.Dock = DockStyle.Bottom; // Need some fix to docked at the bottom instead
+        newRow.Dock = DockStyle.Bottom;
         eventInfoPanel.Controls.Add(newRow);
     }
 
@@ -119,7 +119,7 @@ public partial class EditEvent : Form
                     timeline.Events.Add(newEvent.GetRowInfo());
                 }
                 timelines.Update(timeline);
-                MessageBox.Show("Saved");
+                MessageBox.Show(timeline.TimelineName + " is Saved");
             }
         }
     }
