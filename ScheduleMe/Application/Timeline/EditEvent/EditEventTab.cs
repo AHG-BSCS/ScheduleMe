@@ -72,7 +72,7 @@ public partial class EditEventTab : UserControl
                         newRow.SetRowInfo(timelineTabs.Events[i]);
                         newRow.Id = timelineTabs.Id;
                         newRow.Index = i;
-                        newRow.Dock = DockStyle.Top;
+                        newRow.Dock = DockStyle.Bottom;
                         editEventInstance.eventInfoPanel.Controls.Add(newRow);
                     }
                 }
@@ -124,7 +124,7 @@ public partial class EditEventTab : UserControl
                                     newRow.SetRowInfo(firstToLoad.Events[i]);
                                     newRow.Id = firstToLoad.Id;
                                     newRow.Index = i;
-                                    newRow.Dock = DockStyle.Top;
+                                    newRow.Dock = DockStyle.Bottom;
                                     editEventInstance.eventInfoPanel.Controls.Add(newRow);
                                 }
                             }
