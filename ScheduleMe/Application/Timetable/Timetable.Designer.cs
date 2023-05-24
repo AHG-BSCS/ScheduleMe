@@ -166,9 +166,9 @@ partial class Timetable
             this.label10.Font = new System.Drawing.Font("Dubai", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label10.Location = new System.Drawing.Point(13, 19);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(85, 39);
+            this.label10.Size = new System.Drawing.Size(110, 39);
             this.label10.TabIndex = 0;
-            this.label10.Text = "label10";
+            this.label10.Text = "dataMON";
             // 
             // label11
             // 
@@ -176,9 +176,9 @@ partial class Timetable
             this.label11.Font = new System.Drawing.Font("Dubai", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label11.Location = new System.Drawing.Point(14, 19);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(85, 39);
+            this.label11.Size = new System.Drawing.Size(99, 39);
             this.label11.TabIndex = 0;
-            this.label11.Text = "label11";
+            this.label11.Text = "dataTUE";
             // 
             // panel2
             // 
@@ -202,9 +202,9 @@ partial class Timetable
             this.label12.Font = new System.Drawing.Font("Dubai", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label12.Location = new System.Drawing.Point(18, 19);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(85, 39);
+            this.label12.Size = new System.Drawing.Size(107, 39);
             this.label12.TabIndex = 0;
-            this.label12.Text = "label12";
+            this.label12.Text = "dataWED";
             // 
             // panel4
             // 
@@ -220,9 +220,9 @@ partial class Timetable
             this.label13.Font = new System.Drawing.Font("Dubai", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label13.Location = new System.Drawing.Point(16, 19);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(85, 39);
+            this.label13.Size = new System.Drawing.Size(103, 39);
             this.label13.TabIndex = 0;
-            this.label13.Text = "label13";
+            this.label13.Text = "dataTHU";
             // 
             // panel5
             // 
@@ -238,9 +238,9 @@ partial class Timetable
             this.label14.Font = new System.Drawing.Font("Dubai", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label14.Location = new System.Drawing.Point(13, 19);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(85, 39);
+            this.label14.Size = new System.Drawing.Size(90, 39);
             this.label14.TabIndex = 0;
-            this.label14.Text = "label14";
+            this.label14.Text = "dataFRI";
             // 
             // panel6
             // 
@@ -256,9 +256,9 @@ partial class Timetable
             this.label15.Font = new System.Drawing.Font("Dubai", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label15.Location = new System.Drawing.Point(16, 19);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(85, 39);
+            this.label15.Size = new System.Drawing.Size(100, 39);
             this.label15.TabIndex = 0;
-            this.label15.Text = "label15";
+            this.label15.Text = "dataSAT";
             // 
             // panel7
             // 
@@ -275,9 +275,9 @@ partial class Timetable
             this.label16.Font = new System.Drawing.Font("Dubai", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label16.Location = new System.Drawing.Point(13, 19);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(85, 39);
+            this.label16.Size = new System.Drawing.Size(103, 39);
             this.label16.TabIndex = 0;
-            this.label16.Text = "label16";
+            this.label16.Text = "dataSUN";
             // 
             // pictureBox1
             // 
