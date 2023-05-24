@@ -42,7 +42,7 @@ partial class EditEventTab
         timelineTabBtn.ContextMenuStrip = editEventTabMenu;
         timelineTabBtn.Dock = DockStyle.Fill;
         timelineTabBtn.FlatAppearance.BorderColor = Color.White;
-        timelineTabBtn.FlatAppearance.BorderSize = 2;
+        timelineTabBtn.FlatAppearance.BorderSize = 0;
         timelineTabBtn.FlatStyle = FlatStyle.Flat;
         timelineTabBtn.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
         timelineTabBtn.ForeColor = Color.White;

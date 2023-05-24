@@ -66,7 +66,7 @@ partial class AddEventRow
         eventsInfoTLPanel.Name = "eventsInfoTLPanel";
         eventsInfoTLPanel.RowCount = 1;
         eventsInfoTLPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
-        eventsInfoTLPanel.Size = new Size(1000, 31);
+        eventsInfoTLPanel.Size = new Size(1000, 30);
         eventsInfoTLPanel.TabIndex = 0;
         // 
         // rowMenu
@@ -124,8 +124,8 @@ partial class AddEventRow
         descriptionTBox.BorderStyle = BorderStyle.None;
         descriptionTBox.ContextMenuStrip = rowMenu;
         descriptionTBox.Dock = DockStyle.Fill;
-        descriptionTBox.Location = new Point(226, 5);
-        descriptionTBox.Margin = new Padding(5, 4, 3, 3);
+        descriptionTBox.Location = new Point(226, 4);
+        descriptionTBox.Margin = new Padding(5, 3, 3, 3);
         descriptionTBox.Name = "descriptionTBox";
         descriptionTBox.Size = new Size(321, 22);
         descriptionTBox.TabIndex = 0;
@@ -137,8 +137,8 @@ partial class AddEventRow
         titleTBox.BorderStyle = BorderStyle.None;
         titleTBox.ContextMenuStrip = rowMenu;
         titleTBox.Dock = DockStyle.Fill;
-        titleTBox.Location = new Point(6, 5);
-        titleTBox.Margin = new Padding(5, 4, 3, 3);
+        titleTBox.Location = new Point(6, 4);
+        titleTBox.Margin = new Padding(5, 3, 3, 3);
         titleTBox.Name = "titleTBox";
         titleTBox.Size = new Size(211, 22);
         titleTBox.TabIndex = 0;
@@ -150,8 +150,8 @@ partial class AddEventRow
         colorPickerBtn.ContextMenuStrip = rowMenu;
         colorPickerBtn.FlatAppearance.BorderSize = 0;
         colorPickerBtn.ForeColor = Color.White;
-        colorPickerBtn.Location = new Point(964, 4);
-        colorPickerBtn.Margin = new Padding(11, 3, 0, 0);
+        colorPickerBtn.Location = new Point(964, 3);
+        colorPickerBtn.Margin = new Padding(11, 2, 0, 0);
         colorPickerBtn.Name = "colorPickerBtn";
         colorPickerBtn.Size = new Size(23, 23);
         colorPickerBtn.TabIndex = 0;
@@ -167,7 +167,7 @@ partial class AddEventRow
         ContextMenuStrip = rowMenu;
         Controls.Add(eventsInfoTLPanel);
         Name = "AddEventRow";
-        Size = new Size(1000, 31);
+        Size = new Size(1000, 30);
         eventsInfoTLPanel.ResumeLayout(false);
         eventsInfoTLPanel.PerformLayout();
         rowMenu.ResumeLayout(false);

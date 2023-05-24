@@ -113,7 +113,7 @@ public partial class TimelineTab : UserControl
                 {
                     Timeline firstTab = timelines.FindAll().First();
                     timelineInstance.currentID = firstTab.Id;
-                    
+
                     if (firstTab != null) // Load the first Timeline.Event List only
                     {
                         if (firstTab.Events != null)

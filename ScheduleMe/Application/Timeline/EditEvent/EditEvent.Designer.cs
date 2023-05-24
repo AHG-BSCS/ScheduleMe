@@ -96,7 +96,7 @@ partial class EditEvent
         eventsInfoTLPanel.Name = "eventsInfoTLPanel";
         eventsInfoTLPanel.RowCount = 1;
         eventsInfoTLPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
-        eventsInfoTLPanel.Size = new Size(984, 23);
+        eventsInfoTLPanel.Size = new Size(984, 25);
         eventsInfoTLPanel.TabIndex = 0;
         // 
         // eventColorHeader
@@ -106,9 +106,10 @@ partial class EditEvent
         eventColorHeader.Dock = DockStyle.Fill;
         eventColorHeader.FlatStyle = FlatStyle.System;
         eventColorHeader.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        eventColorHeader.Location = new Point(941, 0);
+        eventColorHeader.Location = new Point(944, 2);
+        eventColorHeader.Margin = new Padding(6, 2, 0, 0);
         eventColorHeader.Name = "eventColorHeader";
-        eventColorHeader.Size = new Size(40, 35);
+        eventColorHeader.Size = new Size(40, 33);
         eventColorHeader.TabIndex = 0;
         eventColorHeader.Text = "Color";
         eventColorHeader.TextAlign = ContentAlignment.MiddleLeft;
@@ -120,9 +121,10 @@ partial class EditEvent
         eventEndDateHeader.Dock = DockStyle.Fill;
         eventEndDateHeader.FlatStyle = FlatStyle.System;
         eventEndDateHeader.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        eventEndDateHeader.Location = new Point(741, 0);
+        eventEndDateHeader.Location = new Point(740, 2);
+        eventEndDateHeader.Margin = new Padding(2, 2, 0, 0);
         eventEndDateHeader.Name = "eventEndDateHeader";
-        eventEndDateHeader.Size = new Size(194, 35);
+        eventEndDateHeader.Size = new Size(198, 33);
         eventEndDateHeader.TabIndex = 0;
         eventEndDateHeader.Text = "End Date/Time";
         eventEndDateHeader.TextAlign = ContentAlignment.MiddleLeft;
@@ -134,9 +136,10 @@ partial class EditEvent
         eventStartDateHeader.Dock = DockStyle.Fill;
         eventStartDateHeader.FlatStyle = FlatStyle.System;
         eventStartDateHeader.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        eventStartDateHeader.Location = new Point(541, 0);
+        eventStartDateHeader.Location = new Point(540, 2);
+        eventStartDateHeader.Margin = new Padding(2, 2, 0, 0);
         eventStartDateHeader.Name = "eventStartDateHeader";
-        eventStartDateHeader.Size = new Size(194, 35);
+        eventStartDateHeader.Size = new Size(198, 33);
         eventStartDateHeader.TabIndex = 0;
         eventStartDateHeader.Text = "Start Date/Time";
         eventStartDateHeader.TextAlign = ContentAlignment.MiddleLeft;
@@ -148,9 +151,10 @@ partial class EditEvent
         eventDescriptionHeader.Dock = DockStyle.Fill;
         eventDescriptionHeader.FlatStyle = FlatStyle.System;
         eventDescriptionHeader.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        eventDescriptionHeader.Location = new Point(218, 0);
+        eventDescriptionHeader.Location = new Point(217, 2);
+        eventDescriptionHeader.Margin = new Padding(2, 2, 0, 0);
         eventDescriptionHeader.Name = "eventDescriptionHeader";
-        eventDescriptionHeader.Size = new Size(317, 35);
+        eventDescriptionHeader.Size = new Size(321, 33);
         eventDescriptionHeader.TabIndex = 0;
         eventDescriptionHeader.Text = "Description";
         eventDescriptionHeader.TextAlign = ContentAlignment.MiddleLeft;
@@ -162,9 +166,10 @@ partial class EditEvent
         eventTitleHeader.Dock = DockStyle.Fill;
         eventTitleHeader.FlatStyle = FlatStyle.System;
         eventTitleHeader.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        eventTitleHeader.Location = new Point(3, 0);
+        eventTitleHeader.Location = new Point(6, 2);
+        eventTitleHeader.Margin = new Padding(6, 2, 0, 0);
         eventTitleHeader.Name = "eventTitleHeader";
-        eventTitleHeader.Size = new Size(209, 35);
+        eventTitleHeader.Size = new Size(209, 33);
         eventTitleHeader.TabIndex = 0;
         eventTitleHeader.Text = "Title";
         eventTitleHeader.TextAlign = ContentAlignment.MiddleLeft;
@@ -173,7 +178,7 @@ partial class EditEvent
         // 
         eventInfoPanel.AutoSize = true;
         eventInfoPanel.Dock = DockStyle.Top;
-        eventInfoPanel.Location = new Point(0, 58);
+        eventInfoPanel.Location = new Point(0, 60);
         eventInfoPanel.Name = "eventInfoPanel";
         eventInfoPanel.Size = new Size(984, 0);
         eventInfoPanel.TabIndex = 0;
@@ -184,7 +189,7 @@ partial class EditEvent
         addSavePanel.Controls.Add(saveBtn);
         addSavePanel.Controls.Add(addRowBtn);
         addSavePanel.Dock = DockStyle.Top;
-        addSavePanel.Location = new Point(0, 58);
+        addSavePanel.Location = new Point(0, 60);
         addSavePanel.Name = "addSavePanel";
         addSavePanel.Padding = new Padding(200, 10, 200, 10);
         addSavePanel.Size = new Size(984, 49);

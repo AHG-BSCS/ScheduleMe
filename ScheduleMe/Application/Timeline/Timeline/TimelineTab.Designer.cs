@@ -45,14 +45,14 @@ partial class TimelineTab
         timelineTabBtn.ContextMenuStrip = timelineTabMenu;
         timelineTabBtn.Dock = DockStyle.Fill;
         timelineTabBtn.FlatAppearance.BorderColor = Color.White;
-        timelineTabBtn.FlatAppearance.BorderSize = 2;
+        timelineTabBtn.FlatAppearance.BorderSize = 0;
         timelineTabBtn.FlatStyle = FlatStyle.Flat;
         timelineTabBtn.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
         timelineTabBtn.ForeColor = Color.White;
         timelineTabBtn.Location = new Point(0, 0);
         timelineTabBtn.Margin = new Padding(0);
         timelineTabBtn.Name = "timelineTabBtn";
-        timelineTabBtn.Size = new Size(72, 36);
+        timelineTabBtn.Size = new Size(74, 36);
         timelineTabBtn.TabIndex = 0;
         timelineTabBtn.TabStop = false;
         timelineTabBtn.Text = "New Tab";
@@ -107,7 +107,7 @@ partial class TimelineTab
         Controls.Add(timelineTabBtn);
         Margin = new Padding(0);
         Name = "TimelineTab";
-        Size = new Size(72, 36);
+        Size = new Size(74, 36);
         timelineTabMenu.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();

@@ -41,8 +41,6 @@ partial class EventButton
         eventName.ContextMenuStrip = eventButtonMenu;
         eventName.Dock = DockStyle.Fill;
         eventName.FlatAppearance.BorderSize = 0;
-        eventName.FlatAppearance.MouseDownBackColor = Color.Transparent;
-        eventName.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
         eventName.FlatStyle = FlatStyle.Flat;
         eventName.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
         eventName.ForeColor = Color.White;

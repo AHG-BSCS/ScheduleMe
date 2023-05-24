@@ -7,7 +7,6 @@ public partial class TimelineMain : Form
     public ObjectId currentID { get; set; }
     private byte columnSize = 42;
     private short currentDateTimePosition = 0;
-    private int currentRow = 0;
 
     public TimelineMain()
     {
