@@ -146,7 +146,7 @@ partial class AddEventRow
         // 
         // colorPickerBtn
         // 
-        colorPickerBtn.BackColor = Color.Transparent;
+        colorPickerBtn.BackColor = Color.Black;
         colorPickerBtn.ContextMenuStrip = rowMenu;
         colorPickerBtn.FlatAppearance.BorderSize = 0;
         colorPickerBtn.ForeColor = Color.White;

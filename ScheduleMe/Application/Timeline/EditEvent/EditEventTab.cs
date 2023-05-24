@@ -34,25 +34,47 @@ public partial class EditEventTab : UserControl
         timelineTabBtn.ForeColor = Color.Black;
     }
 
+    private void ReverseHighlight()
+    {
+        editEventInstance.eventInfoPanel.Controls.Clear();
+        foreach (EditEventTab tab in editEventInstance.timelineTabPanel.Controls.OfType<EditEventTab>())
+        {
+            if (editEventInstance.currentID == tab.Id)
+            {
+                tab.timelineTabBtn.BackColor = Color.White;
+                tab.timelineTabBtn.ForeColor = Color.Black;
+                break;
+            }
+            else
+            {
+                tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
+                tab.timelineTabBtn.ForeColor = Color.White;
+            }
+        }
+    }
+
     private void eventTab_Click(object sender, EventArgs e)
     {
-        HighlightButton();
-        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+        if (editEventInstance.currentID != Id)
         {
-            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-            var timelineTabs = timelines.FindById(Id);
-            editEventInstance.currentID = Id;
-
-            if (timelineTabs.Events != null)
+            HighlightButton();
+            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
-                for (ushort i = 0; i < timelineTabs.Events.Count; i++)
+                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                var timelineTabs = timelines.FindById(Id);
+                editEventInstance.currentID = Id;
+
+                if (timelineTabs.Events != null)
                 {
-                    AddEventRow newRow = new AddEventRow();
-                    newRow.SetRowInfo(timelineTabs.Events[i]);
-                    newRow.Id = timelineTabs.Id;
-                    newRow.Index = i;
-                    newRow.Dock = DockStyle.Top;
-                    editEventInstance.eventInfoPanel.Controls.Add(newRow);
+                    for (ushort i = 0; i < timelineTabs.Events.Count; i++)
+                    {
+                        AddEventRow newRow = new AddEventRow();
+                        newRow.SetRowInfo(timelineTabs.Events[i]);
+                        newRow.Id = timelineTabs.Id;
+                        newRow.Index = i;
+                        newRow.Dock = DockStyle.Top;
+                        editEventInstance.eventInfoPanel.Controls.Add(newRow);
+                    }
                 }
             }
         }
@@ -82,11 +104,37 @@ public partial class EditEventTab : UserControl
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
-                timelineDB.GetCollection("Timeline").Delete(Id);
+                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                timelines.Delete(Id); // Delete this Timeline
+                var timeline = timelines.FindAll();
+                if (timeline.Any() == true)
+                {
+                    Timeline firstToLoad = timeline.First();
+                    if (editEventInstance.currentID == Id)
+                    {
+                        editEventInstance.currentID = firstToLoad.Id;
+                        ReverseHighlight();
+                        if (firstToLoad != null)
+                        {
+                            if (firstToLoad.Events != null)
+                            {
+                                for (ushort i = 0; i < firstToLoad.Events.Count; i++)
+                                {
+                                    AddEventRow newRow = new AddEventRow();
+                                    newRow.SetRowInfo(firstToLoad.Events[i]);
+                                    newRow.Id = firstToLoad.Id;
+                                    newRow.Index = i;
+                                    newRow.Dock = DockStyle.Top;
+                                    editEventInstance.eventInfoPanel.Controls.Add(newRow);
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                    editEventInstance.eventInfoPanel.Controls.Clear();
             }
-            editEventInstance.eventInfoPanel.Controls.Clear();
             this.Dispose();
-            // Also switch to previous Tab if possible
         }
     }
 }

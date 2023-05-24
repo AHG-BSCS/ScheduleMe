@@ -19,7 +19,7 @@ public partial class TimelineMain : Form
         {
             var timelines = timelineDB.GetCollection<Timeline>("Timeline");
             var timelineTabs = timelines.FindAll();
-            if (timelineTabs.Count() != 0)
+            if (timelineTabs.Any() == true)
             {
                 Timeline firstToLoad = timelineTabs.First();
                 currentID = firstToLoad.Id;
@@ -31,12 +31,14 @@ public partial class TimelineMain : Form
                 }
 
                 // Load the first Timeline.Event List only
-                if (firstToLoad.Events != null)
+                if (firstToLoad.Events.Any() == true)
                 {
                     // Need to improve the sorting or the overlapping method. Too difficult
                     firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
                     PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate, firstToLoad.Id);
                 }
+                else
+                    panelTimelineContainer.Height = 130;
                 PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
             }
         }
@@ -217,19 +219,18 @@ public partial class TimelineMain : Form
         AddTimeline addTimelineTab = new AddTimeline();
         addTimelineTab.ShowDialog();
 
-        // Remove the highlight of active Tab
-        foreach (TimelineTab tab in panelTimelineTab.Controls.OfType<TimelineTab>())
-        {
-            if (currentID == tab.Id)
-            {
-                tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
-                tab.timelineTabBtn.ForeColor = Color.White;
-                break;
-            }
-        }
-
         if (addTimelineTab.Id != null)
         {
+            // Remove the highlight of active Tab
+            foreach (TimelineTab tab in panelTimelineTab.Controls.OfType<TimelineTab>())
+            {
+                if (currentID == tab.Id)
+                {
+                    tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
+                    tab.timelineTabBtn.ForeColor = Color.White;
+                    break;
+                }
+            }
             // Load the new added TimelineTab
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
@@ -240,15 +241,64 @@ public partial class TimelineMain : Form
 
                 addNewTab(newtTab.TimelineName, newtTab.Id);
                 panelTimelineContainer.Controls.Clear();
-                panelTimelineContainer.Height = 0;
+                panelTimelineContainer.Height = 130;
                 PopulateDates(newtTab.TimelineStartDate, newtTab.TimelineEndDate);
             }
         }
     }
 
-    private void timelineOption_Click(object sender, EventArgs e)
+    private void timelineMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {
-        EditEvent editEvents = new EditEvent();
-        editEvents.ShowDialog();
+        if (e.ClickedItem == editOption)
+        {
+            EditEvent editEvent = new EditEvent();
+            editEvent.ShowDialog();
+
+            panelTimelineTab.Controls.Clear();
+            panelTimelineContainer.Controls.Clear();
+
+            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+            {
+                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                var timeline = timelines.FindAll();
+                if (timeline.Any() == true)
+                {
+                    var lastTab = timelines.FindById(currentID);
+
+                    // Load all the Timeline Tabs
+                    foreach (var tab in timeline)
+                    {
+                        addNewTab(tab.TimelineName, tab.Id);
+                    }
+
+                    if (lastTab != null) // last tab still exist
+                    {
+                        if (lastTab.Events != null)
+                        {
+                            // Need to improve the sorting or the overlapping method. Too difficult
+                            lastTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
+                            PopulateEvents(lastTab.Events, lastTab.TimelineStartDate, lastTab.Id);
+                        }
+                        PopulateDates(lastTab.TimelineStartDate, lastTab.TimelineEndDate);
+                    }
+                    else // last tab doesn't exist
+                    {
+                        Timeline firstTab = timelines.FindAll().First();
+                        currentID = firstTab.Id;
+
+                        if (firstTab != null) // Load the first Timeline.Event List only
+                        {
+                            if (firstTab.Events != null)
+                            {
+                                // Need to improve the sorting or the overlapping method. Too difficult
+                                firstTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
+                                PopulateEvents(firstTab.Events, firstTab.TimelineStartDate, firstTab.Id);
+                            }
+                            PopulateDates(firstTab.TimelineStartDate, firstTab.TimelineEndDate);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

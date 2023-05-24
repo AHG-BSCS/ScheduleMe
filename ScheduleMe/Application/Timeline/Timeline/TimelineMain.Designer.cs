@@ -29,32 +29,42 @@ partial class TimelineMain
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
+        timelineTabToolPanel = new Panel();
         panelTimelineTab = new Panel();
         additionalInfo = new PictureBox();
         currentDate = new PictureBox();
         timelineAddTab = new Button();
         panelTimelineContainer = new Panel();
-        timelineOption = new ContextMenuStrip(components);
+        timelineMenu = new ContextMenuStrip(components);
         editOption = new ToolStripMenuItem();
-        addOption = new ToolStripMenuItem();
-        deleteOption = new ToolStripMenuItem();
-        panelTimelineTab.SuspendLayout();
+        optionSeparator = new ToolStripSeparator();
+        openAtBottomOption = new ToolStripMenuItem();
+        timelineTabToolPanel.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)additionalInfo).BeginInit();
         ((System.ComponentModel.ISupportInitialize)currentDate).BeginInit();
-        timelineOption.SuspendLayout();
+        timelineMenu.SuspendLayout();
         SuspendLayout();
+        // 
+        // timelineTabToolPanel
+        // 
+        timelineTabToolPanel.BackColor = Color.FromArgb(15, 76, 129);
+        timelineTabToolPanel.Controls.Add(panelTimelineTab);
+        timelineTabToolPanel.Controls.Add(additionalInfo);
+        timelineTabToolPanel.Controls.Add(currentDate);
+        timelineTabToolPanel.Controls.Add(timelineAddTab);
+        timelineTabToolPanel.Dock = DockStyle.Top;
+        timelineTabToolPanel.Location = new Point(0, 0);
+        timelineTabToolPanel.Name = "timelineTabToolPanel";
+        timelineTabToolPanel.Padding = new Padding(10, 0, 10, 0);
+        timelineTabToolPanel.Size = new Size(850, 35);
+        timelineTabToolPanel.TabIndex = 0;
         // 
         // panelTimelineTab
         // 
-        panelTimelineTab.BackColor = Color.FromArgb(15, 76, 129);
-        panelTimelineTab.Controls.Add(additionalInfo);
-        panelTimelineTab.Controls.Add(currentDate);
-        panelTimelineTab.Controls.Add(timelineAddTab);
-        panelTimelineTab.Dock = DockStyle.Top;
-        panelTimelineTab.Location = new Point(0, 0);
+        panelTimelineTab.Dock = DockStyle.Fill;
+        panelTimelineTab.Location = new Point(48, 0);
         panelTimelineTab.Name = "panelTimelineTab";
-        panelTimelineTab.Padding = new Padding(10, 0, 10, 0);
-        panelTimelineTab.Size = new Size(850, 35);
+        panelTimelineTab.Size = new Size(722, 35);
         panelTimelineTab.TabIndex = 0;
         // 
         // additionalInfo
@@ -106,40 +116,39 @@ partial class TimelineMain
         // 
         panelTimelineContainer.AutoScroll = true;
         panelTimelineContainer.BackColor = Color.Transparent;
-        panelTimelineContainer.ContextMenuStrip = timelineOption;
+        panelTimelineContainer.ContextMenuStrip = timelineMenu;
         panelTimelineContainer.Dock = DockStyle.Top;
         panelTimelineContainer.Location = new Point(0, 35);
         panelTimelineContainer.Name = "panelTimelineContainer";
         panelTimelineContainer.Size = new Size(850, 102);
         panelTimelineContainer.TabIndex = 1;
         // 
-        // timelineOption
+        // timelineMenu
         // 
-        timelineOption.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
-        timelineOption.Items.AddRange(new ToolStripItem[] { editOption, addOption, deleteOption });
-        timelineOption.Name = "timelineOption";
-        timelineOption.Size = new Size(116, 82);
-        timelineOption.Text = "Option";
-        timelineOption.Click += timelineOption_Click;
+        timelineMenu.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        timelineMenu.Items.AddRange(new ToolStripItem[] { editOption, optionSeparator, openAtBottomOption });
+        timelineMenu.Name = "timelineOption";
+        timelineMenu.Size = new Size(189, 84);
+        timelineMenu.Text = "Option";
+        timelineMenu.ItemClicked += timelineMenu_ItemClicked;
         // 
         // editOption
         // 
         editOption.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         editOption.Name = "editOption";
-        editOption.Size = new Size(115, 26);
+        editOption.Size = new Size(188, 26);
         editOption.Text = "Edit";
         // 
-        // addOption
+        // optionSeparator
         // 
-        addOption.Name = "addOption";
-        addOption.Size = new Size(115, 26);
-        addOption.Text = "Add";
+        optionSeparator.Name = "optionSeparator";
+        optionSeparator.Size = new Size(185, 6);
         // 
-        // deleteOption
+        // openAtBottomOption
         // 
-        deleteOption.Name = "deleteOption";
-        deleteOption.Size = new Size(115, 26);
-        deleteOption.Text = "Delete";
+        openAtBottomOption.Name = "openAtBottomOption";
+        openAtBottomOption.Size = new Size(188, 26);
+        openAtBottomOption.Text = "Open at the bottom";
         // 
         // TimelineMain
         // 
@@ -148,7 +157,7 @@ partial class TimelineMain
         BackColor = Color.White;
         ClientSize = new Size(850, 550);
         Controls.Add(panelTimelineContainer);
-        Controls.Add(panelTimelineTab);
+        Controls.Add(timelineTabToolPanel);
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(3, 4, 3, 4);
@@ -156,10 +165,10 @@ partial class TimelineMain
         Text = "Timeline";
         WindowState = FormWindowState.Maximized;
         Load += Timeline_Load;
-        panelTimelineTab.ResumeLayout(false);
+        timelineTabToolPanel.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)additionalInfo).EndInit();
         ((System.ComponentModel.ISupportInitialize)currentDate).EndInit();
-        timelineOption.ResumeLayout(false);
+        timelineMenu.ResumeLayout(false);
         ResumeLayout(false);
     }
 
@@ -168,9 +177,10 @@ partial class TimelineMain
     private PictureBox currentDate;
     private PictureBox additionalInfo;
     internal Panel panelTimelineContainer;
-    private ContextMenuStrip timelineOption;
-    private ToolStripMenuItem editOption;
-    private ToolStripMenuItem addOption;
-    private ToolStripMenuItem deleteOption;
+    public Panel timelineTabToolPanel;
     public Panel panelTimelineTab;
+    private ContextMenuStrip timelineMenu;
+    private ToolStripMenuItem editOption;
+    private ToolStripSeparator optionSeparator;
+    private ToolStripMenuItem openAtBottomOption;
 }

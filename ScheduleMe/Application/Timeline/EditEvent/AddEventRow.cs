@@ -37,10 +37,10 @@ public partial class AddEventRow : UserControl
         set { endDatePicker.Value = value; }
     }
 
-    public Color Color
+    public int Colour
     {
-        get { return colorPickerBtn.BackColor; }
-        set { colorPickerBtn.BackColor = value; }
+        get { return colorPickerBtn.BackColor.ToArgb(); }
+        set { colorPickerBtn.BackColor = Color.FromArgb(value); }
     }
 
     private void colorPickerBtn_Click(object sender, EventArgs e)
@@ -51,11 +51,11 @@ public partial class AddEventRow : UserControl
 
     internal Event GetRowInfo()
     {
-        eventInfo.EventTitle = titleTBox.Text;
-        eventInfo.EventDescription = descriptionTBox.Text;
-        eventInfo.EventStartDate = startDatePicker.Value;
-        eventInfo.EventEndDate = endDatePicker.Value;
-        eventInfo.EventColor = colorPickerBtn.BackColor;
+        eventInfo.EventTitle = Title;
+        eventInfo.EventDescription = Description;
+        eventInfo.EventStartDate = StartDate;
+        eventInfo.EventEndDate = EndDate;
+        eventInfo.EventColor = Colour;
 
         return eventInfo;
     }
@@ -64,11 +64,11 @@ public partial class AddEventRow : UserControl
     {
         this.eventInfo = eventInfo;
 
-        titleTBox.Text = eventInfo.EventTitle;
-        descriptionTBox.Text = eventInfo.EventDescription;
-        startDatePicker.Value = eventInfo.EventStartDate;
-        endDatePicker.Value = eventInfo.EventEndDate;
-        colorPickerBtn.BackColor = eventInfo.EventColor;
+        Title = eventInfo.EventTitle;
+        Description = eventInfo.EventDescription;
+        StartDate = eventInfo.EventStartDate;
+        EndDate = eventInfo.EventEndDate;
+        Colour = eventInfo.EventColor;
     }
 
     private void rowMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
