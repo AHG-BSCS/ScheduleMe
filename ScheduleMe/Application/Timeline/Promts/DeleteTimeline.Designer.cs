@@ -48,8 +48,10 @@ partial class DeleteTimeline
         // 
         yesBtn.BackColor = Color.FromArgb(255, 128, 128);
         yesBtn.FlatAppearance.BorderSize = 0;
+        yesBtn.FlatStyle = FlatStyle.Flat;
         yesBtn.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        yesBtn.Location = new Point(12, 30);
+        yesBtn.Location = new Point(12, 40);
+        yesBtn.Margin = new Padding(0);
         yesBtn.Name = "yesBtn";
         yesBtn.Size = new Size(55, 30);
         yesBtn.TabIndex = 0;
@@ -60,10 +62,12 @@ partial class DeleteTimeline
         // 
         // button1
         // 
-        button1.BackColor = Color.FromArgb(128, 255, 128);
+        button1.BackColor = Color.FromArgb(128, 128, 255);
         button1.FlatAppearance.BorderSize = 0;
+        button1.FlatStyle = FlatStyle.Flat;
         button1.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        button1.Location = new Point(73, 30);
+        button1.Location = new Point(73, 40);
+        button1.Margin = new Padding(0);
         button1.Name = "button1";
         button1.Size = new Size(55, 30);
         button1.TabIndex = 1;
@@ -76,8 +80,8 @@ partial class DeleteTimeline
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
-        BackColor = SystemColors.ControlDarkDark;
-        ClientSize = new Size(141, 72);
+        BackColor = Color.FromArgb(15, 76, 129);
+        ClientSize = new Size(140, 81);
         Controls.Add(button1);
         Controls.Add(yesBtn);
         Controls.Add(label1);

@@ -97,7 +97,7 @@ partial class AddTimeline
         // 
         // btnSaveTimeline
         // 
-        btnSaveTimeline.BackColor = Color.LightSteelBlue;
+        btnSaveTimeline.BackColor = Color.FromArgb(128, 128, 255);
         btnSaveTimeline.FlatAppearance.BorderSize = 0;
         btnSaveTimeline.FlatStyle = FlatStyle.Flat;
         btnSaveTimeline.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
@@ -113,7 +113,7 @@ partial class AddTimeline
         // 
         // btnCancelTimeline
         // 
-        btnCancelTimeline.BackColor = Color.LightCoral;
+        btnCancelTimeline.BackColor = Color.FromArgb(255, 128, 128);
         btnCancelTimeline.FlatAppearance.BorderSize = 0;
         btnCancelTimeline.FlatStyle = FlatStyle.Flat;
         btnCancelTimeline.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
@@ -144,7 +144,7 @@ partial class AddTimeline
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
-        BackColor = SystemColors.ControlDarkDark;
+        BackColor = Color.FromArgb(15, 76, 129);
         ClientSize = new Size(294, 170);
         Controls.Add(endDatePicker);
         Controls.Add(btnCancelTimeline);

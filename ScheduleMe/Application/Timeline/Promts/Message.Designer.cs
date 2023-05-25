@@ -51,8 +51,10 @@ partial class Message
         okBtn.BackColor = Color.White;
         okBtn.Dock = DockStyle.Fill;
         okBtn.FlatAppearance.BorderSize = 0;
+        okBtn.FlatStyle = FlatStyle.Flat;
         okBtn.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
         okBtn.Location = new Point(40, 0);
+        okBtn.Margin = new Padding(0);
         okBtn.Name = "okBtn";
         okBtn.Size = new Size(65, 30);
         okBtn.TabIndex = 0;
@@ -66,7 +68,7 @@ partial class Message
         btnPanel.BackColor = Color.Transparent;
         btnPanel.Controls.Add(okBtn);
         btnPanel.Dock = DockStyle.Bottom;
-        btnPanel.Location = new Point(0, 38);
+        btnPanel.Location = new Point(0, 41);
         btnPanel.Name = "btnPanel";
         btnPanel.Padding = new Padding(40, 0, 40, 0);
         btnPanel.Size = new Size(145, 30);
@@ -78,12 +80,12 @@ partial class Message
         AutoScaleMode = AutoScaleMode.Dpi;
         AutoSize = true;
         BackColor = SystemColors.ControlDarkDark;
-        ClientSize = new Size(145, 73);
+        ClientSize = new Size(145, 79);
         Controls.Add(btnPanel);
         Controls.Add(messageLbl);
         FormBorderStyle = FormBorderStyle.None;
         Name = "Message";
-        Padding = new Padding(0, 5, 0, 5);
+        Padding = new Padding(0, 5, 0, 8);
         StartPosition = FormStartPosition.CenterParent;
         btnPanel.ResumeLayout(false);
         ResumeLayout(false);
