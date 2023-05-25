@@ -100,6 +100,7 @@ partial class AddEventRow
         endDatePicker.Size = new Size(200, 29);
         endDatePicker.TabIndex = 0;
         endDatePicker.TabStop = false;
+        endDatePicker.ValueChanged += endDatePicker_ValueChanged;
         // 
         // startDatePicker
         // 

@@ -91,6 +91,25 @@ public partial class AddEventRow : UserControl
 
     private void startDatePicker_ValueChanged(object sender, EventArgs e)
     {
+        if (startDatePicker.Value < MinDate)
+        {
+            startDatePicker.Value = MinDate;
+        }
+        else if (startDatePicker.Value > MaxDate)
+        {
+            startDatePicker.Value = MaxDate;
+        }
+    }
 
+    private void endDatePicker_ValueChanged(object sender, EventArgs e)
+    {
+        if (endDatePicker.Value > MaxDate)
+        {
+            endDatePicker.Value = MaxDate;
+        }
+        else if (endDatePicker.Value < MinDate)
+        {
+            endDatePicker.Value = MinDate;
+        }
     }
 }

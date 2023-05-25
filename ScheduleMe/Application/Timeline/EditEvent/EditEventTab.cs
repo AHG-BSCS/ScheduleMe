@@ -71,10 +71,12 @@ public partial class EditEventTab : UserControl
                     for (ushort i = 0; i < timelineTab.Events.Count; i++)
                     {
                         AddEventRow newRow = new AddEventRow();
-                        newRow.SetRowInfo(timelineTab.Events[i]);
                         newRow.Id = timelineTab.Id;
                         newRow.Index = i;
+                        newRow.MinDate = timelineTab.TimelineStartDate;
+                        newRow.MaxDate = timelineTab.TimelineEndDate;
                         newRow.Dock = DockStyle.Bottom;
+                        newRow.SetRowInfo(timelineTab.Events[i]);
                         editEventInstance.eventInfoPanel.Controls.Add(newRow);
                     }
                 }
@@ -128,10 +130,12 @@ public partial class EditEventTab : UserControl
                                 for (ushort i = 0; i < firstToLoad.Events.Count; i++)
                                 {
                                     AddEventRow newRow = new AddEventRow();
-                                    newRow.SetRowInfo(firstToLoad.Events[i]);
                                     newRow.Id = firstToLoad.Id;
                                     newRow.Index = i;
+                                    newRow.MinDate = firstToLoad.TimelineStartDate;
+                                    newRow.MaxDate = firstToLoad.TimelineEndDate;
                                     newRow.Dock = DockStyle.Bottom;
+                                    newRow.SetRowInfo(firstToLoad.Events[i]);
                                     editEventInstance.eventInfoPanel.Controls.Add(newRow);
                                 }
                             }

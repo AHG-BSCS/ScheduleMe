@@ -32,10 +32,12 @@ public partial class EditEvent : Form
                     for (ushort i = 0; i < firstToLoad.Events.Count; i++)
                     {
                         AddEventRow newRow = new AddEventRow();
-                        newRow.SetRowInfo(firstToLoad.Events[i]);
                         newRow.Id = firstToLoad.Id;
                         newRow.Index = i;
+                        newRow.MinDate = MinDate;
+                        newRow.MaxDate = MaxDate;
                         newRow.Dock = DockStyle.Bottom;
+                        newRow.SetRowInfo(firstToLoad.Events[i]);
                         eventInfoPanel.Controls.Add(newRow);
                     }
                 }
@@ -138,10 +140,12 @@ public partial class EditEvent : Form
                 for (ushort i = 0; i < timeline.Events.Count; i++)
                 {
                     AddEventRow newRow = new AddEventRow();
-                    newRow.SetRowInfo(timeline.Events[i]);
                     newRow.Id = timeline.Id;
                     newRow.Index = i;
+                    newRow.MinDate = MinDate;
+                    newRow.MaxDate = MaxDate;
                     newRow.Dock = DockStyle.Bottom;
+                    newRow.SetRowInfo(timeline.Events[i]);
                     eventInfoPanel.Controls.Add(newRow);
                 }
             }
