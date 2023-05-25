@@ -209,7 +209,7 @@ public partial class EditEvent : Form
                 timelines.Delete(CurrentID); // Delete this Timeline
                 var timeline = timelines.FindAll();
 
-                if (timeline.Any() == true)
+                if (timeline.Any())
                 {
                     Timeline firstToLoad = timeline.First();
                     CurrentID = firstToLoad.Id;

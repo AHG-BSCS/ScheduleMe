@@ -19,7 +19,7 @@ public partial class TimelineMain : Form
         {
             var timelines = timelineDB.GetCollection<Timeline>("Timeline");
             var timelineTabs = timelines.FindAll();
-            if (timelineTabs.Any() == true)
+            if (timelineTabs.Any())
             {
                 Timeline firstToLoad = timelineTabs.First();
                 currentID = firstToLoad.Id;
@@ -31,7 +31,7 @@ public partial class TimelineMain : Form
                 }
 
                 // Load the first Timeline.Event List only
-                if (firstToLoad.Events.Any() == true)
+                if (firstToLoad.Events.Any())
                 {
                     // Need to improve the sorting or the overlapping method. Too difficult
                     firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));

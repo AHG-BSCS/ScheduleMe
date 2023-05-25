@@ -63,7 +63,7 @@ public partial class TimelineTab : UserControl
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 var timelineTabs = timelines.FindById(Id);
 
-                if (timelineTabs.Events.Count > 0)
+                if (timelineTabs.Events.Any())
                 {
                     timelineTabs.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
                     timelineInstance.PopulateEvents(timelineTabs.Events, timelineTabs.TimelineStartDate, timelineTabs.Id);
@@ -111,7 +111,7 @@ public partial class TimelineTab : UserControl
                     }
                     timelineInstance.PopulateDates(lastTab.TimelineStartDate, lastTab.TimelineEndDate);
                 }
-                else if (timeline.Any() == true)// last tab doesn't exist
+                else if (timeline.Any())// last tab doesn't exist
                 {
                     Timeline firstTab = timelines.FindAll().First();
                     timelineInstance.currentID = firstTab.Id;
