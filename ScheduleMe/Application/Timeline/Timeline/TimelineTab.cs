@@ -101,7 +101,7 @@ public partial class TimelineTab : UserControl
                 if (timelines.FindById(timelineInstance.currentID) != null) // last tab still exist
                 {
                     var lastTab = timelines.FindById(timelineInstance.currentID);
-                    if (lastTab.Events != null)
+                    if (lastTab.Events.Any())
                     {
                         // Need to improve the sorting or the overlapping method. Too difficult
                         lastTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
@@ -116,7 +116,7 @@ public partial class TimelineTab : UserControl
 
                     if (firstTab != null) // Load the first Timeline.Event List only
                     {
-                        if (firstTab.Events != null)
+                        if (firstTab.Events.Any())
                         {
                             // Need to improve the sorting or the overlapping method. Too difficult
                             firstTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));

@@ -238,7 +238,8 @@ public partial class TimelineMain : Form
             {
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 var timeline = timelines.FindAll();
-                if (timeline.Any() == true)
+
+                if (timeline.Any())
                 {
                     var lastTab = timelines.FindById(currentID);
 
@@ -250,7 +251,7 @@ public partial class TimelineMain : Form
 
                     if (lastTab != null) // last tab still exist
                     {
-                        if (lastTab.Events != null)
+                        if (lastTab.Events.Any())
                         {
                             // Need to improve the sorting or the overlapping method. Too difficult
                             lastTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
@@ -268,7 +269,7 @@ public partial class TimelineMain : Form
 
                         if (firstTab != null) // Load the first Timeline.Event List only
                         {
-                            if (firstTab.Events != null)
+                            if (firstTab.Events.Any())
                             {
                                 // Need to improve the sorting or the overlapping method. Too difficult
                                 firstTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));

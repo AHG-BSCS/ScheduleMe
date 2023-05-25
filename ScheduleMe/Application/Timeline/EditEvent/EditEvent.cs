@@ -28,7 +28,7 @@ public partial class EditEvent : Form
                 MaxDate = firstToLoad.TimelineEndDate;
                 SetTimelineDateRange();
 
-                if (firstToLoad.Events != null)
+                if (firstToLoad.Events.Any())
                 {
                     for (ushort i = 0; i < firstToLoad.Events.Count; i++)
                     {
@@ -181,7 +181,7 @@ public partial class EditEvent : Form
 
                     if (firstToLoad != null)
                     {
-                        if (firstToLoad.Events != null)
+                        if (firstToLoad.Events.Any())
                         {
                             for (ushort i = 0; i < firstToLoad.Events.Count; i++)
                             {
