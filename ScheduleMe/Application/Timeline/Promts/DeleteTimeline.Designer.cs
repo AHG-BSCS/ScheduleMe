@@ -85,6 +85,7 @@ partial class DeleteTimeline
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(3, 4, 3, 4);
         Name = "DeleteTimeline";
+        StartPosition = FormStartPosition.CenterParent;
         ResumeLayout(false);
         PerformLayout();
     }

@@ -83,6 +83,7 @@ partial class Message
         FormBorderStyle = FormBorderStyle.None;
         Name = "Message";
         Padding = new Padding(0, 5, 0, 5);
+        StartPosition = FormStartPosition.CenterParent;
         btnPanel.ResumeLayout(false);
         ResumeLayout(false);
     }
