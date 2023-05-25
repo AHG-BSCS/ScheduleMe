@@ -107,47 +107,52 @@ public partial class EditEventTab : UserControl
 
         else if (e.ClickedItem == deleteOption)
         {
-            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+            DeleteTimeline promt = new DeleteTimeline();
+            promt.ShowDialog();
+
+            if (promt.Answer)
             {
-                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                timelines.Delete(Id); // Delete this Timeline
-                MessageBox.Show(timelineTabBtn.Text + " is Deleted");
-                var timeline = timelines.FindAll();
-
-                if (timeline.Any() == true)
+                using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
                 {
-                    Timeline firstToLoad = timeline.First();
-                    if (editEventInstance.CurrentID == Id)
-                    {
-                        editEventInstance.CurrentID = firstToLoad.Id;
-                        editEventInstance.MinDate = firstToLoad.TimelineStartDate;
-                        editEventInstance.MaxDate = firstToLoad.TimelineEndDate;
-                        editEventInstance.SetTimelineDateRange();
+                    var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                    timelines.Delete(Id); // Delete this Timeline
+                    var timeline = timelines.FindAll();
 
-                        ReverseHighlight();
-                        if (firstToLoad != null)
+                    if (timeline.Any() == true)
+                    {
+                        Timeline firstToLoad = timeline.First();
+                        if (editEventInstance.CurrentID == Id)
                         {
-                            if (firstToLoad.Events != null)
+                            editEventInstance.CurrentID = firstToLoad.Id;
+                            editEventInstance.MinDate = firstToLoad.TimelineStartDate;
+                            editEventInstance.MaxDate = firstToLoad.TimelineEndDate;
+                            editEventInstance.SetTimelineDateRange();
+
+                            ReverseHighlight();
+                            if (firstToLoad != null)
                             {
-                                for (ushort i = 0; i < firstToLoad.Events.Count; i++)
+                                if (firstToLoad.Events != null)
                                 {
-                                    AddEventRow newRow = new AddEventRow();
-                                    newRow.Id = firstToLoad.Id;
-                                    newRow.Index = i;
-                                    newRow.MinDate = firstToLoad.TimelineStartDate;
-                                    newRow.MaxDate = firstToLoad.TimelineEndDate;
-                                    newRow.Dock = DockStyle.Bottom;
-                                    newRow.SetRowInfo(firstToLoad.Events[i]);
-                                    editEventInstance.eventInfoPanel.Controls.Add(newRow);
+                                    for (ushort i = 0; i < firstToLoad.Events.Count; i++)
+                                    {
+                                        AddEventRow newRow = new AddEventRow();
+                                        newRow.Id = firstToLoad.Id;
+                                        newRow.Index = i;
+                                        newRow.MinDate = firstToLoad.TimelineStartDate;
+                                        newRow.MaxDate = firstToLoad.TimelineEndDate;
+                                        newRow.Dock = DockStyle.Bottom;
+                                        newRow.SetRowInfo(firstToLoad.Events[i]);
+                                        editEventInstance.eventInfoPanel.Controls.Add(newRow);
+                                    }
                                 }
                             }
                         }
                     }
+                    else
+                        editEventInstance.eventInfoPanel.Controls.Clear();
                 }
-                else
-                    editEventInstance.eventInfoPanel.Controls.Clear();
+                this.Dispose();
             }
-            this.Dispose();
         }
     }
 }

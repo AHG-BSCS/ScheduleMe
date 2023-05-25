@@ -150,37 +150,42 @@ public partial class TimelineTab : UserControl
 
         else if (e.ClickedItem == deleteOption)
         {
-            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+            DeleteTimeline promt = new DeleteTimeline();
+            promt.ShowDialog();
+
+            if (promt.Answer)
             {
-                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                timelines.Delete(Id); // Delete this Timeline
-                MessageBox.Show(timelineTabBtn.Text + " is Deleted");
-                var timeline = timelines.FindAll();
-                if (timeline.Any() == true)
+                using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
                 {
-                    Timeline firstToLoad = timelines.FindAll().First();
-                    if (timelineInstance.currentID == Id)
+                    var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                    timelines.Delete(Id); // Delete this Timeline
+                    var timeline = timelines.FindAll();
+                    if (timeline.Any() == true)
                     {
-                        timelineInstance.currentID = firstToLoad.Id;
-                        ReverseHighlight();
-                        if (firstToLoad != null)
+                        Timeline firstToLoad = timelines.FindAll().First();
+                        if (timelineInstance.currentID == Id)
                         {
-                            if (firstToLoad.Events.Any() == true)
+                            timelineInstance.currentID = firstToLoad.Id;
+                            ReverseHighlight();
+                            if (firstToLoad != null)
                             {
-                                // Need to improve the sorting or the overlapping method. Too difficult
-                                firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-                                timelineInstance.PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate, firstToLoad.Id);
+                                if (firstToLoad.Events.Any() == true)
+                                {
+                                    // Need to improve the sorting or the overlapping method. Too difficult
+                                    firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
+                                    timelineInstance.PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate, firstToLoad.Id);
+                                }
+                                else
+                                    timelineInstance.panelTimelineContainer.Height = 130;
+                                timelineInstance.PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
                             }
-                            else
-                                timelineInstance.panelTimelineContainer.Height = 130;
-                            timelineInstance.PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
                         }
                     }
+                    else
+                        timelineInstance.panelTimelineContainer.Controls.Clear();
                 }
-                else
-                    timelineInstance.panelTimelineContainer.Controls.Clear();
+                this.Dispose();
             }
-            this.Dispose();
         }
     }
 }

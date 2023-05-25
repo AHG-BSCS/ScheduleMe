@@ -161,6 +161,7 @@ public partial class EditEvent : Form
         ObjectId deletedId = CurrentID;
         DeleteTimeline promt = new DeleteTimeline();
         promt.ShowDialog();
+
         if (promt.Answer)
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
