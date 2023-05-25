@@ -216,6 +216,7 @@ public partial class TimelineMain : Form
                 PopulateDates(newtTab.TimelineStartDate, newtTab.TimelineEndDate);
             }
         }
+        addTimelineTab.Dispose();
     }
 
     private void timelineMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -227,6 +228,7 @@ public partial class TimelineMain : Form
             editEvent.ShowDialog();
 
             currentID = editEvent.CurrentID;
+            editEvent.Dispose();
             panelTimelineTab.Controls.Clear();
             panelTimelineContainer.Controls.Clear();
 

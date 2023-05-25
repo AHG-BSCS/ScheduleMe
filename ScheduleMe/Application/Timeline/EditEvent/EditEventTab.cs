@@ -103,6 +103,7 @@ public partial class EditEventTab : UserControl
                     editEventInstance.addNewTab(newtTab.TimelineName, newtTab.Id);
                 }
             }
+            addTab.Dispose();
         }
 
         else if (e.ClickedItem == deleteOption)
@@ -156,6 +157,7 @@ public partial class EditEventTab : UserControl
                 }
                 this.Dispose();
             }
+            promt.Dispose();
         }
     }
 }

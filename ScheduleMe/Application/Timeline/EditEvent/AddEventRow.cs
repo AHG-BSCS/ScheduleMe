@@ -49,6 +49,7 @@ public partial class AddEventRow : UserControl
     {
         colorDialog.ShowDialog();
         colorPickerBtn.BackColor = colorDialog.Color;
+        colorDialog.Dispose();
     }
 
     internal Event GetRowInfo()

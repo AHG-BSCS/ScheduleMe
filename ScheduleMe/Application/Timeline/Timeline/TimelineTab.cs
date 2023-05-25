@@ -86,6 +86,7 @@ public partial class TimelineTab : UserControl
             editEvent.ShowDialog();
 
             timelineInstance.currentID = editEvent.CurrentID;
+            editEvent.Dispose();
             timelineInstance.panelTimelineTab.Controls.Clear();
             timelineInstance.panelTimelineContainer.Controls.Clear();
 
@@ -148,6 +149,7 @@ public partial class TimelineTab : UserControl
                     timelineInstance.PopulateDates(newtTab.TimelineStartDate, newtTab.TimelineEndDate);
                 }
             }
+            addTab.Dispose();
         }
 
         else if (e.ClickedItem == deleteOption)
@@ -191,6 +193,7 @@ public partial class TimelineTab : UserControl
                 }
                 this.Dispose();
             }
+            promt.Dispose();
         }
     }
 }

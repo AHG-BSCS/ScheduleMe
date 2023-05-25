@@ -138,6 +138,7 @@ public partial class EditEvent : Form
             addNewTab(newtTab.TimelineName, newtTab.Id);
             eventInfoPanel.Controls.Clear();
         }
+        addTimelineTab.Dispose();
     }
 
     private void addRowBtn_Click(object sender, EventArgs e)
