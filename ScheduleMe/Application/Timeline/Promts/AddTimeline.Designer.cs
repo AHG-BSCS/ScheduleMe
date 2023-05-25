@@ -77,6 +77,7 @@ partial class AddTimeline
         tBoxName.BorderStyle = BorderStyle.FixedSingle;
         tBoxName.ForeColor = Color.Black;
         tBoxName.Location = new Point(84, 12);
+        tBoxName.MaxLength = 32;
         tBoxName.Name = "tBoxName";
         tBoxName.Size = new Size(200, 29);
         tBoxName.TabIndex = 0;

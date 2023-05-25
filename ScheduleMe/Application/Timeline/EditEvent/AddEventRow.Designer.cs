@@ -128,6 +128,7 @@ partial class AddEventRow
         descriptionTBox.Dock = DockStyle.Fill;
         descriptionTBox.Location = new Point(223, 4);
         descriptionTBox.Margin = new Padding(5, 3, 3, 3);
+        descriptionTBox.MaxLength = 128;
         descriptionTBox.Name = "descriptionTBox";
         descriptionTBox.Size = new Size(394, 22);
         descriptionTBox.TabIndex = 0;
@@ -141,6 +142,7 @@ partial class AddEventRow
         titleTBox.Dock = DockStyle.Fill;
         titleTBox.Location = new Point(6, 4);
         titleTBox.Margin = new Padding(5, 3, 3, 3);
+        titleTBox.MaxLength = 64;
         titleTBox.Name = "titleTBox";
         titleTBox.Size = new Size(208, 22);
         titleTBox.TabIndex = 0;
