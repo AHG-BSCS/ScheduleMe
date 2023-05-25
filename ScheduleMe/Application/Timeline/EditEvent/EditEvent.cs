@@ -127,8 +127,7 @@ public partial class EditEvent : Form
         using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
             var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-            Timeline newtTab = new Timeline();
-            newtTab = timelines.FindById(addTimelineTab.Id);
+            Timeline newtTab = timelines.FindById(addTimelineTab.Id);
             CurrentID = newtTab.Id;
             MinDate = newtTab.TimelineStartDate;
             MaxDate = newtTab.TimelineEndDate;
@@ -219,21 +218,18 @@ public partial class EditEvent : Form
                     SetTimelineDateRange();
                     ReverseHighlight(deletedId);
 
-                    if (firstToLoad != null)
+                    if (firstToLoad.Events.Any())
                     {
-                        if (firstToLoad.Events.Any())
+                        for (ushort i = 0; i < firstToLoad.Events.Count; i++)
                         {
-                            for (ushort i = 0; i < firstToLoad.Events.Count; i++)
-                            {
-                                AddEventRow newRow = new AddEventRow();
-                                newRow.Id = firstToLoad.Id;
-                                newRow.Index = i;
-                                newRow.MinDate = firstToLoad.TimelineStartDate;
-                                newRow.MaxDate = firstToLoad.TimelineEndDate;
-                                newRow.Dock = DockStyle.Bottom;
-                                newRow.SetRowInfo(firstToLoad.Events[i]);
-                                eventInfoPanel.Controls.Add(newRow);
-                            }
+                            AddEventRow newRow = new AddEventRow();
+                            newRow.Id = firstToLoad.Id;
+                            newRow.Index = i;
+                            newRow.MinDate = firstToLoad.TimelineStartDate;
+                            newRow.MaxDate = firstToLoad.TimelineEndDate;
+                            newRow.Dock = DockStyle.Bottom;
+                            newRow.SetRowInfo(firstToLoad.Events[i]);
+                            eventInfoPanel.Controls.Add(newRow);
                         }
                     }
                 }
@@ -241,9 +237,9 @@ public partial class EditEvent : Form
                 {
                     eventInfoPanel.Controls.Clear();
                     timelineTabPanel.Controls.Clear();
+                    CurrentID = null;
                 }
             }
-            CurrentID = null;
         }
         promt.Dispose();
     }
@@ -275,11 +271,10 @@ public partial class EditEvent : Form
             {
                 tab.timelineTabBtn.BackColor = Color.White;
                 tab.timelineTabBtn.ForeColor = Color.Black;
-                break;
             }
             else if (deletedId == tab.Id)
             {
-                tab.Dispose();
+                tab.Hide(); // Very hard to find bug. Can't Disposed since I it affects other tabs.
             }
         }
     }

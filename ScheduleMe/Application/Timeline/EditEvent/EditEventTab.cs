@@ -121,30 +121,27 @@ public partial class EditEventTab : UserControl
 
                     if (timeline.Any())
                     {
-                        Timeline firstToLoad = timeline.First();
-                        if (editEventInstance.CurrentID == Id)
+                        if (editEventInstance.CurrentID == Id) // If this is the last tab
                         {
+                            Timeline firstToLoad = timeline.First();
                             editEventInstance.CurrentID = firstToLoad.Id;
                             editEventInstance.MinDate = firstToLoad.TimelineStartDate;
                             editEventInstance.MaxDate = firstToLoad.TimelineEndDate;
                             editEventInstance.SetTimelineDateRange();
-
                             ReverseHighlight();
-                            if (firstToLoad != null)
+
+                            if (firstToLoad.Events.Any())
                             {
-                                if (firstToLoad.Events.Any())
+                                for (ushort i = 0; i < firstToLoad.Events.Count; i++)
                                 {
-                                    for (ushort i = 0; i < firstToLoad.Events.Count; i++)
-                                    {
-                                        AddEventRow newRow = new AddEventRow();
-                                        newRow.Id = firstToLoad.Id;
-                                        newRow.Index = i;
-                                        newRow.MinDate = firstToLoad.TimelineStartDate;
-                                        newRow.MaxDate = firstToLoad.TimelineEndDate;
-                                        newRow.Dock = DockStyle.Bottom;
-                                        newRow.SetRowInfo(firstToLoad.Events[i]);
-                                        editEventInstance.eventInfoPanel.Controls.Add(newRow);
-                                    }
+                                    AddEventRow newRow = new AddEventRow();
+                                    newRow.Id = firstToLoad.Id;
+                                    newRow.Index = i;
+                                    newRow.MinDate = firstToLoad.TimelineStartDate;
+                                    newRow.MaxDate = firstToLoad.TimelineEndDate;
+                                    newRow.Dock = DockStyle.Bottom;
+                                    newRow.SetRowInfo(firstToLoad.Events[i]);
+                                    editEventInstance.eventInfoPanel.Controls.Add(newRow);
                                 }
                             }
                         }

@@ -72,7 +72,7 @@ public partial class TimelineTab : UserControl
                     timelineInstance.panelTimelineContainer.Height = 130;
 
                 timelineInstance.PopulateDates(timelineTabs.TimelineStartDate, timelineTabs.TimelineEndDate);
-                timelineInstance.currentID = timelineTabs.Id;
+                timelineInstance.currentID = Id;
             }
         }
     }
