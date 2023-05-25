@@ -99,22 +99,22 @@ partial class EditEvent
         eventsInfoTLPanel.Location = new Point(0, 90);
         eventsInfoTLPanel.Margin = new Padding(0);
         eventsInfoTLPanel.Name = "eventsInfoTLPanel";
+        eventsInfoTLPanel.Padding = new Padding(3, 4, 0, 0);
         eventsInfoTLPanel.RowCount = 1;
         eventsInfoTLPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
-        eventsInfoTLPanel.Size = new Size(984, 25);
+        eventsInfoTLPanel.Size = new Size(984, 30);
         eventsInfoTLPanel.TabIndex = 0;
         // 
         // eventColorHeader
         // 
         eventColorHeader.AutoSize = true;
-        eventColorHeader.BackColor = SystemColors.ControlDark;
-        eventColorHeader.Dock = DockStyle.Fill;
+        eventColorHeader.Dock = DockStyle.Top;
         eventColorHeader.FlatStyle = FlatStyle.System;
         eventColorHeader.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        eventColorHeader.Location = new Point(944, 2);
-        eventColorHeader.Margin = new Padding(6, 2, 0, 0);
+        eventColorHeader.Location = new Point(940, 4);
+        eventColorHeader.Margin = new Padding(2, 0, 0, 0);
         eventColorHeader.Name = "eventColorHeader";
-        eventColorHeader.Size = new Size(40, 33);
+        eventColorHeader.Size = new Size(44, 22);
         eventColorHeader.TabIndex = 0;
         eventColorHeader.Text = "Color";
         eventColorHeader.TextAlign = ContentAlignment.MiddleLeft;
@@ -122,14 +122,13 @@ partial class EditEvent
         // eventEndDateHeader
         // 
         eventEndDateHeader.AutoSize = true;
-        eventEndDateHeader.BackColor = SystemColors.ControlDark;
-        eventEndDateHeader.Dock = DockStyle.Fill;
+        eventEndDateHeader.Dock = DockStyle.Top;
         eventEndDateHeader.FlatStyle = FlatStyle.System;
         eventEndDateHeader.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        eventEndDateHeader.Location = new Point(740, 2);
-        eventEndDateHeader.Margin = new Padding(2, 2, 0, 0);
+        eventEndDateHeader.Location = new Point(740, 4);
+        eventEndDateHeader.Margin = new Padding(2, 0, 0, 0);
         eventEndDateHeader.Name = "eventEndDateHeader";
-        eventEndDateHeader.Size = new Size(198, 33);
+        eventEndDateHeader.Size = new Size(198, 22);
         eventEndDateHeader.TabIndex = 0;
         eventEndDateHeader.Text = "End Date/Time";
         eventEndDateHeader.TextAlign = ContentAlignment.MiddleLeft;
@@ -137,14 +136,13 @@ partial class EditEvent
         // eventStartDateHeader
         // 
         eventStartDateHeader.AutoSize = true;
-        eventStartDateHeader.BackColor = SystemColors.ControlDark;
-        eventStartDateHeader.Dock = DockStyle.Fill;
+        eventStartDateHeader.Dock = DockStyle.Top;
         eventStartDateHeader.FlatStyle = FlatStyle.System;
         eventStartDateHeader.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        eventStartDateHeader.Location = new Point(540, 2);
-        eventStartDateHeader.Margin = new Padding(2, 2, 0, 0);
+        eventStartDateHeader.Location = new Point(540, 4);
+        eventStartDateHeader.Margin = new Padding(2, 0, 0, 0);
         eventStartDateHeader.Name = "eventStartDateHeader";
-        eventStartDateHeader.Size = new Size(198, 33);
+        eventStartDateHeader.Size = new Size(198, 22);
         eventStartDateHeader.TabIndex = 0;
         eventStartDateHeader.Text = "Start Date/Time";
         eventStartDateHeader.TextAlign = ContentAlignment.MiddleLeft;
@@ -152,14 +150,13 @@ partial class EditEvent
         // eventDescriptionHeader
         // 
         eventDescriptionHeader.AutoSize = true;
-        eventDescriptionHeader.BackColor = SystemColors.ControlDark;
-        eventDescriptionHeader.Dock = DockStyle.Fill;
+        eventDescriptionHeader.Dock = DockStyle.Top;
         eventDescriptionHeader.FlatStyle = FlatStyle.System;
         eventDescriptionHeader.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        eventDescriptionHeader.Location = new Point(217, 2);
-        eventDescriptionHeader.Margin = new Padding(2, 2, 0, 0);
+        eventDescriptionHeader.Location = new Point(219, 4);
+        eventDescriptionHeader.Margin = new Padding(2, 0, 0, 0);
         eventDescriptionHeader.Name = "eventDescriptionHeader";
-        eventDescriptionHeader.Size = new Size(321, 33);
+        eventDescriptionHeader.Size = new Size(319, 22);
         eventDescriptionHeader.TabIndex = 0;
         eventDescriptionHeader.Text = "Description";
         eventDescriptionHeader.TextAlign = ContentAlignment.MiddleLeft;
@@ -167,14 +164,13 @@ partial class EditEvent
         // eventTitleHeader
         // 
         eventTitleHeader.AutoSize = true;
-        eventTitleHeader.BackColor = SystemColors.ControlDark;
-        eventTitleHeader.Dock = DockStyle.Fill;
+        eventTitleHeader.Dock = DockStyle.Top;
         eventTitleHeader.FlatStyle = FlatStyle.System;
         eventTitleHeader.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        eventTitleHeader.Location = new Point(6, 2);
-        eventTitleHeader.Margin = new Padding(6, 2, 0, 0);
+        eventTitleHeader.Location = new Point(5, 4);
+        eventTitleHeader.Margin = new Padding(2, 0, 0, 0);
         eventTitleHeader.Name = "eventTitleHeader";
-        eventTitleHeader.Size = new Size(209, 33);
+        eventTitleHeader.Size = new Size(212, 22);
         eventTitleHeader.TabIndex = 0;
         eventTitleHeader.Text = "Title";
         eventTitleHeader.TextAlign = ContentAlignment.MiddleLeft;
@@ -183,7 +179,7 @@ partial class EditEvent
         // 
         eventInfoPanel.AutoSize = true;
         eventInfoPanel.Dock = DockStyle.Top;
-        eventInfoPanel.Location = new Point(0, 115);
+        eventInfoPanel.Location = new Point(0, 120);
         eventInfoPanel.Name = "eventInfoPanel";
         eventInfoPanel.Size = new Size(984, 0);
         eventInfoPanel.TabIndex = 0;
@@ -213,7 +209,7 @@ partial class EditEvent
         deleteBtn.ForeColor = Color.Black;
         deleteBtn.Location = new Point(148, 6);
         deleteBtn.Name = "deleteBtn";
-        deleteBtn.Size = new Size(65, 29);
+        deleteBtn.Size = new Size(65, 30);
         deleteBtn.TabIndex = 3;
         deleteBtn.TabStop = false;
         deleteBtn.Text = "Delete";
@@ -221,31 +217,29 @@ partial class EditEvent
         // 
         // timelineEndDatePicker
         // 
-        timelineEndDatePicker.CustomFormat = "MMM dd, yyyy hh:MM tt";
+        timelineEndDatePicker.CustomFormat = "MMM dd, yyyy";
         timelineEndDatePicker.Format = DateTimePickerFormat.Custom;
-        timelineEndDatePicker.Location = new Point(740, 22);
+        timelineEndDatePicker.Location = new Point(736, 22);
         timelineEndDatePicker.Margin = new Padding(0);
         timelineEndDatePicker.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
         timelineEndDatePicker.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
         timelineEndDatePicker.Name = "timelineEndDatePicker";
         timelineEndDatePicker.RightToLeft = RightToLeft.No;
-        timelineEndDatePicker.ShowUpDown = true;
-        timelineEndDatePicker.Size = new Size(200, 29);
+        timelineEndDatePicker.Size = new Size(150, 29);
         timelineEndDatePicker.TabIndex = 2;
         timelineEndDatePicker.TabStop = false;
         // 
         // timelineStartDatePicker
         // 
-        timelineStartDatePicker.CustomFormat = "MMM dd, yyyy hh:MM tt";
+        timelineStartDatePicker.CustomFormat = "MMM dd, yyyy";
         timelineStartDatePicker.Format = DateTimePickerFormat.Custom;
-        timelineStartDatePicker.Location = new Point(540, 22);
+        timelineStartDatePicker.Location = new Point(537, 22);
         timelineStartDatePicker.Margin = new Padding(0);
         timelineStartDatePicker.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
         timelineStartDatePicker.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
         timelineStartDatePicker.Name = "timelineStartDatePicker";
         timelineStartDatePicker.RightToLeft = RightToLeft.No;
-        timelineStartDatePicker.ShowUpDown = true;
-        timelineStartDatePicker.Size = new Size(200, 29);
+        timelineStartDatePicker.Size = new Size(150, 29);
         timelineStartDatePicker.TabIndex = 1;
         timelineStartDatePicker.TabStop = false;
         // 
@@ -253,7 +247,7 @@ partial class EditEvent
         // 
         label1.AutoSize = true;
         label1.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        label1.Location = new Point(740, 0);
+        label1.Location = new Point(733, 0);
         label1.Name = "label1";
         label1.Size = new Size(77, 22);
         label1.TabIndex = 0;
@@ -264,7 +258,7 @@ partial class EditEvent
         // 
         fromLbl.AutoSize = true;
         fromLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        fromLbl.Location = new Point(540, 0);
+        fromLbl.Location = new Point(533, 0);
         fromLbl.Name = "fromLbl";
         fromLbl.Size = new Size(84, 22);
         fromLbl.TabIndex = 0;
@@ -280,7 +274,7 @@ partial class EditEvent
         saveBtn.ForeColor = Color.Black;
         saveBtn.Location = new Point(77, 6);
         saveBtn.Name = "saveBtn";
-        saveBtn.Size = new Size(65, 29);
+        saveBtn.Size = new Size(65, 30);
         saveBtn.TabIndex = 0;
         saveBtn.TabStop = false;
         saveBtn.Text = "Save";
@@ -296,7 +290,7 @@ partial class EditEvent
         addRowBtn.ForeColor = Color.Black;
         addRowBtn.Location = new Point(6, 6);
         addRowBtn.Name = "addRowBtn";
-        addRowBtn.Size = new Size(65, 29);
+        addRowBtn.Size = new Size(65, 30);
         addRowBtn.TabIndex = 0;
         addRowBtn.TabStop = false;
         addRowBtn.Text = "Add Row";
