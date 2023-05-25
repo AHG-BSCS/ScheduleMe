@@ -91,7 +91,7 @@ public partial class AddEventRow : UserControl
 
     private void startDatePicker_ValueChanged(object sender, EventArgs e)
     {
-        if (startDatePicker.Value < MinDate || startDatePicker.Value > MaxDate) 
+        if (startDatePicker.Value < MinDate || startDatePicker.Value > MaxDate)
             startDatePicker.Value = MinDate;
 
         if (startDatePicker.Value > endDatePicker.Value)

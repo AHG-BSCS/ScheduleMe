@@ -38,6 +38,11 @@ partial class EditEvent
         eventTitleHeader = new Label();
         eventInfoPanel = new Panel();
         addSavePanel = new Panel();
+        deleteBtn = new Button();
+        timelineEndDatePicker = new DateTimePicker();
+        timelineStartDatePicker = new DateTimePicker();
+        label1 = new Label();
+        fromLbl = new Label();
         saveBtn = new Button();
         addRowBtn = new Button();
         timelineTabPanel.SuspendLayout();
@@ -91,7 +96,7 @@ partial class EditEvent
         eventsInfoTLPanel.Controls.Add(eventTitleHeader, 0, 0);
         eventsInfoTLPanel.Dock = DockStyle.Top;
         eventsInfoTLPanel.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
-        eventsInfoTLPanel.Location = new Point(0, 35);
+        eventsInfoTLPanel.Location = new Point(0, 90);
         eventsInfoTLPanel.Margin = new Padding(0);
         eventsInfoTLPanel.Name = "eventsInfoTLPanel";
         eventsInfoTLPanel.RowCount = 1;
@@ -178,7 +183,7 @@ partial class EditEvent
         // 
         eventInfoPanel.AutoSize = true;
         eventInfoPanel.Dock = DockStyle.Top;
-        eventInfoPanel.Location = new Point(0, 60);
+        eventInfoPanel.Location = new Point(0, 115);
         eventInfoPanel.Name = "eventInfoPanel";
         eventInfoPanel.Size = new Size(984, 0);
         eventInfoPanel.TabIndex = 0;
@@ -186,24 +191,94 @@ partial class EditEvent
         // addSavePanel
         // 
         addSavePanel.BackColor = Color.Transparent;
+        addSavePanel.Controls.Add(deleteBtn);
+        addSavePanel.Controls.Add(timelineEndDatePicker);
+        addSavePanel.Controls.Add(timelineStartDatePicker);
+        addSavePanel.Controls.Add(label1);
+        addSavePanel.Controls.Add(fromLbl);
         addSavePanel.Controls.Add(saveBtn);
         addSavePanel.Controls.Add(addRowBtn);
         addSavePanel.Dock = DockStyle.Top;
-        addSavePanel.Location = new Point(0, 60);
+        addSavePanel.Location = new Point(0, 35);
         addSavePanel.Name = "addSavePanel";
-        addSavePanel.Padding = new Padding(200, 10, 200, 10);
-        addSavePanel.Size = new Size(984, 49);
+        addSavePanel.Size = new Size(984, 55);
         addSavePanel.TabIndex = 0;
+        // 
+        // deleteBtn
+        // 
+        deleteBtn.BackColor = SystemColors.ControlDark;
+        deleteBtn.FlatAppearance.BorderSize = 0;
+        deleteBtn.FlatStyle = FlatStyle.Flat;
+        deleteBtn.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
+        deleteBtn.ForeColor = Color.Black;
+        deleteBtn.Location = new Point(148, 6);
+        deleteBtn.Name = "deleteBtn";
+        deleteBtn.Size = new Size(65, 29);
+        deleteBtn.TabIndex = 3;
+        deleteBtn.TabStop = false;
+        deleteBtn.Text = "Delete";
+        deleteBtn.UseVisualStyleBackColor = false;
+        // 
+        // timelineEndDatePicker
+        // 
+        timelineEndDatePicker.CustomFormat = "MMM dd, yyyy hh:MM tt";
+        timelineEndDatePicker.Format = DateTimePickerFormat.Custom;
+        timelineEndDatePicker.Location = new Point(740, 22);
+        timelineEndDatePicker.Margin = new Padding(0);
+        timelineEndDatePicker.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
+        timelineEndDatePicker.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
+        timelineEndDatePicker.Name = "timelineEndDatePicker";
+        timelineEndDatePicker.RightToLeft = RightToLeft.No;
+        timelineEndDatePicker.ShowUpDown = true;
+        timelineEndDatePicker.Size = new Size(200, 29);
+        timelineEndDatePicker.TabIndex = 2;
+        timelineEndDatePicker.TabStop = false;
+        // 
+        // timelineStartDatePicker
+        // 
+        timelineStartDatePicker.CustomFormat = "MMM dd, yyyy hh:MM tt";
+        timelineStartDatePicker.Format = DateTimePickerFormat.Custom;
+        timelineStartDatePicker.Location = new Point(540, 22);
+        timelineStartDatePicker.Margin = new Padding(0);
+        timelineStartDatePicker.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
+        timelineStartDatePicker.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
+        timelineStartDatePicker.Name = "timelineStartDatePicker";
+        timelineStartDatePicker.RightToLeft = RightToLeft.No;
+        timelineStartDatePicker.ShowUpDown = true;
+        timelineStartDatePicker.Size = new Size(200, 29);
+        timelineStartDatePicker.TabIndex = 1;
+        timelineStartDatePicker.TabStop = false;
+        // 
+        // label1
+        // 
+        label1.AutoSize = true;
+        label1.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        label1.Location = new Point(740, 0);
+        label1.Name = "label1";
+        label1.Size = new Size(77, 22);
+        label1.TabIndex = 0;
+        label1.Text = "Ending Date";
+        label1.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // fromLbl
+        // 
+        fromLbl.AutoSize = true;
+        fromLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        fromLbl.Location = new Point(540, 0);
+        fromLbl.Name = "fromLbl";
+        fromLbl.Size = new Size(84, 22);
+        fromLbl.TabIndex = 0;
+        fromLbl.Text = "Starting Date";
+        fromLbl.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // saveBtn
         // 
         saveBtn.BackColor = SystemColors.ControlDark;
-        saveBtn.Dock = DockStyle.Right;
         saveBtn.FlatAppearance.BorderSize = 0;
         saveBtn.FlatStyle = FlatStyle.Flat;
         saveBtn.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
         saveBtn.ForeColor = Color.Black;
-        saveBtn.Location = new Point(719, 10);
+        saveBtn.Location = new Point(77, 6);
         saveBtn.Name = "saveBtn";
         saveBtn.Size = new Size(65, 29);
         saveBtn.TabIndex = 0;
@@ -215,12 +290,11 @@ partial class EditEvent
         // addRowBtn
         // 
         addRowBtn.BackColor = SystemColors.ControlDark;
-        addRowBtn.Dock = DockStyle.Left;
         addRowBtn.FlatAppearance.BorderSize = 0;
         addRowBtn.FlatStyle = FlatStyle.Flat;
         addRowBtn.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
         addRowBtn.ForeColor = Color.Black;
-        addRowBtn.Location = new Point(200, 10);
+        addRowBtn.Location = new Point(6, 6);
         addRowBtn.Name = "addRowBtn";
         addRowBtn.Size = new Size(65, 29);
         addRowBtn.TabIndex = 0;
@@ -236,9 +310,9 @@ partial class EditEvent
         AutoScroll = true;
         BackColor = Color.White;
         ClientSize = new Size(984, 511);
-        Controls.Add(addSavePanel);
         Controls.Add(eventInfoPanel);
         Controls.Add(eventsInfoTLPanel);
+        Controls.Add(addSavePanel);
         Controls.Add(timelineTabPanel);
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         FormBorderStyle = FormBorderStyle.FixedToolWindow;
@@ -250,6 +324,7 @@ partial class EditEvent
         eventsInfoTLPanel.ResumeLayout(false);
         eventsInfoTLPanel.PerformLayout();
         addSavePanel.ResumeLayout(false);
+        addSavePanel.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -267,4 +342,9 @@ partial class EditEvent
     private Panel addSavePanel;
     private Button addRowBtn;
     private Button saveBtn;
+    private Label fromLbl;
+    private DateTimePicker timelineStartDatePicker;
+    private Label label1;
+    private DateTimePicker timelineEndDatePicker;
+    private Button deleteBtn;
 }
