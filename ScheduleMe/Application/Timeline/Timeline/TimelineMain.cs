@@ -64,6 +64,11 @@ public partial class TimelineMain : Form
                 nextMonths.Location = new Point(columnSize * (currentDate - startDate).Days, 0);
                 nextMonths.AutoSize = true;
                 panelTimelineContainer.Controls.Add(nextMonths);
+
+                if (nextMonths.Left < firstMonth.Right)
+                {
+                    nextMonths.Left = firstMonth.Right;
+                }
             }
 
             DatesLabel dayDates = new DatesLabel();
