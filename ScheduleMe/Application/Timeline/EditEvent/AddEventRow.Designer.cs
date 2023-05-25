@@ -47,8 +47,8 @@ partial class AddEventRow
         eventsInfoTLPanel.BackColor = Color.Transparent;
         eventsInfoTLPanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
         eventsInfoTLPanel.ColumnCount = 5;
-        eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
-        eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
+        eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
+        eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65F));
         eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 170F));
         eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 170F));
         eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 35F));
@@ -126,10 +126,10 @@ partial class AddEventRow
         descriptionTBox.BorderStyle = BorderStyle.None;
         descriptionTBox.ContextMenuStrip = rowMenu;
         descriptionTBox.Dock = DockStyle.Fill;
-        descriptionTBox.Location = new Point(254, 4);
+        descriptionTBox.Location = new Point(223, 4);
         descriptionTBox.Margin = new Padding(5, 3, 3, 3);
         descriptionTBox.Name = "descriptionTBox";
-        descriptionTBox.Size = new Size(363, 22);
+        descriptionTBox.Size = new Size(394, 22);
         descriptionTBox.TabIndex = 0;
         descriptionTBox.TabStop = false;
         // 
@@ -142,7 +142,7 @@ partial class AddEventRow
         titleTBox.Location = new Point(6, 4);
         titleTBox.Margin = new Padding(5, 3, 3, 3);
         titleTBox.Name = "titleTBox";
-        titleTBox.Size = new Size(239, 22);
+        titleTBox.Size = new Size(208, 22);
         titleTBox.TabIndex = 0;
         titleTBox.TabStop = false;
         // 
