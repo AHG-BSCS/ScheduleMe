@@ -46,17 +46,10 @@ public partial class TimelineMain : Form
 
     public void PopulateDates(DateTime startDate, DateTime endDate)
     {
-        Label firstMonth = new Label();
-        firstMonth.Text = startDate.ToString("MMMM yyyy");
-        firstMonth.Font = new Font("Dubai", 10, FontStyle.Bold);
-        firstMonth.Location = new Point(0, 0);
-        firstMonth.AutoSize = true;
-        panelTimelineContainer.Controls.Add(firstMonth);
-
+        int firstMonthRight = 0;
         for (DateTime currentDate = startDate; currentDate <= endDate; currentDate = currentDate.AddDays(1))
         {
-            // This can produce overlapping month if the first day is 1 but can't be notice
-            if (currentDate.Day == 1)
+            if (currentDate.Day == 1 || currentDate.DayOfYear == startDate.DayOfYear)
             {
                 Label nextMonths = new Label();
                 nextMonths.Text = currentDate.ToString("MMMM yyyy");
@@ -65,16 +58,17 @@ public partial class TimelineMain : Form
                 nextMonths.AutoSize = true;
                 panelTimelineContainer.Controls.Add(nextMonths);
 
-                if (nextMonths.Left < firstMonth.Right)
-                {
-                    nextMonths.Left = firstMonth.Right;
-                }
+                if (nextMonths.Left < firstMonthRight)
+                    nextMonths.Left = firstMonthRight;
+
+                else if (currentDate.Day == startDate.Day)
+                    firstMonthRight = nextMonths.Right;
             }
 
             DatesLabel dayDates = new DatesLabel();
             dayDates.Day = currentDate.ToString("ddd");
             dayDates.Date = currentDate.Day.ToString();
-            dayDates.Location = new Point(columnSize * (currentDate - startDate).Days, firstMonth.Height - 5);
+            dayDates.Location = new Point(columnSize * (currentDate - startDate).Days, 23 - 5);
             panelTimelineContainer.Controls.Add(dayDates);
 
             Panel line = new Panel();
@@ -189,11 +183,6 @@ public partial class TimelineMain : Form
         Screen screen = Screen.PrimaryScreen;
         short screenWidth = (short)screen.Bounds.Width;
         panelTimelineContainer.AutoScrollPosition = new Point(currentDateTimePosition - (screenWidth / 2));
-    }
-
-    private void additionalInfo_Click(object sender, EventArgs e)
-    {
-        // Optional feature for now
     }
 
     private void timelineAddTab_Click(object sender, EventArgs e)

@@ -31,7 +31,6 @@ partial class TimelineMain
         components = new System.ComponentModel.Container();
         timelineTabToolPanel = new Panel();
         panelTimelineTab = new Panel();
-        additionalInfo = new PictureBox();
         currentDate = new PictureBox();
         timelineAddTab = new Button();
         panelTimelineContainer = new Panel();
@@ -40,7 +39,6 @@ partial class TimelineMain
         optionSeparator = new ToolStripSeparator();
         openAtBottomOption = new ToolStripMenuItem();
         timelineTabToolPanel.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)additionalInfo).BeginInit();
         ((System.ComponentModel.ISupportInitialize)currentDate).BeginInit();
         timelineMenu.SuspendLayout();
         SuspendLayout();
@@ -49,7 +47,6 @@ partial class TimelineMain
         // 
         timelineTabToolPanel.BackColor = Color.FromArgb(15, 76, 129);
         timelineTabToolPanel.Controls.Add(panelTimelineTab);
-        timelineTabToolPanel.Controls.Add(additionalInfo);
         timelineTabToolPanel.Controls.Add(currentDate);
         timelineTabToolPanel.Controls.Add(timelineAddTab);
         timelineTabToolPanel.Dock = DockStyle.Top;
@@ -64,21 +61,8 @@ partial class TimelineMain
         panelTimelineTab.Dock = DockStyle.Fill;
         panelTimelineTab.Location = new Point(48, 0);
         panelTimelineTab.Name = "panelTimelineTab";
-        panelTimelineTab.Size = new Size(722, 35);
+        panelTimelineTab.Size = new Size(757, 35);
         panelTimelineTab.TabIndex = 0;
-        // 
-        // additionalInfo
-        // 
-        additionalInfo.BackColor = Color.Transparent;
-        additionalInfo.BackgroundImage = Properties.Resources.icon_placeholder;
-        additionalInfo.BackgroundImageLayout = ImageLayout.Zoom;
-        additionalInfo.Dock = DockStyle.Right;
-        additionalInfo.Location = new Point(770, 0);
-        additionalInfo.Name = "additionalInfo";
-        additionalInfo.Size = new Size(35, 35);
-        additionalInfo.TabIndex = 4;
-        additionalInfo.TabStop = false;
-        additionalInfo.Click += additionalInfo_Click;
         // 
         // currentDate
         // 
@@ -128,7 +112,7 @@ partial class TimelineMain
         timelineMenu.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         timelineMenu.Items.AddRange(new ToolStripItem[] { editOption, optionSeparator, openAtBottomOption });
         timelineMenu.Name = "timelineOption";
-        timelineMenu.Size = new Size(189, 84);
+        timelineMenu.Size = new Size(189, 62);
         timelineMenu.Text = "Option";
         timelineMenu.ItemClicked += timelineMenu_ItemClicked;
         // 
@@ -166,7 +150,6 @@ partial class TimelineMain
         WindowState = FormWindowState.Maximized;
         Load += Timeline_Load;
         timelineTabToolPanel.ResumeLayout(false);
-        ((System.ComponentModel.ISupportInitialize)additionalInfo).EndInit();
         ((System.ComponentModel.ISupportInitialize)currentDate).EndInit();
         timelineMenu.ResumeLayout(false);
         ResumeLayout(false);
@@ -175,7 +158,6 @@ partial class TimelineMain
     #endregion
     private Button timelineAddTab;
     private PictureBox currentDate;
-    private PictureBox additionalInfo;
     internal Panel panelTimelineContainer;
     public Panel timelineTabToolPanel;
     public Panel panelTimelineTab;
