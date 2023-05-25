@@ -85,6 +85,7 @@ public partial class TimelineTab : UserControl
             editEvent.CurrentID = Id;
             editEvent.ShowDialog();
 
+            timelineInstance.currentID = editEvent.CurrentID;
             timelineInstance.panelTimelineTab.Controls.Clear();
             timelineInstance.panelTimelineContainer.Controls.Clear();
 

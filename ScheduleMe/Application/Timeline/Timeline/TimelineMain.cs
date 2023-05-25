@@ -226,6 +226,7 @@ public partial class TimelineMain : Form
             editEvent.CurrentID = currentID;
             editEvent.ShowDialog();
 
+            currentID = editEvent.CurrentID;
             panelTimelineTab.Controls.Clear();
             panelTimelineContainer.Controls.Clear();
 
