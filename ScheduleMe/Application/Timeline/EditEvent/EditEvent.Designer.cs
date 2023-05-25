@@ -214,6 +214,7 @@ partial class EditEvent
         deleteBtn.TabStop = false;
         deleteBtn.Text = "Delete";
         deleteBtn.UseVisualStyleBackColor = false;
+        deleteBtn.Click += deleteBtn_Click;
         // 
         // timelineEndDatePicker
         // 
@@ -228,6 +229,7 @@ partial class EditEvent
         timelineEndDatePicker.Size = new Size(150, 29);
         timelineEndDatePicker.TabIndex = 2;
         timelineEndDatePicker.TabStop = false;
+        timelineEndDatePicker.ValueChanged += timelineEndDatePicker_ValueChanged;
         // 
         // timelineStartDatePicker
         // 
@@ -242,6 +244,7 @@ partial class EditEvent
         timelineStartDatePicker.Size = new Size(150, 29);
         timelineStartDatePicker.TabIndex = 1;
         timelineStartDatePicker.TabStop = false;
+        timelineStartDatePicker.ValueChanged += timelineStartDatePicker_ValueChanged;
         // 
         // label1
         // 

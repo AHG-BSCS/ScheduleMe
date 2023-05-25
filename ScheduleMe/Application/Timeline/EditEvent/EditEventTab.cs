@@ -65,6 +65,7 @@ public partial class EditEventTab : UserControl
                 editEventInstance.CurrentID = Id;
                 editEventInstance.MinDate = timelineTab.TimelineStartDate;
                 editEventInstance.MaxDate = timelineTab.TimelineEndDate;
+                editEventInstance.SetTimelineDateRange();
 
                 if (timelineTab.Events != null)
                 {
@@ -121,6 +122,7 @@ public partial class EditEventTab : UserControl
                         editEventInstance.CurrentID = firstToLoad.Id;
                         editEventInstance.MinDate = firstToLoad.TimelineStartDate;
                         editEventInstance.MaxDate = firstToLoad.TimelineEndDate;
+                        editEventInstance.SetTimelineDateRange();
 
                         ReverseHighlight();
                         if (firstToLoad != null)

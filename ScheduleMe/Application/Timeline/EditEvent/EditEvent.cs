@@ -26,6 +26,7 @@ public partial class EditEvent : Form
                 CurrentID = firstToLoad.Id;
                 MinDate = firstToLoad.TimelineStartDate;
                 MaxDate = firstToLoad.TimelineEndDate;
+                SetTimelineDateRange();
 
                 if (firstToLoad.Events != null)
                 {
@@ -92,6 +93,7 @@ public partial class EditEvent : Form
             CurrentID = newtTab.Id;
             MinDate = newtTab.TimelineStartDate;
             MaxDate = newtTab.TimelineEndDate;
+            SetTimelineDateRange();
 
             // Add new tab and clear since there is no events yet as expected
             addNewTab(newtTab.TimelineName, newtTab.Id);
@@ -150,5 +152,28 @@ public partial class EditEvent : Form
                 }
             }
         }
+    }
+
+    private void deleteBtn_Click(object sender, EventArgs e)
+    {
+        MessageBox.Show("Are you sure?");
+    }
+
+    private void timelineStartDatePicker_ValueChanged(object sender, EventArgs e)
+    {
+        if (timelineStartDatePicker.Value > MinDate)
+            timelineStartDatePicker.Value = MinDate;
+    }
+
+    private void timelineEndDatePicker_ValueChanged(object sender, EventArgs e)
+    {
+        if ( timelineEndDatePicker.Value < MaxDate)
+            timelineEndDatePicker.Value = MaxDate;
+    }
+
+    public void SetTimelineDateRange()
+    {
+        timelineStartDatePicker.Value = MinDate;
+        timelineEndDatePicker.Value = MaxDate;
     }
 }
