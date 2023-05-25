@@ -59,6 +59,7 @@ partial class Message
         okBtn.TabStop = false;
         okBtn.Text = "Ok";
         okBtn.UseVisualStyleBackColor = false;
+        okBtn.Click += okBtn_Click;
         // 
         // btnPanel
         // 
@@ -76,7 +77,7 @@ partial class Message
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
         AutoSize = true;
-        BackColor = Color.FromArgb(15, 76, 129);
+        BackColor = SystemColors.ControlDarkDark;
         ClientSize = new Size(145, 73);
         Controls.Add(btnPanel);
         Controls.Add(messageLbl);

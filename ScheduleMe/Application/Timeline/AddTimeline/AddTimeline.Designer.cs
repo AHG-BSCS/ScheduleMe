@@ -140,11 +140,11 @@ partial class AddTimeline
         endDatePicker.TabIndex = 2;
         endDatePicker.TabStop = false;
         // 
-        // AddTimelineTab
+        // AddTimeline
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
-        BackColor = Color.FromArgb(15, 76, 129);
+        BackColor = SystemColors.ControlDarkDark;
         ClientSize = new Size(294, 170);
         Controls.Add(endDatePicker);
         Controls.Add(btnCancelTimeline);
@@ -156,10 +156,10 @@ partial class AddTimeline
         Controls.Add(lblName);
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         ForeColor = Color.White;
-        FormBorderStyle = FormBorderStyle.FixedToolWindow;
+        FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(3, 4, 3, 4);
-        Name = "AddTimelineTab";
-        StartPosition = FormStartPosition.CenterScreen;
+        Name = "AddTimeline";
+        StartPosition = FormStartPosition.CenterParent;
         Text = "Add Timeline";
         ResumeLayout(false);
         PerformLayout();

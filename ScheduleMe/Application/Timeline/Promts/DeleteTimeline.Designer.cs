@@ -76,7 +76,7 @@ partial class DeleteTimeline
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
-        BackColor = Color.FromArgb(15, 76, 129);
+        BackColor = SystemColors.ControlDarkDark;
         ClientSize = new Size(141, 72);
         Controls.Add(button1);
         Controls.Add(yesBtn);

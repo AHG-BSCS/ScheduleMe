@@ -18,10 +18,10 @@ public partial class AddTimeline : Form
             if (startDatePicker.Value < endDatePicker.Value)
                 CreateTimeline();
             else
-                MessageBox.Show("Invalid Dates");
+                new Message().Show("Invalid Dates");
         }
         else
-            MessageBox.Show("Invalid Name");
+            new Message().Show("Invalid Name");
     }
 
     private void btnCancelTimeline_Click(object sender, EventArgs e)

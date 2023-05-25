@@ -136,7 +136,7 @@ public partial class EditEvent : Form
                     timeline.Events.Add(newEvent.GetRowInfo());
                 }
                 timelines.Update(timeline);
-                MessageBox.Show(timeline.TimelineName + " is Saved");
+                new Message().Show(timeline.TimelineName + " is Saved");
 
                 // Reload the timeline events to assign a property to newly added rows
                 eventInfoPanel.Controls.Clear();
