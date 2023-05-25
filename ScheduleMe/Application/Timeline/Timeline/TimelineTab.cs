@@ -82,6 +82,7 @@ public partial class TimelineTab : UserControl
         if (e.ClickedItem == editOption)
         {
             EditEvent editEvent = new EditEvent();
+            editEvent.CurrentID = Id;
             editEvent.ShowDialog();
 
             timelineInstance.panelTimelineTab.Controls.Clear();
@@ -160,16 +161,16 @@ public partial class TimelineTab : UserControl
                     var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                     timelines.Delete(Id); // Delete this Timeline
                     var timeline = timelines.FindAll();
-                    if (timeline.Any() == true)
+                    if (timeline.Any())
                     {
-                        Timeline firstToLoad = timelines.FindAll().First();
+                        Timeline firstToLoad = timeline.First();
                         if (timelineInstance.currentID == Id)
                         {
                             timelineInstance.currentID = firstToLoad.Id;
                             ReverseHighlight();
                             if (firstToLoad != null)
                             {
-                                if (firstToLoad.Events.Any() == true)
+                                if (firstToLoad.Events.Any())
                                 {
                                     // Need to improve the sorting or the overlapping method. Too difficult
                                     firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
@@ -182,7 +183,10 @@ public partial class TimelineTab : UserControl
                         }
                     }
                     else
+                    {
                         timelineInstance.panelTimelineContainer.Controls.Clear();
+                        timelineInstance.currentID = null;
+                    }
                 }
                 this.Dispose();
             }

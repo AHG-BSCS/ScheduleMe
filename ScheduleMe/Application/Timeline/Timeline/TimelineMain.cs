@@ -223,6 +223,7 @@ public partial class TimelineMain : Form
         if (e.ClickedItem == editOption)
         {
             EditEvent editEvent = new EditEvent();
+            editEvent.CurrentID = currentID;
             editEvent.ShowDialog();
 
             panelTimelineTab.Controls.Clear();

@@ -118,7 +118,7 @@ public partial class EditEventTab : UserControl
                     timelines.Delete(Id); // Delete this Timeline
                     var timeline = timelines.FindAll();
 
-                    if (timeline.Any() == true)
+                    if (timeline.Any())
                     {
                         Timeline firstToLoad = timeline.First();
                         if (editEventInstance.CurrentID == Id)
@@ -149,7 +149,10 @@ public partial class EditEventTab : UserControl
                         }
                     }
                     else
+                    {
                         editEventInstance.eventInfoPanel.Controls.Clear();
+                        editEventInstance.CurrentID = null;
+                    }
                 }
                 this.Dispose();
             }

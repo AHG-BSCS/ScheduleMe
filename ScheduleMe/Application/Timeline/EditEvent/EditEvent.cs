@@ -15,11 +15,17 @@ public partial class EditEvent : Form
 
     private void EditEvent_Load(object sender, EventArgs e)
     {
+        if (CurrentID != null)
+            LoadTimelineById();
+    }
+
+    private void LoadFirstTimeline()
+    {
         using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
             var timelines = timelineDB.GetCollection<Timeline>("Timeline");
             var timelineTabs = timelines.FindAll();
-            if (timelineTabs.Count() != 0)
+            if (timelineTabs.Any())
             {
                 // Load the first TimelineTab.Event List only
                 Timeline firstToLoad = timelineTabs.First();
@@ -47,6 +53,39 @@ public partial class EditEvent : Form
                 {
                     addNewTab(tab.TimelineName, tab.Id);
                 }
+            }
+        }
+    }
+
+    private void LoadTimelineById() // Assuming that currentID do exists
+    {
+        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+        {
+            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+            var timelineTab = timelines.FindById(CurrentID);
+            CurrentID = timelineTab.Id;
+            MinDate = timelineTab.TimelineStartDate;
+            MaxDate = timelineTab.TimelineEndDate;
+            SetTimelineDateRange();
+
+            if (timelineTab.Events.Any())
+            {
+                for (ushort i = 0; i < timelineTab.Events.Count; i++)
+                {
+                    AddEventRow newRow = new AddEventRow();
+                    newRow.Id = timelineTab.Id;
+                    newRow.Index = i;
+                    newRow.MinDate = MinDate;
+                    newRow.MaxDate = MaxDate;
+                    newRow.Dock = DockStyle.Bottom;
+                    newRow.SetRowInfo(timelineTab.Events[i]);
+                    eventInfoPanel.Controls.Add(newRow);
+                }
+            }
+            // Load all the Timeline Tabs
+            foreach (var tab in timelines.FindAll())
+            {
+                addNewTab(tab.TimelineName, tab.Id);
             }
         }
     }
