@@ -56,6 +56,7 @@ partial class DeleteTimeline
         yesBtn.TabStop = false;
         yesBtn.Text = "Yes";
         yesBtn.UseVisualStyleBackColor = false;
+        yesBtn.Click += yesBtn_Click;
         // 
         // button1
         // 
@@ -69,6 +70,7 @@ partial class DeleteTimeline
         button1.TabStop = false;
         button1.Text = "No";
         button1.UseVisualStyleBackColor = false;
+        button1.Click += button1_Click;
         // 
         // DeleteTimeline
         // 

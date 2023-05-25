@@ -158,7 +158,49 @@ public partial class EditEvent : Form
 
     private void deleteBtn_Click(object sender, EventArgs e)
     {
-        MessageBox.Show("Are you sure?");
+        ObjectId deletedId = CurrentID;
+        DeleteTimeline promt = new DeleteTimeline();
+        promt.ShowDialog();
+        if (promt.Answer)
+        {
+            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+            {
+                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                timelines.Delete(CurrentID); // Delete this Timeline
+                var timeline = timelines.FindAll();
+
+                if (timeline.Any() == true)
+                {
+                    Timeline firstToLoad = timeline.First();
+                    CurrentID = firstToLoad.Id;
+                    MinDate = firstToLoad.TimelineStartDate;
+                    MaxDate = firstToLoad.TimelineEndDate;
+                    SetTimelineDateRange();
+                    ReverseHighlight(deletedId);
+
+                    if (firstToLoad != null)
+                    {
+                        if (firstToLoad.Events != null)
+                        {
+                            for (ushort i = 0; i < firstToLoad.Events.Count; i++)
+                            {
+                                AddEventRow newRow = new AddEventRow();
+                                newRow.Id = firstToLoad.Id;
+                                newRow.Index = i;
+                                newRow.MinDate = firstToLoad.TimelineStartDate;
+                                newRow.MaxDate = firstToLoad.TimelineEndDate;
+                                newRow.Dock = DockStyle.Bottom;
+                                newRow.SetRowInfo(firstToLoad.Events[i]);
+                                eventInfoPanel.Controls.Add(newRow);
+                            }
+                        }
+                    }
+                }
+                else
+                    eventInfoPanel.Controls.Clear();
+            }
+        }
+        promt.Dispose();
     }
 
     private void timelineStartDatePicker_ValueChanged(object sender, EventArgs e)
@@ -177,5 +219,23 @@ public partial class EditEvent : Form
     {
         timelineStartDatePicker.Value = MinDate;
         timelineEndDatePicker.Value = MaxDate;
+    }
+
+    private void ReverseHighlight(ObjectId deletedId)
+    {
+        eventInfoPanel.Controls.Clear();
+        foreach (EditEventTab tab in timelineTabPanel.Controls.OfType<EditEventTab>())
+        {
+            if (CurrentID == tab.Id)
+            {
+                tab.timelineTabBtn.BackColor = Color.White;
+                tab.timelineTabBtn.ForeColor = Color.Black;
+                break;
+            }
+            else if (deletedId == tab.Id)
+            {
+                tab.Dispose();
+            }
+        }
     }
 }
