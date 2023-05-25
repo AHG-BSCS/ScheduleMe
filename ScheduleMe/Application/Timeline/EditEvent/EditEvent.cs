@@ -212,7 +212,7 @@ public partial class EditEvent : Form
 
     private void timelineEndDatePicker_ValueChanged(object sender, EventArgs e)
     {
-        if ( timelineEndDatePicker.Value < MaxDate)
+        if (timelineEndDatePicker.Value < MaxDate)
             timelineEndDatePicker.Value = MaxDate;
     }
 

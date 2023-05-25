@@ -49,9 +49,9 @@ partial class AddEventRow
         eventsInfoTLPanel.ColumnCount = 5;
         eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
         eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
-        eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F));
-        eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F));
-        eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 45F));
+        eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 170F));
+        eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 170F));
+        eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 35F));
         eventsInfoTLPanel.ContextMenuStrip = rowMenu;
         eventsInfoTLPanel.Controls.Add(endDatePicker, 3, 0);
         eventsInfoTLPanel.Controls.Add(startDatePicker, 2, 0);
@@ -90,14 +90,14 @@ partial class AddEventRow
         endDatePicker.CustomFormat = "MMM dd, yyyy hh:MM tt";
         endDatePicker.Dock = DockStyle.Fill;
         endDatePicker.Format = DateTimePickerFormat.Custom;
-        endDatePicker.Location = new Point(752, 1);
+        endDatePicker.Location = new Point(792, 1);
         endDatePicker.Margin = new Padding(0);
         endDatePicker.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
         endDatePicker.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
         endDatePicker.Name = "endDatePicker";
         endDatePicker.RightToLeft = RightToLeft.No;
         endDatePicker.ShowUpDown = true;
-        endDatePicker.Size = new Size(200, 29);
+        endDatePicker.Size = new Size(170, 29);
         endDatePicker.TabIndex = 0;
         endDatePicker.TabStop = false;
         endDatePicker.ValueChanged += endDatePicker_ValueChanged;
@@ -108,14 +108,14 @@ partial class AddEventRow
         startDatePicker.CustomFormat = "MMM dd, yyyy hh:MM tt";
         startDatePicker.Dock = DockStyle.Fill;
         startDatePicker.Format = DateTimePickerFormat.Custom;
-        startDatePicker.Location = new Point(551, 1);
+        startDatePicker.Location = new Point(621, 1);
         startDatePicker.Margin = new Padding(0);
         startDatePicker.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
         startDatePicker.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
         startDatePicker.Name = "startDatePicker";
         startDatePicker.RightToLeft = RightToLeft.No;
         startDatePicker.ShowUpDown = true;
-        startDatePicker.Size = new Size(200, 29);
+        startDatePicker.Size = new Size(170, 29);
         startDatePicker.TabIndex = 0;
         startDatePicker.TabStop = false;
         startDatePicker.ValueChanged += startDatePicker_ValueChanged;
@@ -126,10 +126,10 @@ partial class AddEventRow
         descriptionTBox.BorderStyle = BorderStyle.None;
         descriptionTBox.ContextMenuStrip = rowMenu;
         descriptionTBox.Dock = DockStyle.Fill;
-        descriptionTBox.Location = new Point(226, 4);
+        descriptionTBox.Location = new Point(254, 4);
         descriptionTBox.Margin = new Padding(5, 3, 3, 3);
         descriptionTBox.Name = "descriptionTBox";
-        descriptionTBox.Size = new Size(321, 22);
+        descriptionTBox.Size = new Size(363, 22);
         descriptionTBox.TabIndex = 0;
         descriptionTBox.TabStop = false;
         // 
@@ -142,7 +142,7 @@ partial class AddEventRow
         titleTBox.Location = new Point(6, 4);
         titleTBox.Margin = new Padding(5, 3, 3, 3);
         titleTBox.Name = "titleTBox";
-        titleTBox.Size = new Size(211, 22);
+        titleTBox.Size = new Size(239, 22);
         titleTBox.TabIndex = 0;
         titleTBox.TabStop = false;
         // 
@@ -152,8 +152,8 @@ partial class AddEventRow
         colorPickerBtn.ContextMenuStrip = rowMenu;
         colorPickerBtn.FlatAppearance.BorderSize = 0;
         colorPickerBtn.ForeColor = Color.White;
-        colorPickerBtn.Location = new Point(964, 3);
-        colorPickerBtn.Margin = new Padding(11, 2, 0, 0);
+        colorPickerBtn.Location = new Point(969, 3);
+        colorPickerBtn.Margin = new Padding(6, 2, 0, 0);
         colorPickerBtn.Name = "colorPickerBtn";
         colorPickerBtn.Size = new Size(23, 23);
         colorPickerBtn.TabIndex = 0;
