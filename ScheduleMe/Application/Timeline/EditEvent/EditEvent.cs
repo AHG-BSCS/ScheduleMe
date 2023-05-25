@@ -237,9 +237,13 @@ public partial class EditEvent : Form
                         }
                     }
                 }
-                else
+                else // The final tab is not disposed
+                {
                     eventInfoPanel.Controls.Clear();
+                    timelineTabPanel.Controls.Clear();
+                }
             }
+            CurrentID = null;
         }
         promt.Dispose();
     }
