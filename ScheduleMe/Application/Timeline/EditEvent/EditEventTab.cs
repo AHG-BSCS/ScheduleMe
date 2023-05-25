@@ -23,7 +23,7 @@ public partial class EditEventTab : UserControl
         editEventInstance.eventInfoPanel.Controls.Clear();
         foreach (EditEventTab tab in editEventInstance.timelineTabPanel.Controls.OfType<EditEventTab>())
         {
-            if (editEventInstance.currentID == tab.Id)
+            if (editEventInstance.CurrentID == tab.Id)
             {
                 tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
                 tab.timelineTabBtn.ForeColor = Color.White;
@@ -39,7 +39,7 @@ public partial class EditEventTab : UserControl
         editEventInstance.eventInfoPanel.Controls.Clear();
         foreach (EditEventTab tab in editEventInstance.timelineTabPanel.Controls.OfType<EditEventTab>())
         {
-            if (editEventInstance.currentID == tab.Id)
+            if (editEventInstance.CurrentID == tab.Id)
             {
                 tab.timelineTabBtn.BackColor = Color.White;
                 tab.timelineTabBtn.ForeColor = Color.Black;
@@ -55,22 +55,24 @@ public partial class EditEventTab : UserControl
 
     private void eventTab_Click(object sender, EventArgs e)
     {
-        if (editEventInstance.currentID != Id)
+        if (editEventInstance.CurrentID != Id)
         {
             HighlightButton();
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                var timelineTabs = timelines.FindById(Id);
-                editEventInstance.currentID = Id;
+                var timelineTab = timelines.FindById(Id);
+                editEventInstance.CurrentID = Id;
+                editEventInstance.MinDate = timelineTab.TimelineStartDate;
+                editEventInstance.MaxDate = timelineTab.TimelineEndDate;
 
-                if (timelineTabs.Events != null)
+                if (timelineTab.Events != null)
                 {
-                    for (ushort i = 0; i < timelineTabs.Events.Count; i++)
+                    for (ushort i = 0; i < timelineTab.Events.Count; i++)
                     {
                         AddEventRow newRow = new AddEventRow();
-                        newRow.SetRowInfo(timelineTabs.Events[i]);
-                        newRow.Id = timelineTabs.Id;
+                        newRow.SetRowInfo(timelineTab.Events[i]);
+                        newRow.Id = timelineTab.Id;
                         newRow.Index = i;
                         newRow.Dock = DockStyle.Bottom;
                         editEventInstance.eventInfoPanel.Controls.Add(newRow);
@@ -112,9 +114,12 @@ public partial class EditEventTab : UserControl
                 if (timeline.Any() == true)
                 {
                     Timeline firstToLoad = timeline.First();
-                    if (editEventInstance.currentID == Id)
+                    if (editEventInstance.CurrentID == Id)
                     {
-                        editEventInstance.currentID = firstToLoad.Id;
+                        editEventInstance.CurrentID = firstToLoad.Id;
+                        editEventInstance.MinDate = firstToLoad.TimelineStartDate;
+                        editEventInstance.MaxDate = firstToLoad.TimelineEndDate;
+
                         ReverseHighlight();
                         if (firstToLoad != null)
                         {

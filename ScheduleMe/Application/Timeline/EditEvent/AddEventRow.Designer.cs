@@ -117,6 +117,7 @@ partial class AddEventRow
         startDatePicker.Size = new Size(200, 29);
         startDatePicker.TabIndex = 0;
         startDatePicker.TabStop = false;
+        startDatePicker.ValueChanged += startDatePicker_ValueChanged;
         // 
         // descriptionTBox
         // 

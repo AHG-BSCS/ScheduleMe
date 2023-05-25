@@ -4,7 +4,9 @@ namespace ScheduleMe.Tab;
 
 public partial class EditEvent : Form
 {
-    public ObjectId currentID;
+    public ObjectId CurrentID { get; set; }
+    public DateTime MinDate { get; set; }
+    public DateTime MaxDate { get; set; }
 
     public EditEvent()
     {
@@ -21,7 +23,9 @@ public partial class EditEvent : Form
             {
                 // Load the first TimelineTab.Event List only
                 Timeline firstToLoad = timelineTabs.First();
-                currentID = firstToLoad.Id;
+                CurrentID = firstToLoad.Id;
+                MinDate = firstToLoad.TimelineStartDate;
+                MaxDate = firstToLoad.TimelineEndDate;
 
                 if (firstToLoad.Events != null)
                 {
@@ -55,7 +59,7 @@ public partial class EditEvent : Form
         newTimelineTab.BringToFront();
 
         // Highlight the current tab
-        if (currentID == Id)
+        if (CurrentID == Id)
         {
             newTimelineTab.timelineTabBtn.BackColor = Color.White;
             newTimelineTab.timelineTabBtn.ForeColor = Color.Black;
@@ -70,7 +74,7 @@ public partial class EditEvent : Form
         // Remove the highlight of active Tab
         foreach (EditEventTab tab in timelineTabPanel.Controls.OfType<EditEventTab>())
         {
-            if (currentID == tab.Id)
+            if (CurrentID == tab.Id)
             {
                 tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
                 tab.timelineTabBtn.ForeColor = Color.White;
@@ -83,7 +87,9 @@ public partial class EditEvent : Form
             var timelines = timelineDB.GetCollection<Timeline>("Timeline");
             Timeline newtTab = new Timeline();
             newtTab = timelines.FindById(addTimelineTab.Id);
-            currentID = newtTab.Id;
+            CurrentID = newtTab.Id;
+            MinDate = newtTab.TimelineStartDate;
+            MaxDate = newtTab.TimelineEndDate;
 
             // Add new tab and clear since there is no events yet as expected
             addNewTab(newtTab.TimelineName, newtTab.Id);
@@ -95,8 +101,11 @@ public partial class EditEvent : Form
     {
         AddEventRow newRow = new AddEventRow();
         newRow.eventInfo = new Event();
+        newRow.MinDate = MinDate;
+        newRow.MaxDate = MaxDate;
         // newRow.Id = currentID; this can produce wrong deletion of data if Index was not accurate
         // newRow.Index is can't be set since it wasn't save to database yet
+        // Or prevent the show of MenuStrip to this row
         newRow.SetRowInfo(newRow.eventInfo);
         newRow.Dock = DockStyle.Bottom;
         eventInfoPanel.Controls.Add(newRow);
@@ -104,12 +113,12 @@ public partial class EditEvent : Form
 
     private void saveBtn_Click(object sender, EventArgs e)
     {
-        if (currentID != null)
+        if (CurrentID != null)
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                Timeline timeline = timelines.FindById(currentID);
+                Timeline timeline = timelines.FindById(CurrentID);
 
                 // This will clear the current Events in class and replace with new list of Events
                 // Kind of ineficient but I don't know how to fix this right now
@@ -125,7 +134,7 @@ public partial class EditEvent : Form
 
                 // Reload the timeline events to assign a property to newly added rows
                 eventInfoPanel.Controls.Clear();
-                timeline = timelines.FindById(currentID);
+                timeline = timelines.FindById(CurrentID);
                 for (ushort i = 0; i < timeline.Events.Count; i++)
                 {
                     AddEventRow newRow = new AddEventRow();

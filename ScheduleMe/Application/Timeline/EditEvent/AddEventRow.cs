@@ -12,6 +12,8 @@ public partial class AddEventRow : UserControl
     internal Event eventInfo; // Fix the access modifier
     public ObjectId Id { get; set; }
     public ushort Index { get; set; }
+    public DateTime MinDate { get; set; }
+    public DateTime MaxDate { get; set; }
 
     public string Title
     {
@@ -85,5 +87,10 @@ public partial class AddEventRow : UserControl
         }
         else
             MessageBox.Show("Can't be found. Please save first.");
+    }
+
+    private void startDatePicker_ValueChanged(object sender, EventArgs e)
+    {
+
     }
 }
