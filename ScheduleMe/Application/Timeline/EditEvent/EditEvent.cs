@@ -264,7 +264,9 @@ public partial class EditEvent : Form
 
     private void ReverseHighlight(ObjectId deletedId)
     {
+        EditEventTab disposeThis = new EditEventTab();
         eventInfoPanel.Controls.Clear();
+
         foreach (EditEventTab tab in timelineTabPanel.Controls.OfType<EditEventTab>())
         {
             if (CurrentID == tab.Id)
@@ -273,9 +275,8 @@ public partial class EditEvent : Form
                 tab.timelineTabBtn.ForeColor = Color.Black;
             }
             else if (deletedId == tab.Id)
-            {
-                tab.Hide(); // Very hard to find bug. Can't Disposed since I it affects other tabs.
-            }
+                disposeThis = tab;
         }
+        disposeThis.Dispose();
     }
 }
