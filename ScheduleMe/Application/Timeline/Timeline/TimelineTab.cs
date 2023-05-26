@@ -97,13 +97,14 @@ public partial class TimelineTab : UserControl
             {
                 using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
                 {
+                    timelineInstance.EventIds.Remove(Id);
                     var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                     timelines.Delete(Id); // Delete this Timeline
-                    var timeline = timelines.FindAll();
-                    if (timeline.Any())
+
+                    foreach (ObjectId id in timelineInstance.EventIds)
                     {
-                        Timeline firstToLoad = timeline.First();
-                        if (timelineInstance.currentID == Id)
+                        Timeline firstToLoad = timelines.FindById(id);
+                        if (timelineInstance.currentID == Id) // If this Id is deleted
                         {
                             timelineInstance.currentID = firstToLoad.Id;
                             ReverseHighlight();
@@ -120,8 +121,10 @@ public partial class TimelineTab : UserControl
                                 timelineInstance.PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
                             }
                         }
+                        break;
                     }
-                    else
+
+                    if (timelineInstance.EventIds.Any() == false)
                     {
                         timelineInstance.panelTimelineContainer.Controls.Clear();
                         timelineInstance.currentID = null;

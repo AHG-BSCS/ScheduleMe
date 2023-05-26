@@ -189,11 +189,10 @@ public partial class EditEvent : Form
                     EventIds.Remove(CurrentID);
                     var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                     timelines.Delete(CurrentID); // Delete this Timeline
-                    var timeline = timelines.FindAll();
 
-                    if (timeline.Any())
+                    foreach (ObjectId id in EventIds)
                     {
-                        Timeline firstToLoad = timeline.First();
+                        Timeline firstToLoad = timelines.FindById(id);
                         CurrentID = firstToLoad.Id;
                         MinDate = firstToLoad.TimelineStartDate;
                         MaxDate = firstToLoad.TimelineEndDate;
@@ -214,8 +213,9 @@ public partial class EditEvent : Form
                                 eventInfoPanel.Controls.Add(newRow);
                             }
                         }
+                        break;
                     }
-                    else // The final tab is not disposed
+                    if (EventIds.Any() == false) // No tab available. The final tab is not disposed
                     {
                         eventInfoPanel.Controls.Clear();
                         timelineTabPanel.Controls.Clear();

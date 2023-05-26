@@ -97,7 +97,6 @@ public partial class EditEventTab : UserControl
         else if (e.ClickedItem == deleteOption)
         {
             DeleteOption_ItemClicked?.Invoke(this, e);
-            this.Dispose();
         }
     }
 }
