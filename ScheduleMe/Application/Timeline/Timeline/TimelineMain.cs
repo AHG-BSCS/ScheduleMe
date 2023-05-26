@@ -353,7 +353,29 @@ public partial class TimelineMain : Form
         }
         else if (e.ClickedItem == deletePanelOption)
         {
-            this.Dispose();
+            MainForm mainForm = (MainForm)this.ParentForm;
+            if (mainForm.tabPanel.Controls.Count > 1)
+            {
+                TimelineMain firstPanel = new TimelineMain();
+                foreach (TimelineMain panel in mainForm.tabPanel.Controls.OfType<TimelineMain>())
+                {
+                    if (panel != this)
+                    {
+                        firstPanel = panel;
+                        break;
+                    }
+                }
+
+                foreach (TimelineTab tab in panelTimelineTab.Controls)
+                {
+                    firstPanel.EventIds.Add(tab.Id);
+                    firstPanel.addNewTab(tab.TabName, tab.Id);
+                }
+                this.Dispose();
+            }
+            else
+                new Message("Last remaining panel");
+            
         }
     }
 }

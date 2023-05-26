@@ -12,6 +12,7 @@ public partial class TimelineTab : UserControl
 
     public string TabName
     {
+        get { return timelineTabBtn.Text; }
         set { timelineTabBtn.Text = value; }
     }
 
