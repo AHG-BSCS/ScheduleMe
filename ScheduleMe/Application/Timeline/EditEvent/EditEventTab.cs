@@ -7,6 +7,8 @@ public partial class EditEventTab : UserControl
 {
     public ObjectId Id { get; set; }    // Reference Id from the database
     public EditEvent editEventInstance; // Instance that created this UserControl
+    public event EventHandler<ToolStripItemClickedEventArgs> AddOption_ItemClicked;
+    public event EventHandler<ToolStripItemClickedEventArgs> DeleteOption_ItemClicked;
 
     public string tabName
     {
@@ -89,72 +91,13 @@ public partial class EditEventTab : UserControl
     {
         if (e.ClickedItem == addOption)
         {
-            AddTimeline addTab = new AddTimeline();
-            addTab.ShowDialog();
-
-            if (addTab.Id != null)
-            {
-                // Load the new added TimelineTab
-                using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-                {
-                    var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                    var newtTab = new Timeline();
-                    newtTab = timelines.FindById(addTab.Id);
-                    editEventInstance.addNewTab(newtTab.TimelineName, newtTab.Id);
-                }
-            }
-            addTab.Dispose();
+            AddOption_ItemClicked?.Invoke(this, e);
         }
 
         else if (e.ClickedItem == deleteOption)
         {
-            DeleteTimeline promt = new DeleteTimeline();
-            promt.ShowDialog();
-
-            if (promt.Answer)
-            {
-                using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-                {
-                    var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                    timelines.Delete(Id); // Delete this Timeline
-                    var timeline = timelines.FindAll();
-
-                    if (timeline.Any())
-                    {
-                        if (editEventInstance.CurrentID == Id) // If this is the last tab
-                        {
-                            Timeline firstToLoad = timeline.First();
-                            editEventInstance.CurrentID = firstToLoad.Id;
-                            editEventInstance.MinDate = firstToLoad.TimelineStartDate;
-                            editEventInstance.MaxDate = firstToLoad.TimelineEndDate;
-                            editEventInstance.SetTimelineDateRange();
-                            ReverseHighlight();
-
-                            if (firstToLoad.Events.Any())
-                            {
-                                for (ushort i = 0; i < firstToLoad.Events.Count; i++)
-                                {
-                                    AddEventRow newRow = new AddEventRow();
-                                    newRow.Id = firstToLoad.Id;
-                                    newRow.Index = i;
-                                    newRow.MinDate = firstToLoad.TimelineStartDate;
-                                    newRow.MaxDate = firstToLoad.TimelineEndDate;
-                                    newRow.Dock = DockStyle.Bottom;
-                                    newRow.SetRowInfo(firstToLoad.Events[i]);
-                                    editEventInstance.eventInfoPanel.Controls.Add(newRow);
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        editEventInstance.eventInfoPanel.Controls.Clear();
-                        editEventInstance.CurrentID = null;
-                    }
-                }
-                this.Dispose();
-            }
-            promt.Dispose();
+            DeleteOption_ItemClicked?.Invoke(this, e);
+            this.Dispose();
         }
     }
 }

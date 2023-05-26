@@ -59,6 +59,8 @@ public partial class EditEvent : Form
     internal void addNewTab(string timelineName, ObjectId Id)
     {
         EditEventTab newTimelineTab = new EditEventTab();
+        newTimelineTab.AddOption_ItemClicked += timelineAddTab_Click;
+        newTimelineTab.DeleteOption_ItemClicked += deleteBtn_Click;
         newTimelineTab.tabName = timelineName;
         newTimelineTab.Id = Id;
         newTimelineTab.editEventInstance = this;
@@ -81,6 +83,7 @@ public partial class EditEvent : Form
 
         if (addTimelineTab.Id != null)
         {
+            EventIds.Add(addTimelineTab.Id);
             // Remove the highlight of active Tab
             foreach (EditEventTab tab in timelineTabPanel.Controls.OfType<EditEventTab>())
             {
@@ -183,6 +186,7 @@ public partial class EditEvent : Form
             {
                 using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
                 {
+                    EventIds.Remove(CurrentID);
                     var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                     timelines.Delete(CurrentID); // Delete this Timeline
                     var timeline = timelines.FindAll();
