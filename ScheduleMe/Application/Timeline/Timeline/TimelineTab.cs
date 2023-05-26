@@ -7,6 +7,7 @@ public partial class TimelineTab : UserControl
     public ObjectId Id { get; set; }
     public TimelineMain timelineInstance;
     public event EventHandler<ToolStripItemClickedEventArgs> TimelineTabMenu_ItemClicked;
+    public event EventHandler<ToolStripItemClickedEventArgs> AddOption_ItemClicked;
 
     public string TabName
     {
@@ -81,77 +82,10 @@ public partial class TimelineTab : UserControl
     private void timelineTabMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {
         TimelineTabMenu_ItemClicked?.Invoke(this, e);
-        if (e.ClickedItem == editOption)
+
+        if (e.ClickedItem == addOption)
         {
-            EditEvent editEvent = new EditEvent();
-            editEvent.CurrentID = Id;
-            editEvent.ShowDialog();
-
-            timelineInstance.currentID = editEvent.CurrentID;
-            editEvent.Dispose();
-            timelineInstance.panelTimelineTab.Controls.Clear();
-            timelineInstance.panelTimelineContainer.Controls.Clear();
-
-            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-            {
-                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                var timeline = timelines.FindAll();
-
-                // Load all the Timeline Tabs
-                foreach (var tab in timeline)
-                {
-                    timelineInstance.addNewTab(tab.TimelineName, tab.Id);
-                }
-
-                if (timelines.FindById(timelineInstance.currentID) != null) // last tab still exist
-                {
-                    var lastTab = timelines.FindById(timelineInstance.currentID);
-                    if (lastTab.Events.Any())
-                    {
-                        // Need to improve the sorting or the overlapping method. Too difficult
-                        lastTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-                        timelineInstance.PopulateEvents(lastTab.Events, lastTab.TimelineStartDate, lastTab.Id);
-                    }
-                    timelineInstance.PopulateDates(lastTab.TimelineStartDate, lastTab.TimelineEndDate);
-                }
-                else if (timeline.Any())// last tab doesn't exist
-                {
-                    Timeline firstTab = timelines.FindAll().First();
-                    timelineInstance.currentID = firstTab.Id;
-
-                    if (firstTab != null) // Load the first Timeline.Event List only
-                    {
-                        if (firstTab.Events.Any())
-                        {
-                            // Need to improve the sorting or the overlapping method. Too difficult
-                            firstTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-                            timelineInstance.PopulateEvents(firstTab.Events, firstTab.TimelineStartDate, firstTab.Id);
-                        }
-                        timelineInstance.PopulateDates(firstTab.TimelineStartDate, firstTab.TimelineEndDate);
-                    }
-                }
-            }
-        }
-
-        else if (e.ClickedItem == addOption)
-        {
-            AddTimeline addTab = new AddTimeline();
-            addTab.ShowDialog();
-
-            if (addTab.Id != null)
-            {
-                // Load the new added TimelineTab
-                using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-                {
-                    var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                    var newtTab = new Timeline();
-                    newtTab = timelines.FindById(addTab.Id);
-
-                    timelineInstance.addNewTab(newtTab.TimelineName, newtTab.Id);
-                    timelineInstance.PopulateDates(newtTab.TimelineStartDate, newtTab.TimelineEndDate);
-                }
-            }
-            addTab.Dispose();
+            AddOption_ItemClicked?.Invoke(this, e);
         }
 
         else if (e.ClickedItem == deleteOption)
@@ -196,10 +130,6 @@ public partial class TimelineTab : UserControl
                 this.Dispose();
             }
             promt.Dispose();
-        }
-        else if (e.ClickedItem == openAtBottomOption)
-        {
-            
         }
     }
 }

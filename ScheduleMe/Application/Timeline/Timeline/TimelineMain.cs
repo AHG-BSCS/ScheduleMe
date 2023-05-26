@@ -199,11 +199,11 @@ public partial class TimelineMain : Form
     {
         TimelineTab newTimelineTab = new TimelineTab();
         newTimelineTab.TimelineTabMenu_ItemClicked += timelineMenu_ItemClicked;
+        newTimelineTab.AddOption_ItemClicked += timelineAddTab_Click;
         newTimelineTab.TabName = timelineName;
         newTimelineTab.Id = Id;
         newTimelineTab.timelineInstance = this;
         newTimelineTab.Dock = DockStyle.Left;
-        panelTimelineContainer.Controls.Clear();
         panelTimelineTab.Controls.Add(newTimelineTab);
         newTimelineTab.BringToFront();
 
@@ -259,7 +259,7 @@ public partial class TimelineMain : Form
 
     private void timelineMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {
-        if (e.ClickedItem == editOption)
+        if (e.ClickedItem.Name == editOption.Name)
         {
             EditEvent editEvent = new EditEvent();
             editEvent.CurrentID = currentID;
@@ -275,49 +275,23 @@ public partial class TimelineMain : Form
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                var timeline = timelines.FindAll();
-
-                if (timeline.Any())
+                foreach (ObjectId id in EventIds)
                 {
-                    var lastTab = timelines.FindById(currentID);
-
-                    // Load all the Timeline Tabs
-                    foreach (var tab in timeline)
+                    var tab = timelines.FindById(id);
+                    if (id == currentID)
                     {
-                        addNewTab(tab.TimelineName, tab.Id);
-                    }
-
-                    if (lastTab != null) // last tab still exist
-                    {
-                        if (lastTab.Events.Any())
+                        if (tab.Events.Any())
                         {
                             // Need to improve the sorting or the overlapping method. Too difficult
-                            lastTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-                            PopulateEvents(lastTab.Events, lastTab.TimelineStartDate, lastTab.Id);
+                            tab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
+                            PopulateEvents(tab.Events, tab.TimelineStartDate, tab.Id);
                         }
                         else
                             panelTimelineContainer.Height = 130;
 
-                        PopulateDates(lastTab.TimelineStartDate, lastTab.TimelineEndDate);
+                        PopulateDates(tab.TimelineStartDate, tab.TimelineEndDate);
                     }
-                    else // last tab doesn't exist
-                    {
-                        Timeline firstTab = timelines.FindAll().First();
-                        currentID = firstTab.Id;
-
-                        if (firstTab != null) // Load the first Timeline.Event List only
-                        {
-                            if (firstTab.Events.Any())
-                            {
-                                // Need to improve the sorting or the overlapping method. Too difficult
-                                firstTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-                                PopulateEvents(firstTab.Events, firstTab.TimelineStartDate, firstTab.Id);
-                            }
-                            else
-                                panelTimelineContainer.Height = 130;
-                            PopulateDates(firstTab.TimelineStartDate, firstTab.TimelineEndDate);
-                        }
-                    }
+                    addNewTab(tab.TimelineName, tab.Id);
                 }
             }
         }
@@ -333,7 +307,9 @@ public partial class TimelineMain : Form
             mainForm.tabPanel.Controls.Add(newTimelineMain);
             newTimelineMain.BringToFront();
             mainForm.tabPanel.Focus();
+            EventIds.Remove(currentID);
 
+            // Dispose the moved tab
             foreach (TimelineTab tab in panelTimelineTab.Controls.OfType<TimelineTab>())
             {
                 if (currentID == tab.Id)
