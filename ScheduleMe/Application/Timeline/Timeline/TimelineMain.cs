@@ -15,31 +15,55 @@ public partial class TimelineMain : Form
 
     private void Timeline_Load(object sender, EventArgs e)
     {
-        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+        if (currentID == null)
         {
-            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-            var timelineTabs = timelines.FindAll();
-            if (timelineTabs.Any())
+            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
-                Timeline firstToLoad = timelineTabs.First();
-                currentID = firstToLoad.Id;
-
-                // Load all the Timeline Tabs
-                foreach (var tab in timelineTabs)
+                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                var timelineTabs = timelines.FindAll();
+                if (timelineTabs.Any())
                 {
-                    addNewTab(tab.TimelineName, tab.Id);
-                }
+                    Timeline firstToLoad = timelineTabs.First();
+                    currentID = firstToLoad.Id;
 
-                // Load the first Timeline.Event List only
-                if (firstToLoad.Events.Any())
+                    // Load all the Timeline Tabs
+                    foreach (var tab in timelineTabs)
+                    {
+                        addNewTab(tab.TimelineName, tab.Id);
+                    }
+
+                    // Load the first Timeline.Event List only
+                    if (firstToLoad.Events.Any())
+                    {
+                        // Need to improve the sorting or the overlapping method. Too difficult
+                        firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
+                        PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate, firstToLoad.Id);
+                    }
+                    else
+                        panelTimelineContainer.Height = 130;
+                    PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
+                }
+            }
+        }
+
+        else if (currentID != null) // Assumed that ID exists
+        {
+            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+            {
+                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                var timelineTab = timelines.FindById(currentID);
+
+                addNewTab(timelineTab.TimelineName, timelineTab.Id);
+
+                if (timelineTab.Events.Any())
                 {
                     // Need to improve the sorting or the overlapping method. Too difficult
-                    firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-                    PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate, firstToLoad.Id);
+                    timelineTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
+                    PopulateEvents(timelineTab.Events, timelineTab.TimelineStartDate, timelineTab.Id);
                 }
                 else
                     panelTimelineContainer.Height = 130;
-                PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
+                PopulateDates(timelineTab.TimelineStartDate, timelineTab.TimelineEndDate);
             }
         }
     }
@@ -285,10 +309,13 @@ public partial class TimelineMain : Form
         {
             MainForm mainForm = (MainForm)this.ParentForm;
             TimelineMain newTimelineMain = new TimelineMain();
+            newTimelineMain.currentID = currentID;
             newTimelineMain.Show();
             newTimelineMain.TopLevel = false;
             newTimelineMain.Dock = DockStyle.Top;
             mainForm.tabPanel.Controls.Add(newTimelineMain);
+            newTimelineMain.SendToBack();
+            mainForm.tabPanel.Focus();
         }
     }
 }
