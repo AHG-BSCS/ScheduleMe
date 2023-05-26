@@ -375,7 +375,6 @@ public partial class TimelineMain : Form
             }
             else
                 new Message("Last remaining panel");
-            
         }
     }
 }

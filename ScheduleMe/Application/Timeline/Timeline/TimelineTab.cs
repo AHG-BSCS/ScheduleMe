@@ -126,8 +126,14 @@ public partial class TimelineTab : UserControl
 
                     if (timelineInstance.EventIds.Any() == false)
                     {
+                        MainForm mainForm = (MainForm)this.ParentForm.ParentForm;
                         timelineInstance.panelTimelineContainer.Controls.Clear();
                         timelineInstance.currentID = null;
+
+                        if (mainForm.tabPanel.Controls.Count > 1)
+                        {
+                            timelineInstance.Dispose();
+                        }
                     }
                 }
                 this.Dispose();
