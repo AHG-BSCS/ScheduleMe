@@ -339,6 +339,7 @@ partial class EditEvent
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         Margin = new Padding(3, 4, 3, 4);
         Name = "EditEvent";
+        StartPosition = FormStartPosition.CenterParent;
         Text = "Edit Event";
         Load += EditEvent_Load;
         timelineTabPanel.ResumeLayout(false);

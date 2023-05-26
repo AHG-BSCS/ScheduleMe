@@ -267,14 +267,38 @@ public partial class EditEvent : Form
 
     private void timelineStartDatePicker_ValueChanged(object sender, EventArgs e)
     {
-        if (timelineStartDatePicker.Value > MinDate)
-            timelineStartDatePicker.Value = MinDate;
+        if (CurrentID != null)
+        {
+            if (timelineStartDatePicker.Value > MinDate)
+            {
+                timelineStartDatePicker.Value = MinDate;
+                Message promt = new Message();
+                promt.Show("Invalid starting date");
+            }
+        }
+        else
+        {
+            Message promt = new Message();
+            promt.Show("No timeline");
+        }
     }
 
     private void timelineEndDatePicker_ValueChanged(object sender, EventArgs e)
     {
-        if (timelineEndDatePicker.Value < MaxDate)
-            timelineEndDatePicker.Value = MaxDate;
+        if (CurrentID != null)
+        {
+            if (timelineEndDatePicker.Value < MaxDate)
+            {
+                timelineEndDatePicker.Value = MaxDate;
+                Message promt = new Message();
+                promt.Show("Invalid ending date");
+            }
+        }
+        else
+        {
+            Message promt = new Message();
+            promt.Show("No timeline");
+        }
     }
 
     public void SetTimelineDateRange()
