@@ -19,44 +19,6 @@ public partial class EditEvent : Form
             LoadTimelineById();
     }
 
-    private void LoadFirstTimeline()
-    {
-        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-        {
-            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-            var timelineTabs = timelines.FindAll();
-            if (timelineTabs.Any())
-            {
-                // Load the first TimelineTab.Event List only
-                Timeline firstToLoad = timelineTabs.First();
-                CurrentID = firstToLoad.Id;
-                MinDate = firstToLoad.TimelineStartDate;
-                MaxDate = firstToLoad.TimelineEndDate;
-                SetTimelineDateRange();
-
-                if (firstToLoad.Events.Any())
-                {
-                    for (ushort i = 0; i < firstToLoad.Events.Count; i++)
-                    {
-                        AddEventRow newRow = new AddEventRow();
-                        newRow.Id = firstToLoad.Id;
-                        newRow.Index = i;
-                        newRow.MinDate = MinDate;
-                        newRow.MaxDate = MaxDate;
-                        newRow.Dock = DockStyle.Bottom;
-                        newRow.SetRowInfo(firstToLoad.Events[i]);
-                        eventInfoPanel.Controls.Add(newRow);
-                    }
-                }
-                // Load all the Timeline Tabs
-                foreach (var tab in timelineTabs)
-                {
-                    addNewTab(tab.TimelineName, tab.Id);
-                }
-            }
-        }
-    }
-
     private void LoadTimelineById() // Assuming that currentID do exists
     {
         using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))

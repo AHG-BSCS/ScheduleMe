@@ -105,7 +105,7 @@ partial class TimelineMain
         panelTimelineContainer.Location = new Point(0, 35);
         panelTimelineContainer.Name = "panelTimelineContainer";
         panelTimelineContainer.Size = new Size(850, 35);
-        panelTimelineContainer.TabIndex = 1;
+        panelTimelineContainer.TabIndex = 0;
         // 
         // timelineMenu
         // 
@@ -147,6 +147,7 @@ partial class TimelineMain
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(3, 4, 3, 4);
         Name = "TimelineMain";
+        ShowIcon = false;
         Text = "Timeline";
         WindowState = FormWindowState.Maximized;
         Load += Timeline_Load;

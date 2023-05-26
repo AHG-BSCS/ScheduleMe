@@ -6,6 +6,7 @@ public partial class TimelineTab : UserControl
 {
     public ObjectId Id { get; set; }
     public TimelineMain timelineInstance;
+    public event EventHandler<ToolStripItemClickedEventArgs> TimelineTabMenu_ItemClicked;
 
     public string TabName
     {
@@ -79,6 +80,7 @@ public partial class TimelineTab : UserControl
 
     private void timelineTabMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {
+        TimelineTabMenu_ItemClicked?.Invoke(this, e);
         if (e.ClickedItem == editOption)
         {
             EditEvent editEvent = new EditEvent();
@@ -194,6 +196,10 @@ public partial class TimelineTab : UserControl
                 this.Dispose();
             }
             promt.Dispose();
+        }
+        else if (e.ClickedItem == openAtBottomOption)
+        {
+            
         }
     }
 }

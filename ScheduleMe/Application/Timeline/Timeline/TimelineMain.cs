@@ -191,6 +191,7 @@ public partial class TimelineMain : Form
     public void addNewTab(string timelineName, ObjectId Id)
     {
         TimelineTab newTimelineTab = new TimelineTab();
+        newTimelineTab.TimelineTabMenu_ItemClicked += timelineMenu_ItemClicked;
         newTimelineTab.TabName = timelineName;
         newTimelineTab.Id = Id;
         newTimelineTab.timelineInstance = this;
@@ -310,7 +311,7 @@ public partial class TimelineMain : Form
                 }
             }
         }
-        else if (e.ClickedItem == openAtBottomOption)
+        else if (e.ClickedItem.Name == openAtBottomOption.Name)
         {
             panelTimelineContainer.Controls.Clear();
             MainForm mainForm = (MainForm)this.ParentForm;
@@ -353,6 +354,7 @@ public partial class TimelineMain : Form
                 }
                 tab.timelineTabBtn.BackColor = Color.White;
                 tab.timelineTabBtn.ForeColor = Color.Black;
+                currentID = tab.Id;
                 break;
             }
         }
