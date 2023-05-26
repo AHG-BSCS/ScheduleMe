@@ -200,6 +200,7 @@ public partial class TimelineMain : Form
         TimelineTab newTimelineTab = new TimelineTab();
         newTimelineTab.TimelineTabMenu_ItemClicked += timelineMenu_ItemClicked;
         newTimelineTab.AddOption_ItemClicked += timelineAddTab_Click;
+        newTimelineTab.OpenAtBottomOption_ItemClicked += timelineMenu_ItemClicked;
         newTimelineTab.TabName = timelineName;
         newTimelineTab.Id = Id;
         newTimelineTab.timelineInstance = this;
@@ -347,8 +348,8 @@ public partial class TimelineMain : Form
                 }
             }
             else
-                new Message("No other tab left");
-            
+                new Message("Last remaining tab");
+
         }
         else if (e.ClickedItem == deletePanelOption)
         {

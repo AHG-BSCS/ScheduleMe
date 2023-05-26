@@ -8,6 +8,7 @@ public partial class TimelineTab : UserControl
     public TimelineMain timelineInstance;
     public event EventHandler<ToolStripItemClickedEventArgs> TimelineTabMenu_ItemClicked;
     public event EventHandler<ToolStripItemClickedEventArgs> AddOption_ItemClicked;
+    public event EventHandler<ToolStripItemClickedEventArgs> OpenAtBottomOption_ItemClicked;
 
     public string TabName
     {
@@ -81,8 +82,6 @@ public partial class TimelineTab : UserControl
 
     private void timelineTabMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {
-        TimelineTabMenu_ItemClicked?.Invoke(this, e);
-
         if (e.ClickedItem == addOption)
         {
             AddOption_ItemClicked?.Invoke(this, e);
@@ -134,5 +133,12 @@ public partial class TimelineTab : UserControl
             }
             promt.Dispose();
         }
+        else if (e.ClickedItem == openAtBottomOption)
+        {
+            timelineInstance.currentID = Id;
+            OpenAtBottomOption_ItemClicked?.Invoke(this, e);
+        }
+        else
+            TimelineTabMenu_ItemClicked?.Invoke(this, e);
     }
 }
