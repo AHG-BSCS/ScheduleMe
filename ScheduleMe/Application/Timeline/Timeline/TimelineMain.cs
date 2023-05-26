@@ -297,52 +297,62 @@ public partial class TimelineMain : Form
         }
         else if (e.ClickedItem.Name == openAtBottomOption.Name)
         {
-            panelTimelineContainer.Controls.Clear();
-            MainForm mainForm = (MainForm)this.ParentForm;
-            TimelineMain newTimelineMain = new TimelineMain();
-            newTimelineMain.currentID = currentID;
-            newTimelineMain.Show();
-            newTimelineMain.TopLevel = false;
-            newTimelineMain.Dock = DockStyle.Top;
-            mainForm.tabPanel.Controls.Add(newTimelineMain);
-            newTimelineMain.BringToFront();
-            mainForm.tabPanel.Focus();
-            EventIds.Remove(currentID);
-
-            // Dispose the moved tab
-            foreach (TimelineTab tab in panelTimelineTab.Controls.OfType<TimelineTab>())
+            if (panelTimelineTab.Controls.Count > 1)
             {
-                if (currentID == tab.Id)
+                panelTimelineContainer.Controls.Clear();
+                MainForm mainForm = (MainForm)this.ParentForm;
+                TimelineMain newTimelineMain = new TimelineMain();
+                newTimelineMain.currentID = currentID;
+                newTimelineMain.Show();
+                newTimelineMain.TopLevel = false;
+                newTimelineMain.Dock = DockStyle.Top;
+                mainForm.tabPanel.Controls.Add(newTimelineMain);
+                newTimelineMain.BringToFront();
+                mainForm.tabPanel.Focus();
+                EventIds.Remove(currentID);
+
+                // Dispose the moved tab
+                foreach (TimelineTab tab in panelTimelineTab.Controls.OfType<TimelineTab>())
                 {
-                    tab.Dispose();
+                    if (currentID == tab.Id)
+                    {
+                        tab.Dispose();
+                        break;
+                    }
+                }
+
+                // Prevent the loading of moved tab
+                foreach (TimelineTab tab in panelTimelineTab.Controls.OfType<TimelineTab>())
+                {
+                    using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+                    {
+                        var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                        var timelineTab = timelines.FindById(tab.Id);
+
+                        if (timelineTab.Events.Any())
+                        {
+                            // Need to improve the sorting or the overlapping method. Too difficult
+                            timelineTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
+                            PopulateEvents(timelineTab.Events, timelineTab.TimelineStartDate, timelineTab.Id);
+                        }
+                        else
+                            panelTimelineContainer.Height = 130;
+
+                        PopulateDates(timelineTab.TimelineStartDate, timelineTab.TimelineEndDate);
+                    }
+                    tab.timelineTabBtn.BackColor = Color.White;
+                    tab.timelineTabBtn.ForeColor = Color.Black;
+                    currentID = tab.Id;
                     break;
                 }
             }
-
-            // Prevent the loading of moved tab
-            foreach (TimelineTab tab in panelTimelineTab.Controls.OfType<TimelineTab>())
-            {
-                using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-                {
-                    var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                    var timelineTab = timelines.FindById(tab.Id);
-
-                    if (timelineTab.Events.Any())
-                    {
-                        // Need to improve the sorting or the overlapping method. Too difficult
-                        timelineTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-                        PopulateEvents(timelineTab.Events, timelineTab.TimelineStartDate, timelineTab.Id);
-                    }
-                    else
-                        panelTimelineContainer.Height = 130;
-
-                    PopulateDates(timelineTab.TimelineStartDate, timelineTab.TimelineEndDate);
-                }
-                tab.timelineTabBtn.BackColor = Color.White;
-                tab.timelineTabBtn.ForeColor = Color.Black;
-                currentID = tab.Id;
-                break;
-            }
+            else
+                new Message("No other tab left");
+            
+        }
+        else if (e.ClickedItem == deletePanelOption)
+        {
+            this.Dispose();
         }
     }
 }
