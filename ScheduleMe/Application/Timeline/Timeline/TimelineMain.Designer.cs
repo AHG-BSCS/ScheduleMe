@@ -104,7 +104,7 @@ partial class TimelineMain
         panelTimelineContainer.Dock = DockStyle.Top;
         panelTimelineContainer.Location = new Point(0, 35);
         panelTimelineContainer.Name = "panelTimelineContainer";
-        panelTimelineContainer.Size = new Size(850, 102);
+        panelTimelineContainer.Size = new Size(850, 41);
         panelTimelineContainer.TabIndex = 1;
         // 
         // timelineMenu
@@ -138,6 +138,7 @@ partial class TimelineMain
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
+        AutoSize = true;
         BackColor = Color.White;
         ClientSize = new Size(850, 550);
         Controls.Add(panelTimelineContainer);

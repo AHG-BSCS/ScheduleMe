@@ -281,5 +281,9 @@ public partial class TimelineMain : Form
                 }
             }
         }
+        else if (e.ClickedItem == openAtBottomOption)
+        {
+
+        }
     }
 }

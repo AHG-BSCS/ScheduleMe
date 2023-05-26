@@ -45,7 +45,7 @@ namespace ScheduleMe
                 activeForm.Hide();
                 activeForm = newForm;
                 newForm.TopLevel = false;
-                newForm.Dock = DockStyle.Fill;
+                newForm.Dock = DockStyle.Top;
                 tabPanel.Controls.Add(newForm);
                 tabPanel.Focus();
             }
