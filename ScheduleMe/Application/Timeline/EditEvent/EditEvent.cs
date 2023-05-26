@@ -142,16 +142,24 @@ public partial class EditEvent : Form
 
     private void addRowBtn_Click(object sender, EventArgs e)
     {
-        AddEventRow newRow = new AddEventRow();
-        newRow.eventInfo = new Event();
-        newRow.MinDate = MinDate;
-        newRow.MaxDate = MaxDate;
-        // newRow.Id = currentID; this can produce wrong deletion of data if Index was not accurate
-        // newRow.Index is can't be set since it wasn't save to database yet
-        // Or prevent the show of MenuStrip to this row
-        newRow.SetRowInfo(newRow.eventInfo);
-        newRow.Dock = DockStyle.Bottom;
-        eventInfoPanel.Controls.Add(newRow);
+        if (CurrentID != null)
+        {
+            AddEventRow newRow = new AddEventRow();
+            newRow.eventInfo = new Event();
+            newRow.MinDate = MinDate;
+            newRow.MaxDate = MaxDate;
+            // newRow.Id = currentID; this can produce wrong deletion of data if Index was not accurate
+            // newRow.Index is can't be set since it wasn't save to database yet
+            // Or prevent the show of MenuStrip to this row
+            newRow.SetRowInfo(newRow.eventInfo);
+            newRow.Dock = DockStyle.Bottom;
+            eventInfoPanel.Controls.Add(newRow);
+        }
+        else
+        {
+            Message promt = new Message();
+            promt.Show("No timeline");
+        }
     }
 
     private void saveBtn_Click(object sender, EventArgs e)
@@ -193,55 +201,68 @@ public partial class EditEvent : Form
                 }
             }
         }
+        else
+        {
+            Message promt = new Message();
+            promt.Show("No timeline");
+        }
     }
 
     private void deleteBtn_Click(object sender, EventArgs e)
     {
-        ObjectId deletedId = CurrentID;
-        DeleteTimeline promt = new DeleteTimeline();
-        promt.ShowDialog();
-
-        if (promt.Answer)
+        if (CurrentID != null)
         {
-            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+            ObjectId deletedId = CurrentID;
+            DeleteTimeline promt = new DeleteTimeline();
+            promt.ShowDialog();
+
+            if (promt.Answer)
             {
-                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                timelines.Delete(CurrentID); // Delete this Timeline
-                var timeline = timelines.FindAll();
-
-                if (timeline.Any())
+                using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
                 {
-                    Timeline firstToLoad = timeline.First();
-                    CurrentID = firstToLoad.Id;
-                    MinDate = firstToLoad.TimelineStartDate;
-                    MaxDate = firstToLoad.TimelineEndDate;
-                    SetTimelineDateRange();
-                    ReverseHighlight(deletedId);
+                    var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                    timelines.Delete(CurrentID); // Delete this Timeline
+                    var timeline = timelines.FindAll();
 
-                    if (firstToLoad.Events.Any())
+                    if (timeline.Any())
                     {
-                        for (ushort i = 0; i < firstToLoad.Events.Count; i++)
+                        Timeline firstToLoad = timeline.First();
+                        CurrentID = firstToLoad.Id;
+                        MinDate = firstToLoad.TimelineStartDate;
+                        MaxDate = firstToLoad.TimelineEndDate;
+                        SetTimelineDateRange();
+                        ReverseHighlight(deletedId);
+
+                        if (firstToLoad.Events.Any())
                         {
-                            AddEventRow newRow = new AddEventRow();
-                            newRow.Id = firstToLoad.Id;
-                            newRow.Index = i;
-                            newRow.MinDate = firstToLoad.TimelineStartDate;
-                            newRow.MaxDate = firstToLoad.TimelineEndDate;
-                            newRow.Dock = DockStyle.Bottom;
-                            newRow.SetRowInfo(firstToLoad.Events[i]);
-                            eventInfoPanel.Controls.Add(newRow);
+                            for (ushort i = 0; i < firstToLoad.Events.Count; i++)
+                            {
+                                AddEventRow newRow = new AddEventRow();
+                                newRow.Id = firstToLoad.Id;
+                                newRow.Index = i;
+                                newRow.MinDate = firstToLoad.TimelineStartDate;
+                                newRow.MaxDate = firstToLoad.TimelineEndDate;
+                                newRow.Dock = DockStyle.Bottom;
+                                newRow.SetRowInfo(firstToLoad.Events[i]);
+                                eventInfoPanel.Controls.Add(newRow);
+                            }
                         }
                     }
-                }
-                else // The final tab is not disposed
-                {
-                    eventInfoPanel.Controls.Clear();
-                    timelineTabPanel.Controls.Clear();
-                    CurrentID = null;
+                    else // The final tab is not disposed
+                    {
+                        eventInfoPanel.Controls.Clear();
+                        timelineTabPanel.Controls.Clear();
+                        CurrentID = null;
+                    }
                 }
             }
+            promt.Dispose();
         }
-        promt.Dispose();
+        else
+        {
+            Message promt = new Message();
+            promt.Show("No timeline");
+        }
     }
 
     private void timelineStartDatePicker_ValueChanged(object sender, EventArgs e)
