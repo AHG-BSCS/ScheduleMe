@@ -34,7 +34,6 @@ namespace ScheduleMe
         {
             if (instance == null || instance.IsDisposed)
                 instance = new T();
-            instance.BringToFront();
             instance.Show();
         }
 

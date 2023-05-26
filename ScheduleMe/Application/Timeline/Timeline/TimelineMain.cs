@@ -283,7 +283,12 @@ public partial class TimelineMain : Form
         }
         else if (e.ClickedItem == openAtBottomOption)
         {
-
+            MainForm mainForm = (MainForm)this.ParentForm;
+            TimelineMain newTimelineMain = new TimelineMain();
+            newTimelineMain.Show();
+            newTimelineMain.TopLevel = false;
+            newTimelineMain.Dock = DockStyle.Top;
+            mainForm.tabPanel.Controls.Add(newTimelineMain);
         }
     }
 }

@@ -104,7 +104,7 @@ partial class TimelineMain
         panelTimelineContainer.Dock = DockStyle.Top;
         panelTimelineContainer.Location = new Point(0, 35);
         panelTimelineContainer.Name = "panelTimelineContainer";
-        panelTimelineContainer.Size = new Size(850, 41);
+        panelTimelineContainer.Size = new Size(850, 35);
         panelTimelineContainer.TabIndex = 1;
         // 
         // timelineMenu
@@ -140,7 +140,7 @@ partial class TimelineMain
         AutoScaleMode = AutoScaleMode.Dpi;
         AutoSize = true;
         BackColor = Color.White;
-        ClientSize = new Size(850, 550);
+        ClientSize = new Size(850, 70);
         Controls.Add(panelTimelineContainer);
         Controls.Add(timelineTabToolPanel);
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);

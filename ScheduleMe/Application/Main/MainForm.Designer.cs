@@ -180,6 +180,7 @@
             // 
             // tabPanel
             // 
+            tabPanel.AutoScroll = true;
             tabPanel.BackColor = Color.White;
             tabPanel.Dock = DockStyle.Fill;
             tabPanel.Location = new Point(140, 0);
@@ -214,8 +215,8 @@
         private Button btnTimelineTab;
         private Button btnWeatherTab;
         private Button btnAboutWindow;
-        private Panel tabPanel;
         public Button btnSettingWindow;
         public Panel sideNavPanel;
+        public Panel tabPanel;
     }
 }
