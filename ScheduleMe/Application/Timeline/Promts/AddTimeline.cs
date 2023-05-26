@@ -26,7 +26,7 @@ public partial class AddTimeline : Form
 
     private void btnCancelTimeline_Click(object sender, EventArgs e)
     {
-        this.Close();
+        this.Dispose();
     }
 
     private void CreateTimeline()

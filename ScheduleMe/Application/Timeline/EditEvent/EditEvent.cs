@@ -113,29 +113,32 @@ public partial class EditEvent : Form
         AddTimeline addTimelineTab = new AddTimeline();
         addTimelineTab.ShowDialog();
 
-        // Remove the highlight of active Tab
-        foreach (EditEventTab tab in timelineTabPanel.Controls.OfType<EditEventTab>())
+        if (addTimelineTab.Id != null)
         {
-            if (CurrentID == tab.Id)
+            // Remove the highlight of active Tab
+            foreach (EditEventTab tab in timelineTabPanel.Controls.OfType<EditEventTab>())
             {
-                tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
-                tab.timelineTabBtn.ForeColor = Color.White;
-                break;
+                if (CurrentID == tab.Id)
+                {
+                    tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
+                    tab.timelineTabBtn.ForeColor = Color.White;
+                    break;
+                }
             }
-        }
-        // Load new added timeline
-        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-        {
-            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-            Timeline newtTab = timelines.FindById(addTimelineTab.Id);
-            CurrentID = newtTab.Id;
-            MinDate = newtTab.TimelineStartDate;
-            MaxDate = newtTab.TimelineEndDate;
-            SetTimelineDateRange();
+            // Load new added timeline
+            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+            {
+                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                Timeline newtTab = timelines.FindById(addTimelineTab.Id);
+                CurrentID = newtTab.Id;
+                MinDate = newtTab.TimelineStartDate;
+                MaxDate = newtTab.TimelineEndDate;
+                SetTimelineDateRange();
 
-            // Add new tab and clear since there is no events yet as expected
-            addNewTab(newtTab.TimelineName, newtTab.Id);
-            eventInfoPanel.Controls.Clear();
+                // Add new tab and clear since there is no events yet as expected
+                addNewTab(newtTab.TimelineName, newtTab.Id);
+                eventInfoPanel.Controls.Clear();
+            }
         }
         addTimelineTab.Dispose();
     }
