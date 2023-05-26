@@ -83,11 +83,11 @@ public partial class AddEventRow : UserControl
                 timeline.Events.RemoveAt(Index);
                 timelines.Update(timeline);
             }
-            new Message().Show(titleTBox.Text + " is Deleted");
+            new Message(titleTBox.Text + " is Deleted");
             this.Dispose();
         }
         else
-            new Message().Show("Can't be found. Please save first.");
+            new Message("Can't be found. Please save first.");
     }
 
     private void startDatePicker_ValueChanged(object sender, EventArgs e)

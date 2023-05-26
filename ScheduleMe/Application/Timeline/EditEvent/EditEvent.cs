@@ -159,10 +159,7 @@ public partial class EditEvent : Form
             eventInfoPanel.Controls.Add(newRow);
         }
         else
-        {
-            Message promt = new Message();
-            promt.Show("No timeline");
-        }
+            new Message("No timeline");
     }
 
     private void saveBtn_Click(object sender, EventArgs e)
@@ -186,7 +183,7 @@ public partial class EditEvent : Form
                     timeline.Events.Add(newEvent.GetRowInfo());
                 }
                 timelines.Update(timeline);
-                new Message().Show(timeline.TimelineName + " is Saved");
+                new Message(timeline.TimelineName + " is Saved");
 
                 // Reload the timeline events to assign a property to newly added rows
                 eventInfoPanel.Controls.Clear();
@@ -205,10 +202,7 @@ public partial class EditEvent : Form
             }
         }
         else
-        {
-            Message promt = new Message();
-            promt.Show("No timeline");
-        }
+            new Message("No timeline");
     }
 
     private void deleteBtn_Click(object sender, EventArgs e)
@@ -262,10 +256,7 @@ public partial class EditEvent : Form
             promt.Dispose();
         }
         else
-        {
-            Message promt = new Message();
-            promt.Show("No timeline");
-        }
+            new Message("No timeline");
     }
 
     private void timelineStartDatePicker_ValueChanged(object sender, EventArgs e)
@@ -275,15 +266,11 @@ public partial class EditEvent : Form
             if (timelineStartDatePicker.Value > MinDate)
             {
                 timelineStartDatePicker.Value = MinDate;
-                Message promt = new Message();
-                promt.Show("Invalid starting date");
+                new Message("Invalid starting date");
             }
         }
         else
-        {
-            Message promt = new Message();
-            promt.Show("No timeline");
-        }
+            new Message("No timeline");
     }
 
     private void timelineEndDatePicker_ValueChanged(object sender, EventArgs e)
@@ -293,15 +280,11 @@ public partial class EditEvent : Form
             if (timelineEndDatePicker.Value < MaxDate)
             {
                 timelineEndDatePicker.Value = MaxDate;
-                Message promt = new Message();
-                promt.Show("Invalid ending date");
+                new Message("Invalid ending date");
             }
         }
         else
-        {
-            Message promt = new Message();
-            promt.Show("No timeline");
-        }
+            new Message("No timeline");
     }
 
     public void SetTimelineDateRange()

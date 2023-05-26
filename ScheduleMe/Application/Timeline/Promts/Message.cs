@@ -2,13 +2,9 @@
 
 public partial class Message : Form
 {
-    public Message()
+    public Message(string text)
     {
         InitializeComponent();
-    }
-
-    public void Show(string text)
-    {
         messageLbl.Text = text;
         this.ShowDialog();
     }
