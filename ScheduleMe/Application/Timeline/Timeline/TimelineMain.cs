@@ -176,7 +176,7 @@ public partial class TimelineMain : Form
     {
         int currentRow = 70;
 
-        foreach (EventButton previousEvent in panelTimelineContainer.Controls.OfType<EventButton>())
+        foreach (EventButton previousEvent in panelTimelineContainer.Controls)
         {
             // Not the same object and newEvent is above previousEvent
             if (previousEvent != newEvent && newEvent.Top <= previousEvent.Top)
@@ -232,7 +232,7 @@ public partial class TimelineMain : Form
         {
             EventIds.Add(addTimelineTab.Id);
             // Remove the highlight of active Tab
-            foreach (TimelineTab tab in panelTimelineTab.Controls.OfType<TimelineTab>())
+            foreach (TimelineTab tab in panelTimelineTab.Controls)
             {
                 if (currentID == tab.Id)
                 {
@@ -313,7 +313,7 @@ public partial class TimelineMain : Form
                 EventIds.Remove(currentID);
 
                 // Dispose the moved tab
-                foreach (TimelineTab tab in panelTimelineTab.Controls.OfType<TimelineTab>())
+                foreach (TimelineTab tab in panelTimelineTab.Controls)
                 {
                     if (currentID == tab.Id)
                     {
@@ -323,7 +323,7 @@ public partial class TimelineMain : Form
                 }
 
                 // Prevent the loading of moved tab
-                foreach (TimelineTab tab in panelTimelineTab.Controls.OfType<TimelineTab>())
+                foreach (TimelineTab tab in panelTimelineTab.Controls)
                 {
                     using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
                     {

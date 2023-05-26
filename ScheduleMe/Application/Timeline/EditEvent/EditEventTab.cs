@@ -23,7 +23,7 @@ public partial class EditEventTab : UserControl
     private void HighlightButton()
     {
         editEventInstance.eventInfoPanel.Controls.Clear();
-        foreach (EditEventTab tab in editEventInstance.timelineTabPanel.Controls.OfType<EditEventTab>())
+        foreach (EditEventTab tab in editEventInstance.timelineTabPanel.Controls)
         {
             if (editEventInstance.CurrentID == tab.Id)
             {
@@ -39,7 +39,7 @@ public partial class EditEventTab : UserControl
     private void ReverseHighlight()
     {
         editEventInstance.eventInfoPanel.Controls.Clear();
-        foreach (EditEventTab tab in editEventInstance.timelineTabPanel.Controls.OfType<EditEventTab>())
+        foreach (EditEventTab tab in editEventInstance.timelineTabPanel.Controls)
         {
             if (editEventInstance.CurrentID == tab.Id)
             {

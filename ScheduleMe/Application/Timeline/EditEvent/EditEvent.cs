@@ -85,7 +85,7 @@ public partial class EditEvent : Form
         {
             EventIds.Add(addTimelineTab.Id);
             // Remove the highlight of active Tab
-            foreach (EditEventTab tab in timelineTabPanel.Controls.OfType<EditEventTab>())
+            foreach (EditEventTab tab in timelineTabPanel.Controls)
             {
                 if (CurrentID == tab.Id)
                 {
@@ -268,7 +268,7 @@ public partial class EditEvent : Form
         EditEventTab disposeThis = new EditEventTab();
         eventInfoPanel.Controls.Clear();
 
-        foreach (EditEventTab tab in timelineTabPanel.Controls.OfType<EditEventTab>())
+        foreach (EditEventTab tab in timelineTabPanel.Controls)
         {
             if (CurrentID == tab.Id)
             {

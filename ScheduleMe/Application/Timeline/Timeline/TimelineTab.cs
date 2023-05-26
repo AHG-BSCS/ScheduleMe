@@ -24,7 +24,7 @@ public partial class TimelineTab : UserControl
     private void HighlightButton()
     {
         timelineInstance.panelTimelineContainer.Controls.Clear();
-        foreach (TimelineTab tab in timelineInstance.panelTimelineTab.Controls.OfType<TimelineTab>())
+        foreach (TimelineTab tab in timelineInstance.panelTimelineTab.Controls)
         {
             if (timelineInstance.currentID == tab.Id)
             {
@@ -40,7 +40,7 @@ public partial class TimelineTab : UserControl
     private void ReverseHighlight()
     {
         timelineInstance.panelTimelineContainer.Controls.Clear();
-        foreach (TimelineTab tab in timelineInstance.panelTimelineTab.Controls.OfType<TimelineTab>())
+        foreach (TimelineTab tab in timelineInstance.panelTimelineTab.Controls)
         {
             if (timelineInstance.currentID == tab.Id)
             {
