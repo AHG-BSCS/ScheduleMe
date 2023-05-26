@@ -5,8 +5,14 @@ namespace ScheduleMe.Tab;
 public partial class TimelineMain : Form
 {
     public ObjectId currentID { get; set; }
+    private List<ObjectId> _eventIds = new List<ObjectId>();
     private byte columnSize = 42;
     private short currentDateTimePosition = 0;
+    public List<ObjectId> EventIds
+    {
+        get { return _eventIds; }
+        set { _eventIds = value; }
+    }
 
     public TimelineMain()
     {
@@ -26,7 +32,7 @@ public partial class TimelineMain : Form
             {
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 var timelineTab = timelines.FindById(currentID);
-
+                EventIds.Add(currentID);
                 addNewTab(timelineTab.TimelineName, timelineTab.Id);
 
                 if (timelineTab.Events.Any())
@@ -56,6 +62,7 @@ public partial class TimelineMain : Form
                 // Load all the Timeline Tabs
                 foreach (var tab in timelineTabs)
                 {
+                    EventIds.Add(tab.Id);
                     addNewTab(tab.TimelineName, tab.Id);
                 }
 
@@ -222,6 +229,7 @@ public partial class TimelineMain : Form
 
         if (addTimelineTab.Id != null)
         {
+            EventIds.Add(addTimelineTab.Id);
             // Remove the highlight of active Tab
             foreach (TimelineTab tab in panelTimelineTab.Controls.OfType<TimelineTab>())
             {
@@ -255,9 +263,11 @@ public partial class TimelineMain : Form
         {
             EditEvent editEvent = new EditEvent();
             editEvent.CurrentID = currentID;
+            editEvent.EventIds = EventIds;
             editEvent.ShowDialog();
 
             currentID = editEvent.CurrentID;
+            EventIds = editEvent.EventIds;
             editEvent.Dispose();
             panelTimelineTab.Controls.Clear();
             panelTimelineContainer.Controls.Clear();

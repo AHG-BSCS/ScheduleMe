@@ -1,10 +1,12 @@
 ﻿using LiteDB;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ScheduleMe.Tab;
 
 public partial class EditEvent : Form
 {
     public ObjectId CurrentID { get; set; }
+    public List<ObjectId> EventIds { get; set; }
     public DateTime MinDate { get; set; }
     public DateTime MaxDate { get; set; }
 
@@ -24,30 +26,32 @@ public partial class EditEvent : Form
         using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
             var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-            var timelineTab = timelines.FindById(CurrentID);
-            CurrentID = timelineTab.Id;
-            MinDate = timelineTab.TimelineStartDate;
-            MaxDate = timelineTab.TimelineEndDate;
-            SetTimelineDateRange();
-
-            if (timelineTab.Events.Any())
+            foreach (ObjectId id in EventIds)
             {
-                for (ushort i = 0; i < timelineTab.Events.Count; i++)
+                var timelineTab = timelines.FindById(id);
+                if (id == CurrentID)
                 {
-                    AddEventRow newRow = new AddEventRow();
-                    newRow.Id = timelineTab.Id;
-                    newRow.Index = i;
-                    newRow.MinDate = MinDate;
-                    newRow.MaxDate = MaxDate;
-                    newRow.Dock = DockStyle.Bottom;
-                    newRow.SetRowInfo(timelineTab.Events[i]);
-                    eventInfoPanel.Controls.Add(newRow);
+                    CurrentID = timelineTab.Id;
+                    MinDate = timelineTab.TimelineStartDate;
+                    MaxDate = timelineTab.TimelineEndDate;
+                    SetTimelineDateRange();
+
+                    if (timelineTab.Events.Any())
+                    {
+                        for (ushort i = 0; i < timelineTab.Events.Count; i++)
+                        {
+                            AddEventRow newRow = new AddEventRow();
+                            newRow.Id = timelineTab.Id;
+                            newRow.Index = i;
+                            newRow.MinDate = MinDate;
+                            newRow.MaxDate = MaxDate;
+                            newRow.Dock = DockStyle.Bottom;
+                            newRow.SetRowInfo(timelineTab.Events[i]);
+                            eventInfoPanel.Controls.Add(newRow);
+                        }
+                    }
                 }
-            }
-            // Load all the Timeline Tabs
-            foreach (var tab in timelines.FindAll())
-            {
-                addNewTab(tab.TimelineName, tab.Id);
+                addNewTab(timelineTab.TimelineName, timelineTab.Id);
             }
         }
     }
