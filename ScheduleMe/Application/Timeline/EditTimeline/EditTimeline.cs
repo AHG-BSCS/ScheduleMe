@@ -261,4 +261,21 @@ public partial class EditTimeline : Form
             new Message("No timeline");
     }
 
+    private void txtTimelineName_Validated(object sender, EventArgs e)
+    {
+        foreach (EditTimelineTab tab in pnlTimelineTabs.Controls)
+        {
+            if (tab.Id == CurrentID)
+            {
+                using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+                {
+                    var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                    Timeline timeline = timelines.FindById(CurrentID);
+                    tab.btnEditTimelineTab.Text = txtTimelineName.Text;
+                    timeline.TimelineName = txtTimelineName.Text;
+                    timelines.Update(timeline);
+                }
+            }
+        }
+    }
 }

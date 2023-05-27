@@ -238,6 +238,7 @@ partial class EditTimeline
         txtTimelineName.Size = new Size(200, 29);
         txtTimelineName.TabIndex = 0;
         txtTimelineName.TabStop = false;
+        txtTimelineName.Validated += txtTimelineName_Validated;
         // 
         // lblTimelineName
         // 
