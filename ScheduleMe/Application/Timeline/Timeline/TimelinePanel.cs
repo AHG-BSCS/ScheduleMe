@@ -2,7 +2,7 @@
 
 namespace ScheduleMe.Tab;
 
-public partial class TimelineMain : Form
+public partial class TimelinePanel : Form
 {
     public ObjectId CurrentID { get; set; }
     public ObjectId PreviousID { get; set; }
@@ -15,7 +15,7 @@ public partial class TimelineMain : Form
         set { _eventIds = value; }
     }
 
-    public TimelineMain()
+    public TimelinePanel()
     {
         InitializeComponent();
     }
@@ -94,7 +94,7 @@ public partial class TimelineMain : Form
                         + (events[i].EventStartDate - startDate).Days
                         * columnSize;
 
-            EventButton newEvent = new EventButton();
+            TimelineEvent newEvent = new TimelineEvent();
             newEvent.SetEventProperty(
                 events[i].EventTitle,
                 events[i].EventDescription,
@@ -113,11 +113,11 @@ public partial class TimelineMain : Form
         Height = panelTimelineContainer.Height + 35;
     }
 
-    private void StackEvents(EventButton newEvent, ref int lowestBottom)
+    private void StackEvents(TimelineEvent newEvent, ref int lowestBottom)
     {
         int currentRow = 70;
 
-        foreach (EventButton previousEvent in panelTimelineContainer.Controls)
+        foreach (TimelineEvent previousEvent in panelTimelineContainer.Controls)
         {
             // Not the same object and newEvent is above previousEvent
             if (previousEvent != newEvent && newEvent.Top <= previousEvent.Top)
@@ -146,7 +146,7 @@ public partial class TimelineMain : Form
                 GenerateMonthLabel(currentDate, startDate, ref firstMonthRight);
             }
 
-            DatesLabel dayDates = new DatesLabel();
+            TimelineDays dayDates = new TimelineDays();
             dayDates.Day = currentDate.ToString("ddd");
             dayDates.Date = currentDate.Day.ToString();
             dayDates.Location = new Point(columnSize * (currentDate - startDate).Days, 23 - 5);
@@ -268,7 +268,7 @@ public partial class TimelineMain : Form
     {
         if (e.ClickedItem.Name == editOption.Name)
         {
-            EditEvent editEvent = new EditEvent();
+            EditTimeline editEvent = new EditTimeline();
             editEvent.CurrentID = CurrentID;
             editEvent.EventIds = EventIds;
             editEvent.ShowDialog();
@@ -299,7 +299,7 @@ public partial class TimelineMain : Form
             {
                 panelTimelineContainer.Controls.Clear();
                 MainForm mainForm = (MainForm)this.ParentForm;
-                TimelineMain newTimelineMain = new TimelineMain();
+                TimelinePanel newTimelineMain = new TimelinePanel();
                 newTimelineMain.CurrentID = CurrentID;
                 newTimelineMain.Show();
                 newTimelineMain.TopLevel = false;
@@ -352,8 +352,8 @@ public partial class TimelineMain : Form
             MainForm mainForm = (MainForm)this.ParentForm;
             if (mainForm.tabPanel.Controls.Count > 1)
             {
-                TimelineMain firstPanel = new TimelineMain();
-                foreach (TimelineMain panel in mainForm.tabPanel.Controls.OfType<TimelineMain>())
+                TimelinePanel firstPanel = new TimelinePanel();
+                foreach (TimelinePanel panel in mainForm.tabPanel.Controls.OfType<TimelinePanel>())
                 {
                     if (panel != this)
                     {

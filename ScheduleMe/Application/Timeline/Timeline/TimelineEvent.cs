@@ -2,7 +2,7 @@
 
 namespace ScheduleMe.Tab;
 
-public partial class EventButton : UserControl
+public partial class TimelineEvent : UserControl
 {
     public ObjectId Id { get; set; }
     public ushort Index { get; set; }
@@ -10,7 +10,7 @@ public partial class EventButton : UserControl
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
 
-    public EventButton()
+    public TimelineEvent()
     {
         InitializeComponent();
     }
@@ -21,7 +21,7 @@ public partial class EventButton : UserControl
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
-                TimelineMain timelineMain = (TimelineMain)this.Parent.Parent;
+                TimelinePanel timelineMain = (TimelinePanel)this.Parent.Parent;
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 var timeline = timelines.FindById(Id);
                 timeline.Events.RemoveAt(Index);

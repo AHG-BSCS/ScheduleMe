@@ -2,7 +2,7 @@
 
 namespace ScheduleMe.Tab;
 
-public partial class EditEvent : Form
+public partial class EditTimeline : Form
 {
     public ObjectId CurrentID { get; set; }
     public ObjectId PreviousID { get; set; }
@@ -10,7 +10,7 @@ public partial class EditEvent : Form
     public DateTime MinDate { get; set; }
     public DateTime MaxDate { get; set; }
 
-    public EditEvent()
+    public EditTimeline()
     {
         InitializeComponent();
     }
@@ -57,7 +57,7 @@ public partial class EditEvent : Form
     {
         for (ushort i = 0; i < timelineTab.Events.Count; i++)
         {
-            AddEventRow newRow = new AddEventRow();
+            EditTimelineRow newRow = new EditTimelineRow();
             newRow.Id = timelineTab.Id;
             newRow.Index = i;
             newRow.MinDate = MinDate;
@@ -70,10 +70,10 @@ public partial class EditEvent : Form
 
     private void HighlightAndDispose(ObjectId deletedId)
     {
-        EditEventTab disposeThis = new EditEventTab();
+        EditTimelineTab disposeThis = new EditTimelineTab();
         eventInfoPanel.Controls.Clear();
 
-        foreach (EditEventTab tab in timelineTabPanel.Controls.OfType<EditEventTab>())
+        foreach (EditTimelineTab tab in timelineTabPanel.Controls.OfType<EditTimelineTab>())
         {
             if (PreviousID == tab.Id)
             {
@@ -88,7 +88,7 @@ public partial class EditEvent : Form
 
     public void AddNewTab(string timelineName, ObjectId Id)
     {
-        EditEventTab newTimelineTab = new EditEventTab();
+        EditTimelineTab newTimelineTab = new EditTimelineTab();
         newTimelineTab.AddOption_ItemClicked += addTabBtn_Click;
         newTimelineTab.DeleteOption_ItemClicked += deleteBtn_Click;
         newTimelineTab.tabName = timelineName;
@@ -113,7 +113,7 @@ public partial class EditEvent : Form
 
         if (addTimelineTab.Id != null)
         {
-            foreach (EditEventTab tab in timelineTabPanel.Controls.OfType<EditEventTab>())
+            foreach (EditTimelineTab tab in timelineTabPanel.Controls.OfType<EditTimelineTab>())
             {
                 if (CurrentID == tab.Id)
                 {
@@ -136,7 +136,7 @@ public partial class EditEvent : Form
     {
         if (CurrentID != null)
         {
-            AddEventRow newRow = new AddEventRow();
+            EditTimelineRow newRow = new EditTimelineRow();
             newRow.eventInfo = new Event();
             newRow.MinDate = MinDate;
             newRow.MaxDate = MaxDate;
@@ -168,7 +168,7 @@ public partial class EditEvent : Form
                 timeline.TimelineStartDate = timelineStartDatePicker.Value;
                 timeline.TimelineEndDate = timelineEndDatePicker.Value;
 
-                foreach (AddEventRow newEvent in eventInfoPanel.Controls)
+                foreach (EditTimelineRow newEvent in eventInfoPanel.Controls)
                 {
                     timeline.Events.Add(newEvent.GetRowInfo());
                 }
@@ -191,7 +191,7 @@ public partial class EditEvent : Form
         if (CurrentID != null)
         {
             ObjectId deletedId = CurrentID;
-            DeleteTimeline promt = new DeleteTimeline();
+            Confirm promt = new Confirm();
             promt.ShowDialog();
 
             if (promt.Answer)

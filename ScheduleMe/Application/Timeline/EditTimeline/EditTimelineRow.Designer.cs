@@ -1,6 +1,6 @@
 ﻿namespace ScheduleMe.Tab;
 
-partial class AddEventRow
+partial class EditTimelineRow
 {
     /// <summary> 
     /// Required designer variable.

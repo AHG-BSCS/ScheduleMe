@@ -5,7 +5,7 @@ namespace ScheduleMe.Tab;
 public partial class TimelineTab : UserControl
 {
     public ObjectId Id { get; set; }
-    public TimelineMain timelineInstance;
+    public TimelinePanel timelineInstance;
     public event EventHandler<ToolStripItemClickedEventArgs> TimelineTabMenu_ItemClicked;
     public event EventHandler<ToolStripItemClickedEventArgs> AddOption_ItemClicked;
     public event EventHandler<ToolStripItemClickedEventArgs> OpenAtBottomOption_ItemClicked;
@@ -80,7 +80,7 @@ public partial class TimelineTab : UserControl
 
         else if (e.ClickedItem == deleteOption)
         {
-            DeleteTimeline promt = new DeleteTimeline();
+            Confirm promt = new Confirm();
             promt.ShowDialog();
 
             if (promt.Answer)

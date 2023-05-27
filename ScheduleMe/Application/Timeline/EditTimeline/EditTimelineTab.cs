@@ -2,10 +2,10 @@
 
 namespace ScheduleMe.Tab;
 
-public partial class EditEventTab : UserControl
+public partial class EditTimelineTab : UserControl
 {
     public ObjectId Id { get; set; }    // Reference Id from the database
-    public EditEvent editEventInstance; // Instance that created this UserControl
+    public EditTimeline editEventInstance; // Instance that created this UserControl
     public event EventHandler<ToolStripItemClickedEventArgs> AddOption_ItemClicked;
     public event EventHandler<ToolStripItemClickedEventArgs> DeleteOption_ItemClicked;
 
@@ -14,7 +14,7 @@ public partial class EditEventTab : UserControl
         set { timelineTabBtn.Text = value; }
     }
 
-    public EditEventTab()
+    public EditTimelineTab()
     {
         InitializeComponent();
     }
@@ -22,7 +22,7 @@ public partial class EditEventTab : UserControl
     private void HighlightButton()
     {
         editEventInstance.eventInfoPanel.Controls.Clear();
-        foreach (EditEventTab tab in editEventInstance.timelineTabPanel.Controls)
+        foreach (EditTimelineTab tab in editEventInstance.timelineTabPanel.Controls)
         {
             if (editEventInstance.CurrentID == tab.Id)
             {

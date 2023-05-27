@@ -2,9 +2,9 @@
 
 namespace ScheduleMe.Tab;
 
-public partial class AddEventRow : UserControl
+public partial class EditTimelineRow : UserControl
 {
-    public AddEventRow()
+    public EditTimelineRow()
     {
         InitializeComponent();
     }
@@ -78,7 +78,7 @@ public partial class AddEventRow : UserControl
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
-                EditEvent editEvent = (EditEvent)this.Parent.Parent;
+                EditTimeline editEvent = (EditTimeline)this.Parent.Parent;
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 var timeline = timelines.FindById(Id);
                 timeline.Events.RemoveAt(Index);

@@ -1,10 +1,10 @@
 ﻿namespace ScheduleMe.Tab;
 
-public partial class DeleteTimeline : Form
+public partial class Confirm : Form
 {
     public bool Answer { get; set; }
 
-    public DeleteTimeline()
+    public Confirm()
     {
         InitializeComponent();
     }

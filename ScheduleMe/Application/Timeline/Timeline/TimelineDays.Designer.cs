@@ -1,6 +1,6 @@
 ﻿namespace ScheduleMe.Tab;
 
-partial class DatesLabel
+partial class TimelineDays
 {
     /// <summary> 
     /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace ScheduleMe.Tab;
 
-partial class DeleteTimeline
+partial class Confirm
 {
     /// <summary>
     /// Required designer variable.

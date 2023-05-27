@@ -1,5 +1,5 @@
 ﻿namespace ScheduleMe.Tab;
-partial class EditEventTab
+partial class EditTimelineTab
 {
     /// <summary> 
     /// Required designer variable.

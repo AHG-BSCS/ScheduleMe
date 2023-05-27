@@ -7,7 +7,7 @@ namespace ScheduleMe
     {
         private static Form activeForm;
         private static Calendar calendar;
-        private static TimelineMain timeline;
+        private static TimelinePanel timeline;
         private static Timetable timetable;
         private static Note note;
         private static Weather weather;

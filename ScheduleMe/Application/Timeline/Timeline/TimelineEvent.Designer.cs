@@ -1,6 +1,6 @@
 ﻿namespace ScheduleMe.Tab;
 
-partial class EventButton
+partial class TimelineEvent
 {
     /// <summary> 
     /// Required designer variable.
