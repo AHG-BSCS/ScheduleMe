@@ -28,67 +28,67 @@ partial class Confirm
     /// </summary>
     private void InitializeComponent()
     {
-        label1 = new Label();
-        yesBtn = new Button();
-        button1 = new Button();
+        lblMessage = new Label();
+        btnYes = new Button();
+        btnNo = new Button();
         SuspendLayout();
         // 
-        // label1
+        // lblMessage
         // 
-        label1.AutoSize = true;
-        label1.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        label1.ForeColor = Color.White;
-        label1.Location = new Point(28, 5);
-        label1.Name = "label1";
-        label1.Size = new Size(89, 22);
-        label1.TabIndex = 0;
-        label1.Text = "Are You Sure?";
+        lblMessage.AutoSize = true;
+        lblMessage.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        lblMessage.ForeColor = Color.White;
+        lblMessage.Location = new Point(28, 5);
+        lblMessage.Name = "lblMessage";
+        lblMessage.Size = new Size(89, 22);
+        lblMessage.TabIndex = 0;
+        lblMessage.Text = "Are You Sure?";
         // 
-        // yesBtn
+        // btnYes
         // 
-        yesBtn.BackColor = Color.FromArgb(255, 128, 128);
-        yesBtn.FlatAppearance.BorderSize = 0;
-        yesBtn.FlatStyle = FlatStyle.Flat;
-        yesBtn.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        yesBtn.Location = new Point(12, 40);
-        yesBtn.Margin = new Padding(0);
-        yesBtn.Name = "yesBtn";
-        yesBtn.Size = new Size(55, 30);
-        yesBtn.TabIndex = 0;
-        yesBtn.TabStop = false;
-        yesBtn.Text = "Yes";
-        yesBtn.UseVisualStyleBackColor = false;
-        yesBtn.Click += yesBtn_Click;
+        btnYes.BackColor = Color.FromArgb(255, 128, 128);
+        btnYes.FlatAppearance.BorderSize = 0;
+        btnYes.FlatStyle = FlatStyle.Flat;
+        btnYes.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        btnYes.Location = new Point(12, 40);
+        btnYes.Margin = new Padding(0);
+        btnYes.Name = "btnYes";
+        btnYes.Size = new Size(55, 30);
+        btnYes.TabIndex = 0;
+        btnYes.TabStop = false;
+        btnYes.Text = "Yes";
+        btnYes.UseVisualStyleBackColor = false;
+        btnYes.Click += btnYes_Click;
         // 
-        // button1
+        // btnNo
         // 
-        button1.BackColor = Color.FromArgb(128, 128, 255);
-        button1.FlatAppearance.BorderSize = 0;
-        button1.FlatStyle = FlatStyle.Flat;
-        button1.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        button1.Location = new Point(73, 40);
-        button1.Margin = new Padding(0);
-        button1.Name = "button1";
-        button1.Size = new Size(55, 30);
-        button1.TabIndex = 1;
-        button1.TabStop = false;
-        button1.Text = "No";
-        button1.UseVisualStyleBackColor = false;
-        button1.Click += button1_Click;
+        btnNo.BackColor = Color.FromArgb(128, 128, 255);
+        btnNo.FlatAppearance.BorderSize = 0;
+        btnNo.FlatStyle = FlatStyle.Flat;
+        btnNo.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        btnNo.Location = new Point(73, 40);
+        btnNo.Margin = new Padding(0);
+        btnNo.Name = "btnNo";
+        btnNo.Size = new Size(55, 30);
+        btnNo.TabIndex = 1;
+        btnNo.TabStop = false;
+        btnNo.Text = "No";
+        btnNo.UseVisualStyleBackColor = false;
+        btnNo.Click += btnNo_Click;
         // 
-        // DeleteTimeline
+        // Confirm
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
         BackColor = Color.FromArgb(15, 76, 129);
         ClientSize = new Size(140, 81);
-        Controls.Add(button1);
-        Controls.Add(yesBtn);
-        Controls.Add(label1);
+        Controls.Add(btnNo);
+        Controls.Add(btnYes);
+        Controls.Add(lblMessage);
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(3, 4, 3, 4);
-        Name = "DeleteTimeline";
+        Name = "Confirm";
         StartPosition = FormStartPosition.CenterParent;
         ResumeLayout(false);
         PerformLayout();
@@ -96,7 +96,7 @@ partial class Confirm
 
     #endregion
 
-    private Label label1;
-    private Button yesBtn;
-    private Button button1;
+    private Label lblMessage;
+    private Button btnYes;
+    private Button btnNo;
 }

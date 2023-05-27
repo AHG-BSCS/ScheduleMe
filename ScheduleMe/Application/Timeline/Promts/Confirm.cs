@@ -9,15 +9,16 @@ public partial class Confirm : Form
         InitializeComponent();
     }
 
-    private void yesBtn_Click(object sender, EventArgs e)
+    private void btnYes_Click(object sender, EventArgs e)
     {
         Answer = true;
         this.Close();
     }
 
-    private void button1_Click(object sender, EventArgs e)
+    private void btnNo_Click(object sender, EventArgs e)
     {
         Answer = false;
         this.Close();
     }
+
 }

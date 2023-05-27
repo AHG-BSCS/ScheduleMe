@@ -31,18 +31,18 @@ partial class AddTimeline
         lblName = new Label();
         lblStartDate = new Label();
         lblEndDate = new Label();
-        tBoxName = new TextBox();
-        startDatePicker = new DateTimePicker();
-        btnSaveTimeline = new Button();
-        btnCancelTimeline = new Button();
-        endDatePicker = new DateTimePicker();
+        txtName = new TextBox();
+        pckStartDate = new DateTimePicker();
+        btnAdd = new Button();
+        btnCancel = new Button();
+        pckEndDate = new DateTimePicker();
         SuspendLayout();
         // 
         // lblName
         // 
         lblName.AutoSize = true;
         lblName.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        lblName.Location = new Point(12, 15);
+        lblName.Location = new Point(12, 17);
         lblName.Name = "lblName";
         lblName.Size = new Size(41, 22);
         lblName.TabIndex = 0;
@@ -53,7 +53,7 @@ partial class AddTimeline
         // 
         lblStartDate.AutoSize = true;
         lblStartDate.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        lblStartDate.Location = new Point(12, 50);
+        lblStartDate.Location = new Point(12, 52);
         lblStartDate.Name = "lblStartDate";
         lblStartDate.Size = new Size(67, 22);
         lblStartDate.TabIndex = 0;
@@ -64,94 +64,94 @@ partial class AddTimeline
         // 
         lblEndDate.AutoSize = true;
         lblEndDate.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        lblEndDate.Location = new Point(12, 85);
+        lblEndDate.Location = new Point(12, 87);
         lblEndDate.Name = "lblEndDate";
         lblEndDate.Size = new Size(60, 22);
         lblEndDate.TabIndex = 0;
         lblEndDate.Text = "End Date";
         lblEndDate.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // tBoxName
+        // txtName
         // 
-        tBoxName.BackColor = Color.White;
-        tBoxName.BorderStyle = BorderStyle.FixedSingle;
-        tBoxName.ForeColor = Color.Black;
-        tBoxName.Location = new Point(84, 12);
-        tBoxName.MaxLength = 32;
-        tBoxName.Name = "tBoxName";
-        tBoxName.Size = new Size(200, 29);
-        tBoxName.TabIndex = 0;
-        tBoxName.TabStop = false;
+        txtName.BackColor = Color.White;
+        txtName.BorderStyle = BorderStyle.FixedSingle;
+        txtName.ForeColor = Color.Black;
+        txtName.Location = new Point(84, 14);
+        txtName.MaxLength = 32;
+        txtName.Name = "txtName";
+        txtName.Size = new Size(200, 29);
+        txtName.TabIndex = 0;
+        txtName.TabStop = false;
         // 
-        // startDatePicker
+        // pckStartDate
         // 
-        startDatePicker.CustomFormat = "dddd, MMM dd, yyyy";
-        startDatePicker.Format = DateTimePickerFormat.Custom;
-        startDatePicker.Location = new Point(84, 47);
-        startDatePicker.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
-        startDatePicker.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
-        startDatePicker.Name = "startDatePicker";
-        startDatePicker.RightToLeft = RightToLeft.No;
-        startDatePicker.Size = new Size(200, 29);
-        startDatePicker.TabIndex = 0;
-        startDatePicker.TabStop = false;
+        pckStartDate.CustomFormat = "dddd, MMM dd, yyyy";
+        pckStartDate.Format = DateTimePickerFormat.Custom;
+        pckStartDate.Location = new Point(84, 49);
+        pckStartDate.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
+        pckStartDate.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
+        pckStartDate.Name = "pckStartDate";
+        pckStartDate.RightToLeft = RightToLeft.No;
+        pckStartDate.Size = new Size(200, 29);
+        pckStartDate.TabIndex = 0;
+        pckStartDate.TabStop = false;
         // 
-        // btnSaveTimeline
+        // btnAdd
         // 
-        btnSaveTimeline.BackColor = Color.FromArgb(128, 128, 255);
-        btnSaveTimeline.FlatAppearance.BorderSize = 0;
-        btnSaveTimeline.FlatStyle = FlatStyle.Flat;
-        btnSaveTimeline.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        btnSaveTimeline.ForeColor = Color.Black;
-        btnSaveTimeline.Location = new Point(84, 126);
-        btnSaveTimeline.Name = "btnSaveTimeline";
-        btnSaveTimeline.Size = new Size(56, 32);
-        btnSaveTimeline.TabIndex = 0;
-        btnSaveTimeline.TabStop = false;
-        btnSaveTimeline.Text = "Add";
-        btnSaveTimeline.UseVisualStyleBackColor = false;
-        btnSaveTimeline.Click += btnSaveTimeline_Click;
+        btnAdd.BackColor = Color.FromArgb(128, 128, 255);
+        btnAdd.FlatAppearance.BorderSize = 0;
+        btnAdd.FlatStyle = FlatStyle.Flat;
+        btnAdd.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        btnAdd.ForeColor = Color.Black;
+        btnAdd.Location = new Point(84, 128);
+        btnAdd.Name = "btnAdd";
+        btnAdd.Size = new Size(56, 32);
+        btnAdd.TabIndex = 0;
+        btnAdd.TabStop = false;
+        btnAdd.Text = "Add";
+        btnAdd.UseVisualStyleBackColor = false;
+        btnAdd.Click += btnAdd_Click;
         // 
-        // btnCancelTimeline
+        // btnCancel
         // 
-        btnCancelTimeline.BackColor = Color.FromArgb(255, 128, 128);
-        btnCancelTimeline.FlatAppearance.BorderSize = 0;
-        btnCancelTimeline.FlatStyle = FlatStyle.Flat;
-        btnCancelTimeline.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        btnCancelTimeline.ForeColor = Color.Black;
-        btnCancelTimeline.Location = new Point(146, 126);
-        btnCancelTimeline.Name = "btnCancelTimeline";
-        btnCancelTimeline.Size = new Size(56, 32);
-        btnCancelTimeline.TabIndex = 1;
-        btnCancelTimeline.TabStop = false;
-        btnCancelTimeline.Text = "Cancel";
-        btnCancelTimeline.UseVisualStyleBackColor = false;
-        btnCancelTimeline.Click += btnCancelTimeline_Click;
+        btnCancel.BackColor = Color.FromArgb(255, 128, 128);
+        btnCancel.FlatAppearance.BorderSize = 0;
+        btnCancel.FlatStyle = FlatStyle.Flat;
+        btnCancel.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        btnCancel.ForeColor = Color.Black;
+        btnCancel.Location = new Point(146, 128);
+        btnCancel.Name = "btnCancel";
+        btnCancel.Size = new Size(56, 32);
+        btnCancel.TabIndex = 1;
+        btnCancel.TabStop = false;
+        btnCancel.Text = "Cancel";
+        btnCancel.UseVisualStyleBackColor = false;
+        btnCancel.Click += btnCancel_Click;
         // 
-        // endDatePicker
+        // pckEndDate
         // 
-        endDatePicker.CustomFormat = "dddd, MMM dd, yyyy";
-        endDatePicker.Format = DateTimePickerFormat.Custom;
-        endDatePicker.Location = new Point(84, 82);
-        endDatePicker.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
-        endDatePicker.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
-        endDatePicker.Name = "endDatePicker";
-        endDatePicker.RightToLeft = RightToLeft.No;
-        endDatePicker.Size = new Size(200, 29);
-        endDatePicker.TabIndex = 2;
-        endDatePicker.TabStop = false;
+        pckEndDate.CustomFormat = "dddd, MMM dd, yyyy";
+        pckEndDate.Format = DateTimePickerFormat.Custom;
+        pckEndDate.Location = new Point(84, 84);
+        pckEndDate.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
+        pckEndDate.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
+        pckEndDate.Name = "pckEndDate";
+        pckEndDate.RightToLeft = RightToLeft.No;
+        pckEndDate.Size = new Size(200, 29);
+        pckEndDate.TabIndex = 2;
+        pckEndDate.TabStop = false;
         // 
         // AddTimeline
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
         BackColor = Color.FromArgb(15, 76, 129);
-        ClientSize = new Size(294, 170);
-        Controls.Add(endDatePicker);
-        Controls.Add(btnCancelTimeline);
-        Controls.Add(btnSaveTimeline);
-        Controls.Add(startDatePicker);
-        Controls.Add(tBoxName);
+        ClientSize = new Size(297, 175);
+        Controls.Add(pckEndDate);
+        Controls.Add(btnCancel);
+        Controls.Add(btnAdd);
+        Controls.Add(pckStartDate);
+        Controls.Add(txtName);
         Controls.Add(lblEndDate);
         Controls.Add(lblStartDate);
         Controls.Add(lblName);
@@ -171,9 +171,9 @@ partial class AddTimeline
     private Label lblName;
     private Label lblStartDate;
     private Label lblEndDate;
-    private TextBox tBoxName;
-    private DateTimePicker startDatePicker;
-    private Button btnSaveTimeline;
-    private Button btnCancelTimeline;
-    private DateTimePicker endDatePicker;
+    private TextBox txtName;
+    private DateTimePicker pckStartDate;
+    private Button btnAdd;
+    private Button btnCancel;
+    private DateTimePicker pckEndDate;
 }

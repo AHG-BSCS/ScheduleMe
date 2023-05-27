@@ -49,8 +49,8 @@ public partial class EditTimeline : Form
 
     internal void SetTimelineDateRange()
     {
-        timelineStartDatePicker.Value = MinDate;
-        timelineEndDatePicker.Value = MaxDate;
+        pckStartDate.Value = MinDate;
+        pckEndDate.Value = MaxDate;
     }
 
     internal void PopulateRows(Timeline timelineTab)
@@ -64,21 +64,21 @@ public partial class EditTimeline : Form
             newRow.MaxDate = MaxDate;
             newRow.Dock = DockStyle.Bottom;
             newRow.SetRowInfo(timelineTab.Events[i]);
-            eventInfoPanel.Controls.Add(newRow);
+            pnlEventRows.Controls.Add(newRow);
         }
     }
 
     private void HighlightAndDispose(ObjectId deletedId)
     {
         EditTimelineTab disposeThis = new EditTimelineTab();
-        eventInfoPanel.Controls.Clear();
+        pnlEventRows.Controls.Clear();
 
-        foreach (EditTimelineTab tab in timelineTabPanel.Controls.OfType<EditTimelineTab>())
+        foreach (EditTimelineTab tab in pnlTimelineTabs.Controls.OfType<EditTimelineTab>())
         {
             if (PreviousID == tab.Id)
             {
-                tab.timelineTabBtn.BackColor = Color.White;
-                tab.timelineTabBtn.ForeColor = Color.Black;
+                tab.btnEditTimelineTab.BackColor = Color.White;
+                tab.btnEditTimelineTab.ForeColor = Color.Black;
             }
             else if (deletedId == tab.Id)
                 disposeThis = tab;
@@ -89,50 +89,50 @@ public partial class EditTimeline : Form
     public void AddNewTab(string timelineName, ObjectId Id)
     {
         EditTimelineTab newTimelineTab = new EditTimelineTab();
-        newTimelineTab.AddOption_ItemClicked += addTabBtn_Click;
-        newTimelineTab.DeleteOption_ItemClicked += deleteBtn_Click;
+        newTimelineTab.AddOption_ItemClicked += btnAddTab_Click;
+        newTimelineTab.DeleteOption_ItemClicked += btnDelete_Click;
         newTimelineTab.tabName = timelineName;
         newTimelineTab.Id = Id;
         newTimelineTab.editEventInstance = this;
         newTimelineTab.Dock = DockStyle.Left;
-        timelineTabPanel.Controls.Add(newTimelineTab);
+        pnlTimelineTabs.Controls.Add(newTimelineTab);
         newTimelineTab.BringToFront();
 
         // Highlight the current tab
         if (CurrentID == Id)
         {
-            newTimelineTab.timelineTabBtn.BackColor = Color.White;
-            newTimelineTab.timelineTabBtn.ForeColor = Color.Black;
+            newTimelineTab.btnEditTimelineTab.BackColor = Color.White;
+            newTimelineTab.btnEditTimelineTab.ForeColor = Color.Black;
         }
     }
 
-    private void addTabBtn_Click(object sender, EventArgs e)
+    private void btnAddTab_Click(object sender, EventArgs e)
     {
         AddTimeline addTimelineTab = new AddTimeline();
         addTimelineTab.ShowDialog();
 
         if (addTimelineTab.Id != null)
         {
-            foreach (EditTimelineTab tab in timelineTabPanel.Controls.OfType<EditTimelineTab>())
+            foreach (EditTimelineTab tab in pnlTimelineTabs.Controls.OfType<EditTimelineTab>())
             {
                 if (CurrentID == tab.Id)
                 {
-                    tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
-                    tab.timelineTabBtn.ForeColor = Color.White;
+                    tab.btnEditTimelineTab.BackColor = Color.FromArgb(15, 76, 129);
+                    tab.btnEditTimelineTab.ForeColor = Color.White;
                     break;
                 }
             }
             // Load new added timeline
             CurrentID = addTimelineTab.Id;
             EventIds.Add(CurrentID);
-            eventInfoPanel.Controls.Clear();
+            pnlEventRows.Controls.Clear();
             LoadTimelineById(CurrentID);
             // Remove the highlight of active Tab
         }
         addTimelineTab.Dispose();
     }
 
-    private void addRowBtn_Click(object sender, EventArgs e)
+    private void btnAddRow_Click(object sender, EventArgs e)
     {
         if (CurrentID != null)
         {
@@ -145,13 +145,13 @@ public partial class EditTimeline : Form
             // Or prevent the show of MenuStrip to this row
             newRow.SetRowInfo(newRow.eventInfo);
             newRow.Dock = DockStyle.Bottom;
-            eventInfoPanel.Controls.Add(newRow);
+            pnlEventRows.Controls.Add(newRow);
         }
         else
             new Message("No timeline");
     }
 
-    private void saveBtn_Click(object sender, EventArgs e)
+    private void btnSave_Click(object sender, EventArgs e)
     {
         if (CurrentID != null)
         {
@@ -165,10 +165,10 @@ public partial class EditTimeline : Form
                 if (timeline.Events.Any())
                     timeline.Events.Clear();
 
-                timeline.TimelineStartDate = timelineStartDatePicker.Value;
-                timeline.TimelineEndDate = timelineEndDatePicker.Value;
+                timeline.TimelineStartDate = pckStartDate.Value;
+                timeline.TimelineEndDate = pckEndDate.Value;
 
-                foreach (EditTimelineRow newEvent in eventInfoPanel.Controls)
+                foreach (EditTimelineRow newEvent in pnlEventRows.Controls)
                 {
                     timeline.Events.Add(newEvent.GetRowInfo());
                 }
@@ -177,7 +177,7 @@ public partial class EditTimeline : Form
                 new Message(timeline.TimelineName + " is Saved");
 
                 // Reload the timeline events to assign a property to newly added rows
-                eventInfoPanel.Controls.Clear();
+                pnlEventRows.Controls.Clear();
                 timeline = timelines.FindById(CurrentID);
                 PopulateRows(timeline);
             }
@@ -186,7 +186,7 @@ public partial class EditTimeline : Form
             new Message("No timeline");
     }
 
-    private void deleteBtn_Click(object sender, EventArgs e)
+    private void btnDelete_Click(object sender, EventArgs e)
     {
         if (CurrentID != null)
         {
@@ -220,8 +220,8 @@ public partial class EditTimeline : Form
 
                 if (EventIds.Any() == false) // No tab available. The final tab is not disposed
                 {
-                    eventInfoPanel.Controls.Clear();
-                    timelineTabPanel.Controls.Clear();
+                    pnlEventRows.Controls.Clear();
+                    pnlTimelineTabs.Controls.Clear();
                     CurrentID = null;
                 }
             }
@@ -231,13 +231,13 @@ public partial class EditTimeline : Form
             new Message("No timeline");
     }
 
-    private void timelineStartDatePicker_ValueChanged(object sender, EventArgs e)
+    private void pckStartDate_ValueChanged(object sender, EventArgs e)
     {
         if (CurrentID != null)
         {
-            if (timelineStartDatePicker.Value > MinDate)
+            if (pckStartDate.Value > MinDate)
             {
-                timelineStartDatePicker.Value = MinDate;
+                pckStartDate.Value = MinDate;
                 new Message("Invalid starting date");
             }
         }
@@ -245,13 +245,13 @@ public partial class EditTimeline : Form
             new Message("No timeline");
     }
 
-    private void timelineEndDatePicker_ValueChanged(object sender, EventArgs e)
+    private void pckEndDate_ValueChanged(object sender, EventArgs e)
     {
         if (CurrentID != null)
         {
-            if (timelineEndDatePicker.Value < MaxDate)
+            if (pckEndDate.Value < MaxDate)
             {
-                timelineEndDatePicker.Value = MaxDate;
+                pckEndDate.Value = MaxDate;
                 new Message("Invalid ending date");
             }
         }

@@ -28,349 +28,349 @@ partial class EditTimeline
     /// </summary>
     private void InitializeComponent()
     {
-        timelineTabPanel = new Panel();
-        addTabBtn = new Button();
-        eventsInfoTLPanel = new TableLayoutPanel();
-        eventColorHeader = new Label();
-        eventEndDateHeader = new Label();
-        eventStartDateHeader = new Label();
-        eventDescriptionHeader = new Label();
-        eventTitleHeader = new Label();
-        eventInfoPanel = new Panel();
-        addSavePanel = new Panel();
-        panel2 = new Panel();
-        fromLbl = new Label();
-        timelineEndDatePicker = new DateTimePicker();
-        label1 = new Label();
-        timelineStartDatePicker = new DateTimePicker();
-        panel1 = new Panel();
-        deleteBtn = new Button();
-        addRowBtn = new Button();
-        saveBtn = new Button();
-        timelineTabPanel.SuspendLayout();
-        eventsInfoTLPanel.SuspendLayout();
-        addSavePanel.SuspendLayout();
-        panel2.SuspendLayout();
-        panel1.SuspendLayout();
+        pnlTimelineTabs = new Panel();
+        btnAddTab = new Button();
+        pnlColumnLabels = new TableLayoutPanel();
+        lblColor = new Label();
+        lblEndDate = new Label();
+        lblStartDate = new Label();
+        lblDescription = new Label();
+        lblTitle = new Label();
+        pnlEventRows = new Panel();
+        pnlEditTimelineTool = new Panel();
+        pnlTimelineDates = new Panel();
+        lblStartingDate = new Label();
+        pckEndDate = new DateTimePicker();
+        lblEndingDate = new Label();
+        pckStartDate = new DateTimePicker();
+        pnlToolButtons = new Panel();
+        btnDelete = new Button();
+        btnAddRow = new Button();
+        btnSave = new Button();
+        pnlTimelineTabs.SuspendLayout();
+        pnlColumnLabels.SuspendLayout();
+        pnlEditTimelineTool.SuspendLayout();
+        pnlTimelineDates.SuspendLayout();
+        pnlToolButtons.SuspendLayout();
         SuspendLayout();
         // 
-        // timelineTabPanel
+        // pnlTimelineTabs
         // 
-        timelineTabPanel.BackColor = Color.FromArgb(15, 76, 129);
-        timelineTabPanel.Controls.Add(addTabBtn);
-        timelineTabPanel.Dock = DockStyle.Top;
-        timelineTabPanel.Location = new Point(0, 0);
-        timelineTabPanel.Name = "timelineTabPanel";
-        timelineTabPanel.Padding = new Padding(10, 0, 10, 0);
-        timelineTabPanel.Size = new Size(984, 35);
-        timelineTabPanel.TabIndex = 0;
+        pnlTimelineTabs.BackColor = Color.FromArgb(15, 76, 129);
+        pnlTimelineTabs.Controls.Add(btnAddTab);
+        pnlTimelineTabs.Dock = DockStyle.Top;
+        pnlTimelineTabs.Location = new Point(0, 0);
+        pnlTimelineTabs.Name = "pnlTimelineTabs";
+        pnlTimelineTabs.Padding = new Padding(10, 0, 10, 0);
+        pnlTimelineTabs.Size = new Size(984, 35);
+        pnlTimelineTabs.TabIndex = 0;
         // 
-        // addTabBtn
+        // btnAddTab
         // 
-        addTabBtn.BackColor = Color.FromArgb(15, 76, 129);
-        addTabBtn.Dock = DockStyle.Left;
-        addTabBtn.FlatAppearance.BorderColor = Color.White;
-        addTabBtn.FlatAppearance.BorderSize = 2;
-        addTabBtn.FlatStyle = FlatStyle.Flat;
-        addTabBtn.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-        addTabBtn.ForeColor = Color.White;
-        addTabBtn.Location = new Point(10, 0);
-        addTabBtn.Margin = new Padding(0);
-        addTabBtn.Name = "addTabBtn";
-        addTabBtn.Size = new Size(38, 35);
-        addTabBtn.TabIndex = 0;
-        addTabBtn.TabStop = false;
-        addTabBtn.Text = " +";
-        addTabBtn.UseVisualStyleBackColor = false;
-        addTabBtn.Click += addTabBtn_Click;
+        btnAddTab.BackColor = Color.FromArgb(15, 76, 129);
+        btnAddTab.Dock = DockStyle.Left;
+        btnAddTab.FlatAppearance.BorderColor = Color.White;
+        btnAddTab.FlatAppearance.BorderSize = 2;
+        btnAddTab.FlatStyle = FlatStyle.Flat;
+        btnAddTab.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+        btnAddTab.ForeColor = Color.White;
+        btnAddTab.Location = new Point(10, 0);
+        btnAddTab.Margin = new Padding(0);
+        btnAddTab.Name = "btnAddTab";
+        btnAddTab.Size = new Size(38, 35);
+        btnAddTab.TabIndex = 0;
+        btnAddTab.TabStop = false;
+        btnAddTab.Text = " +";
+        btnAddTab.UseVisualStyleBackColor = false;
+        btnAddTab.Click += btnAddTab_Click;
         // 
-        // eventsInfoTLPanel
+        // pnlColumnLabels
         // 
-        eventsInfoTLPanel.BackColor = Color.FromArgb(15, 76, 129);
-        eventsInfoTLPanel.ColumnCount = 5;
-        eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
-        eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65F));
-        eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 170F));
-        eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 170F));
-        eventsInfoTLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 35F));
-        eventsInfoTLPanel.Controls.Add(eventColorHeader, 4, 0);
-        eventsInfoTLPanel.Controls.Add(eventEndDateHeader, 3, 0);
-        eventsInfoTLPanel.Controls.Add(eventStartDateHeader, 2, 0);
-        eventsInfoTLPanel.Controls.Add(eventDescriptionHeader, 1, 0);
-        eventsInfoTLPanel.Controls.Add(eventTitleHeader, 0, 0);
-        eventsInfoTLPanel.Dock = DockStyle.Top;
-        eventsInfoTLPanel.ForeColor = Color.White;
-        eventsInfoTLPanel.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
-        eventsInfoTLPanel.Location = new Point(0, 90);
-        eventsInfoTLPanel.Margin = new Padding(0);
-        eventsInfoTLPanel.Name = "eventsInfoTLPanel";
-        eventsInfoTLPanel.Padding = new Padding(3, 4, 0, 0);
-        eventsInfoTLPanel.RowCount = 1;
-        eventsInfoTLPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
-        eventsInfoTLPanel.Size = new Size(984, 30);
-        eventsInfoTLPanel.TabIndex = 0;
+        pnlColumnLabels.BackColor = Color.FromArgb(15, 76, 129);
+        pnlColumnLabels.ColumnCount = 5;
+        pnlColumnLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
+        pnlColumnLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65F));
+        pnlColumnLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 170F));
+        pnlColumnLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 170F));
+        pnlColumnLabels.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 35F));
+        pnlColumnLabels.Controls.Add(lblColor, 4, 0);
+        pnlColumnLabels.Controls.Add(lblEndDate, 3, 0);
+        pnlColumnLabels.Controls.Add(lblStartDate, 2, 0);
+        pnlColumnLabels.Controls.Add(lblDescription, 1, 0);
+        pnlColumnLabels.Controls.Add(lblTitle, 0, 0);
+        pnlColumnLabels.Dock = DockStyle.Top;
+        pnlColumnLabels.ForeColor = Color.White;
+        pnlColumnLabels.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
+        pnlColumnLabels.Location = new Point(0, 90);
+        pnlColumnLabels.Margin = new Padding(0);
+        pnlColumnLabels.Name = "pnlColumnLabels";
+        pnlColumnLabels.Padding = new Padding(3, 4, 0, 0);
+        pnlColumnLabels.RowCount = 1;
+        pnlColumnLabels.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
+        pnlColumnLabels.Size = new Size(984, 30);
+        pnlColumnLabels.TabIndex = 0;
         // 
-        // eventColorHeader
+        // lblColor
         // 
-        eventColorHeader.AutoSize = true;
-        eventColorHeader.Dock = DockStyle.Top;
-        eventColorHeader.FlatStyle = FlatStyle.System;
-        eventColorHeader.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        eventColorHeader.Location = new Point(950, 4);
-        eventColorHeader.Margin = new Padding(2, 0, 0, 0);
-        eventColorHeader.Name = "eventColorHeader";
-        eventColorHeader.Size = new Size(34, 22);
-        eventColorHeader.TabIndex = 0;
-        eventColorHeader.Text = "Color";
-        eventColorHeader.TextAlign = ContentAlignment.MiddleLeft;
+        lblColor.AutoSize = true;
+        lblColor.Dock = DockStyle.Top;
+        lblColor.FlatStyle = FlatStyle.System;
+        lblColor.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        lblColor.Location = new Point(950, 4);
+        lblColor.Margin = new Padding(2, 0, 0, 0);
+        lblColor.Name = "lblColor";
+        lblColor.Size = new Size(34, 22);
+        lblColor.TabIndex = 0;
+        lblColor.Text = "Color";
+        lblColor.TextAlign = ContentAlignment.MiddleLeft;
         // 
-        // eventEndDateHeader
+        // lblEndDate
         // 
-        eventEndDateHeader.AutoSize = true;
-        eventEndDateHeader.Dock = DockStyle.Top;
-        eventEndDateHeader.FlatStyle = FlatStyle.System;
-        eventEndDateHeader.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        eventEndDateHeader.Location = new Point(780, 4);
-        eventEndDateHeader.Margin = new Padding(2, 0, 0, 0);
-        eventEndDateHeader.Name = "eventEndDateHeader";
-        eventEndDateHeader.Size = new Size(168, 22);
-        eventEndDateHeader.TabIndex = 0;
-        eventEndDateHeader.Text = "End Date/Time";
-        eventEndDateHeader.TextAlign = ContentAlignment.MiddleLeft;
+        lblEndDate.AutoSize = true;
+        lblEndDate.Dock = DockStyle.Top;
+        lblEndDate.FlatStyle = FlatStyle.System;
+        lblEndDate.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        lblEndDate.Location = new Point(780, 4);
+        lblEndDate.Margin = new Padding(2, 0, 0, 0);
+        lblEndDate.Name = "lblEndDate";
+        lblEndDate.Size = new Size(168, 22);
+        lblEndDate.TabIndex = 0;
+        lblEndDate.Text = "End Date/Time";
+        lblEndDate.TextAlign = ContentAlignment.MiddleLeft;
         // 
-        // eventStartDateHeader
+        // lblStartDate
         // 
-        eventStartDateHeader.AutoSize = true;
-        eventStartDateHeader.Dock = DockStyle.Top;
-        eventStartDateHeader.FlatStyle = FlatStyle.System;
-        eventStartDateHeader.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        eventStartDateHeader.Location = new Point(610, 4);
-        eventStartDateHeader.Margin = new Padding(2, 0, 0, 0);
-        eventStartDateHeader.Name = "eventStartDateHeader";
-        eventStartDateHeader.Size = new Size(168, 22);
-        eventStartDateHeader.TabIndex = 0;
-        eventStartDateHeader.Text = "Start Date/Time";
-        eventStartDateHeader.TextAlign = ContentAlignment.MiddleLeft;
+        lblStartDate.AutoSize = true;
+        lblStartDate.Dock = DockStyle.Top;
+        lblStartDate.FlatStyle = FlatStyle.System;
+        lblStartDate.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        lblStartDate.Location = new Point(610, 4);
+        lblStartDate.Margin = new Padding(2, 0, 0, 0);
+        lblStartDate.Name = "lblStartDate";
+        lblStartDate.Size = new Size(168, 22);
+        lblStartDate.TabIndex = 0;
+        lblStartDate.Text = "Start Date/Time";
+        lblStartDate.TextAlign = ContentAlignment.MiddleLeft;
         // 
-        // eventDescriptionHeader
+        // lblDescription
         // 
-        eventDescriptionHeader.AutoSize = true;
-        eventDescriptionHeader.Dock = DockStyle.Top;
-        eventDescriptionHeader.FlatStyle = FlatStyle.System;
-        eventDescriptionHeader.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        eventDescriptionHeader.Location = new Point(217, 4);
-        eventDescriptionHeader.Margin = new Padding(2, 0, 0, 0);
-        eventDescriptionHeader.Name = "eventDescriptionHeader";
-        eventDescriptionHeader.Size = new Size(391, 22);
-        eventDescriptionHeader.TabIndex = 0;
-        eventDescriptionHeader.Text = "Description";
-        eventDescriptionHeader.TextAlign = ContentAlignment.MiddleLeft;
+        lblDescription.AutoSize = true;
+        lblDescription.Dock = DockStyle.Top;
+        lblDescription.FlatStyle = FlatStyle.System;
+        lblDescription.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        lblDescription.Location = new Point(217, 4);
+        lblDescription.Margin = new Padding(2, 0, 0, 0);
+        lblDescription.Name = "lblDescription";
+        lblDescription.Size = new Size(391, 22);
+        lblDescription.TabIndex = 0;
+        lblDescription.Text = "Description";
+        lblDescription.TextAlign = ContentAlignment.MiddleLeft;
         // 
-        // eventTitleHeader
+        // lblTitle
         // 
-        eventTitleHeader.AutoSize = true;
-        eventTitleHeader.Dock = DockStyle.Top;
-        eventTitleHeader.FlatStyle = FlatStyle.System;
-        eventTitleHeader.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        eventTitleHeader.Location = new Point(5, 4);
-        eventTitleHeader.Margin = new Padding(2, 0, 0, 0);
-        eventTitleHeader.Name = "eventTitleHeader";
-        eventTitleHeader.Size = new Size(210, 22);
-        eventTitleHeader.TabIndex = 0;
-        eventTitleHeader.Text = "Title";
-        eventTitleHeader.TextAlign = ContentAlignment.MiddleLeft;
+        lblTitle.AutoSize = true;
+        lblTitle.Dock = DockStyle.Top;
+        lblTitle.FlatStyle = FlatStyle.System;
+        lblTitle.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        lblTitle.Location = new Point(5, 4);
+        lblTitle.Margin = new Padding(2, 0, 0, 0);
+        lblTitle.Name = "lblTitle";
+        lblTitle.Size = new Size(210, 22);
+        lblTitle.TabIndex = 0;
+        lblTitle.Text = "Title";
+        lblTitle.TextAlign = ContentAlignment.MiddleLeft;
         // 
-        // eventInfoPanel
+        // pnlEventRows
         // 
-        eventInfoPanel.AutoSize = true;
-        eventInfoPanel.Dock = DockStyle.Top;
-        eventInfoPanel.Location = new Point(0, 120);
-        eventInfoPanel.Name = "eventInfoPanel";
-        eventInfoPanel.Size = new Size(984, 0);
-        eventInfoPanel.TabIndex = 0;
+        pnlEventRows.AutoSize = true;
+        pnlEventRows.Dock = DockStyle.Top;
+        pnlEventRows.Location = new Point(0, 120);
+        pnlEventRows.Name = "pnlEventRows";
+        pnlEventRows.Size = new Size(984, 0);
+        pnlEventRows.TabIndex = 0;
         // 
-        // addSavePanel
+        // pnlEditTimelineTool
         // 
-        addSavePanel.BackColor = Color.Transparent;
-        addSavePanel.Controls.Add(panel2);
-        addSavePanel.Controls.Add(panel1);
-        addSavePanel.Dock = DockStyle.Top;
-        addSavePanel.Location = new Point(0, 35);
-        addSavePanel.Name = "addSavePanel";
-        addSavePanel.Size = new Size(984, 55);
-        addSavePanel.TabIndex = 0;
+        pnlEditTimelineTool.BackColor = Color.Transparent;
+        pnlEditTimelineTool.Controls.Add(pnlTimelineDates);
+        pnlEditTimelineTool.Controls.Add(pnlToolButtons);
+        pnlEditTimelineTool.Dock = DockStyle.Top;
+        pnlEditTimelineTool.Location = new Point(0, 35);
+        pnlEditTimelineTool.Name = "pnlEditTimelineTool";
+        pnlEditTimelineTool.Size = new Size(984, 55);
+        pnlEditTimelineTool.TabIndex = 0;
         // 
-        // panel2
+        // pnlTimelineDates
         // 
-        panel2.BackColor = Color.Transparent;
-        panel2.Controls.Add(fromLbl);
-        panel2.Controls.Add(timelineEndDatePicker);
-        panel2.Controls.Add(label1);
-        panel2.Controls.Add(timelineStartDatePicker);
-        panel2.Dock = DockStyle.Right;
-        panel2.Location = new Point(601, 0);
-        panel2.Name = "panel2";
-        panel2.Size = new Size(383, 55);
-        panel2.TabIndex = 5;
+        pnlTimelineDates.BackColor = Color.Transparent;
+        pnlTimelineDates.Controls.Add(lblStartingDate);
+        pnlTimelineDates.Controls.Add(pckEndDate);
+        pnlTimelineDates.Controls.Add(lblEndingDate);
+        pnlTimelineDates.Controls.Add(pckStartDate);
+        pnlTimelineDates.Dock = DockStyle.Right;
+        pnlTimelineDates.Location = new Point(601, 0);
+        pnlTimelineDates.Name = "pnlTimelineDates";
+        pnlTimelineDates.Size = new Size(383, 55);
+        pnlTimelineDates.TabIndex = 5;
         // 
-        // fromLbl
+        // lblStartingDate
         // 
-        fromLbl.AutoSize = true;
-        fromLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        fromLbl.Location = new Point(4, 1);
-        fromLbl.Name = "fromLbl";
-        fromLbl.Size = new Size(84, 22);
-        fromLbl.TabIndex = 0;
-        fromLbl.Text = "Starting Date";
-        fromLbl.TextAlign = ContentAlignment.MiddleCenter;
+        lblStartingDate.AutoSize = true;
+        lblStartingDate.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        lblStartingDate.Location = new Point(4, 1);
+        lblStartingDate.Name = "lblStartingDate";
+        lblStartingDate.Size = new Size(84, 22);
+        lblStartingDate.TabIndex = 0;
+        lblStartingDate.Text = "Starting Date";
+        lblStartingDate.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // timelineEndDatePicker
+        // pckEndDate
         // 
-        timelineEndDatePicker.CustomFormat = "MMM dd, yyyy";
-        timelineEndDatePicker.Format = DateTimePickerFormat.Custom;
-        timelineEndDatePicker.Location = new Point(178, 23);
-        timelineEndDatePicker.Margin = new Padding(0);
-        timelineEndDatePicker.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
-        timelineEndDatePicker.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
-        timelineEndDatePicker.Name = "timelineEndDatePicker";
-        timelineEndDatePicker.RightToLeft = RightToLeft.No;
-        timelineEndDatePicker.Size = new Size(120, 29);
-        timelineEndDatePicker.TabIndex = 2;
-        timelineEndDatePicker.TabStop = false;
-        timelineEndDatePicker.ValueChanged += timelineEndDatePicker_ValueChanged;
+        pckEndDate.CustomFormat = "MMM dd, yyyy";
+        pckEndDate.Format = DateTimePickerFormat.Custom;
+        pckEndDate.Location = new Point(178, 23);
+        pckEndDate.Margin = new Padding(0);
+        pckEndDate.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
+        pckEndDate.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
+        pckEndDate.Name = "pckEndDate";
+        pckEndDate.RightToLeft = RightToLeft.No;
+        pckEndDate.Size = new Size(120, 29);
+        pckEndDate.TabIndex = 2;
+        pckEndDate.TabStop = false;
+        pckEndDate.ValueChanged += pckEndDate_ValueChanged;
         // 
-        // label1
+        // lblEndingDate
         // 
-        label1.AutoSize = true;
-        label1.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        label1.Location = new Point(175, 1);
-        label1.Name = "label1";
-        label1.Size = new Size(77, 22);
-        label1.TabIndex = 0;
-        label1.Text = "Ending Date";
-        label1.TextAlign = ContentAlignment.MiddleCenter;
+        lblEndingDate.AutoSize = true;
+        lblEndingDate.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        lblEndingDate.Location = new Point(175, 1);
+        lblEndingDate.Name = "lblEndingDate";
+        lblEndingDate.Size = new Size(77, 22);
+        lblEndingDate.TabIndex = 0;
+        lblEndingDate.Text = "Ending Date";
+        lblEndingDate.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // timelineStartDatePicker
+        // pckStartDate
         // 
-        timelineStartDatePicker.CustomFormat = "MMM dd, yyyy";
-        timelineStartDatePicker.Format = DateTimePickerFormat.Custom;
-        timelineStartDatePicker.Location = new Point(8, 23);
-        timelineStartDatePicker.Margin = new Padding(0);
-        timelineStartDatePicker.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
-        timelineStartDatePicker.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
-        timelineStartDatePicker.Name = "timelineStartDatePicker";
-        timelineStartDatePicker.RightToLeft = RightToLeft.No;
-        timelineStartDatePicker.Size = new Size(120, 29);
-        timelineStartDatePicker.TabIndex = 1;
-        timelineStartDatePicker.TabStop = false;
-        timelineStartDatePicker.ValueChanged += timelineStartDatePicker_ValueChanged;
+        pckStartDate.CustomFormat = "MMM dd, yyyy";
+        pckStartDate.Format = DateTimePickerFormat.Custom;
+        pckStartDate.Location = new Point(8, 23);
+        pckStartDate.Margin = new Padding(0);
+        pckStartDate.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
+        pckStartDate.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
+        pckStartDate.Name = "pckStartDate";
+        pckStartDate.RightToLeft = RightToLeft.No;
+        pckStartDate.Size = new Size(120, 29);
+        pckStartDate.TabIndex = 1;
+        pckStartDate.TabStop = false;
+        pckStartDate.ValueChanged += pckStartDate_ValueChanged;
         // 
-        // panel1
+        // pnlToolButtons
         // 
-        panel1.BackColor = Color.Transparent;
-        panel1.Controls.Add(deleteBtn);
-        panel1.Controls.Add(addRowBtn);
-        panel1.Controls.Add(saveBtn);
-        panel1.Dock = DockStyle.Left;
-        panel1.Location = new Point(0, 0);
-        panel1.Name = "panel1";
-        panel1.Size = new Size(226, 55);
-        panel1.TabIndex = 4;
+        pnlToolButtons.BackColor = Color.Transparent;
+        pnlToolButtons.Controls.Add(btnDelete);
+        pnlToolButtons.Controls.Add(btnAddRow);
+        pnlToolButtons.Controls.Add(btnSave);
+        pnlToolButtons.Dock = DockStyle.Left;
+        pnlToolButtons.Location = new Point(0, 0);
+        pnlToolButtons.Name = "pnlToolButtons";
+        pnlToolButtons.Size = new Size(226, 55);
+        pnlToolButtons.TabIndex = 4;
         // 
-        // deleteBtn
+        // btnDelete
         // 
-        deleteBtn.BackColor = Color.FromArgb(15, 76, 129);
-        deleteBtn.FlatAppearance.BorderSize = 0;
-        deleteBtn.FlatStyle = FlatStyle.Flat;
-        deleteBtn.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
-        deleteBtn.ForeColor = Color.White;
-        deleteBtn.Location = new Point(152, 13);
-        deleteBtn.Name = "deleteBtn";
-        deleteBtn.Size = new Size(65, 30);
-        deleteBtn.TabIndex = 3;
-        deleteBtn.TabStop = false;
-        deleteBtn.Text = "Delete";
-        deleteBtn.UseVisualStyleBackColor = false;
-        deleteBtn.Click += deleteBtn_Click;
+        btnDelete.BackColor = Color.FromArgb(15, 76, 129);
+        btnDelete.FlatAppearance.BorderSize = 0;
+        btnDelete.FlatStyle = FlatStyle.Flat;
+        btnDelete.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
+        btnDelete.ForeColor = Color.White;
+        btnDelete.Location = new Point(152, 13);
+        btnDelete.Name = "btnDelete";
+        btnDelete.Size = new Size(65, 30);
+        btnDelete.TabIndex = 3;
+        btnDelete.TabStop = false;
+        btnDelete.Text = "Delete";
+        btnDelete.UseVisualStyleBackColor = false;
+        btnDelete.Click += btnDelete_Click;
         // 
-        // addRowBtn
+        // btnAddRow
         // 
-        addRowBtn.BackColor = Color.FromArgb(15, 76, 129);
-        addRowBtn.FlatAppearance.BorderSize = 0;
-        addRowBtn.FlatStyle = FlatStyle.Flat;
-        addRowBtn.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
-        addRowBtn.ForeColor = Color.White;
-        addRowBtn.Location = new Point(10, 13);
-        addRowBtn.Name = "addRowBtn";
-        addRowBtn.Size = new Size(65, 30);
-        addRowBtn.TabIndex = 0;
-        addRowBtn.TabStop = false;
-        addRowBtn.Text = "Add Row";
-        addRowBtn.UseVisualStyleBackColor = false;
-        addRowBtn.Click += addRowBtn_Click;
+        btnAddRow.BackColor = Color.FromArgb(15, 76, 129);
+        btnAddRow.FlatAppearance.BorderSize = 0;
+        btnAddRow.FlatStyle = FlatStyle.Flat;
+        btnAddRow.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
+        btnAddRow.ForeColor = Color.White;
+        btnAddRow.Location = new Point(10, 13);
+        btnAddRow.Name = "btnAddRow";
+        btnAddRow.Size = new Size(65, 30);
+        btnAddRow.TabIndex = 0;
+        btnAddRow.TabStop = false;
+        btnAddRow.Text = "Add Row";
+        btnAddRow.UseVisualStyleBackColor = false;
+        btnAddRow.Click += btnAddRow_Click;
         // 
-        // saveBtn
+        // btnSave
         // 
-        saveBtn.BackColor = Color.FromArgb(15, 76, 129);
-        saveBtn.FlatAppearance.BorderSize = 0;
-        saveBtn.FlatStyle = FlatStyle.Flat;
-        saveBtn.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
-        saveBtn.ForeColor = Color.White;
-        saveBtn.Location = new Point(81, 13);
-        saveBtn.Name = "saveBtn";
-        saveBtn.Size = new Size(65, 30);
-        saveBtn.TabIndex = 0;
-        saveBtn.TabStop = false;
-        saveBtn.Text = "Save";
-        saveBtn.UseVisualStyleBackColor = false;
-        saveBtn.Click += saveBtn_Click;
+        btnSave.BackColor = Color.FromArgb(15, 76, 129);
+        btnSave.FlatAppearance.BorderSize = 0;
+        btnSave.FlatStyle = FlatStyle.Flat;
+        btnSave.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
+        btnSave.ForeColor = Color.White;
+        btnSave.Location = new Point(81, 13);
+        btnSave.Name = "btnSave";
+        btnSave.Size = new Size(65, 30);
+        btnSave.TabIndex = 0;
+        btnSave.TabStop = false;
+        btnSave.Text = "Save";
+        btnSave.UseVisualStyleBackColor = false;
+        btnSave.Click += btnSave_Click;
         // 
-        // EditEvent
+        // EditTimeline
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
         AutoScroll = true;
         BackColor = Color.White;
         ClientSize = new Size(984, 511);
-        Controls.Add(eventInfoPanel);
-        Controls.Add(eventsInfoTLPanel);
-        Controls.Add(addSavePanel);
-        Controls.Add(timelineTabPanel);
+        Controls.Add(pnlEventRows);
+        Controls.Add(pnlColumnLabels);
+        Controls.Add(pnlEditTimelineTool);
+        Controls.Add(pnlTimelineTabs);
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         Margin = new Padding(3, 4, 3, 4);
-        Name = "EditEvent";
+        Name = "EditTimeline";
         StartPosition = FormStartPosition.CenterParent;
-        Text = "Edit Event";
+        Text = "Edit Timeline";
         Load += EditEvent_Load;
-        timelineTabPanel.ResumeLayout(false);
-        eventsInfoTLPanel.ResumeLayout(false);
-        eventsInfoTLPanel.PerformLayout();
-        addSavePanel.ResumeLayout(false);
-        panel2.ResumeLayout(false);
-        panel2.PerformLayout();
-        panel1.ResumeLayout(false);
+        pnlTimelineTabs.ResumeLayout(false);
+        pnlColumnLabels.ResumeLayout(false);
+        pnlColumnLabels.PerformLayout();
+        pnlEditTimelineTool.ResumeLayout(false);
+        pnlTimelineDates.ResumeLayout(false);
+        pnlTimelineDates.PerformLayout();
+        pnlToolButtons.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
 
     #endregion
-    private Button addTabBtn;
-    private TableLayoutPanel eventsInfoTLPanel;
-    private Label eventTitleHeader;
-    private Label eventStartDateHeader;
-    private Label eventDescriptionHeader;
-    private Label eventColorHeader;
-    private Label eventEndDateHeader;
-    internal Panel timelineTabPanel;
-    internal Panel eventInfoPanel;
-    private Panel addSavePanel;
-    private Button addRowBtn;
-    private Button saveBtn;
-    private Label fromLbl;
-    private DateTimePicker timelineStartDatePicker;
-    private Label label1;
-    private DateTimePicker timelineEndDatePicker;
-    private Button deleteBtn;
-    private Panel panel2;
-    private Panel panel1;
+    private Button btnAddTab;
+    private TableLayoutPanel pnlColumnLabels;
+    private Label lblTitle;
+    private Label lblStartDate;
+    private Label lblDescription;
+    private Label lblColor;
+    private Label lblEndDate;
+    internal Panel pnlTimelineTabs;
+    internal Panel pnlEventRows;
+    private Panel pnlEditTimelineTool;
+    private Button btnAddRow;
+    private Button btnSave;
+    private Label lblStartingDate;
+    private DateTimePicker pckStartDate;
+    private Label lblEndingDate;
+    private DateTimePicker pckEndDate;
+    private Button btnDelete;
+    private Panel pnlTimelineDates;
+    private Panel pnlToolButtons;
 }

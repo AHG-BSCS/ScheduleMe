@@ -4,14 +4,14 @@ namespace ScheduleMe.Tab;
 
 public partial class EditTimelineTab : UserControl
 {
-    public ObjectId Id { get; set; }    // Reference Id from the database
-    public EditTimeline editEventInstance; // Instance that created this UserControl
+    public ObjectId Id { get; set; }
+    public EditTimeline editEventInstance;
     public event EventHandler<ToolStripItemClickedEventArgs> AddOption_ItemClicked;
     public event EventHandler<ToolStripItemClickedEventArgs> DeleteOption_ItemClicked;
 
     public string tabName
     {
-        set { timelineTabBtn.Text = value; }
+        set { btnEditTimelineTab.Text = value; }
     }
 
     public EditTimelineTab()
@@ -21,21 +21,21 @@ public partial class EditTimelineTab : UserControl
 
     private void HighlightButton()
     {
-        editEventInstance.eventInfoPanel.Controls.Clear();
-        foreach (EditTimelineTab tab in editEventInstance.timelineTabPanel.Controls)
+        editEventInstance.pnlEventRows.Controls.Clear();
+        foreach (EditTimelineTab tab in editEventInstance.pnlTimelineTabs.Controls)
         {
             if (editEventInstance.CurrentID == tab.Id)
             {
-                tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
-                tab.timelineTabBtn.ForeColor = Color.White;
+                tab.btnEditTimelineTab.BackColor = Color.FromArgb(15, 76, 129);
+                tab.btnEditTimelineTab.ForeColor = Color.White;
                 break;
             }
         }
-        timelineTabBtn.BackColor = Color.White;
-        timelineTabBtn.ForeColor = Color.Black;
+        btnEditTimelineTab.BackColor = Color.White;
+        btnEditTimelineTab.ForeColor = Color.Black;
     }
 
-    private void eventTab_Click(object sender, EventArgs e)
+    private void btnEditTimelineTab_Click(object sender, EventArgs e)
     {
         if (editEventInstance.CurrentID != Id)
         {
@@ -47,14 +47,14 @@ public partial class EditTimelineTab : UserControl
         }
     }
 
-    private void editEventTabMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+    private void mnuEditTimelineTab_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {
-        if (e.ClickedItem == addOption)
+        if (e.ClickedItem == mnuAdd)
         {
             AddOption_ItemClicked?.Invoke(this, e);
         }
 
-        else if (e.ClickedItem == deleteOption)
+        else if (e.ClickedItem == mnuDelete)
         {
             editEventInstance.PreviousID = editEventInstance.CurrentID;
             editEventInstance.CurrentID = Id;
@@ -62,4 +62,5 @@ public partial class EditTimelineTab : UserControl
             this.Dispose();
         }
     }
+
 }

@@ -28,51 +28,51 @@ partial class Message
     /// </summary>
     private void InitializeComponent()
     {
-        messageLbl = new Label();
-        okBtn = new Button();
-        btnPanel = new Panel();
-        btnPanel.SuspendLayout();
+        lblMessage = new Label();
+        btnOk = new Button();
+        pnlSpace = new Panel();
+        pnlSpace.SuspendLayout();
         SuspendLayout();
         // 
-        // messageLbl
+        // lblMessage
         // 
-        messageLbl.Dock = DockStyle.Top;
-        messageLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        messageLbl.ForeColor = Color.White;
-        messageLbl.Location = new Point(0, 5);
-        messageLbl.Name = "messageLbl";
-        messageLbl.Size = new Size(145, 22);
-        messageLbl.TabIndex = 1;
-        messageLbl.Text = "Message";
-        messageLbl.TextAlign = ContentAlignment.MiddleCenter;
+        lblMessage.Dock = DockStyle.Top;
+        lblMessage.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        lblMessage.ForeColor = Color.White;
+        lblMessage.Location = new Point(0, 5);
+        lblMessage.Name = "lblMessage";
+        lblMessage.Size = new Size(145, 22);
+        lblMessage.TabIndex = 1;
+        lblMessage.Text = "Message";
+        lblMessage.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // okBtn
+        // btnOk
         // 
-        okBtn.BackColor = Color.White;
-        okBtn.Dock = DockStyle.Fill;
-        okBtn.FlatAppearance.BorderSize = 0;
-        okBtn.FlatStyle = FlatStyle.Flat;
-        okBtn.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        okBtn.Location = new Point(40, 0);
-        okBtn.Margin = new Padding(0);
-        okBtn.Name = "okBtn";
-        okBtn.Size = new Size(65, 30);
-        okBtn.TabIndex = 0;
-        okBtn.TabStop = false;
-        okBtn.Text = "Ok";
-        okBtn.UseVisualStyleBackColor = false;
-        okBtn.Click += okBtn_Click;
+        btnOk.BackColor = Color.White;
+        btnOk.Dock = DockStyle.Fill;
+        btnOk.FlatAppearance.BorderSize = 0;
+        btnOk.FlatStyle = FlatStyle.Flat;
+        btnOk.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        btnOk.Location = new Point(40, 0);
+        btnOk.Margin = new Padding(0);
+        btnOk.Name = "btnOk";
+        btnOk.Size = new Size(65, 30);
+        btnOk.TabIndex = 0;
+        btnOk.TabStop = false;
+        btnOk.Text = "Ok";
+        btnOk.UseVisualStyleBackColor = false;
+        btnOk.Click += btnOk_Click;
         // 
-        // btnPanel
+        // pnlSpace
         // 
-        btnPanel.BackColor = Color.Transparent;
-        btnPanel.Controls.Add(okBtn);
-        btnPanel.Dock = DockStyle.Bottom;
-        btnPanel.Location = new Point(0, 41);
-        btnPanel.Name = "btnPanel";
-        btnPanel.Padding = new Padding(40, 0, 40, 0);
-        btnPanel.Size = new Size(145, 30);
-        btnPanel.TabIndex = 0;
+        pnlSpace.BackColor = Color.Transparent;
+        pnlSpace.Controls.Add(btnOk);
+        pnlSpace.Dock = DockStyle.Bottom;
+        pnlSpace.Location = new Point(0, 41);
+        pnlSpace.Name = "pnlSpace";
+        pnlSpace.Padding = new Padding(40, 0, 40, 0);
+        pnlSpace.Size = new Size(145, 30);
+        pnlSpace.TabIndex = 0;
         // 
         // Message
         // 
@@ -81,19 +81,19 @@ partial class Message
         AutoSize = true;
         BackColor = SystemColors.ControlDarkDark;
         ClientSize = new Size(145, 79);
-        Controls.Add(btnPanel);
-        Controls.Add(messageLbl);
+        Controls.Add(pnlSpace);
+        Controls.Add(lblMessage);
         FormBorderStyle = FormBorderStyle.None;
         Name = "Message";
         Padding = new Padding(0, 5, 0, 8);
         StartPosition = FormStartPosition.CenterParent;
-        btnPanel.ResumeLayout(false);
+        pnlSpace.ResumeLayout(false);
         ResumeLayout(false);
     }
 
     #endregion
 
-    private Label messageLbl;
-    private Button okBtn;
-    private Panel btnPanel;
+    private Label lblMessage;
+    private Button btnOk;
+    private Panel pnlSpace;
 }

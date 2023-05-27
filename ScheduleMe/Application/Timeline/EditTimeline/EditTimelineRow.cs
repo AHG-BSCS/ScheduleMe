@@ -9,7 +9,7 @@ public partial class EditTimelineRow : UserControl
         InitializeComponent();
     }
 
-    internal Event eventInfo; // Fix the access modifier
+    internal Event eventInfo;
     public ObjectId Id { get; set; }
     public ushort Index { get; set; }
     public DateTime MinDate { get; set; }
@@ -17,39 +17,39 @@ public partial class EditTimelineRow : UserControl
 
     public string Title
     {
-        get { return titleTBox.Text; }
-        set { titleTBox.Text = value; }
+        get { return txtTitle.Text; }
+        set { txtTitle.Text = value; }
     }
 
     public string Description
     {
-        get { return descriptionTBox.Text; }
-        set { descriptionTBox.Text = value; }
+        get { return txtDescription.Text; }
+        set { txtDescription.Text = value; }
     }
 
     public DateTime StartDate
     {
-        get { return startDatePicker.Value; }
-        set { startDatePicker.Value = value; }
+        get { return pckStartDate.Value; }
+        set { pckStartDate.Value = value; }
     }
 
     public DateTime EndDate
     {
-        get { return endDatePicker.Value; }
-        set { endDatePicker.Value = value; }
+        get { return pckEndDate.Value; }
+        set { pckEndDate.Value = value; }
     }
 
     public int Colour
     {
-        get { return colorPickerBtn.BackColor.ToArgb(); }
-        set { colorPickerBtn.BackColor = Color.FromArgb(value); }
+        get { return btnColorPicker.BackColor.ToArgb(); }
+        set { btnColorPicker.BackColor = Color.FromArgb(value); }
     }
 
-    private void colorPickerBtn_Click(object sender, EventArgs e)
+    private void btnColorPicker_Click(object sender, EventArgs e)
     {
-        colorDialog.ShowDialog();
-        colorPickerBtn.BackColor = colorDialog.Color;
-        colorDialog.Dispose();
+        colEventColor.ShowDialog();
+        btnColorPicker.BackColor = colEventColor.Color;
+        colEventColor.Dispose();
     }
 
     internal Event GetRowInfo()
@@ -72,9 +72,9 @@ public partial class EditTimelineRow : UserControl
         Colour = eventInfo.EventColor;
     }
 
-    private void rowMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+    private void mnuEventRow_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {
-        if (e.ClickedItem == deleteOption && Id != null)
+        if (e.ClickedItem == mnuDelete && Id != null)
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
@@ -85,31 +85,32 @@ public partial class EditTimelineRow : UserControl
                 timelines.Update(timeline);
 
                 // Reload the timeline
-                editEvent.eventInfoPanel.Controls.Clear();
+                editEvent.pnlEventRows.Controls.Clear();
                 editEvent.PopulateRows(timeline);
             }
-            new Message(titleTBox.Text + " is Deleted");
+            new Message(txtTitle.Text + " is Deleted");
             this.Dispose();
         }
         else
             new Message("Can't be found. Please save first.");
     }
 
-    private void startDatePicker_ValueChanged(object sender, EventArgs e)
+    private void pckStartDate_ValueChanged(object sender, EventArgs e)
     {
-        if (startDatePicker.Value < MinDate || startDatePicker.Value > MaxDate)
-            startDatePicker.Value = MinDate;
+        if (pckStartDate.Value < MinDate || pckStartDate.Value > MaxDate)
+            pckStartDate.Value = MinDate;
 
-        if (startDatePicker.Value > endDatePicker.Value)
-            startDatePicker.Value = endDatePicker.Value;
+        if (pckStartDate.Value > pckEndDate.Value)
+            pckStartDate.Value = pckEndDate.Value;
     }
 
-    private void endDatePicker_ValueChanged(object sender, EventArgs e)
+    private void pckEndDate_ValueChanged(object sender, EventArgs e)
     {
-        if (endDatePicker.Value > MaxDate || endDatePicker.Value < MinDate)
-            endDatePicker.Value = MaxDate;
+        if (pckEndDate.Value > MaxDate || pckEndDate.Value < MinDate)
+            pckEndDate.Value = MaxDate;
 
-        if (endDatePicker.Value < startDatePicker.Value)
-            endDatePicker.Value = startDatePicker.Value;
+        if (pckEndDate.Value < pckStartDate.Value)
+            pckEndDate.Value = pckStartDate.Value;
     }
+
 }

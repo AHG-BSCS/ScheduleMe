@@ -5,12 +5,13 @@ public partial class Message : Form
     public Message(string text)
     {
         InitializeComponent();
-        messageLbl.Text = text;
+        lblMessage.Text = text;
         this.ShowDialog();
     }
 
-    private void okBtn_Click(object sender, EventArgs e)
+    private void btnOk_Click(object sender, EventArgs e)
     {
         this.Dispose();
     }
+
 }

@@ -28,73 +28,73 @@ partial class EditTimelineTab
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
-        timelineTabBtn = new Button();
-        editEventTabMenu = new ContextMenuStrip(components);
-        addOption = new ToolStripMenuItem();
-        deleteOption = new ToolStripMenuItem();
-        editEventTabMenu.SuspendLayout();
+        btnEditTimelineTab = new Button();
+        mnuEditTimelineTab = new ContextMenuStrip(components);
+        mnuAdd = new ToolStripMenuItem();
+        mnuDelete = new ToolStripMenuItem();
+        mnuEditTimelineTab.SuspendLayout();
         SuspendLayout();
         // 
-        // timelineTabBtn
+        // btnEditTimelineTab
         // 
-        timelineTabBtn.AutoSize = true;
-        timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
-        timelineTabBtn.ContextMenuStrip = editEventTabMenu;
-        timelineTabBtn.Dock = DockStyle.Fill;
-        timelineTabBtn.FlatAppearance.BorderColor = Color.White;
-        timelineTabBtn.FlatAppearance.BorderSize = 0;
-        timelineTabBtn.FlatStyle = FlatStyle.Flat;
-        timelineTabBtn.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        timelineTabBtn.ForeColor = Color.White;
-        timelineTabBtn.Location = new Point(0, 0);
-        timelineTabBtn.Margin = new Padding(0);
-        timelineTabBtn.Name = "timelineTabBtn";
-        timelineTabBtn.Size = new Size(72, 36);
-        timelineTabBtn.TabIndex = 0;
-        timelineTabBtn.TabStop = false;
-        timelineTabBtn.Text = "New Tab";
-        timelineTabBtn.UseVisualStyleBackColor = false;
-        timelineTabBtn.Click += eventTab_Click;
+        btnEditTimelineTab.AutoSize = true;
+        btnEditTimelineTab.BackColor = Color.FromArgb(15, 76, 129);
+        btnEditTimelineTab.ContextMenuStrip = mnuEditTimelineTab;
+        btnEditTimelineTab.Dock = DockStyle.Fill;
+        btnEditTimelineTab.FlatAppearance.BorderColor = Color.White;
+        btnEditTimelineTab.FlatAppearance.BorderSize = 0;
+        btnEditTimelineTab.FlatStyle = FlatStyle.Flat;
+        btnEditTimelineTab.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        btnEditTimelineTab.ForeColor = Color.White;
+        btnEditTimelineTab.Location = new Point(0, 0);
+        btnEditTimelineTab.Margin = new Padding(0);
+        btnEditTimelineTab.Name = "btnEditTimelineTab";
+        btnEditTimelineTab.Size = new Size(72, 36);
+        btnEditTimelineTab.TabIndex = 0;
+        btnEditTimelineTab.TabStop = false;
+        btnEditTimelineTab.Text = "New Tab";
+        btnEditTimelineTab.UseVisualStyleBackColor = false;
+        btnEditTimelineTab.Click += btnEditTimelineTab_Click;
         // 
-        // editEventTabMenu
+        // mnuEditTimelineTab
         // 
-        editEventTabMenu.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
-        editEventTabMenu.Items.AddRange(new ToolStripItem[] { addOption, deleteOption });
-        editEventTabMenu.Name = "timelineOption";
-        editEventTabMenu.Size = new Size(116, 56);
-        editEventTabMenu.Text = "Option";
-        editEventTabMenu.ItemClicked += editEventTabMenu_ItemClicked;
+        mnuEditTimelineTab.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        mnuEditTimelineTab.Items.AddRange(new ToolStripItem[] { mnuAdd, mnuDelete });
+        mnuEditTimelineTab.Name = "timelineOption";
+        mnuEditTimelineTab.Size = new Size(116, 56);
+        mnuEditTimelineTab.Text = "Option";
+        mnuEditTimelineTab.ItemClicked += mnuEditTimelineTab_ItemClicked;
         // 
-        // addOption
+        // mnuAdd
         // 
-        addOption.Name = "addOption";
-        addOption.Size = new Size(115, 26);
-        addOption.Text = "Add";
+        mnuAdd.Name = "mnuAdd";
+        mnuAdd.Size = new Size(115, 26);
+        mnuAdd.Text = "Add";
         // 
-        // deleteOption
+        // mnuDelete
         // 
-        deleteOption.Name = "deleteOption";
-        deleteOption.Size = new Size(115, 26);
-        deleteOption.Text = "Delete";
+        mnuDelete.Name = "mnuDelete";
+        mnuDelete.Size = new Size(115, 26);
+        mnuDelete.Text = "Delete";
         // 
-        // EditEventTab
+        // EditTimelineTab
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
         AutoSize = true;
         BackColor = Color.Transparent;
-        Controls.Add(timelineTabBtn);
+        Controls.Add(btnEditTimelineTab);
         Margin = new Padding(0);
-        Name = "EditEventTab";
+        Name = "EditTimelineTab";
         Size = new Size(72, 36);
-        editEventTabMenu.ResumeLayout(false);
+        mnuEditTimelineTab.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
 
     #endregion
-    private ContextMenuStrip editEventTabMenu;
-    private ToolStripMenuItem addOption;
-    private ToolStripMenuItem deleteOption;
-    public Button timelineTabBtn;
+    private ContextMenuStrip mnuEditTimelineTab;
+    private ToolStripMenuItem mnuAdd;
+    private ToolStripMenuItem mnuDelete;
+    public Button btnEditTimelineTab;
 }
