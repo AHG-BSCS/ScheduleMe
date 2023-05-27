@@ -21,10 +21,15 @@ public partial class EventButton : UserControl
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
+                TimelineMain timelineMain = (TimelineMain)this.Parent.Parent;
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 var timeline = timelines.FindById(Id);
                 timeline.Events.RemoveAt(Index);
                 timelines.Update(timeline);
+
+                // Reload the timeline
+                timelineMain.panelTimelineContainer.Controls.Clear();
+                timelineMain.PopulateTimeline(timeline);
             }
             new Message(eventName.Text + " is Deleted");
             this.Dispose();
