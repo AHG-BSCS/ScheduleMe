@@ -73,7 +73,10 @@ public partial class TimelineTab : UserControl
                     timelineInstance.PopulateEvents(timelineTabs.Events, timelineTabs.TimelineStartDate, timelineTabs.Id);
                 }
                 else
+                {
                     timelineInstance.panelTimelineContainer.Height = 130;
+                    timelineInstance.Height = timelineInstance.panelTimelineContainer.Height + 35;
+                }
 
                 timelineInstance.PopulateDates(timelineTabs.TimelineStartDate, timelineTabs.TimelineEndDate);
                 timelineInstance.currentID = Id;
@@ -117,7 +120,10 @@ public partial class TimelineTab : UserControl
                                     timelineInstance.PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate, firstToLoad.Id);
                                 }
                                 else
+                                {
                                     timelineInstance.panelTimelineContainer.Height = 130;
+                                    timelineInstance.Height = timelineInstance.panelTimelineContainer.Height + 35;
+                                }
                                 timelineInstance.PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
                             }
                         }

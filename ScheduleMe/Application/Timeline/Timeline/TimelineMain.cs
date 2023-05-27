@@ -42,7 +42,10 @@ public partial class TimelineMain : Form
                     PopulateEvents(timelineTab.Events, timelineTab.TimelineStartDate, timelineTab.Id);
                 }
                 else
+                {
                     panelTimelineContainer.Height = 130;
+                    Height = panelTimelineContainer.Height + 35;
+                }
                 PopulateDates(timelineTab.TimelineStartDate, timelineTab.TimelineEndDate);
             }
         }
@@ -74,7 +77,10 @@ public partial class TimelineMain : Form
                     PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate, firstToLoad.Id);
                 }
                 else
+                {
                     panelTimelineContainer.Height = 130;
+                    Height = panelTimelineContainer.Height + 35;
+                }
                 PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
             }
         }
@@ -170,6 +176,7 @@ public partial class TimelineMain : Form
             StackEvents(newEvent, ref lowestBottom);
         }
         panelTimelineContainer.Height = lowestBottom + 30;
+        Height = panelTimelineContainer.Height + 35;
     }
 
     private void StackEvents(EventButton newEvent, ref int lowestBottom)
@@ -252,6 +259,7 @@ public partial class TimelineMain : Form
                 addNewTab(newtTab.TimelineName, newtTab.Id);
                 panelTimelineContainer.Controls.Clear();
                 panelTimelineContainer.Height = 130;
+                Height = panelTimelineContainer.Height + 35;
                 PopulateDates(newtTab.TimelineStartDate, newtTab.TimelineEndDate);
             }
         }
@@ -288,7 +296,10 @@ public partial class TimelineMain : Form
                             PopulateEvents(tab.Events, tab.TimelineStartDate, tab.Id);
                         }
                         else
+                        {
                             panelTimelineContainer.Height = 130;
+                            Height = panelTimelineContainer.Height + 35;
+                        }
 
                         PopulateDates(tab.TimelineStartDate, tab.TimelineEndDate);
                     }
@@ -337,7 +348,10 @@ public partial class TimelineMain : Form
                             PopulateEvents(timelineTab.Events, timelineTab.TimelineStartDate, timelineTab.Id);
                         }
                         else
+                        {
                             panelTimelineContainer.Height = 130;
+                            Height = panelTimelineContainer.Height + 35;
+                        }
 
                         PopulateDates(timelineTab.TimelineStartDate, timelineTab.TimelineEndDate);
                     }

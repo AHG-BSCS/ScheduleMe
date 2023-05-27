@@ -11,8 +11,6 @@ namespace ScheduleMe
         private static Timetable timetable;
         private static Note note;
         private static Weather weather;
-        private static Setting setting;
-        private static About about;
         private Button previousButton = new Button();
 
         public Color accentColor = Color.FromArgb(15, 76, 129);

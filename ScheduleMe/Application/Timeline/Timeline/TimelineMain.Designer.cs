@@ -145,7 +145,6 @@ partial class TimelineMain
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
-        AutoSize = true;
         BackColor = Color.White;
         ClientSize = new Size(850, 35);
         Controls.Add(panelTimelineContainer);
