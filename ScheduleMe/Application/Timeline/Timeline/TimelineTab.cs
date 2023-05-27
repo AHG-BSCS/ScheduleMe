@@ -148,8 +148,10 @@ public partial class TimelineTab : UserControl
         }
         else if (e.ClickedItem == openAtBottomOption)
         {
+            timelineInstance.PreviousID = timelineInstance.currentID;
             timelineInstance.currentID = Id;
             OpenAtBottomOption_ItemClicked?.Invoke(this, e);
+            timelineInstance.PreviousID = null;
         }
         else
             TimelineTabMenu_ItemClicked?.Invoke(this, e);

@@ -5,6 +5,7 @@ namespace ScheduleMe.Tab;
 public partial class TimelineMain : Form
 {
     public ObjectId currentID { get; set; }
+    public ObjectId PreviousID { get; set; }
     private List<ObjectId> _eventIds = new List<ObjectId>();
     private byte columnSize = 42;
     private short currentDateTimePosition = 0;
@@ -339,7 +340,19 @@ public partial class TimelineMain : Form
                     using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
                     {
                         var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                        var timelineTab = timelines.FindById(tab.Id);
+                        Timeline timelineTab;
+                        if (currentID != PreviousID && PreviousID != null)
+                        {
+                            timelineTab = timelines.FindById(PreviousID);
+                            currentID = PreviousID;
+                        }
+                        else
+                        {
+                            timelineTab = timelines.FindById(tab.Id);
+                            tab.timelineTabBtn.BackColor = Color.White;
+                            tab.timelineTabBtn.ForeColor = Color.Black;
+                            currentID = tab.Id;
+                        }
 
                         if (timelineTab.Events.Any())
                         {
@@ -352,12 +365,9 @@ public partial class TimelineMain : Form
                             panelTimelineContainer.Height = 130;
                             Height = panelTimelineContainer.Height + 35;
                         }
-
                         PopulateDates(timelineTab.TimelineStartDate, timelineTab.TimelineEndDate);
                     }
-                    tab.timelineTabBtn.BackColor = Color.White;
-                    tab.timelineTabBtn.ForeColor = Color.Black;
-                    currentID = tab.Id;
+                    
                     break;
                 }
             }
