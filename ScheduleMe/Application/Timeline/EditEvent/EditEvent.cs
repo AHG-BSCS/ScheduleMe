@@ -1,5 +1,4 @@
 ﻿using LiteDB;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ScheduleMe.Tab;
 
@@ -27,7 +26,7 @@ public partial class EditEvent : Form
         }
     }
 
-    public void LoadTimelineById(ObjectId id)
+    internal void LoadTimelineById(ObjectId id)
     {
         using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
@@ -48,13 +47,13 @@ public partial class EditEvent : Form
         }
     }
 
-    public void SetTimelineDateRange()
+    internal void SetTimelineDateRange()
     {
         timelineStartDatePicker.Value = MinDate;
         timelineEndDatePicker.Value = MaxDate;
     }
 
-    private void PopulateRows(Timeline timelineTab)
+    internal void PopulateRows(Timeline timelineTab)
     {
         for (ushort i = 0; i < timelineTab.Events.Count; i++)
         {

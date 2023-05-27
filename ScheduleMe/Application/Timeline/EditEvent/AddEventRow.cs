@@ -78,10 +78,15 @@ public partial class AddEventRow : UserControl
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
+                EditEvent editEvent = (EditEvent)this.Parent.Parent;
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 var timeline = timelines.FindById(Id);
                 timeline.Events.RemoveAt(Index);
                 timelines.Update(timeline);
+
+                // Reload the timeline
+                editEvent.eventInfoPanel.Controls.Clear();
+                editEvent.PopulateRows(timeline);
             }
             new Message(titleTBox.Text + " is Deleted");
             this.Dispose();
