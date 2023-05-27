@@ -63,22 +63,13 @@ namespace ScheduleMe
             }
         }
 
-        private void highlightButton(Button button)
+        private void HighlightAndShow(Button button, Form form)
         {
             button.BackColor = Color.White;
             button.ForeColor = Color.Black;
-        }
-
-        private void setting_FormClosedEvent(object sender, FormClosedEventArgs e)
-        {
-            btnSettingWindow.BackColor = sideNavPanel.BackColor;
-            btnSettingWindow.ForeColor = Color.White;
-        }
-
-        private void about_FormClosedEvent(object sender, FormClosedEventArgs e)
-        {
-            btnAboutWindow.BackColor = sideNavPanel.BackColor;
-            btnAboutWindow.ForeColor = Color.White;
+            form.ShowDialog();
+            button.BackColor = sideNavPanel.BackColor;
+            button.ForeColor = Color.White;
         }
 
         private void btnCalendarTab_Click(object sender, EventArgs e)
@@ -118,17 +109,17 @@ namespace ScheduleMe
 
         private void btnSettingWindow_Click(object sender, EventArgs e)
         {
-            showFormInstance(ref setting);
-            highlightButton(btnSettingWindow);
-            setting.FormClosedEvent += setting_FormClosedEvent;
+            HighlightAndShow(btnSettingWindow, new Setting());
         }
 
         private void btnAboutWindow_Click(object sender, EventArgs e)
         {
-            showFormInstance(ref about);
-            highlightButton(btnAboutWindow);
-            about.FormClosedEvent += about_FormClosedEvent;
+            HighlightAndShow(btnAboutWindow, new About());
         }
 
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Dispose();
+        }
     }
 }

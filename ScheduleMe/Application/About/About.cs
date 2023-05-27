@@ -9,17 +9,15 @@ namespace ScheduleMe.Tab
             InitializeComponent();
         }
 
-        public event EventHandler<FormClosedEventArgs> FormClosedEvent;
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string url = "https://github.com/AHG-BSCS1A/ScheduleMe";
             Process.Start(new ProcessStartInfo { FileName = url, UseShellExecute = true });
         }
 
-        private void About_FormClosed(object sender, FormClosedEventArgs e)
+        private void About_FormClosing(object sender, FormClosingEventArgs e)
         {
-            FormClosedEvent?.Invoke(this, e);
+            Dispose();
         }
     }
 }

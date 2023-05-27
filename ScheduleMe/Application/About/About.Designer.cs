@@ -115,7 +115,7 @@ partial class About
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
         BackColor = Color.White;
-        ClientSize = new Size(449, 196);
+        ClientSize = new Size(393, 196);
         Controls.Add(lblSection);
         Controls.Add(linklblGithub);
         Controls.Add(lblDeveloper);
@@ -127,10 +127,10 @@ partial class About
         FormBorderStyle = FormBorderStyle.FixedToolWindow;
         Icon = (Icon)resources.GetObject("$this.Icon");
         Name = "About";
-        StartPosition = FormStartPosition.CenterScreen;
+        StartPosition = FormStartPosition.CenterParent;
         Text = "About ScheduleMe";
         TopMost = true;
-        FormClosed += About_FormClosed;
+        FormClosing += About_FormClosing;
         ((System.ComponentModel.ISupportInitialize)logoScheduleMe).EndInit();
         ResumeLayout(false);
         PerformLayout();

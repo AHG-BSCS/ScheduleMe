@@ -45,7 +45,7 @@ partial class Setting
         // 
         checkBox1.AutoSize = true;
         checkBox1.Location = new Point(12, 50);
-        checkBox1.Margin = new Padding(2, 2, 2, 2);
+        checkBox1.Margin = new Padding(2);
         checkBox1.Name = "checkBox1";
         checkBox1.Size = new Size(84, 19);
         checkBox1.TabIndex = 2;
@@ -63,9 +63,10 @@ partial class Setting
         Controls.Add(label1);
         FormBorderStyle = FormBorderStyle.FixedToolWindow;
         Name = "Setting";
+        StartPosition = FormStartPosition.CenterParent;
         Text = "Setting";
         TopMost = true;
-        FormClosed += Setting_FormClosed;
+        FormClosing += Setting_FormClosing;
         ResumeLayout(false);
         PerformLayout();
     }
