@@ -26,7 +26,7 @@ public partial class TimelineTab : UserControl
         timelineInstance.panelTimelineContainer.Controls.Clear();
         foreach (TimelineTab tab in timelineInstance.panelTimelineTab.Controls)
         {
-            if (timelineInstance.currentID == tab.Id)
+            if (timelineInstance.CurrentID == tab.Id)
             {
                 tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
                 tab.timelineTabBtn.ForeColor = Color.White;
@@ -42,7 +42,7 @@ public partial class TimelineTab : UserControl
         timelineInstance.panelTimelineContainer.Controls.Clear();
         foreach (TimelineTab tab in timelineInstance.panelTimelineTab.Controls)
         {
-            if (timelineInstance.currentID == tab.Id)
+            if (timelineInstance.CurrentID == tab.Id)
             {
                 tab.timelineTabBtn.BackColor = Color.White;
                 tab.timelineTabBtn.ForeColor = Color.Black;
@@ -59,7 +59,7 @@ public partial class TimelineTab : UserControl
 
     private void timelineTabBtn_Click(object sender, EventArgs e)
     {
-        if (timelineInstance.currentID != Id)
+        if (timelineInstance.CurrentID != Id)
         {
             HighlightButton();
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
@@ -79,7 +79,7 @@ public partial class TimelineTab : UserControl
                 }
 
                 timelineInstance.PopulateDates(timelineTabs.TimelineStartDate, timelineTabs.TimelineEndDate);
-                timelineInstance.currentID = Id;
+                timelineInstance.CurrentID = Id;
             }
         }
     }
@@ -107,9 +107,9 @@ public partial class TimelineTab : UserControl
                     foreach (ObjectId id in timelineInstance.EventIds)
                     {
                         Timeline firstToLoad = timelines.FindById(id);
-                        if (timelineInstance.currentID == Id) // If this Id is deleted
+                        if (timelineInstance.CurrentID == Id) // If this Id is deleted
                         {
-                            timelineInstance.currentID = firstToLoad.Id;
+                            timelineInstance.CurrentID = firstToLoad.Id;
                             ReverseHighlight();
                             if (firstToLoad != null)
                             {
@@ -134,7 +134,7 @@ public partial class TimelineTab : UserControl
                     {
                         MainForm mainForm = (MainForm)this.ParentForm.ParentForm;
                         timelineInstance.panelTimelineContainer.Controls.Clear();
-                        timelineInstance.currentID = null;
+                        timelineInstance.CurrentID = null;
 
                         if (mainForm.tabPanel.Controls.Count > 1)
                         {
@@ -148,8 +148,8 @@ public partial class TimelineTab : UserControl
         }
         else if (e.ClickedItem == openAtBottomOption)
         {
-            timelineInstance.PreviousID = timelineInstance.currentID;
-            timelineInstance.currentID = Id;
+            timelineInstance.PreviousID = timelineInstance.CurrentID;
+            timelineInstance.CurrentID = Id;
             OpenAtBottomOption_ItemClicked?.Invoke(this, e);
             timelineInstance.PreviousID = null;
         }

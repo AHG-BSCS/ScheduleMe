@@ -268,7 +268,7 @@ public partial class EditEvent : Form
         EditEventTab disposeThis = new EditEventTab();
         eventInfoPanel.Controls.Clear();
 
-        foreach (EditEventTab tab in timelineTabPanel.Controls)
+        foreach (EditEventTab tab in timelineTabPanel.Controls.OfType<EditEventTab>())
         {
             if (CurrentID == tab.Id)
             {

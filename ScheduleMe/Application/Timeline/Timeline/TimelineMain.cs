@@ -4,7 +4,7 @@ namespace ScheduleMe.Tab;
 
 public partial class TimelineMain : Form
 {
-    public ObjectId currentID { get; set; }
+    public ObjectId CurrentID { get; set; }
     public ObjectId PreviousID { get; set; }
     private List<ObjectId> _eventIds = new List<ObjectId>();
     private byte columnSize = 42;
@@ -22,18 +22,18 @@ public partial class TimelineMain : Form
 
     private void Timeline_Load(object sender, EventArgs e)
     {
-        if (currentID == null)
+        if (CurrentID == null)
         {
             LoadFirstTimeline();
         }
 
-        else if (currentID != null) // Assumed that ID exists
+        else if (CurrentID != null) // Assumed that ID exists
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                var timelineTab = timelines.FindById(currentID);
-                EventIds.Add(currentID);
+                var timelineTab = timelines.FindById(CurrentID);
+                EventIds.Add(CurrentID);
                 addNewTab(timelineTab.TimelineName, timelineTab.Id);
 
                 if (timelineTab.Events.Any())
@@ -61,7 +61,7 @@ public partial class TimelineMain : Form
             if (timelineTabs.Any())
             {
                 Timeline firstToLoad = timelineTabs.First();
-                currentID = firstToLoad.Id;
+                CurrentID = firstToLoad.Id;
 
                 // Load all the Timeline Tabs
                 foreach (var tab in timelineTabs)
@@ -217,7 +217,7 @@ public partial class TimelineMain : Form
         newTimelineTab.BringToFront();
 
         // Highlight the current tab
-        if (currentID == Id)
+        if (CurrentID == Id)
         {
             newTimelineTab.timelineTabBtn.BackColor = Color.White;
             newTimelineTab.timelineTabBtn.ForeColor = Color.Black;
@@ -242,7 +242,7 @@ public partial class TimelineMain : Form
             // Remove the highlight of active Tab
             foreach (TimelineTab tab in panelTimelineTab.Controls)
             {
-                if (currentID == tab.Id)
+                if (CurrentID == tab.Id)
                 {
                     tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
                     tab.timelineTabBtn.ForeColor = Color.White;
@@ -255,7 +255,7 @@ public partial class TimelineMain : Form
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 var newtTab = new Timeline();
                 newtTab = timelines.FindById(addTimelineTab.Id);
-                currentID = newtTab.Id;
+                CurrentID = newtTab.Id;
 
                 addNewTab(newtTab.TimelineName, newtTab.Id);
                 panelTimelineContainer.Controls.Clear();
@@ -272,11 +272,11 @@ public partial class TimelineMain : Form
         if (e.ClickedItem.Name == editOption.Name)
         {
             EditEvent editEvent = new EditEvent();
-            editEvent.CurrentID = currentID;
+            editEvent.CurrentID = CurrentID;
             editEvent.EventIds = EventIds;
             editEvent.ShowDialog();
 
-            currentID = editEvent.CurrentID;
+            CurrentID = editEvent.CurrentID;
             EventIds = editEvent.EventIds;
             editEvent.Dispose();
             panelTimelineTab.Controls.Clear();
@@ -288,7 +288,7 @@ public partial class TimelineMain : Form
                 foreach (ObjectId id in EventIds)
                 {
                     var tab = timelines.FindById(id);
-                    if (id == currentID)
+                    if (id == CurrentID)
                     {
                         if (tab.Events.Any())
                         {
@@ -315,19 +315,19 @@ public partial class TimelineMain : Form
                 panelTimelineContainer.Controls.Clear();
                 MainForm mainForm = (MainForm)this.ParentForm;
                 TimelineMain newTimelineMain = new TimelineMain();
-                newTimelineMain.currentID = currentID;
+                newTimelineMain.CurrentID = CurrentID;
                 newTimelineMain.Show();
                 newTimelineMain.TopLevel = false;
                 newTimelineMain.Dock = DockStyle.Top;
                 mainForm.tabPanel.Controls.Add(newTimelineMain);
                 newTimelineMain.BringToFront();
                 mainForm.tabPanel.Focus();
-                EventIds.Remove(currentID);
+                EventIds.Remove(CurrentID);
 
                 // Dispose the moved tab
                 foreach (TimelineTab tab in panelTimelineTab.Controls)
                 {
-                    if (currentID == tab.Id)
+                    if (CurrentID == tab.Id)
                     {
                         tab.Dispose();
                         break;
@@ -341,17 +341,17 @@ public partial class TimelineMain : Form
                     {
                         var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                         Timeline timelineTab;
-                        if (currentID != PreviousID && PreviousID != null)
+                        if (CurrentID != PreviousID && PreviousID != null)
                         {
                             timelineTab = timelines.FindById(PreviousID);
-                            currentID = PreviousID;
+                            CurrentID = PreviousID;
                         }
                         else
                         {
                             timelineTab = timelines.FindById(tab.Id);
                             tab.timelineTabBtn.BackColor = Color.White;
                             tab.timelineTabBtn.ForeColor = Color.Black;
-                            currentID = tab.Id;
+                            CurrentID = tab.Id;
                         }
 
                         if (timelineTab.Events.Any())
