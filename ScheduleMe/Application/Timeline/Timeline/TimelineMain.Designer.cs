@@ -31,8 +31,8 @@ partial class TimelineMain
         components = new System.ComponentModel.Container();
         timelineTabToolPanel = new Panel();
         panelTimelineTab = new Panel();
-        currentDate = new PictureBox();
-        timelineAddTab = new Button();
+        seekTodayBtn = new PictureBox();
+        addTabBtn = new Button();
         panelTimelineContainer = new Panel();
         timelineMenu = new ContextMenuStrip(components);
         editOption = new ToolStripMenuItem();
@@ -40,7 +40,7 @@ partial class TimelineMain
         openAtBottomOption = new ToolStripMenuItem();
         deletePanelOption = new ToolStripMenuItem();
         timelineTabToolPanel.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)currentDate).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)seekTodayBtn).BeginInit();
         timelineMenu.SuspendLayout();
         SuspendLayout();
         // 
@@ -48,8 +48,8 @@ partial class TimelineMain
         // 
         timelineTabToolPanel.BackColor = Color.FromArgb(15, 76, 129);
         timelineTabToolPanel.Controls.Add(panelTimelineTab);
-        timelineTabToolPanel.Controls.Add(currentDate);
-        timelineTabToolPanel.Controls.Add(timelineAddTab);
+        timelineTabToolPanel.Controls.Add(seekTodayBtn);
+        timelineTabToolPanel.Controls.Add(addTabBtn);
         timelineTabToolPanel.Dock = DockStyle.Top;
         timelineTabToolPanel.Location = new Point(0, 0);
         timelineTabToolPanel.Name = "timelineTabToolPanel";
@@ -65,37 +65,37 @@ partial class TimelineMain
         panelTimelineTab.Size = new Size(757, 35);
         panelTimelineTab.TabIndex = 0;
         // 
-        // currentDate
+        // seekTodayBtn
         // 
-        currentDate.BackColor = Color.Transparent;
-        currentDate.BackgroundImage = Properties.Resources.icon_placeholder;
-        currentDate.BackgroundImageLayout = ImageLayout.Zoom;
-        currentDate.Dock = DockStyle.Right;
-        currentDate.Location = new Point(805, 0);
-        currentDate.Name = "currentDate";
-        currentDate.Size = new Size(35, 35);
-        currentDate.TabIndex = 3;
-        currentDate.TabStop = false;
-        currentDate.Click += currentDate_Click;
+        seekTodayBtn.BackColor = Color.Transparent;
+        seekTodayBtn.BackgroundImage = Properties.Resources.icon_placeholder;
+        seekTodayBtn.BackgroundImageLayout = ImageLayout.Zoom;
+        seekTodayBtn.Dock = DockStyle.Right;
+        seekTodayBtn.Location = new Point(805, 0);
+        seekTodayBtn.Name = "seekTodayBtn";
+        seekTodayBtn.Size = new Size(35, 35);
+        seekTodayBtn.TabIndex = 3;
+        seekTodayBtn.TabStop = false;
+        seekTodayBtn.Click += seekTodayBtn_Click;
         // 
-        // timelineAddTab
+        // addTabBtn
         // 
-        timelineAddTab.BackColor = Color.FromArgb(15, 76, 129);
-        timelineAddTab.Dock = DockStyle.Left;
-        timelineAddTab.FlatAppearance.BorderColor = Color.White;
-        timelineAddTab.FlatAppearance.BorderSize = 2;
-        timelineAddTab.FlatStyle = FlatStyle.Flat;
-        timelineAddTab.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-        timelineAddTab.ForeColor = Color.White;
-        timelineAddTab.Location = new Point(10, 0);
-        timelineAddTab.Margin = new Padding(0);
-        timelineAddTab.Name = "timelineAddTab";
-        timelineAddTab.Size = new Size(38, 35);
-        timelineAddTab.TabIndex = 0;
-        timelineAddTab.TabStop = false;
-        timelineAddTab.Text = " +";
-        timelineAddTab.UseVisualStyleBackColor = false;
-        timelineAddTab.Click += timelineAddTab_Click;
+        addTabBtn.BackColor = Color.FromArgb(15, 76, 129);
+        addTabBtn.Dock = DockStyle.Left;
+        addTabBtn.FlatAppearance.BorderColor = Color.White;
+        addTabBtn.FlatAppearance.BorderSize = 2;
+        addTabBtn.FlatStyle = FlatStyle.Flat;
+        addTabBtn.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+        addTabBtn.ForeColor = Color.White;
+        addTabBtn.Location = new Point(10, 0);
+        addTabBtn.Margin = new Padding(0);
+        addTabBtn.Name = "addTabBtn";
+        addTabBtn.Size = new Size(38, 35);
+        addTabBtn.TabIndex = 0;
+        addTabBtn.TabStop = false;
+        addTabBtn.Text = " +";
+        addTabBtn.UseVisualStyleBackColor = false;
+        addTabBtn.Click += addTabBtn_Click;
         // 
         // panelTimelineContainer
         // 
@@ -158,14 +158,14 @@ partial class TimelineMain
         WindowState = FormWindowState.Maximized;
         Load += Timeline_Load;
         timelineTabToolPanel.ResumeLayout(false);
-        ((System.ComponentModel.ISupportInitialize)currentDate).EndInit();
+        ((System.ComponentModel.ISupportInitialize)seekTodayBtn).EndInit();
         timelineMenu.ResumeLayout(false);
         ResumeLayout(false);
     }
 
     #endregion
-    private Button timelineAddTab;
-    private PictureBox currentDate;
+    private Button addTabBtn;
+    private PictureBox seekTodayBtn;
     internal Panel panelTimelineContainer;
     public Panel timelineTabToolPanel;
     public Panel panelTimelineTab;
