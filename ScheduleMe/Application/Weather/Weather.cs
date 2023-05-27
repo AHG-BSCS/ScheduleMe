@@ -43,11 +43,18 @@ public partial class Weather : Form
             pictureBox1.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.current.condition.icon)));
             label2.Text = post.current.condition.text;
             label3.Text = post.location.name + ", " + post.location.region;
+            label3.Location = new Point((this.Width - label3.Width) / 2, label3.Location.Y);
 
             //forecast
 
             pictureBox2.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[0].day.condition.icon)));
             label5.Text = "Expect " + post.forecast.forecastday[0].day.condition.text + " with a " + post.forecast.forecastday[0].day.daily_chance_of_rain + "%" + " chance of rain";
+
+            label6.Text = post.current.temp_c + "°C";
+            label6.Location = new Point((this.Width - label6.Width) / 2, label6.Location.Y);
+
+            label7.Text = "Feels like " + post.current.feelslike_c + "°C";
+            label7.Location = new Point((this.Width - label7.Width) / 2, label7.Location.Y);
         }
         else
         {
@@ -89,5 +96,10 @@ public partial class Weather : Form
     private void label3_TextChanged(object sender, EventArgs e)
     {
         this.CenterToParent();
+    }
+
+    private void label6_Click(object sender, EventArgs e)
+    {
+
     }
 }

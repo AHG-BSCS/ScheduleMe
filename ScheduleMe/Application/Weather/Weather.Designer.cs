@@ -37,6 +37,8 @@ partial class Weather
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -71,17 +73,17 @@ partial class Weather
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Dubai", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(666, 62);
+            this.label3.Font = new System.Drawing.Font("Dubai", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(679, 37);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(168, 102);
+            this.label3.Size = new System.Drawing.Size(111, 67);
             this.label3.TabIndex = 4;
             this.label3.Text = "CITY";
             this.label3.TextChanged += new System.EventHandler(this.label3_TextChanged);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(1237, 387);
+            this.textBox1.Location = new System.Drawing.Point(1304, 692);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(182, 35);
             this.textBox1.TabIndex = 5;
@@ -90,7 +92,7 @@ partial class Weather
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1283, 450);
+            this.button1.Location = new System.Drawing.Point(1345, 750);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 45);
             this.button1.TabIndex = 6;
@@ -104,9 +106,9 @@ partial class Weather
             this.label4.Font = new System.Drawing.Font("Dubai Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(60, 600);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(184, 29);
+            this.label4.Size = new System.Drawing.Size(160, 29);
             this.label4.TabIndex = 7;
-            this.label4.Text = "TODAY\'S FORECAST:";
+            this.label4.Text = "5 DAY FORECAST:";
             // 
             // pictureBox2
             // 
@@ -126,12 +128,35 @@ partial class Weather
             this.label5.TabIndex = 9;
             this.label5.Text = "CHANCE OF RAIN";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Dubai", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(655, 98);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(154, 79);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "TEMP";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Dubai Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(695, 158);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(84, 29);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "feels like";
+            // 
             // Weather
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1565, 935);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label4);
@@ -166,4 +191,6 @@ partial class Weather
     private Label label4;
     private PictureBox pictureBox2;
     private Label label5;
+    private Label label6;
+    private Label label7;
 }
