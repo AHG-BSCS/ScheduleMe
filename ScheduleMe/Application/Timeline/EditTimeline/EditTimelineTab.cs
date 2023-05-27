@@ -5,7 +5,7 @@ namespace ScheduleMe.Tab;
 public partial class EditTimelineTab : UserControl
 {
     public ObjectId Id { get; set; }
-    public EditTimeline editEventInstance;
+    public EditTimeline editTimeline;
     public event EventHandler<ToolStripItemClickedEventArgs> AddOption_ItemClicked;
     public event EventHandler<ToolStripItemClickedEventArgs> DeleteOption_ItemClicked;
 
@@ -21,10 +21,10 @@ public partial class EditTimelineTab : UserControl
 
     private void HighlightButton()
     {
-        editEventInstance.pnlEventRows.Controls.Clear();
-        foreach (EditTimelineTab tab in editEventInstance.pnlTimelineTabs.Controls)
+        editTimeline.pnlEventRows.Controls.Clear();
+        foreach (EditTimelineTab tab in editTimeline.pnlTimelineTabs.Controls)
         {
-            if (editEventInstance.CurrentID == tab.Id)
+            if (editTimeline.CurrentID == tab.Id)
             {
                 tab.btnEditTimelineTab.BackColor = Color.FromArgb(15, 76, 129);
                 tab.btnEditTimelineTab.ForeColor = Color.White;
@@ -37,13 +37,13 @@ public partial class EditTimelineTab : UserControl
 
     private void btnEditTimelineTab_Click(object sender, EventArgs e)
     {
-        if (editEventInstance.CurrentID != Id)
+        if (editTimeline.CurrentID != Id)
         {
             HighlightButton();
-            editEventInstance.CurrentID = Id;
-            editEventInstance.PreviousID = Id;
-            editEventInstance.LoadTimelineById(Id);
-            editEventInstance.PreviousID = null;
+            editTimeline.CurrentID = Id;
+            editTimeline.PreviousID = Id;
+            editTimeline.LoadTimelineById(Id);
+            editTimeline.PreviousID = null;
         }
     }
 
@@ -56,8 +56,8 @@ public partial class EditTimelineTab : UserControl
 
         else if (e.ClickedItem == mnuDelete)
         {
-            editEventInstance.PreviousID = editEventInstance.CurrentID;
-            editEventInstance.CurrentID = Id;
+            editTimeline.PreviousID = editTimeline.CurrentID;
+            editTimeline.CurrentID = Id;
             DeleteOption_ItemClicked?.Invoke(this, e);
             this.Dispose();
         }

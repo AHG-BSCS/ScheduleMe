@@ -5,7 +5,7 @@ namespace ScheduleMe.Tab;
 public partial class TimelineTab : UserControl
 {
     public ObjectId Id { get; set; }
-    public TimelinePanel timelineInstance;
+    public TimelinePanel timelinePanel;
     public event EventHandler<ToolStripItemClickedEventArgs> TimelineTabMenu_ItemClicked;
     public event EventHandler<ToolStripItemClickedEventArgs> AddOption_ItemClicked;
     public event EventHandler<ToolStripItemClickedEventArgs> OpenAtBottomOption_ItemClicked;
@@ -23,10 +23,10 @@ public partial class TimelineTab : UserControl
 
     private void HighlightButton()
     {
-        timelineInstance.pnlEvents.Controls.Clear();
-        foreach (TimelineTab tab in timelineInstance.pnlTab.Controls)
+        timelinePanel.pnlEvents.Controls.Clear();
+        foreach (TimelineTab tab in timelinePanel.pnlTab.Controls)
         {
-            if (timelineInstance.CurrentID == tab.Id)
+            if (timelinePanel.CurrentID == tab.Id)
             {
                 tab.btnTab.BackColor = Color.FromArgb(15, 76, 129);
                 tab.btnTab.ForeColor = Color.White;
@@ -39,10 +39,10 @@ public partial class TimelineTab : UserControl
 
     private void ReverseHighlight()
     {
-        timelineInstance.pnlEvents.Controls.Clear();
-        foreach (TimelineTab tab in timelineInstance.pnlTab.Controls)
+        timelinePanel.pnlEvents.Controls.Clear();
+        foreach (TimelineTab tab in timelinePanel.pnlTab.Controls)
         {
-            if (timelineInstance.CurrentID == tab.Id)
+            if (timelinePanel.CurrentID == tab.Id)
             {
                 tab.btnTab.BackColor = Color.White;
                 tab.btnTab.ForeColor = Color.Black;
@@ -58,15 +58,15 @@ public partial class TimelineTab : UserControl
 
     private void btnTab_Click(object sender, EventArgs e)
     {
-        if (timelineInstance.CurrentID != Id)
+        if (timelinePanel.CurrentID != Id)
         {
             HighlightButton();
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 var timelineTabs = timelines.FindById(Id);
-                timelineInstance.PopulateTimeline(timelineTabs);
-                timelineInstance.CurrentID = Id;
+                timelinePanel.PopulateTimeline(timelineTabs);
+                timelinePanel.CurrentID = Id;
             }
         }
     }
@@ -80,54 +80,54 @@ public partial class TimelineTab : UserControl
 
         else if (e.ClickedItem == mnuDelete)
         {
-            Confirm promt = new Confirm();
-            promt.ShowDialog();
+            Confirm confirm = new Confirm();
+            confirm.ShowDialog();
 
-            if (promt.Answer)
+            if (confirm.Answer)
             {
                 using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
                 {
-                    timelineInstance.EventIds.Remove(Id);
+                    timelinePanel.EventIds.Remove(Id);
                     var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                     timelines.Delete(Id); // Delete this Timeline
 
-                    foreach (ObjectId id in timelineInstance.EventIds)
+                    foreach (ObjectId id in timelinePanel.EventIds)
                     {
                         Timeline firstToLoad = timelines.FindById(id);
-                        if (timelineInstance.CurrentID == Id) // If this Id is deleted
+                        if (timelinePanel.CurrentID == Id) // If this Id is deleted
                         {
-                            timelineInstance.CurrentID = firstToLoad.Id;
+                            timelinePanel.CurrentID = firstToLoad.Id;
                             ReverseHighlight();
                             if (firstToLoad != null)
                             {
-                                timelineInstance.PopulateTimeline(firstToLoad);
+                                timelinePanel.PopulateTimeline(firstToLoad);
                             }
                         }
                         break;
                     }
 
-                    if (timelineInstance.EventIds.Any() == false)
+                    if (timelinePanel.EventIds.Any() == false)
                     {
                         MainForm mainForm = (MainForm)this.ParentForm.ParentForm;
-                        timelineInstance.pnlEvents.Controls.Clear();
-                        timelineInstance.CurrentID = null;
+                        timelinePanel.pnlEvents.Controls.Clear();
+                        timelinePanel.CurrentID = null;
 
                         if (mainForm.tabPanel.Controls.Count > 1)
                         {
-                            timelineInstance.Dispose();
+                            timelinePanel.Dispose();
                         }
                     }
                 }
                 this.Dispose();
             }
-            promt.Dispose();
+            confirm.Dispose();
         }
         else if (e.ClickedItem == mnuOpenAtBottom)
         {
-            timelineInstance.PreviousID = timelineInstance.CurrentID;
-            timelineInstance.CurrentID = Id;
+            timelinePanel.PreviousID = timelinePanel.CurrentID;
+            timelinePanel.CurrentID = Id;
             OpenAtBottomOption_ItemClicked?.Invoke(this, e);
-            timelineInstance.PreviousID = null;
+            timelinePanel.PreviousID = null;
         }
         else
             TimelineTabMenu_ItemClicked?.Invoke(this, e);

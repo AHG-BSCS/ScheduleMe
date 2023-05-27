@@ -78,15 +78,15 @@ public partial class EditTimelineRow : UserControl
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
-                EditTimeline editEvent = (EditTimeline)this.Parent.Parent;
+                EditTimeline editTimeline = (EditTimeline)this.Parent.Parent;
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 var timeline = timelines.FindById(Id);
                 timeline.Events.RemoveAt(Index);
                 timelines.Update(timeline);
 
                 // Reload the timeline
-                editEvent.pnlEventRows.Controls.Clear();
-                editEvent.PopulateRows(timeline);
+                editTimeline.pnlEventRows.Controls.Clear();
+                editTimeline.PopulateRows(timeline);
             }
             new Message(txtTitle.Text + " is Deleted");
             this.Dispose();

@@ -146,24 +146,24 @@ public partial class TimelinePanel : Form
                 GenerateMonthLabel(currentDate, startDate, ref firstMonthRight);
             }
 
-            TimelineDays dayDates = new TimelineDays();
-            dayDates.Day = currentDate.ToString("ddd");
-            dayDates.Date = currentDate.Day.ToString();
-            dayDates.Location = new Point(columnSize * (currentDate - startDate).Days, 23 - 5);
-            pnlEvents.Controls.Add(dayDates);
+            TimelineDays timelineDays = new TimelineDays();
+            timelineDays.Day = currentDate.ToString("ddd");
+            timelineDays.Date = currentDate.Day.ToString();
+            timelineDays.Location = new Point(columnSize * (currentDate - startDate).Days, 23 - 5);
+            pnlEvents.Controls.Add(timelineDays);
 
             Panel line = new Panel();
             line.BackColor = Color.Black;
             line.Width = 1;
             line.Height = pnlEvents.Height - 58;
-            line.Location = new Point(dayDates.Left + dayDates.Width / 2, dayDates.Height);
+            line.Location = new Point(timelineDays.Left + timelineDays.Width / 2, timelineDays.Height);
             pnlEvents.Controls.Add(line);
 
             if (currentDate.DayOfYear == DateTime.Now.DayOfYear && currentDate.Year == DateTime.Now.Year)
             {
-                Point point = new Point((dayDates.Left + dayDates.Width / 2)
+                Point point = new Point((timelineDays.Left + timelineDays.Width / 2)
                     + ((int)((float)columnSize * (float)(DateTime.Now.Hour / 24.0))),
-                    dayDates.Height - 22);
+                    timelineDays.Height - 22);
                 currentDateTimePosition = GenerateTimeIndicator(point);
                 line.Width = 2;
             }
@@ -216,7 +216,7 @@ public partial class TimelinePanel : Form
         newTimelineTab.OpenAtBottomOption_ItemClicked += mnuTimeline_ItemClicked;
         newTimelineTab.TabName = timelineName;
         newTimelineTab.Id = Id;
-        newTimelineTab.timelineInstance = this;
+        newTimelineTab.timelinePanel = this;
         newTimelineTab.Dock = DockStyle.Left;
         pnlTab.Controls.Add(newTimelineTab);
         newTimelineTab.BringToFront();
@@ -239,10 +239,10 @@ public partial class TimelinePanel : Form
 
     private void btnAddTab_Click(object sender, EventArgs e)
     {
-        AddTimeline addTimelineTab = new AddTimeline();
-        addTimelineTab.ShowDialog();
+        AddTimeline addTimeline = new AddTimeline();
+        addTimeline.ShowDialog();
 
-        if (addTimelineTab.Id != null)
+        if (addTimeline.Id != null)
         {
             // Remove the highlight of active Tab
             foreach (TimelineTab tab in pnlTab.Controls)
@@ -258,24 +258,24 @@ public partial class TimelinePanel : Form
             pnlEvents.Controls.Clear();
             pnlEvents.Height = 130;
             Height = pnlEvents.Height + 35;
-            CurrentID = addTimelineTab.Id;
-            LoadTimelineById(addTimelineTab.Id);
+            CurrentID = addTimeline.Id;
+            LoadTimelineById(addTimeline.Id);
         }
-        addTimelineTab.Dispose();
+        addTimeline.Dispose();
     }
 
     private void mnuTimeline_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {
         if (e.ClickedItem.Name == mnuEdit.Name)
         {
-            EditTimeline editEvent = new EditTimeline();
-            editEvent.CurrentID = CurrentID;
-            editEvent.EventIds = EventIds;
-            editEvent.ShowDialog();
+            EditTimeline editTimeline = new EditTimeline();
+            editTimeline.CurrentID = CurrentID;
+            editTimeline.EventIds = EventIds;
+            editTimeline.ShowDialog();
 
-            CurrentID = editEvent.CurrentID;
-            EventIds = editEvent.EventIds;
-            editEvent.Dispose();
+            CurrentID = editTimeline.CurrentID;
+            EventIds = editTimeline.EventIds;
+            editTimeline.Dispose();
             pnlTab.Controls.Clear();
             pnlEvents.Controls.Clear();
 
@@ -299,13 +299,13 @@ public partial class TimelinePanel : Form
             {
                 pnlEvents.Controls.Clear();
                 MainForm mainForm = (MainForm)this.ParentForm;
-                TimelinePanel newTimelineMain = new TimelinePanel();
-                newTimelineMain.CurrentID = CurrentID;
-                newTimelineMain.Show();
-                newTimelineMain.TopLevel = false;
-                newTimelineMain.Dock = DockStyle.Top;
-                mainForm.tabPanel.Controls.Add(newTimelineMain);
-                newTimelineMain.BringToFront();
+                TimelinePanel newtimelinePanel = new TimelinePanel();
+                newtimelinePanel.CurrentID = CurrentID;
+                newtimelinePanel.Show();
+                newtimelinePanel.TopLevel = false;
+                newtimelinePanel.Dock = DockStyle.Top;
+                mainForm.tabPanel.Controls.Add(newtimelinePanel);
+                newtimelinePanel.BringToFront();
                 mainForm.tabPanel.Focus();
                 EventIds.Remove(CurrentID);
 
@@ -352,20 +352,20 @@ public partial class TimelinePanel : Form
             MainForm mainForm = (MainForm)this.ParentForm;
             if (mainForm.tabPanel.Controls.Count > 1)
             {
-                TimelinePanel firstPanel = new TimelinePanel();
+                TimelinePanel lastTimelinePanel = new TimelinePanel();
                 foreach (TimelinePanel panel in mainForm.tabPanel.Controls.OfType<TimelinePanel>())
                 {
                     if (panel != this)
                     {
-                        firstPanel = panel;
+                        lastTimelinePanel = panel;
                         break;
                     }
                 }
 
                 foreach (TimelineTab tab in pnlTab.Controls)
                 {
-                    firstPanel.EventIds.Add(tab.Id);
-                    firstPanel.AddNewTab(tab.TabName, tab.Id);
+                    lastTimelinePanel.EventIds.Add(tab.Id);
+                    lastTimelinePanel.AddNewTab(tab.TabName, tab.Id);
                 }
                 this.Dispose();
             }

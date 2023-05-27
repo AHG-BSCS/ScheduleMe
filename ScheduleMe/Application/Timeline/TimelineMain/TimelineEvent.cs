@@ -21,15 +21,15 @@ public partial class TimelineEvent : UserControl
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
-                TimelinePanel timelineMain = (TimelinePanel)this.Parent.Parent;
+                TimelinePanel timelinePanel = (TimelinePanel)this.Parent.Parent;
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 var timeline = timelines.FindById(Id);
                 timeline.Events.RemoveAt(Index);
                 timelines.Update(timeline);
 
                 // Reload the timeline
-                timelineMain.pnlEvents.Controls.Clear();
-                timelineMain.PopulateTimeline(timeline);
+                timelinePanel.pnlEvents.Controls.Clear();
+                timelinePanel.PopulateTimeline(timeline);
             }
             new Message(btnEvent.Text + " is Deleted");
             this.Dispose();

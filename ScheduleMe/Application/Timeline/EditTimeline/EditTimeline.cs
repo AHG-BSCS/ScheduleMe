@@ -93,7 +93,7 @@ public partial class EditTimeline : Form
         newTimelineTab.DeleteOption_ItemClicked += btnDelete_Click;
         newTimelineTab.tabName = timelineName;
         newTimelineTab.Id = Id;
-        newTimelineTab.editEventInstance = this;
+        newTimelineTab.editTimeline = this;
         newTimelineTab.Dock = DockStyle.Left;
         pnlTimelineTabs.Controls.Add(newTimelineTab);
         newTimelineTab.BringToFront();
@@ -108,10 +108,10 @@ public partial class EditTimeline : Form
 
     private void btnAddTab_Click(object sender, EventArgs e)
     {
-        AddTimeline addTimelineTab = new AddTimeline();
-        addTimelineTab.ShowDialog();
+        AddTimeline addTimeline = new AddTimeline();
+        addTimeline.ShowDialog();
 
-        if (addTimelineTab.Id != null)
+        if (addTimeline.Id != null)
         {
             foreach (EditTimelineTab tab in pnlTimelineTabs.Controls.OfType<EditTimelineTab>())
             {
@@ -123,13 +123,13 @@ public partial class EditTimeline : Form
                 }
             }
             // Load new added timeline
-            CurrentID = addTimelineTab.Id;
+            CurrentID = addTimeline.Id;
             EventIds.Add(CurrentID);
             pnlEventRows.Controls.Clear();
             LoadTimelineById(CurrentID);
             // Remove the highlight of active Tab
         }
-        addTimelineTab.Dispose();
+        addTimeline.Dispose();
     }
 
     private void btnAddRow_Click(object sender, EventArgs e)
@@ -168,9 +168,9 @@ public partial class EditTimeline : Form
                 timeline.TimelineStartDate = pckStartDate.Value;
                 timeline.TimelineEndDate = pckEndDate.Value;
 
-                foreach (EditTimelineRow newEvent in pnlEventRows.Controls)
+                foreach (EditTimelineRow row in pnlEventRows.Controls)
                 {
-                    timeline.Events.Add(newEvent.GetRowInfo());
+                    timeline.Events.Add(row.GetRowInfo());
                 }
 
                 timelines.Update(timeline);
@@ -191,10 +191,10 @@ public partial class EditTimeline : Form
         if (CurrentID != null)
         {
             ObjectId deletedId = CurrentID;
-            Confirm promt = new Confirm();
-            promt.ShowDialog();
+            Confirm confirm = new Confirm();
+            confirm.ShowDialog();
 
-            if (promt.Answer)
+            if (confirm.Answer)
             {
                 EventIds.Remove(CurrentID);
                 using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
@@ -225,7 +225,7 @@ public partial class EditTimeline : Form
                     CurrentID = null;
                 }
             }
-            promt.Dispose();
+            confirm.Dispose();
         }
         else
             new Message("No timeline");
