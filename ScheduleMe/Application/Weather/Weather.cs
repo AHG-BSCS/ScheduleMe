@@ -58,6 +58,7 @@ public partial class Weather : Form
 
             //5day forecast
             pictureBox3.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.current.condition.icon)));
+            label8.Text = post.forecast.forecastday[0].day.condition.text + "\n" + "TODAY";
 
             pictureBox4.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[1].day.condition.icon)));
             label9.Text = post.forecast.forecastday[1].day.condition.text + "\n" + post.forecast.forecastday[1].date;
@@ -102,6 +103,7 @@ public partial class Weather : Form
 
             //5day forecast
             pictureBox3.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.current.condition.icon)));
+            label8.Text = post.forecast.forecastday[0].day.condition.text + "\n" + "TODAY";
 
             pictureBox4.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[1].day.condition.icon)));
             label9.Text = post.forecast.forecastday[1].day.condition.text + "\n" + post.forecast.forecastday[1].date;
