@@ -268,6 +268,7 @@ public partial class TimelinePanel : Form
     {
         if (e.ClickedItem.Name == mnuEdit.Name)
         {
+            MainForm mainForm = (MainForm)this.ParentForm;
             EditTimeline editTimeline = new EditTimeline();
             editTimeline.CurrentID = CurrentID;
             editTimeline.EventIds = EventIds;
@@ -279,18 +280,23 @@ public partial class TimelinePanel : Form
             pnlTab.Controls.Clear();
             pnlEvents.Controls.Clear();
 
-            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+            if (EventIds.Any())
             {
-                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                foreach (ObjectId id in EventIds)
+                using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
                 {
-                    var tab = timelines.FindById(id);
-                    AddNewTab(tab.TimelineName, tab.Id);
+                    var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                    foreach (ObjectId id in EventIds)
+                    {
+                        var tab = timelines.FindById(id);
+                        AddNewTab(tab.TimelineName, tab.Id);
 
-                    if (id == CurrentID)
-                        PopulateTimeline(tab);
+                        if (id == CurrentID)
+                            PopulateTimeline(tab);
+                    }
                 }
             }
+            else if (mainForm.tabPanel.Controls.Count > 1)
+                this.Dispose();
         }
 
         else if (e.ClickedItem.Name == mnuOpenAtBottom.Name)
@@ -352,6 +358,7 @@ public partial class TimelinePanel : Form
             MainForm mainForm = (MainForm)this.ParentForm;
             if (mainForm.tabPanel.Controls.Count > 1)
             {
+                // Look for the a panel to move the tab
                 TimelinePanel lastTimelinePanel = new TimelinePanel();
                 foreach (TimelinePanel panel in mainForm.tabPanel.Controls.OfType<TimelinePanel>())
                 {
@@ -362,6 +369,7 @@ public partial class TimelinePanel : Form
                     }
                 }
 
+                // Add the tab
                 foreach (TimelineTab tab in pnlTab.Controls)
                 {
                     lastTimelinePanel.EventIds.Add(tab.Id);

@@ -28,7 +28,7 @@ partial class EditTimeline
     /// </summary>
     private void InitializeComponent()
     {
-        pnlTimelineTabs = new Panel();
+        pnlEditTimelineTabTools = new Panel();
         btnAddTab = new Button();
         pnlColumnLabels = new TableLayoutPanel();
         lblColor = new Label();
@@ -47,23 +47,25 @@ partial class EditTimeline
         btnDelete = new Button();
         btnAddRow = new Button();
         btnSave = new Button();
-        pnlTimelineTabs.SuspendLayout();
+        pnlTimelineTabs = new Panel();
+        pnlEditTimelineTabTools.SuspendLayout();
         pnlColumnLabels.SuspendLayout();
         pnlEditTimelineTool.SuspendLayout();
         pnlTimelineDates.SuspendLayout();
         pnlToolButtons.SuspendLayout();
         SuspendLayout();
         // 
-        // pnlTimelineTabs
+        // pnlEditTimelineTabTools
         // 
-        pnlTimelineTabs.BackColor = Color.FromArgb(15, 76, 129);
-        pnlTimelineTabs.Controls.Add(btnAddTab);
-        pnlTimelineTabs.Dock = DockStyle.Top;
-        pnlTimelineTabs.Location = new Point(0, 0);
-        pnlTimelineTabs.Name = "pnlTimelineTabs";
-        pnlTimelineTabs.Padding = new Padding(10, 0, 10, 0);
-        pnlTimelineTabs.Size = new Size(984, 35);
-        pnlTimelineTabs.TabIndex = 0;
+        pnlEditTimelineTabTools.BackColor = Color.FromArgb(15, 76, 129);
+        pnlEditTimelineTabTools.Controls.Add(pnlTimelineTabs);
+        pnlEditTimelineTabTools.Controls.Add(btnAddTab);
+        pnlEditTimelineTabTools.Dock = DockStyle.Top;
+        pnlEditTimelineTabTools.Location = new Point(0, 0);
+        pnlEditTimelineTabTools.Name = "pnlEditTimelineTabTools";
+        pnlEditTimelineTabTools.Padding = new Padding(10, 0, 10, 0);
+        pnlEditTimelineTabTools.Size = new Size(984, 35);
+        pnlEditTimelineTabTools.TabIndex = 0;
         // 
         // btnAddTab
         // 
@@ -325,6 +327,14 @@ partial class EditTimeline
         btnSave.UseVisualStyleBackColor = false;
         btnSave.Click += btnSave_Click;
         // 
+        // pnlTimelineTabs
+        // 
+        pnlTimelineTabs.Dock = DockStyle.Fill;
+        pnlTimelineTabs.Location = new Point(48, 0);
+        pnlTimelineTabs.Name = "pnlTimelineTabs";
+        pnlTimelineTabs.Size = new Size(926, 35);
+        pnlTimelineTabs.TabIndex = 0;
+        // 
         // EditTimeline
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
@@ -335,14 +345,14 @@ partial class EditTimeline
         Controls.Add(pnlEventRows);
         Controls.Add(pnlColumnLabels);
         Controls.Add(pnlEditTimelineTool);
-        Controls.Add(pnlTimelineTabs);
+        Controls.Add(pnlEditTimelineTabTools);
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         Margin = new Padding(3, 4, 3, 4);
         Name = "EditTimeline";
         StartPosition = FormStartPosition.CenterParent;
         Text = "Edit Timeline";
         Load += EditEvent_Load;
-        pnlTimelineTabs.ResumeLayout(false);
+        pnlEditTimelineTabTools.ResumeLayout(false);
         pnlColumnLabels.ResumeLayout(false);
         pnlColumnLabels.PerformLayout();
         pnlEditTimelineTool.ResumeLayout(false);
@@ -361,7 +371,7 @@ partial class EditTimeline
     private Label lblDescription;
     private Label lblColor;
     private Label lblEndDate;
-    internal Panel pnlTimelineTabs;
+    internal Panel pnlEditTimelineTabTools;
     internal Panel pnlEventRows;
     private Panel pnlEditTimelineTool;
     private Button btnAddRow;
@@ -373,4 +383,5 @@ partial class EditTimeline
     private Button btnDelete;
     private Panel pnlTimelineDates;
     private Panel pnlToolButtons;
+    internal Panel pnlTimelineTabs;
 }

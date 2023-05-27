@@ -73,7 +73,7 @@ public partial class EditTimeline : Form
         EditTimelineTab disposeThis = new EditTimelineTab();
         pnlEventRows.Controls.Clear();
 
-        foreach (EditTimelineTab tab in pnlTimelineTabs.Controls.OfType<EditTimelineTab>())
+        foreach (EditTimelineTab tab in pnlTimelineTabs.Controls)
         {
             if (PreviousID == tab.Id)
             {
@@ -113,7 +113,7 @@ public partial class EditTimeline : Form
 
         if (addTimeline.Id != null)
         {
-            foreach (EditTimelineTab tab in pnlTimelineTabs.Controls.OfType<EditTimelineTab>())
+            foreach (EditTimelineTab tab in pnlTimelineTabs.Controls)
             {
                 if (CurrentID == tab.Id)
                 {
