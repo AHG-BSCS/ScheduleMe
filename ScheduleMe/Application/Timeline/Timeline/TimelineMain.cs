@@ -8,7 +8,7 @@ public partial class TimelineMain : Form
     public ObjectId PreviousID { get; set; }
     private List<ObjectId> _eventIds = new List<ObjectId>();
     private byte columnSize = 42;
-    private short currentDateTimePosition = 0;
+    private int currentDateTimePosition = 0;
     public List<ObjectId> EventIds
     {
         get { return _eventIds; }
@@ -27,33 +27,10 @@ public partial class TimelineMain : Form
             LoadFirstTimeline();
         }
 
-        else if (CurrentID != null) // Assumed that ID exists
+        else if (CurrentID != null)
         {
-            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-            {
-                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                var timelineTab = timelines.FindById(CurrentID);
-                EventIds.Add(CurrentID);
-                addNewTab(timelineTab.TimelineName, timelineTab.Id);
-                PopulateTimeline(timelineTab);
-            }
+            LoadTimelineById();
         }
-    }
-
-    private void PopulateTimeline(Timeline timeline)
-    {
-        if (timeline.Events.Any())
-        {
-            // Need to improve the sorting or the overlapping method. Too difficult
-            timeline.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-            PopulateEvents(timeline.Events, timeline.TimelineStartDate, timeline.Id);
-        }
-        else
-        {
-            panelTimelineContainer.Height = 130;
-            Height = panelTimelineContainer.Height + 35;
-        }
-        PopulateDates(timeline.TimelineStartDate, timeline.TimelineEndDate);
     }
 
     private void LoadFirstTimeline()
@@ -78,67 +55,32 @@ public partial class TimelineMain : Form
         }
     }
 
-    public void PopulateDates(DateTime startDate, DateTime endDate)
+    private void LoadTimelineById()
     {
-        int firstMonthRight = 0;
-        for (DateTime currentDate = startDate; currentDate <= endDate; currentDate = currentDate.AddDays(1))
+        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
-            if (currentDate.Day == 1 || currentDate.DayOfYear == startDate.DayOfYear)
-            {
-                Label nextMonths = new Label();
-                nextMonths.Text = currentDate.ToString("MMMM yyyy");
-                nextMonths.Font = new Font("Dubai", 10, FontStyle.Bold);
-                nextMonths.Location = new Point(columnSize * (currentDate - startDate).Days, 0);
-                nextMonths.AutoSize = true;
-                panelTimelineContainer.Controls.Add(nextMonths);
-
-                if (nextMonths.Left < firstMonthRight)
-                    nextMonths.Left = firstMonthRight;
-
-                else if (currentDate.Day == startDate.Day)
-                    firstMonthRight = nextMonths.Right;
-            }
-
-            DatesLabel dayDates = new DatesLabel();
-            dayDates.Day = currentDate.ToString("ddd");
-            dayDates.Date = currentDate.Day.ToString();
-            dayDates.Location = new Point(columnSize * (currentDate - startDate).Days, 23 - 5);
-            panelTimelineContainer.Controls.Add(dayDates);
-
-            Panel line = new Panel();
-            line.BackColor = Color.Black;
-            line.Width = 1;
-            line.Height = panelTimelineContainer.Height - 58;
-            line.Location = new Point(dayDates.Left + dayDates.Width / 2, dayDates.Height);
-            panelTimelineContainer.Controls.Add(line);
-
-            // I was planning to move this outside later
-            if (currentDate.DayOfYear == DateTime.Now.DayOfYear && currentDate.Year == DateTime.Now.Year)
-            {
-                Panel timeIndicatorLine = new Panel();
-                timeIndicatorLine.BackColor = Color.FromArgb(15, 76, 129);
-                timeIndicatorLine.Width = 3;
-                timeIndicatorLine.Height = panelTimelineContainer.Height - 35;
-                timeIndicatorLine.Location = new Point((dayDates.Left + dayDates.Width / 2)
-                    + ((int)((float)columnSize * (float)(DateTime.Now.Hour / 24.0))),
-                    dayDates.Height - 22);
-                panelTimelineContainer.Controls.Add(timeIndicatorLine);
-                timeIndicatorLine.BringToFront();
-
-                Label timeIndicatorText = new Label();
-                timeIndicatorText.BackColor = Color.FromArgb(15, 76, 129);
-                timeIndicatorText.ForeColor = Color.White;
-                timeIndicatorText.Text = DateTime.Now.ToString("hh:mm tt");
-                timeIndicatorText.Font = new Font("Dubai", 8, FontStyle.Bold);
-                timeIndicatorText.Location = new Point(timeIndicatorLine.Left, timeIndicatorLine.Top - 14);
-                timeIndicatorText.AutoSize = true;
-                panelTimelineContainer.Controls.Add(timeIndicatorText);
-                timeIndicatorText.BringToFront();
-
-                line.Width = 2;
-                currentDateTimePosition = (short)timeIndicatorLine.Left;
-            }
+            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+            var timelineTab = timelines.FindById(CurrentID);
+            EventIds.Add(CurrentID);
+            addNewTab(timelineTab.TimelineName, timelineTab.Id);
+            PopulateTimeline(timelineTab);
         }
+    }
+
+    private void PopulateTimeline(Timeline timeline)
+    {
+        if (timeline.Events.Any())
+        {
+            // Need to improve the sorting or the overlapping method. Too difficult
+            timeline.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
+            PopulateEvents(timeline.Events, timeline.TimelineStartDate, timeline.Id);
+        }
+        else
+        {
+            panelTimelineContainer.Height = 130;
+            Height = panelTimelineContainer.Height + 35;
+        }
+        PopulateDates(timeline.TimelineStartDate, timeline.TimelineEndDate);
     }
 
     internal void PopulateEvents(List<Event> events, DateTime startDate, ObjectId id)
@@ -192,6 +134,78 @@ public partial class TimelineMain : Form
         }
         newEvent.Top = currentRow;
         lowestBottom = Math.Max(newEvent.Bottom, lowestBottom);
+    }
+
+    public void PopulateDates(DateTime startDate, DateTime endDate)
+    {
+        int firstMonthRight = 0;
+        for (DateTime currentDate = startDate; currentDate <= endDate; currentDate = currentDate.AddDays(1))
+        {
+            if (currentDate.Day == 1 || currentDate.DayOfYear == startDate.DayOfYear)
+            {
+                GenerateMonthLabel(currentDate, startDate, ref firstMonthRight);
+            }
+
+            DatesLabel dayDates = new DatesLabel();
+            dayDates.Day = currentDate.ToString("ddd");
+            dayDates.Date = currentDate.Day.ToString();
+            dayDates.Location = new Point(columnSize * (currentDate - startDate).Days, 23 - 5);
+            panelTimelineContainer.Controls.Add(dayDates);
+
+            Panel line = new Panel();
+            line.BackColor = Color.Black;
+            line.Width = 1;
+            line.Height = panelTimelineContainer.Height - 58;
+            line.Location = new Point(dayDates.Left + dayDates.Width / 2, dayDates.Height);
+            panelTimelineContainer.Controls.Add(line);
+
+            if (currentDate.DayOfYear == DateTime.Now.DayOfYear && currentDate.Year == DateTime.Now.Year)
+            {
+                Point point = new Point((dayDates.Left + dayDates.Width / 2)
+                    + ((int)((float)columnSize * (float)(DateTime.Now.Hour / 24.0))),
+                    dayDates.Height - 22);
+                currentDateTimePosition = GenerateTimeIndicator(point);
+                line.Width = 2;
+            }
+        }
+    }
+
+    private void GenerateMonthLabel(DateTime currentDate, DateTime startDate, ref int firstMonthRight)
+    {
+        Label nextMonths = new Label();
+        nextMonths.Text = currentDate.ToString("MMMM yyyy");
+        nextMonths.Font = new Font("Dubai", 10, FontStyle.Bold);
+        nextMonths.Location = new Point(columnSize * (currentDate - startDate).Days, 0);
+        nextMonths.AutoSize = true;
+        panelTimelineContainer.Controls.Add(nextMonths);
+
+        if (nextMonths.Left < firstMonthRight)
+            nextMonths.Left = firstMonthRight;
+
+        else if (currentDate.Day == startDate.Day)
+            firstMonthRight = nextMonths.Right;
+    }
+
+    private int GenerateTimeIndicator(Point point)
+    {
+        Panel timeIndicatorLine = new Panel();
+        timeIndicatorLine.BackColor = Color.FromArgb(15, 76, 129);
+        timeIndicatorLine.Width = 3;
+        timeIndicatorLine.Height = panelTimelineContainer.Height - 35;
+        timeIndicatorLine.Location = point;
+        panelTimelineContainer.Controls.Add(timeIndicatorLine);
+        timeIndicatorLine.BringToFront();
+
+        Label timeIndicatorText = new Label();
+        timeIndicatorText.BackColor = Color.FromArgb(15, 76, 129);
+        timeIndicatorText.ForeColor = Color.White;
+        timeIndicatorText.Text = DateTime.Now.ToString("hh:mm tt");
+        timeIndicatorText.Font = new Font("Dubai", 8, FontStyle.Bold);
+        timeIndicatorText.Location = new Point(timeIndicatorLine.Left, timeIndicatorLine.Top - 14);
+        timeIndicatorText.AutoSize = true;
+        panelTimelineContainer.Controls.Add(timeIndicatorText);
+        timeIndicatorText.BringToFront();
+        return timeIndicatorLine.Left;
     }
 
     public void addNewTab(string timelineName, ObjectId Id)
