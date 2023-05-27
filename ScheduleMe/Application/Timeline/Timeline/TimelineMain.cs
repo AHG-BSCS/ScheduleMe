@@ -35,21 +35,25 @@ public partial class TimelineMain : Form
                 var timelineTab = timelines.FindById(CurrentID);
                 EventIds.Add(CurrentID);
                 addNewTab(timelineTab.TimelineName, timelineTab.Id);
-
-                if (timelineTab.Events.Any())
-                {
-                    // Need to improve the sorting or the overlapping method. Too difficult
-                    timelineTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-                    PopulateEvents(timelineTab.Events, timelineTab.TimelineStartDate, timelineTab.Id);
-                }
-                else
-                {
-                    panelTimelineContainer.Height = 130;
-                    Height = panelTimelineContainer.Height + 35;
-                }
-                PopulateDates(timelineTab.TimelineStartDate, timelineTab.TimelineEndDate);
+                PopulateTimeline(timelineTab);
             }
         }
+    }
+
+    private void PopulateTimeline(Timeline timeline)
+    {
+        if (timeline.Events.Any())
+        {
+            // Need to improve the sorting or the overlapping method. Too difficult
+            timeline.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
+            PopulateEvents(timeline.Events, timeline.TimelineStartDate, timeline.Id);
+        }
+        else
+        {
+            panelTimelineContainer.Height = 130;
+            Height = panelTimelineContainer.Height + 35;
+        }
+        PopulateDates(timeline.TimelineStartDate, timeline.TimelineEndDate);
     }
 
     private void LoadFirstTimeline()
@@ -69,20 +73,7 @@ public partial class TimelineMain : Form
                     EventIds.Add(tab.Id);
                     addNewTab(tab.TimelineName, tab.Id);
                 }
-
-                // Load the first Timeline.Event List only
-                if (firstToLoad.Events.Any())
-                {
-                    // Need to improve the sorting or the overlapping method. Too difficult
-                    firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-                    PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate, firstToLoad.Id);
-                }
-                else
-                {
-                    panelTimelineContainer.Height = 130;
-                    Height = panelTimelineContainer.Height + 35;
-                }
-                PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
+                PopulateTimeline(firstToLoad);
             }
         }
     }
@@ -288,23 +279,9 @@ public partial class TimelineMain : Form
                 foreach (ObjectId id in EventIds)
                 {
                     var tab = timelines.FindById(id);
-                    if (id == CurrentID)
-                    {
-                        if (tab.Events.Any())
-                        {
-                            // Need to improve the sorting or the overlapping method. Too difficult
-                            tab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-                            PopulateEvents(tab.Events, tab.TimelineStartDate, tab.Id);
-                        }
-                        else
-                        {
-                            panelTimelineContainer.Height = 130;
-                            Height = panelTimelineContainer.Height + 35;
-                        }
-
-                        PopulateDates(tab.TimelineStartDate, tab.TimelineEndDate);
-                    }
                     addNewTab(tab.TimelineName, tab.Id);
+                    if (id == CurrentID)
+                        PopulateTimeline(tab);
                 }
             }
         }
@@ -353,21 +330,8 @@ public partial class TimelineMain : Form
                             tab.timelineTabBtn.ForeColor = Color.Black;
                             CurrentID = tab.Id;
                         }
-
-                        if (timelineTab.Events.Any())
-                        {
-                            // Need to improve the sorting or the overlapping method. Too difficult
-                            timelineTab.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-                            PopulateEvents(timelineTab.Events, timelineTab.TimelineStartDate, timelineTab.Id);
-                        }
-                        else
-                        {
-                            panelTimelineContainer.Height = 130;
-                            Height = panelTimelineContainer.Height + 35;
-                        }
-                        PopulateDates(timelineTab.TimelineStartDate, timelineTab.TimelineEndDate);
+                        PopulateTimeline(timelineTab);
                     }
-                    
                     break;
                 }
             }
