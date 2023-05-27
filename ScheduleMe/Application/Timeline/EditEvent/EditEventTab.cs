@@ -36,25 +36,6 @@ public partial class EditEventTab : UserControl
         timelineTabBtn.ForeColor = Color.Black;
     }
 
-    private void ReverseHighlight()
-    {
-        editEventInstance.eventInfoPanel.Controls.Clear();
-        foreach (EditEventTab tab in editEventInstance.timelineTabPanel.Controls)
-        {
-            if (editEventInstance.CurrentID == tab.Id)
-            {
-                tab.timelineTabBtn.BackColor = Color.White;
-                tab.timelineTabBtn.ForeColor = Color.Black;
-                break;
-            }
-            else
-            {
-                tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
-                tab.timelineTabBtn.ForeColor = Color.White;
-            }
-        }
-    }
-
     private void eventTab_Click(object sender, EventArgs e)
     {
         if (editEventInstance.CurrentID != Id)

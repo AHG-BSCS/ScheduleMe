@@ -36,9 +36,9 @@ partial class TimelineMain
         panelTimelineContainer = new Panel();
         timelineMenu = new ContextMenuStrip(components);
         editOption = new ToolStripMenuItem();
+        optionSeparator = new ToolStripSeparator();
         openAtBottomOption = new ToolStripMenuItem();
         deletePanelOption = new ToolStripMenuItem();
-        optionSeparator = new ToolStripSeparator();
         timelineTabToolPanel.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)currentDate).BeginInit();
         timelineMenu.SuspendLayout();
@@ -113,7 +113,7 @@ partial class TimelineMain
         timelineMenu.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         timelineMenu.Items.AddRange(new ToolStripItem[] { editOption, optionSeparator, openAtBottomOption, deletePanelOption });
         timelineMenu.Name = "timelineOption";
-        timelineMenu.Size = new Size(189, 82);
+        timelineMenu.Size = new Size(189, 88);
         timelineMenu.Text = "Option";
         timelineMenu.ItemClicked += timelineMenu_ItemClicked;
         // 
@@ -123,6 +123,11 @@ partial class TimelineMain
         editOption.Name = "editOption";
         editOption.Size = new Size(188, 26);
         editOption.Text = "Edit";
+        // 
+        // optionSeparator
+        // 
+        optionSeparator.Name = "optionSeparator";
+        optionSeparator.Size = new Size(185, 6);
         // 
         // openAtBottomOption
         // 
@@ -135,11 +140,6 @@ partial class TimelineMain
         deletePanelOption.Name = "deletePanelOption";
         deletePanelOption.Size = new Size(188, 26);
         deletePanelOption.Text = "Delete Panel";
-        // 
-        // optionSeparator
-        // 
-        optionSeparator.Name = "optionSeparator";
-        optionSeparator.Size = new Size(185, 6);
         // 
         // TimelineMain
         // 
