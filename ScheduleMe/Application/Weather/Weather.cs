@@ -32,7 +32,7 @@ public partial class Weather : Form
     private async void Weather_Load(object sender, EventArgs e)
     {
         HttpClient client = new HttpClient();
-        var url_calix = "https://api.weatherapi.com/v1/forecast.json?key=168c66e6792c4e7dbe5122918232305&q=" + textBox1.Text + "&days=1&aqi=no";
+        var url_calix = "https://api.weatherapi.com/v1/forecast.json?key=168c66e6792c4e7dbe5122918232305&q=" + textBox1.Text + "&days=5&aqi=no";
         client.BaseAddress = new Uri(url_calix);
         if (IsInternetConnected() == true)
         {
@@ -55,6 +55,24 @@ public partial class Weather : Form
 
             label7.Text = "Feels like " + post.current.feelslike_c + "°C";
             label7.Location = new Point((this.Width - label7.Width) / 2, label7.Location.Y);
+
+            //5day forecast
+            pictureBox3.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.current.condition.icon)));
+
+            pictureBox4.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[1].day.condition.icon)));
+            label9.Text = post.forecast.forecastday[1].day.condition.text + "\n" + post.forecast.forecastday[1].date;
+
+            pictureBox5.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[2].day.condition.icon)));
+            label10.Text = post.forecast.forecastday[2].day.condition.text + "\n" + post.forecast.forecastday[2].date;
+
+            pictureBox6.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[3].day.condition.icon)));
+            label11.Text = post.forecast.forecastday[3].day.condition.text + "\n" + post.forecast.forecastday[3].date;
+
+            pictureBox7.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[4].day.condition.icon)));
+            label12.Text = post.forecast.forecastday[4].day.condition.text + "\n" + post.forecast.forecastday[4].date;
+
+
+
         }
         else
         {
@@ -67,7 +85,7 @@ public partial class Weather : Form
         try
         {
         HttpClient client = new HttpClient();
-        var url_calix = "https://api.weatherapi.com/v1/forecast.json?key=168c66e6792c4e7dbe5122918232305&q=" + textBox1.Text + "&aqi=no";
+        var url_calix = "https://api.weatherapi.com/v1/forecast.json?key=168c66e6792c4e7dbe5122918232305&q=" + textBox1.Text + "&days=5&aqi=no";
         client.BaseAddress = new Uri(url_calix);
         HttpResponseMessage response = await client.GetAsync(client.BaseAddress);
         string result = await response.Content.ReadAsStringAsync();
@@ -81,10 +99,25 @@ public partial class Weather : Form
 
         pictureBox2.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[0].day.condition.icon)));
         label5.Text = "Expect " + post.forecast.forecastday[0].day.condition.text + " with a " + post.forecast.forecastday[0].day.daily_chance_of_rain + "%" + " chance of rain";
+
+            //5day forecast
+            pictureBox3.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.current.condition.icon)));
+
+            pictureBox4.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[1].day.condition.icon)));
+            label9.Text = post.forecast.forecastday[1].day.condition.text + "\n" + post.forecast.forecastday[1].date;
+
+            pictureBox5.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[2].day.condition.icon)));
+            label10.Text = post.forecast.forecastday[2].day.condition.text + "\n" + post.forecast.forecastday[2].date;
+
+            pictureBox6.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[3].day.condition.icon)));
+            label11.Text = post.forecast.forecastday[3].day.condition.text + "\n" + post.forecast.forecastday[3].date;
+
+            pictureBox7.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[4].day.condition.icon)));
+            label12.Text = post.forecast.forecastday[4].day.condition.text + "\n" + post.forecast.forecastday[4].date;
         }
-        catch (Exception )
+        catch (Exception ex)
         {
-            MessageBox.Show("There is no such place named " + textBox1.Text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show(ex.ToString());
         }
         }
     
