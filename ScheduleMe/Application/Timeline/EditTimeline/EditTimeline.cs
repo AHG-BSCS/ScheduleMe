@@ -37,7 +37,7 @@ public partial class EditTimeline : Form
                 CurrentID = timelineTab.Id;
                 MinDate = timelineTab.TimelineStartDate;
                 MaxDate = timelineTab.TimelineEndDate;
-                SetTimelineDateRange();
+                SetTimelineDateRange(timelineTab.TimelineName);
 
                 if (timelineTab.Events.Any())
                     PopulateRows(timelineTab);
@@ -47,8 +47,9 @@ public partial class EditTimeline : Form
         }
     }
 
-    internal void SetTimelineDateRange()
+    internal void SetTimelineDateRange(string timelineName)
     {
+        txtTimelineName.Text = timelineName;
         pckStartDate.Value = MinDate;
         pckEndDate.Value = MaxDate;
     }
@@ -165,6 +166,7 @@ public partial class EditTimeline : Form
                 if (timeline.Events.Any())
                     timeline.Events.Clear();
 
+                timeline.TimelineName = txtTimelineName.Text;
                 timeline.TimelineStartDate = pckStartDate.Value;
                 timeline.TimelineEndDate = pckEndDate.Value;
 

@@ -29,6 +29,7 @@ partial class EditTimeline
     private void InitializeComponent()
     {
         pnlEditTimelineTabTools = new Panel();
+        pnlTimelineTabs = new Panel();
         btnAddTab = new Button();
         pnlColumnLabels = new TableLayoutPanel();
         lblColor = new Label();
@@ -39,6 +40,8 @@ partial class EditTimeline
         pnlEventRows = new Panel();
         pnlEditTimelineTool = new Panel();
         pnlTimelineDates = new Panel();
+        txtTimelineName = new TextBox();
+        lblTimelineName = new Label();
         lblStartingDate = new Label();
         pckEndDate = new DateTimePicker();
         lblEndingDate = new Label();
@@ -47,7 +50,6 @@ partial class EditTimeline
         btnDelete = new Button();
         btnAddRow = new Button();
         btnSave = new Button();
-        pnlTimelineTabs = new Panel();
         pnlEditTimelineTabTools.SuspendLayout();
         pnlColumnLabels.SuspendLayout();
         pnlEditTimelineTool.SuspendLayout();
@@ -66,6 +68,14 @@ partial class EditTimeline
         pnlEditTimelineTabTools.Padding = new Padding(10, 0, 10, 0);
         pnlEditTimelineTabTools.Size = new Size(984, 35);
         pnlEditTimelineTabTools.TabIndex = 0;
+        // 
+        // pnlTimelineTabs
+        // 
+        pnlTimelineTabs.Dock = DockStyle.Fill;
+        pnlTimelineTabs.Location = new Point(48, 0);
+        pnlTimelineTabs.Name = "pnlTimelineTabs";
+        pnlTimelineTabs.Size = new Size(926, 35);
+        pnlTimelineTabs.TabIndex = 0;
         // 
         // btnAddTab
         // 
@@ -205,21 +215,46 @@ partial class EditTimeline
         // pnlTimelineDates
         // 
         pnlTimelineDates.BackColor = Color.Transparent;
+        pnlTimelineDates.Controls.Add(txtTimelineName);
+        pnlTimelineDates.Controls.Add(lblTimelineName);
         pnlTimelineDates.Controls.Add(lblStartingDate);
         pnlTimelineDates.Controls.Add(pckEndDate);
         pnlTimelineDates.Controls.Add(lblEndingDate);
         pnlTimelineDates.Controls.Add(pckStartDate);
         pnlTimelineDates.Dock = DockStyle.Right;
-        pnlTimelineDates.Location = new Point(601, 0);
+        pnlTimelineDates.Location = new Point(356, 0);
         pnlTimelineDates.Name = "pnlTimelineDates";
-        pnlTimelineDates.Size = new Size(383, 55);
+        pnlTimelineDates.Size = new Size(628, 55);
         pnlTimelineDates.TabIndex = 5;
+        // 
+        // txtTimelineName
+        // 
+        txtTimelineName.BackColor = Color.White;
+        txtTimelineName.BorderStyle = BorderStyle.FixedSingle;
+        txtTimelineName.ForeColor = Color.Black;
+        txtTimelineName.Location = new Point(3, 22);
+        txtTimelineName.MaxLength = 32;
+        txtTimelineName.Name = "txtTimelineName";
+        txtTimelineName.Size = new Size(200, 29);
+        txtTimelineName.TabIndex = 0;
+        txtTimelineName.TabStop = false;
+        // 
+        // lblTimelineName
+        // 
+        lblTimelineName.AutoSize = true;
+        lblTimelineName.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        lblTimelineName.Location = new Point(3, 0);
+        lblTimelineName.Name = "lblTimelineName";
+        lblTimelineName.Size = new Size(90, 22);
+        lblTimelineName.TabIndex = 3;
+        lblTimelineName.Text = "Timeline Name";
+        lblTimelineName.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // lblStartingDate
         // 
         lblStartingDate.AutoSize = true;
         lblStartingDate.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        lblStartingDate.Location = new Point(4, 1);
+        lblStartingDate.Location = new Point(250, 0);
         lblStartingDate.Name = "lblStartingDate";
         lblStartingDate.Size = new Size(84, 22);
         lblStartingDate.TabIndex = 0;
@@ -230,14 +265,14 @@ partial class EditTimeline
         // 
         pckEndDate.CustomFormat = "MMM dd, yyyy";
         pckEndDate.Format = DateTimePickerFormat.Custom;
-        pckEndDate.Location = new Point(178, 23);
+        pckEndDate.Location = new Point(424, 22);
         pckEndDate.Margin = new Padding(0);
         pckEndDate.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
         pckEndDate.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
         pckEndDate.Name = "pckEndDate";
         pckEndDate.RightToLeft = RightToLeft.No;
         pckEndDate.Size = new Size(120, 29);
-        pckEndDate.TabIndex = 2;
+        pckEndDate.TabIndex = 0;
         pckEndDate.TabStop = false;
         pckEndDate.ValueChanged += pckEndDate_ValueChanged;
         // 
@@ -245,7 +280,7 @@ partial class EditTimeline
         // 
         lblEndingDate.AutoSize = true;
         lblEndingDate.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        lblEndingDate.Location = new Point(175, 1);
+        lblEndingDate.Location = new Point(421, 0);
         lblEndingDate.Name = "lblEndingDate";
         lblEndingDate.Size = new Size(77, 22);
         lblEndingDate.TabIndex = 0;
@@ -256,14 +291,14 @@ partial class EditTimeline
         // 
         pckStartDate.CustomFormat = "MMM dd, yyyy";
         pckStartDate.Format = DateTimePickerFormat.Custom;
-        pckStartDate.Location = new Point(8, 23);
+        pckStartDate.Location = new Point(254, 22);
         pckStartDate.Margin = new Padding(0);
         pckStartDate.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
         pckStartDate.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
         pckStartDate.Name = "pckStartDate";
         pckStartDate.RightToLeft = RightToLeft.No;
         pckStartDate.Size = new Size(120, 29);
-        pckStartDate.TabIndex = 1;
+        pckStartDate.TabIndex = 0;
         pckStartDate.TabStop = false;
         pckStartDate.ValueChanged += pckStartDate_ValueChanged;
         // 
@@ -289,7 +324,7 @@ partial class EditTimeline
         btnDelete.Location = new Point(152, 13);
         btnDelete.Name = "btnDelete";
         btnDelete.Size = new Size(65, 30);
-        btnDelete.TabIndex = 3;
+        btnDelete.TabIndex = 0;
         btnDelete.TabStop = false;
         btnDelete.Text = "Delete";
         btnDelete.UseVisualStyleBackColor = false;
@@ -326,14 +361,6 @@ partial class EditTimeline
         btnSave.Text = "Save";
         btnSave.UseVisualStyleBackColor = false;
         btnSave.Click += btnSave_Click;
-        // 
-        // pnlTimelineTabs
-        // 
-        pnlTimelineTabs.Dock = DockStyle.Fill;
-        pnlTimelineTabs.Location = new Point(48, 0);
-        pnlTimelineTabs.Name = "pnlTimelineTabs";
-        pnlTimelineTabs.Size = new Size(926, 35);
-        pnlTimelineTabs.TabIndex = 0;
         // 
         // EditTimeline
         // 
@@ -384,4 +411,6 @@ partial class EditTimeline
     private Panel pnlTimelineDates;
     private Panel pnlToolButtons;
     internal Panel pnlTimelineTabs;
+    private Label lblTimelineName;
+    private TextBox txtTimelineName;
 }
