@@ -41,30 +41,10 @@ public partial class EditEventTab : UserControl
         if (editEventInstance.CurrentID != Id)
         {
             HighlightButton();
-            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-            {
-                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                var timelineTab = timelines.FindById(Id);
-                editEventInstance.CurrentID = Id;
-                editEventInstance.MinDate = timelineTab.TimelineStartDate;
-                editEventInstance.MaxDate = timelineTab.TimelineEndDate;
-                editEventInstance.SetTimelineDateRange();
-
-                if (timelineTab.Events.Any())
-                {
-                    for (ushort i = 0; i < timelineTab.Events.Count; i++)
-                    {
-                        AddEventRow newRow = new AddEventRow();
-                        newRow.Id = timelineTab.Id;
-                        newRow.Index = i;
-                        newRow.MinDate = timelineTab.TimelineStartDate;
-                        newRow.MaxDate = timelineTab.TimelineEndDate;
-                        newRow.Dock = DockStyle.Bottom;
-                        newRow.SetRowInfo(timelineTab.Events[i]);
-                        editEventInstance.eventInfoPanel.Controls.Add(newRow);
-                    }
-                }
-            }
+            editEventInstance.CurrentID = Id;
+            editEventInstance.PreviousID = Id;
+            editEventInstance.LoadTimelineById(Id);
+            editEventInstance.PreviousID = null;
         }
     }
 

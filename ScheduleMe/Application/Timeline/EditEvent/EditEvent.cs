@@ -27,7 +27,7 @@ public partial class EditEvent : Form
         }
     }
 
-    private void LoadTimelineById(ObjectId id) // Assuming that currentID do exists
+    public void LoadTimelineById(ObjectId id)
     {
         using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
@@ -48,6 +48,12 @@ public partial class EditEvent : Form
         }
     }
 
+    public void SetTimelineDateRange()
+    {
+        timelineStartDatePicker.Value = MinDate;
+        timelineEndDatePicker.Value = MaxDate;
+    }
+
     private void PopulateRows(Timeline timelineTab)
     {
         for (ushort i = 0; i < timelineTab.Events.Count; i++)
@@ -63,7 +69,25 @@ public partial class EditEvent : Form
         }
     }
 
-    internal void AddNewTab(string timelineName, ObjectId Id)
+    private void HighlightAndDispose(ObjectId deletedId)
+    {
+        EditEventTab disposeThis = new EditEventTab();
+        eventInfoPanel.Controls.Clear();
+
+        foreach (EditEventTab tab in timelineTabPanel.Controls.OfType<EditEventTab>())
+        {
+            if (PreviousID == tab.Id)
+            {
+                tab.timelineTabBtn.BackColor = Color.White;
+                tab.timelineTabBtn.ForeColor = Color.Black;
+            }
+            else if (deletedId == tab.Id)
+                disposeThis = tab;
+        }
+        disposeThis.Dispose();
+    }
+
+    public void AddNewTab(string timelineName, ObjectId Id)
     {
         EditEventTab newTimelineTab = new EditEventTab();
         newTimelineTab.AddOption_ItemClicked += addTabBtn_Click;
@@ -144,27 +168,19 @@ public partial class EditEvent : Form
 
                 timeline.TimelineStartDate = timelineStartDatePicker.Value;
                 timeline.TimelineEndDate = timelineEndDatePicker.Value;
+
                 foreach (AddEventRow newEvent in eventInfoPanel.Controls)
                 {
                     timeline.Events.Add(newEvent.GetRowInfo());
                 }
+
                 timelines.Update(timeline);
                 new Message(timeline.TimelineName + " is Saved");
 
                 // Reload the timeline events to assign a property to newly added rows
                 eventInfoPanel.Controls.Clear();
                 timeline = timelines.FindById(CurrentID);
-                for (ushort i = 0; i < timeline.Events.Count; i++)
-                {
-                    AddEventRow newRow = new AddEventRow();
-                    newRow.Id = timeline.Id;
-                    newRow.Index = i;
-                    newRow.MinDate = MinDate;
-                    newRow.MaxDate = MaxDate;
-                    newRow.Dock = DockStyle.Bottom;
-                    newRow.SetRowInfo(timeline.Events[i]);
-                    eventInfoPanel.Controls.Add(newRow);
-                }
+                PopulateRows(timeline);
             }
         }
         else
@@ -191,8 +207,8 @@ public partial class EditEvent : Form
                     {
                         CurrentID = null;
                         PreviousID = id;
+                        HighlightAndDispose(deletedId);
                         LoadTimelineById(id);
-                        ReverseHighlight(deletedId);
                         PreviousID = null;
                         break;
                     }
@@ -242,30 +258,6 @@ public partial class EditEvent : Form
         }
         else
             new Message("No timeline");
-    }
-
-    public void SetTimelineDateRange()
-    {
-        timelineStartDatePicker.Value = MinDate;
-        timelineEndDatePicker.Value = MaxDate;
-    }
-
-    private void ReverseHighlight(ObjectId deletedId)
-    {
-        EditEventTab disposeThis = new EditEventTab();
-        eventInfoPanel.Controls.Clear();
-
-        foreach (EditEventTab tab in timelineTabPanel.Controls.OfType<EditEventTab>())
-        {
-            if (CurrentID == tab.Id)
-            {
-                tab.timelineTabBtn.BackColor = Color.White;
-                tab.timelineTabBtn.ForeColor = Color.Black;
-            }
-            else if (deletedId == tab.Id)
-                disposeThis = tab;
-        }
-        disposeThis.Dispose();
     }
 
 }
