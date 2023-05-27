@@ -77,7 +77,10 @@ public partial class EditEventTab : UserControl
 
         else if (e.ClickedItem == deleteOption)
         {
+            editEventInstance.PreviousID = editEventInstance.CurrentID;
+            editEventInstance.CurrentID = Id;
             DeleteOption_ItemClicked?.Invoke(this, e);
+            this.Dispose();
         }
     }
 }

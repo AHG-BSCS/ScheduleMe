@@ -6,6 +6,7 @@ namespace ScheduleMe.Tab;
 public partial class EditEvent : Form
 {
     public ObjectId CurrentID { get; set; }
+    public ObjectId PreviousID { get; set; }
     public List<ObjectId> EventIds { get; set; }
     public DateTime MinDate { get; set; }
     public DateTime MaxDate { get; set; }
@@ -18,48 +19,54 @@ public partial class EditEvent : Form
     private void EditEvent_Load(object sender, EventArgs e)
     {
         if (CurrentID != null)
-            LoadTimelineById();
-    }
-
-    private void LoadTimelineById() // Assuming that currentID do exists
-    {
-        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
         {
-            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
             foreach (ObjectId id in EventIds)
             {
-                var timelineTab = timelines.FindById(id);
-                if (id == CurrentID)
-                {
-                    CurrentID = timelineTab.Id;
-                    MinDate = timelineTab.TimelineStartDate;
-                    MaxDate = timelineTab.TimelineEndDate;
-                    SetTimelineDateRange();
-
-                    if (timelineTab.Events.Any())
-                    {
-                        for (ushort i = 0; i < timelineTab.Events.Count; i++)
-                        {
-                            AddEventRow newRow = new AddEventRow();
-                            newRow.Id = timelineTab.Id;
-                            newRow.Index = i;
-                            newRow.MinDate = MinDate;
-                            newRow.MaxDate = MaxDate;
-                            newRow.Dock = DockStyle.Bottom;
-                            newRow.SetRowInfo(timelineTab.Events[i]);
-                            eventInfoPanel.Controls.Add(newRow);
-                        }
-                    }
-                }
-                addNewTab(timelineTab.TimelineName, timelineTab.Id);
+                LoadTimelineById(id);
             }
         }
     }
 
-    internal void addNewTab(string timelineName, ObjectId Id)
+    private void LoadTimelineById(ObjectId id) // Assuming that currentID do exists
+    {
+        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+        {
+            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+            var timelineTab = timelines.FindById(id);
+            if (id == CurrentID || CurrentID == null)
+            {
+                CurrentID = timelineTab.Id;
+                MinDate = timelineTab.TimelineStartDate;
+                MaxDate = timelineTab.TimelineEndDate;
+                SetTimelineDateRange();
+
+                if (timelineTab.Events.Any())
+                    PopulateRows(timelineTab);
+            }
+            if (PreviousID == null)
+                AddNewTab(timelineTab.TimelineName, timelineTab.Id);
+        }
+    }
+
+    private void PopulateRows(Timeline timelineTab)
+    {
+        for (ushort i = 0; i < timelineTab.Events.Count; i++)
+        {
+            AddEventRow newRow = new AddEventRow();
+            newRow.Id = timelineTab.Id;
+            newRow.Index = i;
+            newRow.MinDate = MinDate;
+            newRow.MaxDate = MaxDate;
+            newRow.Dock = DockStyle.Bottom;
+            newRow.SetRowInfo(timelineTab.Events[i]);
+            eventInfoPanel.Controls.Add(newRow);
+        }
+    }
+
+    internal void AddNewTab(string timelineName, ObjectId Id)
     {
         EditEventTab newTimelineTab = new EditEventTab();
-        newTimelineTab.AddOption_ItemClicked += timelineAddTab_Click;
+        newTimelineTab.AddOption_ItemClicked += addTabBtn_Click;
         newTimelineTab.DeleteOption_ItemClicked += deleteBtn_Click;
         newTimelineTab.tabName = timelineName;
         newTimelineTab.Id = Id;
@@ -76,16 +83,14 @@ public partial class EditEvent : Form
         }
     }
 
-    private void timelineAddTab_Click(object sender, EventArgs e)
+    private void addTabBtn_Click(object sender, EventArgs e)
     {
         AddTimeline addTimelineTab = new AddTimeline();
         addTimelineTab.ShowDialog();
 
         if (addTimelineTab.Id != null)
         {
-            EventIds.Add(addTimelineTab.Id);
-            // Remove the highlight of active Tab
-            foreach (EditEventTab tab in timelineTabPanel.Controls)
+            foreach (EditEventTab tab in timelineTabPanel.Controls.OfType<EditEventTab>())
             {
                 if (CurrentID == tab.Id)
                 {
@@ -95,19 +100,11 @@ public partial class EditEvent : Form
                 }
             }
             // Load new added timeline
-            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-            {
-                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                Timeline newtTab = timelines.FindById(addTimelineTab.Id);
-                CurrentID = newtTab.Id;
-                MinDate = newtTab.TimelineStartDate;
-                MaxDate = newtTab.TimelineEndDate;
-                SetTimelineDateRange();
-
-                // Add new tab and clear since there is no events yet as expected
-                addNewTab(newtTab.TimelineName, newtTab.Id);
-                eventInfoPanel.Controls.Clear();
-            }
+            CurrentID = addTimelineTab.Id;
+            EventIds.Add(CurrentID);
+            eventInfoPanel.Controls.Clear();
+            LoadTimelineById(CurrentID);
+            // Remove the highlight of active Tab
         }
         addTimelineTab.Dispose();
     }
@@ -184,43 +181,33 @@ public partial class EditEvent : Form
 
             if (promt.Answer)
             {
+                EventIds.Remove(CurrentID);
                 using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-                {
-                    EventIds.Remove(CurrentID);
-                    var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                    timelines.Delete(CurrentID); // Delete this Timeline
+                    timelineDB.GetCollection<Timeline>("Timeline").Delete(CurrentID);
 
+                if (CurrentID == PreviousID || PreviousID == null)
+                {
                     foreach (ObjectId id in EventIds)
                     {
-                        Timeline firstToLoad = timelines.FindById(id);
-                        CurrentID = firstToLoad.Id;
-                        MinDate = firstToLoad.TimelineStartDate;
-                        MaxDate = firstToLoad.TimelineEndDate;
-                        SetTimelineDateRange();
+                        CurrentID = null;
+                        PreviousID = id;
+                        LoadTimelineById(id);
                         ReverseHighlight(deletedId);
-
-                        if (firstToLoad.Events.Any())
-                        {
-                            for (ushort i = 0; i < firstToLoad.Events.Count; i++)
-                            {
-                                AddEventRow newRow = new AddEventRow();
-                                newRow.Id = firstToLoad.Id;
-                                newRow.Index = i;
-                                newRow.MinDate = firstToLoad.TimelineStartDate;
-                                newRow.MaxDate = firstToLoad.TimelineEndDate;
-                                newRow.Dock = DockStyle.Bottom;
-                                newRow.SetRowInfo(firstToLoad.Events[i]);
-                                eventInfoPanel.Controls.Add(newRow);
-                            }
-                        }
+                        PreviousID = null;
                         break;
                     }
-                    if (EventIds.Any() == false) // No tab available. The final tab is not disposed
-                    {
-                        eventInfoPanel.Controls.Clear();
-                        timelineTabPanel.Controls.Clear();
-                        CurrentID = null;
-                    }
+                }
+                else
+                {
+                    CurrentID = PreviousID;
+                    PreviousID = null;
+                }
+
+                if (EventIds.Any() == false) // No tab available. The final tab is not disposed
+                {
+                    eventInfoPanel.Controls.Clear();
+                    timelineTabPanel.Controls.Clear();
+                    CurrentID = null;
                 }
             }
             promt.Dispose();
@@ -280,4 +267,5 @@ public partial class EditEvent : Form
         }
         disposeThis.Dispose();
     }
+
 }

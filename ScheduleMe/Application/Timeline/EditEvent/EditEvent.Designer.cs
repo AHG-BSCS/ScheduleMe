@@ -29,7 +29,7 @@ partial class EditEvent
     private void InitializeComponent()
     {
         timelineTabPanel = new Panel();
-        timelineAddTab = new Button();
+        addTabBtn = new Button();
         eventsInfoTLPanel = new TableLayoutPanel();
         eventColorHeader = new Label();
         eventEndDateHeader = new Label();
@@ -57,7 +57,7 @@ partial class EditEvent
         // timelineTabPanel
         // 
         timelineTabPanel.BackColor = Color.FromArgb(15, 76, 129);
-        timelineTabPanel.Controls.Add(timelineAddTab);
+        timelineTabPanel.Controls.Add(addTabBtn);
         timelineTabPanel.Dock = DockStyle.Top;
         timelineTabPanel.Location = new Point(0, 0);
         timelineTabPanel.Name = "timelineTabPanel";
@@ -65,24 +65,24 @@ partial class EditEvent
         timelineTabPanel.Size = new Size(984, 35);
         timelineTabPanel.TabIndex = 0;
         // 
-        // timelineAddTab
+        // addTabBtn
         // 
-        timelineAddTab.BackColor = Color.FromArgb(15, 76, 129);
-        timelineAddTab.Dock = DockStyle.Left;
-        timelineAddTab.FlatAppearance.BorderColor = Color.White;
-        timelineAddTab.FlatAppearance.BorderSize = 2;
-        timelineAddTab.FlatStyle = FlatStyle.Flat;
-        timelineAddTab.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-        timelineAddTab.ForeColor = Color.White;
-        timelineAddTab.Location = new Point(10, 0);
-        timelineAddTab.Margin = new Padding(0);
-        timelineAddTab.Name = "timelineAddTab";
-        timelineAddTab.Size = new Size(38, 35);
-        timelineAddTab.TabIndex = 0;
-        timelineAddTab.TabStop = false;
-        timelineAddTab.Text = " +";
-        timelineAddTab.UseVisualStyleBackColor = false;
-        timelineAddTab.Click += timelineAddTab_Click;
+        addTabBtn.BackColor = Color.FromArgb(15, 76, 129);
+        addTabBtn.Dock = DockStyle.Left;
+        addTabBtn.FlatAppearance.BorderColor = Color.White;
+        addTabBtn.FlatAppearance.BorderSize = 2;
+        addTabBtn.FlatStyle = FlatStyle.Flat;
+        addTabBtn.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+        addTabBtn.ForeColor = Color.White;
+        addTabBtn.Location = new Point(10, 0);
+        addTabBtn.Margin = new Padding(0);
+        addTabBtn.Name = "addTabBtn";
+        addTabBtn.Size = new Size(38, 35);
+        addTabBtn.TabIndex = 0;
+        addTabBtn.TabStop = false;
+        addTabBtn.Text = " +";
+        addTabBtn.UseVisualStyleBackColor = false;
+        addTabBtn.Click += addTabBtn_Click;
         // 
         // eventsInfoTLPanel
         // 
@@ -354,7 +354,7 @@ partial class EditEvent
     }
 
     #endregion
-    private Button timelineAddTab;
+    private Button addTabBtn;
     private TableLayoutPanel eventsInfoTLPanel;
     private Label eventTitleHeader;
     private Label eventStartDateHeader;
