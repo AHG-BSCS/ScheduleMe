@@ -15,9 +15,9 @@ public partial class TimelineEvent : UserControl
         InitializeComponent();
     }
 
-    private void eventButtonMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+    private void mnuEvent_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {
-        if (e.ClickedItem == deleteOption)
+        if (e.ClickedItem == mnuDelete)
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
@@ -28,20 +28,21 @@ public partial class TimelineEvent : UserControl
                 timelines.Update(timeline);
 
                 // Reload the timeline
-                timelineMain.panelTimelineContainer.Controls.Clear();
+                timelineMain.pnlEvents.Controls.Clear();
                 timelineMain.PopulateTimeline(timeline);
             }
-            new Message(eventName.Text + " is Deleted");
+            new Message(btnEvent.Text + " is Deleted");
             this.Dispose();
         }
     }
 
     public void SetEventProperty(string eventTitle, string description, DateTime startDate, DateTime endDate, int color)
     {
-        eventName.Text = eventTitle;
+        btnEvent.Text = eventTitle;
         Description = description;
         StartDate = startDate;
         EndDate = endDate;
-        eventName.BackColor = Color.FromArgb(color);
+        btnEvent.BackColor = Color.FromArgb(color);
     }
+
 }

@@ -77,8 +77,8 @@ public partial class TimelinePanel : Form
         }
         else
         {
-            panelTimelineContainer.Height = 130;
-            Height = panelTimelineContainer.Height + 35;
+            pnlEvents.Height = 130;
+            Height = pnlEvents.Height + 35;
         }
         PopulateDates(timeline.TimelineStartDate, timeline.TimelineEndDate);
     }
@@ -90,7 +90,7 @@ public partial class TimelinePanel : Form
         for (ushort i = 0; i < events.Count; i++)
         {
             int eventDuration = (int)(events[i].EventEndDate - events[i].EventStartDate).TotalDays;
-            int eventsXAxis = panelTimelineContainer.HorizontalScroll.Value
+            int eventsXAxis = pnlEvents.HorizontalScroll.Value
                         + (events[i].EventStartDate - startDate).Days
                         * columnSize;
 
@@ -106,18 +106,18 @@ public partial class TimelinePanel : Form
             newEvent.Width = eventDuration * columnSize + 1;
             newEvent.Location = new Point(eventsXAxis + 17, 70);
 
-            panelTimelineContainer.Controls.Add(newEvent);
+            pnlEvents.Controls.Add(newEvent);
             StackEvents(newEvent, ref lowestBottom);
         }
-        panelTimelineContainer.Height = lowestBottom + 30;
-        Height = panelTimelineContainer.Height + 35;
+        pnlEvents.Height = lowestBottom + 30;
+        Height = pnlEvents.Height + 35;
     }
 
     private void StackEvents(TimelineEvent newEvent, ref int lowestBottom)
     {
         int currentRow = 70;
 
-        foreach (TimelineEvent previousEvent in panelTimelineContainer.Controls)
+        foreach (TimelineEvent previousEvent in pnlEvents.Controls)
         {
             // Not the same object and newEvent is above previousEvent
             if (previousEvent != newEvent && newEvent.Top <= previousEvent.Top)
@@ -150,14 +150,14 @@ public partial class TimelinePanel : Form
             dayDates.Day = currentDate.ToString("ddd");
             dayDates.Date = currentDate.Day.ToString();
             dayDates.Location = new Point(columnSize * (currentDate - startDate).Days, 23 - 5);
-            panelTimelineContainer.Controls.Add(dayDates);
+            pnlEvents.Controls.Add(dayDates);
 
             Panel line = new Panel();
             line.BackColor = Color.Black;
             line.Width = 1;
-            line.Height = panelTimelineContainer.Height - 58;
+            line.Height = pnlEvents.Height - 58;
             line.Location = new Point(dayDates.Left + dayDates.Width / 2, dayDates.Height);
-            panelTimelineContainer.Controls.Add(line);
+            pnlEvents.Controls.Add(line);
 
             if (currentDate.DayOfYear == DateTime.Now.DayOfYear && currentDate.Year == DateTime.Now.Year)
             {
@@ -177,7 +177,7 @@ public partial class TimelinePanel : Form
         nextMonths.Font = new Font("Dubai", 10, FontStyle.Bold);
         nextMonths.Location = new Point(columnSize * (currentDate - startDate).Days, 0);
         nextMonths.AutoSize = true;
-        panelTimelineContainer.Controls.Add(nextMonths);
+        pnlEvents.Controls.Add(nextMonths);
 
         if (nextMonths.Left < firstMonthRight)
             nextMonths.Left = firstMonthRight;
@@ -191,9 +191,9 @@ public partial class TimelinePanel : Form
         Panel timeIndicatorLine = new Panel();
         timeIndicatorLine.BackColor = Color.FromArgb(15, 76, 129);
         timeIndicatorLine.Width = 3;
-        timeIndicatorLine.Height = panelTimelineContainer.Height - 35;
+        timeIndicatorLine.Height = pnlEvents.Height - 35;
         timeIndicatorLine.Location = point;
-        panelTimelineContainer.Controls.Add(timeIndicatorLine);
+        pnlEvents.Controls.Add(timeIndicatorLine);
         timeIndicatorLine.BringToFront();
 
         Label timeIndicatorText = new Label();
@@ -203,7 +203,7 @@ public partial class TimelinePanel : Form
         timeIndicatorText.Font = new Font("Dubai", 8, FontStyle.Bold);
         timeIndicatorText.Location = new Point(timeIndicatorLine.Left, timeIndicatorLine.Top - 14);
         timeIndicatorText.AutoSize = true;
-        panelTimelineContainer.Controls.Add(timeIndicatorText);
+        pnlEvents.Controls.Add(timeIndicatorText);
         timeIndicatorText.BringToFront();
         return timeIndicatorLine.Left;
     }
@@ -211,33 +211,33 @@ public partial class TimelinePanel : Form
     public void AddNewTab(string timelineName, ObjectId Id)
     {
         TimelineTab newTimelineTab = new TimelineTab();
-        newTimelineTab.TimelineTabMenu_ItemClicked += timelineMenu_ItemClicked;
-        newTimelineTab.AddOption_ItemClicked += addTabBtn_Click;
-        newTimelineTab.OpenAtBottomOption_ItemClicked += timelineMenu_ItemClicked;
+        newTimelineTab.TimelineTabMenu_ItemClicked += mnuTimeline_ItemClicked;
+        newTimelineTab.AddOption_ItemClicked += btnAddTab_Click;
+        newTimelineTab.OpenAtBottomOption_ItemClicked += mnuTimeline_ItemClicked;
         newTimelineTab.TabName = timelineName;
         newTimelineTab.Id = Id;
         newTimelineTab.timelineInstance = this;
         newTimelineTab.Dock = DockStyle.Left;
-        panelTimelineTab.Controls.Add(newTimelineTab);
+        pnlTab.Controls.Add(newTimelineTab);
         newTimelineTab.BringToFront();
 
         // Highlight the current tab
         if (CurrentID == Id)
         {
-            newTimelineTab.tabBtn.BackColor = Color.White;
-            newTimelineTab.tabBtn.ForeColor = Color.Black;
+            newTimelineTab.btnTab.BackColor = Color.White;
+            newTimelineTab.btnTab.ForeColor = Color.Black;
         }
     }
 
-    private void seekTodayBtn_Click(object sender, EventArgs e)
+    private void btnJump_Click(object sender, EventArgs e)
     {
         // Need to improve
         Screen screen = Screen.PrimaryScreen;
         short screenWidth = (short)screen.Bounds.Width;
-        panelTimelineContainer.AutoScrollPosition = new Point(currentDateTimePosition - (screenWidth / 2));
+        pnlEvents.AutoScrollPosition = new Point(currentDateTimePosition - (screenWidth / 2));
     }
 
-    private void addTabBtn_Click(object sender, EventArgs e)
+    private void btnAddTab_Click(object sender, EventArgs e)
     {
         AddTimeline addTimelineTab = new AddTimeline();
         addTimelineTab.ShowDialog();
@@ -245,28 +245,28 @@ public partial class TimelinePanel : Form
         if (addTimelineTab.Id != null)
         {
             // Remove the highlight of active Tab
-            foreach (TimelineTab tab in panelTimelineTab.Controls)
+            foreach (TimelineTab tab in pnlTab.Controls)
             {
                 if (CurrentID == tab.Id)
                 {
-                    tab.tabBtn.BackColor = Color.FromArgb(15, 76, 129);
-                    tab.tabBtn.ForeColor = Color.White;
+                    tab.btnTab.BackColor = Color.FromArgb(15, 76, 129);
+                    tab.btnTab.ForeColor = Color.White;
                     break;
                 }
             }
             // Load the new added TimelineTab
-            panelTimelineContainer.Controls.Clear();
-            panelTimelineContainer.Height = 130;
-            Height = panelTimelineContainer.Height + 35;
+            pnlEvents.Controls.Clear();
+            pnlEvents.Height = 130;
+            Height = pnlEvents.Height + 35;
             CurrentID = addTimelineTab.Id;
             LoadTimelineById(addTimelineTab.Id);
         }
         addTimelineTab.Dispose();
     }
 
-    private void timelineMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+    private void mnuTimeline_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {
-        if (e.ClickedItem.Name == editOption.Name)
+        if (e.ClickedItem.Name == mnuEdit.Name)
         {
             EditTimeline editEvent = new EditTimeline();
             editEvent.CurrentID = CurrentID;
@@ -276,8 +276,8 @@ public partial class TimelinePanel : Form
             CurrentID = editEvent.CurrentID;
             EventIds = editEvent.EventIds;
             editEvent.Dispose();
-            panelTimelineTab.Controls.Clear();
-            panelTimelineContainer.Controls.Clear();
+            pnlTab.Controls.Clear();
+            pnlEvents.Controls.Clear();
 
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
@@ -293,11 +293,11 @@ public partial class TimelinePanel : Form
             }
         }
 
-        else if (e.ClickedItem.Name == openAtBottomOption.Name)
+        else if (e.ClickedItem.Name == mnuOpenAtBottom.Name)
         {
-            if (panelTimelineTab.Controls.Count > 1)
+            if (pnlTab.Controls.Count > 1)
             {
-                panelTimelineContainer.Controls.Clear();
+                pnlEvents.Controls.Clear();
                 MainForm mainForm = (MainForm)this.ParentForm;
                 TimelinePanel newTimelineMain = new TimelinePanel();
                 newTimelineMain.CurrentID = CurrentID;
@@ -310,7 +310,7 @@ public partial class TimelinePanel : Form
                 EventIds.Remove(CurrentID);
 
                 // Dispose the moved tab
-                foreach (TimelineTab tab in panelTimelineTab.Controls)
+                foreach (TimelineTab tab in pnlTab.Controls)
                 {
                     if (CurrentID == tab.Id)
                     {
@@ -320,7 +320,7 @@ public partial class TimelinePanel : Form
                 }
 
                 // Prevent the loading of moved tab
-                foreach (TimelineTab tab in panelTimelineTab.Controls)
+                foreach (TimelineTab tab in pnlTab.Controls)
                 {
                     using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
                     {
@@ -334,8 +334,8 @@ public partial class TimelinePanel : Form
                         else
                         {
                             timelineTab = timelines.FindById(tab.Id);
-                            tab.tabBtn.BackColor = Color.White;
-                            tab.tabBtn.ForeColor = Color.Black;
+                            tab.btnTab.BackColor = Color.White;
+                            tab.btnTab.ForeColor = Color.Black;
                             CurrentID = tab.Id;
                         }
                         PopulateTimeline(timelineTab);
@@ -347,7 +347,7 @@ public partial class TimelinePanel : Form
                 new Message("Last remaining tab");
 
         }
-        else if (e.ClickedItem == deletePanelOption)
+        else if (e.ClickedItem == mnuDeletePanel)
         {
             MainForm mainForm = (MainForm)this.ParentForm;
             if (mainForm.tabPanel.Controls.Count > 1)
@@ -362,7 +362,7 @@ public partial class TimelinePanel : Form
                     }
                 }
 
-                foreach (TimelineTab tab in panelTimelineTab.Controls)
+                foreach (TimelineTab tab in pnlTab.Controls)
                 {
                     firstPanel.EventIds.Add(tab.Id);
                     firstPanel.AddNewTab(tab.TabName, tab.Id);

@@ -12,8 +12,8 @@ public partial class TimelineTab : UserControl
 
     public string TabName
     {
-        get { return tabBtn.Text; }
-        set { tabBtn.Text = value; }
+        get { return btnTab.Text; }
+        set { btnTab.Text = value; }
     }
 
     public TimelineTab()
@@ -23,40 +23,40 @@ public partial class TimelineTab : UserControl
 
     private void HighlightButton()
     {
-        timelineInstance.panelTimelineContainer.Controls.Clear();
-        foreach (TimelineTab tab in timelineInstance.panelTimelineTab.Controls)
+        timelineInstance.pnlEvents.Controls.Clear();
+        foreach (TimelineTab tab in timelineInstance.pnlTab.Controls)
         {
             if (timelineInstance.CurrentID == tab.Id)
             {
-                tab.tabBtn.BackColor = Color.FromArgb(15, 76, 129);
-                tab.tabBtn.ForeColor = Color.White;
+                tab.btnTab.BackColor = Color.FromArgb(15, 76, 129);
+                tab.btnTab.ForeColor = Color.White;
                 break;
             }
         }
-        tabBtn.BackColor = Color.White;
-        tabBtn.ForeColor = Color.Black;
+        btnTab.BackColor = Color.White;
+        btnTab.ForeColor = Color.Black;
     }
 
     private void ReverseHighlight()
     {
-        timelineInstance.panelTimelineContainer.Controls.Clear();
-        foreach (TimelineTab tab in timelineInstance.panelTimelineTab.Controls)
+        timelineInstance.pnlEvents.Controls.Clear();
+        foreach (TimelineTab tab in timelineInstance.pnlTab.Controls)
         {
             if (timelineInstance.CurrentID == tab.Id)
             {
-                tab.tabBtn.BackColor = Color.White;
-                tab.tabBtn.ForeColor = Color.Black;
+                tab.btnTab.BackColor = Color.White;
+                tab.btnTab.ForeColor = Color.Black;
                 break;
             }
             else
             {
-                tab.tabBtn.BackColor = Color.FromArgb(15, 76, 129);
-                tab.tabBtn.ForeColor = Color.White;
+                tab.btnTab.BackColor = Color.FromArgb(15, 76, 129);
+                tab.btnTab.ForeColor = Color.White;
             }
         }
     }
 
-    private void tabBtn_Click(object sender, EventArgs e)
+    private void btnTab_Click(object sender, EventArgs e)
     {
         if (timelineInstance.CurrentID != Id)
         {
@@ -71,14 +71,14 @@ public partial class TimelineTab : UserControl
         }
     }
 
-    private void timelineTabMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+    private void mnuTab_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {
-        if (e.ClickedItem == addOption)
+        if (e.ClickedItem == mnuAdd)
         {
             AddOption_ItemClicked?.Invoke(this, e);
         }
 
-        else if (e.ClickedItem == deleteOption)
+        else if (e.ClickedItem == mnuDelete)
         {
             Confirm promt = new Confirm();
             promt.ShowDialog();
@@ -109,7 +109,7 @@ public partial class TimelineTab : UserControl
                     if (timelineInstance.EventIds.Any() == false)
                     {
                         MainForm mainForm = (MainForm)this.ParentForm.ParentForm;
-                        timelineInstance.panelTimelineContainer.Controls.Clear();
+                        timelineInstance.pnlEvents.Controls.Clear();
                         timelineInstance.CurrentID = null;
 
                         if (mainForm.tabPanel.Controls.Count > 1)
@@ -122,7 +122,7 @@ public partial class TimelineTab : UserControl
             }
             promt.Dispose();
         }
-        else if (e.ClickedItem == openAtBottomOption)
+        else if (e.ClickedItem == mnuOpenAtBottom)
         {
             timelineInstance.PreviousID = timelineInstance.CurrentID;
             timelineInstance.CurrentID = Id;
