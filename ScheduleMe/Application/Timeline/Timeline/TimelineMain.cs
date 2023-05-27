@@ -67,7 +67,7 @@ public partial class TimelineMain : Form
         }
     }
 
-    private void PopulateTimeline(Timeline timeline)
+    internal void PopulateTimeline(Timeline timeline)
     {
         if (timeline.Events.Any())
         {
@@ -83,7 +83,7 @@ public partial class TimelineMain : Form
         PopulateDates(timeline.TimelineStartDate, timeline.TimelineEndDate);
     }
 
-    internal void PopulateEvents(List<Event> events, DateTime startDate, ObjectId id)
+    private void PopulateEvents(List<Event> events, DateTime startDate, ObjectId id)
     {
         int lowestBottom = 0;
 
@@ -136,7 +136,7 @@ public partial class TimelineMain : Form
         lowestBottom = Math.Max(newEvent.Bottom, lowestBottom);
     }
 
-    public void PopulateDates(DateTime startDate, DateTime endDate)
+    private void PopulateDates(DateTime startDate, DateTime endDate)
     {
         int firstMonthRight = 0;
         for (DateTime currentDate = startDate; currentDate <= endDate; currentDate = currentDate.AddDays(1))
@@ -224,8 +224,8 @@ public partial class TimelineMain : Form
         // Highlight the current tab
         if (CurrentID == Id)
         {
-            newTimelineTab.timelineTabBtn.BackColor = Color.White;
-            newTimelineTab.timelineTabBtn.ForeColor = Color.Black;
+            newTimelineTab.tabBtn.BackColor = Color.White;
+            newTimelineTab.tabBtn.ForeColor = Color.Black;
         }
     }
 
@@ -249,8 +249,8 @@ public partial class TimelineMain : Form
             {
                 if (CurrentID == tab.Id)
                 {
-                    tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
-                    tab.timelineTabBtn.ForeColor = Color.White;
+                    tab.tabBtn.BackColor = Color.FromArgb(15, 76, 129);
+                    tab.tabBtn.ForeColor = Color.White;
                     break;
                 }
             }
@@ -334,8 +334,8 @@ public partial class TimelineMain : Form
                         else
                         {
                             timelineTab = timelines.FindById(tab.Id);
-                            tab.timelineTabBtn.BackColor = Color.White;
-                            tab.timelineTabBtn.ForeColor = Color.Black;
+                            tab.tabBtn.BackColor = Color.White;
+                            tab.tabBtn.ForeColor = Color.Black;
                             CurrentID = tab.Id;
                         }
                         PopulateTimeline(timelineTab);

@@ -12,8 +12,8 @@ public partial class TimelineTab : UserControl
 
     public string TabName
     {
-        get { return timelineTabBtn.Text; }
-        set { timelineTabBtn.Text = value; }
+        get { return tabBtn.Text; }
+        set { tabBtn.Text = value; }
     }
 
     public TimelineTab()
@@ -28,13 +28,13 @@ public partial class TimelineTab : UserControl
         {
             if (timelineInstance.CurrentID == tab.Id)
             {
-                tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
-                tab.timelineTabBtn.ForeColor = Color.White;
+                tab.tabBtn.BackColor = Color.FromArgb(15, 76, 129);
+                tab.tabBtn.ForeColor = Color.White;
                 break;
             }
         }
-        timelineTabBtn.BackColor = Color.White;
-        timelineTabBtn.ForeColor = Color.Black;
+        tabBtn.BackColor = Color.White;
+        tabBtn.ForeColor = Color.Black;
     }
 
     private void ReverseHighlight()
@@ -44,20 +44,19 @@ public partial class TimelineTab : UserControl
         {
             if (timelineInstance.CurrentID == tab.Id)
             {
-                tab.timelineTabBtn.BackColor = Color.White;
-                tab.timelineTabBtn.ForeColor = Color.Black;
+                tab.tabBtn.BackColor = Color.White;
+                tab.tabBtn.ForeColor = Color.Black;
                 break;
             }
             else
             {
-                tab.timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
-                tab.timelineTabBtn.ForeColor = Color.White;
+                tab.tabBtn.BackColor = Color.FromArgb(15, 76, 129);
+                tab.tabBtn.ForeColor = Color.White;
             }
-
         }
     }
 
-    private void timelineTabBtn_Click(object sender, EventArgs e)
+    private void tabBtn_Click(object sender, EventArgs e)
     {
         if (timelineInstance.CurrentID != Id)
         {
@@ -66,19 +65,7 @@ public partial class TimelineTab : UserControl
             {
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 var timelineTabs = timelines.FindById(Id);
-
-                if (timelineTabs.Events.Any())
-                {
-                    timelineTabs.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-                    timelineInstance.PopulateEvents(timelineTabs.Events, timelineTabs.TimelineStartDate, timelineTabs.Id);
-                }
-                else
-                {
-                    timelineInstance.panelTimelineContainer.Height = 130;
-                    timelineInstance.Height = timelineInstance.panelTimelineContainer.Height + 35;
-                }
-
-                timelineInstance.PopulateDates(timelineTabs.TimelineStartDate, timelineTabs.TimelineEndDate);
+                timelineInstance.PopulateTimeline(timelineTabs);
                 timelineInstance.CurrentID = Id;
             }
         }
@@ -113,18 +100,7 @@ public partial class TimelineTab : UserControl
                             ReverseHighlight();
                             if (firstToLoad != null)
                             {
-                                if (firstToLoad.Events.Any())
-                                {
-                                    // Need to improve the sorting or the overlapping method. Too difficult
-                                    firstToLoad.Events.Sort((e1, e2) => e1.EventEndDate.CompareTo(e2.EventStartDate));
-                                    timelineInstance.PopulateEvents(firstToLoad.Events, firstToLoad.TimelineStartDate, firstToLoad.Id);
-                                }
-                                else
-                                {
-                                    timelineInstance.panelTimelineContainer.Height = 130;
-                                    timelineInstance.Height = timelineInstance.panelTimelineContainer.Height + 35;
-                                }
-                                timelineInstance.PopulateDates(firstToLoad.TimelineStartDate, firstToLoad.TimelineEndDate);
+                                timelineInstance.PopulateTimeline(firstToLoad);
                             }
                         }
                         break;
@@ -156,4 +132,5 @@ public partial class TimelineTab : UserControl
         else
             TimelineTabMenu_ItemClicked?.Invoke(this, e);
     }
+
 }

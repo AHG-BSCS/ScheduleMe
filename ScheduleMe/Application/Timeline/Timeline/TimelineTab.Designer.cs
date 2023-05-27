@@ -28,7 +28,7 @@ partial class TimelineTab
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
-        timelineTabBtn = new Button();
+        tabBtn = new Button();
         timelineTabMenu = new ContextMenuStrip(components);
         editOption = new ToolStripMenuItem();
         addOption = new ToolStripMenuItem();
@@ -38,26 +38,26 @@ partial class TimelineTab
         timelineTabMenu.SuspendLayout();
         SuspendLayout();
         // 
-        // timelineTabBtn
+        // tabBtn
         // 
-        timelineTabBtn.AutoSize = true;
-        timelineTabBtn.BackColor = Color.FromArgb(15, 76, 129);
-        timelineTabBtn.ContextMenuStrip = timelineTabMenu;
-        timelineTabBtn.Dock = DockStyle.Fill;
-        timelineTabBtn.FlatAppearance.BorderColor = Color.White;
-        timelineTabBtn.FlatAppearance.BorderSize = 0;
-        timelineTabBtn.FlatStyle = FlatStyle.Flat;
-        timelineTabBtn.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        timelineTabBtn.ForeColor = Color.White;
-        timelineTabBtn.Location = new Point(0, 0);
-        timelineTabBtn.Margin = new Padding(0);
-        timelineTabBtn.Name = "timelineTabBtn";
-        timelineTabBtn.Size = new Size(74, 36);
-        timelineTabBtn.TabIndex = 0;
-        timelineTabBtn.TabStop = false;
-        timelineTabBtn.Text = "New Tab";
-        timelineTabBtn.UseVisualStyleBackColor = false;
-        timelineTabBtn.Click += timelineTabBtn_Click;
+        tabBtn.AutoSize = true;
+        tabBtn.BackColor = Color.FromArgb(15, 76, 129);
+        tabBtn.ContextMenuStrip = timelineTabMenu;
+        tabBtn.Dock = DockStyle.Fill;
+        tabBtn.FlatAppearance.BorderColor = Color.White;
+        tabBtn.FlatAppearance.BorderSize = 0;
+        tabBtn.FlatStyle = FlatStyle.Flat;
+        tabBtn.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        tabBtn.ForeColor = Color.White;
+        tabBtn.Location = new Point(0, 0);
+        tabBtn.Margin = new Padding(0);
+        tabBtn.Name = "tabBtn";
+        tabBtn.Size = new Size(74, 36);
+        tabBtn.TabIndex = 0;
+        tabBtn.TabStop = false;
+        tabBtn.Text = "New Tab";
+        tabBtn.UseVisualStyleBackColor = false;
+        tabBtn.Click += tabBtn_Click;
         // 
         // timelineTabMenu
         // 
@@ -104,7 +104,7 @@ partial class TimelineTab
         AutoScaleMode = AutoScaleMode.Dpi;
         AutoSize = true;
         BackColor = Color.Transparent;
-        Controls.Add(timelineTabBtn);
+        Controls.Add(tabBtn);
         Margin = new Padding(0);
         Name = "TimelineTab";
         Size = new Size(74, 36);
@@ -120,5 +120,5 @@ partial class TimelineTab
     private ToolStripMenuItem deleteOption;
     private ToolStripSeparator optionSeparator;
     private ToolStripMenuItem openAtBottomOption;
-    public Button timelineTabBtn;
+    public Button tabBtn;
 }
