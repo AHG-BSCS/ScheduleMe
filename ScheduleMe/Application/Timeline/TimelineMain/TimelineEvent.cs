@@ -21,7 +21,7 @@ public partial class TimelineEvent : UserControl
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
-                TimelinePanel timelinePanel = (TimelinePanel)this.Parent.Parent;
+                TimelinePanel timelinePanel = (TimelinePanel)Parent.Parent;
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 var timeline = timelines.FindById(Id);
                 timeline.Events.RemoveAt(Index);
@@ -32,7 +32,7 @@ public partial class TimelineEvent : UserControl
                 timelinePanel.PopulateTimeline(timeline);
             }
             new Message(btnEvent.Text + " is Deleted");
-            this.Dispose();
+            Dispose();
         }
     }
 
@@ -44,5 +44,4 @@ public partial class TimelineEvent : UserControl
         EndDate = endDate;
         btnEvent.BackColor = Color.FromArgb(color);
     }
-
 }

@@ -6,14 +6,10 @@ public partial class TimelinePanel : Form
 {
     public ObjectId CurrentID { get; set; }
     public ObjectId PreviousID { get; set; }
-    private List<ObjectId> _eventIds = new List<ObjectId>();
-    private byte columnSize = 42;
+    public List<ObjectId> EventIds { get; set; } = new List<ObjectId>();
+
+    private readonly byte columnSize = 42;
     private int currentDateTimePosition = 0;
-    public List<ObjectId> EventIds
-    {
-        get { return _eventIds; }
-        set { _eventIds = value; }
-    }
 
     public TimelinePanel()
     {
@@ -23,48 +19,40 @@ public partial class TimelinePanel : Form
     private void Timeline_Load(object sender, EventArgs e)
     {
         if (CurrentID == null)
-        {
             LoadFirstTimeline();
-        }
 
         else if (CurrentID != null)
-        {
             LoadTimelineById(CurrentID);
-        }
     }
 
     private void LoadFirstTimeline()
     {
-        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-        {
-            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-            var timelineTabs = timelines.FindAll();
-            if (timelineTabs.Any())
-            {
-                Timeline firstToLoad = timelineTabs.First();
-                CurrentID = firstToLoad.Id;
+        using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
+        var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+        var timelineTabs = timelines.FindAll();
 
-                // Load all the Timeline Tabs
-                foreach (var tab in timelineTabs)
-                {
-                    EventIds.Add(tab.Id);
-                    AddNewTab(tab.TimelineName, tab.Id);
-                }
-                PopulateTimeline(firstToLoad);
+        if (timelineTabs.Any())
+        {
+            Timeline firstToLoad = timelineTabs.First();
+            CurrentID = firstToLoad.Id;
+
+            foreach (var tab in timelineTabs) // Load all the Timeline Tabs
+            {
+                EventIds.Add(tab.Id);
+                AddNewTab(tab.TimelineName, tab.Id);
             }
+            PopulateTimeline(firstToLoad);
         }
     }
 
     private void LoadTimelineById(ObjectId id)
     {
-        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-        {
-            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-            var timelineTab = timelines.FindById(id);
-            EventIds.Add(id);
-            AddNewTab(timelineTab.TimelineName, timelineTab.Id);
-            PopulateTimeline(timelineTab);
-        }
+        using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
+        var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+        var timelineTab = timelines.FindById(id);
+        EventIds.Add(id);
+        AddNewTab(timelineTab.TimelineName, timelineTab.Id);
+        PopulateTimeline(timelineTab);
     }
 
     internal void PopulateTimeline(Timeline timeline)
@@ -91,8 +79,8 @@ public partial class TimelinePanel : Form
         {
             int eventDuration = (int)(events[i].EventEndDate - events[i].EventStartDate).TotalDays;
             int eventsXAxis = pnlEvents.HorizontalScroll.Value
-                        + (events[i].EventStartDate - startDate).Days
-                        * columnSize;
+                        + ((events[i].EventStartDate - startDate).Days
+                        * columnSize);
 
             TimelineEvent newEvent = new TimelineEvent();
             newEvent.SetEventProperty(
@@ -103,7 +91,7 @@ public partial class TimelinePanel : Form
                 events[i].EventColor);
             newEvent.Id = id;
             newEvent.Index = i;
-            newEvent.Width = eventDuration * columnSize + 1;
+            newEvent.Width = (eventDuration * columnSize) + 1;
             newEvent.Location = new Point(eventsXAxis + 17, 70);
 
             pnlEvents.Controls.Add(newEvent);
@@ -142,9 +130,7 @@ public partial class TimelinePanel : Form
         for (DateTime currentDate = startDate; currentDate <= endDate; currentDate = currentDate.AddDays(1))
         {
             if (currentDate.Day == 1 || currentDate.DayOfYear == startDate.DayOfYear)
-            {
                 GenerateMonthLabel(currentDate, startDate, ref firstMonthRight);
-            }
 
             TimelineDays timelineDays = new TimelineDays();
             timelineDays.Day = currentDate.ToString("ddd");
@@ -156,13 +142,13 @@ public partial class TimelinePanel : Form
             line.BackColor = Color.Black;
             line.Width = 1;
             line.Height = pnlEvents.Height - 58;
-            line.Location = new Point(timelineDays.Left + timelineDays.Width / 2, timelineDays.Height);
+            line.Location = new Point(timelineDays.Left + (timelineDays.Width / 2), timelineDays.Height);
             pnlEvents.Controls.Add(line);
 
             if (currentDate.DayOfYear == DateTime.Now.DayOfYear && currentDate.Year == DateTime.Now.Year)
             {
-                Point point = new Point((timelineDays.Left + timelineDays.Width / 2)
-                    + ((int)((float)columnSize * (float)(DateTime.Now.Hour / 24.0))),
+                Point point = new Point(timelineDays.Left + (timelineDays.Width / 2)
+                    + ((int)(columnSize * (float)(DateTime.Now.Hour / 24.0))),
                     timelineDays.Height - 22);
                 currentDateTimePosition = GenerateTimeIndicator(point);
                 line.Width = 2;
@@ -221,17 +207,15 @@ public partial class TimelinePanel : Form
         pnlTab.Controls.Add(newTimelineTab);
         newTimelineTab.BringToFront();
 
-        // Highlight the current tab
-        if (CurrentID == Id)
+        if (CurrentID == Id) // Highlight the current tab
         {
             newTimelineTab.btnTab.BackColor = Color.White;
             newTimelineTab.btnTab.ForeColor = Color.Black;
         }
     }
 
-    private void btnJump_Click(object sender, EventArgs e)
+    private void btnJump_Click(object sender, EventArgs e) // Need to improve
     {
-        // Need to improve
         Screen screen = Screen.PrimaryScreen;
         short screenWidth = (short)screen.Bounds.Width;
         pnlEvents.AutoScrollPosition = new Point(currentDateTimePosition - (screenWidth / 2));
@@ -244,8 +228,7 @@ public partial class TimelinePanel : Form
 
         if (addTimeline.Id != null)
         {
-            // Remove the highlight of active Tab
-            foreach (TimelineTab tab in pnlTab.Controls)
+            foreach (TimelineTab tab in pnlTab.Controls) // Remove the highlight of active Tab
             {
                 if (CurrentID == tab.Id)
                 {
@@ -268,7 +251,7 @@ public partial class TimelinePanel : Form
     {
         if (e.ClickedItem.Name == mnuEdit.Name)
         {
-            MainForm mainForm = (MainForm)this.ParentForm;
+            MainForm mainForm = (MainForm)ParentForm;
             EditTimeline editTimeline = new EditTimeline();
             editTimeline.CurrentID = CurrentID;
             editTimeline.EventIds = EventIds;
@@ -282,21 +265,19 @@ public partial class TimelinePanel : Form
 
             if (EventIds.Any())
             {
-                using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+                using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
+                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                foreach (ObjectId id in EventIds)
                 {
-                    var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                    foreach (ObjectId id in EventIds)
-                    {
-                        var tab = timelines.FindById(id);
-                        AddNewTab(tab.TimelineName, tab.Id);
+                    var tab = timelines.FindById(id);
+                    AddNewTab(tab.TimelineName, tab.Id);
 
-                        if (id == CurrentID)
-                            PopulateTimeline(tab);
-                    }
+                    if (id == CurrentID)
+                        PopulateTimeline(tab);
                 }
             }
             else if (mainForm.tabPanel.Controls.Count > 1)
-                this.Dispose();
+                Dispose();
         }
 
         else if (e.ClickedItem.Name == mnuOpenAtBottom.Name)
@@ -304,7 +285,7 @@ public partial class TimelinePanel : Form
             if (pnlTab.Controls.Count > 1)
             {
                 pnlEvents.Controls.Clear();
-                MainForm mainForm = (MainForm)this.ParentForm;
+                MainForm mainForm = (MainForm)ParentForm;
                 TimelinePanel newtimelinePanel = new TimelinePanel();
                 newtimelinePanel.CurrentID = CurrentID;
                 newtimelinePanel.Show();
@@ -315,8 +296,7 @@ public partial class TimelinePanel : Form
                 mainForm.tabPanel.Focus();
                 EventIds.Remove(CurrentID);
 
-                // Dispose the moved tab
-                foreach (TimelineTab tab in pnlTab.Controls)
+                foreach (TimelineTab tab in pnlTab.Controls) // Dispose the moved tab
                 {
                     if (CurrentID == tab.Id)
                     {
@@ -325,37 +305,34 @@ public partial class TimelinePanel : Form
                     }
                 }
 
-                // Prevent the loading of moved tab
-                foreach (TimelineTab tab in pnlTab.Controls)
+                foreach (TimelineTab tab in pnlTab.Controls) // Prevent the loading of moved tab
                 {
-                    using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+                    using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
+                    var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                    Timeline timelineTab;
+                    if (CurrentID != PreviousID && PreviousID != null)
                     {
-                        var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                        Timeline timelineTab;
-                        if (CurrentID != PreviousID && PreviousID != null)
-                        {
-                            timelineTab = timelines.FindById(PreviousID);
-                            CurrentID = PreviousID;
-                        }
-                        else
-                        {
-                            timelineTab = timelines.FindById(tab.Id);
-                            tab.btnTab.BackColor = Color.White;
-                            tab.btnTab.ForeColor = Color.Black;
-                            CurrentID = tab.Id;
-                        }
-                        PopulateTimeline(timelineTab);
+                        timelineTab = timelines.FindById(PreviousID);
+                        CurrentID = PreviousID;
                     }
+                    else
+                    {
+                        timelineTab = timelines.FindById(tab.Id);
+                        tab.btnTab.BackColor = Color.White;
+                        tab.btnTab.ForeColor = Color.Black;
+                        CurrentID = tab.Id;
+                    }
+                    PopulateTimeline(timelineTab);
                     break;
                 }
             }
             else
                 new Message("Last remaining tab");
-
         }
+
         else if (e.ClickedItem == mnuDeletePanel)
         {
-            MainForm mainForm = (MainForm)this.ParentForm;
+            MainForm mainForm = (MainForm)ParentForm;
             if (mainForm.tabPanel.Controls.Count > 1)
             {
                 // Look for the a panel to move the tab
@@ -369,17 +346,15 @@ public partial class TimelinePanel : Form
                     }
                 }
 
-                // Add the tab
-                foreach (TimelineTab tab in pnlTab.Controls)
+                foreach (TimelineTab tab in pnlTab.Controls) // Add the tab
                 {
                     lastTimelinePanel.EventIds.Add(tab.Id);
                     lastTimelinePanel.AddNewTab(tab.TabName, tab.Id);
                 }
-                this.Dispose();
+                Dispose();
             }
             else
                 new Message("Last remaining panel");
         }
     }
-
 }

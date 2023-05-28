@@ -6,6 +6,7 @@ public partial class TimelineTab : UserControl
 {
     public ObjectId Id { get; set; }
     public TimelinePanel timelinePanel;
+
     public event EventHandler<ToolStripItemClickedEventArgs> TimelineTabMenu_ItemClicked;
     public event EventHandler<ToolStripItemClickedEventArgs> AddOption_ItemClicked;
     public event EventHandler<ToolStripItemClickedEventArgs> OpenAtBottomOption_ItemClicked;
@@ -61,13 +62,11 @@ public partial class TimelineTab : UserControl
         if (timelinePanel.CurrentID != Id)
         {
             HighlightButton();
-            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-            {
-                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                var timelineTabs = timelines.FindById(Id);
-                timelinePanel.PopulateTimeline(timelineTabs);
-                timelinePanel.CurrentID = Id;
-            }
+            using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
+            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+            var timelineTabs = timelines.FindById(Id);
+            timelinePanel.PopulateTimeline(timelineTabs);
+            timelinePanel.CurrentID = Id;
         }
     }
 
@@ -108,7 +107,7 @@ public partial class TimelineTab : UserControl
 
                     if (timelinePanel.EventIds.Any() == false)
                     {
-                        MainForm mainForm = (MainForm)this.ParentForm.ParentForm;
+                        MainForm mainForm = (MainForm)ParentForm.ParentForm;
                         timelinePanel.pnlEvents.Controls.Clear();
                         timelinePanel.CurrentID = null;
 
@@ -118,10 +117,11 @@ public partial class TimelineTab : UserControl
                         }
                     }
                 }
-                this.Dispose();
+                Dispose();
             }
             confirm.Dispose();
         }
+
         else if (e.ClickedItem == mnuOpenAtBottom)
         {
             timelinePanel.PreviousID = timelinePanel.CurrentID;
@@ -129,8 +129,8 @@ public partial class TimelineTab : UserControl
             OpenAtBottomOption_ItemClicked?.Invoke(this, e);
             timelinePanel.PreviousID = null;
         }
+
         else
             TimelineTabMenu_ItemClicked?.Invoke(this, e);
     }
-
 }
