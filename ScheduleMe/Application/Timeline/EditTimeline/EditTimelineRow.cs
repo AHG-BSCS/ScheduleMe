@@ -4,16 +4,16 @@ namespace ScheduleMe.Tab;
 
 public partial class EditTimelineRow : UserControl
 {
-    public EditTimelineRow()
-    {
-        InitializeComponent();
-    }
-
     internal Event eventInfo;
     public ObjectId Id { get; set; }
     public ushort Index { get; set; }
     public DateTime MinDate { get; set; }
     public DateTime MaxDate { get; set; }
+
+    public EditTimelineRow()
+    {
+        InitializeComponent();
+    }
 
     public string Title
     {
@@ -78,7 +78,7 @@ public partial class EditTimelineRow : UserControl
         {
             using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
             {
-                EditTimeline editTimeline = (EditTimeline)this.Parent.Parent;
+                EditTimeline editTimeline = (EditTimeline)Parent.Parent;
                 var timelines = timelineDB.GetCollection<Timeline>("Timeline");
                 var timeline = timelines.FindById(Id);
                 timeline.Events.RemoveAt(Index);
@@ -89,7 +89,7 @@ public partial class EditTimelineRow : UserControl
                 editTimeline.PopulateRows(timeline);
             }
             new Message(txtTitle.Text + " is Deleted");
-            this.Dispose();
+            Dispose();
         }
         else
             new Message("Can't be found. Please save first.");
@@ -112,5 +112,4 @@ public partial class EditTimelineRow : UserControl
         if (pckEndDate.Value < pckStartDate.Value)
             pckEndDate.Value = pckStartDate.Value;
     }
-
 }

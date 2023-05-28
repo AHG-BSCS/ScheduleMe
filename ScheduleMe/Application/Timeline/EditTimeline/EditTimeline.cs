@@ -28,23 +28,22 @@ public partial class EditTimeline : Form
 
     internal void LoadTimelineById(ObjectId id)
     {
-        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-        {
-            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-            var timelineTab = timelines.FindById(id);
-            if (id == CurrentID || CurrentID == null)
-            {
-                CurrentID = timelineTab.Id;
-                MinDate = timelineTab.TimelineStartDate;
-                MaxDate = timelineTab.TimelineEndDate;
-                SetTimelineDateRange(timelineTab.TimelineName);
+        using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
+        var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+        var timelineTab = timelines.FindById(id);
 
-                if (timelineTab.Events.Any())
-                    PopulateRows(timelineTab);
-            }
-            if (PreviousID == null)
-                AddNewTab(timelineTab.TimelineName, timelineTab.Id);
+        if (id == CurrentID || CurrentID == null)
+        {
+            CurrentID = timelineTab.Id;
+            MinDate = timelineTab.TimelineStartDate;
+            MaxDate = timelineTab.TimelineEndDate;
+            SetTimelineDateRange(timelineTab.TimelineName);
+
+            if (timelineTab.Events.Any())
+                PopulateRows(timelineTab);
         }
+        if (PreviousID == null)
+            AddNewTab(timelineTab.TimelineName, timelineTab.Id);
     }
 
     internal void SetTimelineDateRange(string timelineName)
@@ -92,15 +91,14 @@ public partial class EditTimeline : Form
         EditTimelineTab newTimelineTab = new EditTimelineTab();
         newTimelineTab.AddOption_ItemClicked += btnAddTab_Click;
         newTimelineTab.DeleteOption_ItemClicked += btnDelete_Click;
-        newTimelineTab.tabName = timelineName;
+        newTimelineTab.TabName = timelineName;
         newTimelineTab.Id = Id;
-        newTimelineTab.editTimeline = this;
+        newTimelineTab.EditTimeline = this;
         newTimelineTab.Dock = DockStyle.Left;
         pnlTimelineTabs.Controls.Add(newTimelineTab);
         newTimelineTab.BringToFront();
 
-        // Highlight the current tab
-        if (CurrentID == Id)
+        if (CurrentID == Id) // Highlight the current tab
         {
             newTimelineTab.btnEditTimelineTab.BackColor = Color.White;
             newTimelineTab.btnEditTimelineTab.ForeColor = Color.Black;
@@ -128,7 +126,6 @@ public partial class EditTimeline : Form
             EventIds.Add(CurrentID);
             pnlEventRows.Controls.Clear();
             LoadTimelineById(CurrentID);
-            // Remove the highlight of active Tab
         }
         addTimeline.Dispose();
     }
@@ -156,33 +153,29 @@ public partial class EditTimeline : Form
     {
         if (CurrentID != null)
         {
-            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+            using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
+            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+            Timeline timeline = timelines.FindById(CurrentID);
+
+            // This will clear the current Events in class and replace with new list of Events
+            // Kind of ineficient but I don't know how to fix this right now
+            if (timeline.Events.Any())
+                timeline.Events.Clear();
+
+            timeline.TimelineName = txtTimelineName.Text;
+            timeline.TimelineStartDate = pckStartDate.Value;
+            timeline.TimelineEndDate = pckEndDate.Value;
+
+            foreach (EditTimelineRow row in pnlEventRows.Controls)
             {
-                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                Timeline timeline = timelines.FindById(CurrentID);
-
-                // This will clear the current Events in class and replace with new list of Events
-                // Kind of ineficient but I don't know how to fix this right now
-                if (timeline.Events.Any())
-                    timeline.Events.Clear();
-
-                timeline.TimelineName = txtTimelineName.Text;
-                timeline.TimelineStartDate = pckStartDate.Value;
-                timeline.TimelineEndDate = pckEndDate.Value;
-
-                foreach (EditTimelineRow row in pnlEventRows.Controls)
-                {
-                    timeline.Events.Add(row.GetRowInfo());
-                }
-
-                timelines.Update(timeline);
-                new Message(timeline.TimelineName + " is Saved");
-
-                // Reload the timeline events to assign a property to newly added rows
-                pnlEventRows.Controls.Clear();
-                timeline = timelines.FindById(CurrentID);
-                PopulateRows(timeline);
+                timeline.Events.Add(row.GetRowInfo());
             }
+
+            timelines.Update(timeline);
+            new Message(timeline.TimelineName + " is Saved");
+            pnlEventRows.Controls.Clear();
+            timeline = timelines.FindById(CurrentID);
+            PopulateRows(timeline);
         }
         else
             new Message("No timeline");
@@ -200,7 +193,7 @@ public partial class EditTimeline : Form
             {
                 EventIds.Remove(CurrentID);
                 using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-                    timelineDB.GetCollection<Timeline>("Timeline").Delete(CurrentID);
+                timelineDB.GetCollection<Timeline>("Timeline").Delete(CurrentID);
 
                 if (CurrentID == PreviousID || PreviousID == null)
                 {
@@ -267,14 +260,12 @@ public partial class EditTimeline : Form
         {
             if (tab.Id == CurrentID)
             {
-                using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-                {
-                    var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                    Timeline timeline = timelines.FindById(CurrentID);
-                    tab.btnEditTimelineTab.Text = txtTimelineName.Text;
-                    timeline.TimelineName = txtTimelineName.Text;
-                    timelines.Update(timeline);
-                }
+                using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
+                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                Timeline timeline = timelines.FindById(CurrentID);
+                tab.btnEditTimelineTab.Text = txtTimelineName.Text;
+                timeline.TimelineName = txtTimelineName.Text;
+                timelines.Update(timeline);
             }
         }
     }

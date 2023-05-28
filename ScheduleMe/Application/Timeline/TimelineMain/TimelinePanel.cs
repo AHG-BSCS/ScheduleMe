@@ -202,7 +202,7 @@ public partial class TimelinePanel : Form
         newTimelineTab.OpenAtBottomOption_ItemClicked += mnuTimeline_ItemClicked;
         newTimelineTab.TabName = timelineName;
         newTimelineTab.Id = Id;
-        newTimelineTab.timelinePanel = this;
+        newTimelineTab.TimelinePanel = this;
         newTimelineTab.Dock = DockStyle.Left;
         pnlTab.Controls.Add(newTimelineTab);
         newTimelineTab.BringToFront();
