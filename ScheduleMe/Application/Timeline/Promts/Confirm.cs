@@ -12,13 +12,12 @@ public partial class Confirm : Form
     private void btnYes_Click(object sender, EventArgs e)
     {
         Answer = true;
-        this.Close();
+        Close();
     }
 
     private void btnNo_Click(object sender, EventArgs e)
     {
         Answer = false;
-        this.Close();
+        Close();
     }
-
 }

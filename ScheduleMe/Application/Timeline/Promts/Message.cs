@@ -6,12 +6,11 @@ public partial class Message : Form
     {
         InitializeComponent();
         lblMessage.Text = text;
-        this.ShowDialog();
+        ShowDialog();
     }
 
     private void btnOk_Click(object sender, EventArgs e)
     {
-        this.Dispose();
+        Dispose();
     }
-
 }

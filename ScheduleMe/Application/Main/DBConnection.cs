@@ -2,7 +2,8 @@
 
 internal static class DBConnection
 {
-    static public string timelineConnection = $"{GetBasePath()}\\Timelines.db";
+    static internal string timelineConnection = $"{GetBasePath()}\\Timelines.db";
+
     static string GetBasePath()
     {
         string basePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
