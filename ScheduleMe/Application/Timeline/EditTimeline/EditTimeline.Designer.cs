@@ -80,7 +80,6 @@ partial class EditTimeline
         // btnAddTab
         // 
         btnAddTab.BackColor = Color.FromArgb(64, 64, 64);
-        btnAddTab.BackgroundImage = Properties.Resources.Add_Tab;
         btnAddTab.BackgroundImageLayout = ImageLayout.Zoom;
         btnAddTab.Cursor = Cursors.Hand;
         btnAddTab.Dock = DockStyle.Left;
@@ -358,7 +357,6 @@ partial class EditTimeline
         // btnAddRow
         // 
         btnAddRow.BackColor = Color.FromArgb(15, 76, 129);
-        btnAddRow.BackgroundImage = Properties.Resources.Add_Rows;
         btnAddRow.BackgroundImageLayout = ImageLayout.Zoom;
         btnAddRow.Cursor = Cursors.Hand;
         btnAddRow.FlatAppearance.BorderSize = 0;

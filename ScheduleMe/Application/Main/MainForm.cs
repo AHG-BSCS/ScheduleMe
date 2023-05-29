@@ -20,15 +20,14 @@ public partial class MainForm : Form
     private void MainForm_Load(object sender, EventArgs e)
     {
         GetFormInstance(ref activeForm);
-        GetFormInstance(ref calendar);
-        HighlightTab(btnCalendar, calendar.Visible);
-        ShowTab(calendar);
+        btnCalendar_Click(sender, e);
     }
 
     private void GetFormInstance<T>(ref T instance) where T : Form, new()
     {
         if (instance == null || instance.IsDisposed)
             instance = new T();
+
         instance.Show();
     }
 
@@ -51,9 +50,7 @@ public partial class MainForm : Form
         if (visible && !previousBtn.Equals(button))
         {
             button.BackColor = MainDesigner.HighlightColor;
-            button.ForeColor = Color.Black;
             previousBtn.BackColor = MainDesigner.ThemeColor;
-            previousBtn.ForeColor = Color.White;
             previousBtn = button;
         }
     }
@@ -61,10 +58,8 @@ public partial class MainForm : Form
     private void HighlightTabAndShow(Button button, Form form)
     {
         button.BackColor = MainDesigner.HighlightColor;
-        button.ForeColor = Color.Black;
         form.ShowDialog();
         button.BackColor = MainDesigner.ThemeColor;
-        button.ForeColor = Color.White;
     }
 
     private void btnCalendar_Click(object sender, EventArgs e)

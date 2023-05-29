@@ -68,7 +68,6 @@ partial class TimelinePanel
         // btnJump
         // 
         btnJump.BackColor = Color.Transparent;
-        btnJump.BackgroundImage = Properties.Resources.btnSeek;
         btnJump.BackgroundImageLayout = ImageLayout.Zoom;
         btnJump.Cursor = Cursors.Hand;
         btnJump.Dock = DockStyle.Right;
@@ -82,7 +81,6 @@ partial class TimelinePanel
         // btnAddTab
         // 
         btnAddTab.BackColor = Color.FromArgb(64, 64, 64);
-        btnAddTab.BackgroundImage = Properties.Resources.Add_Tab;
         btnAddTab.BackgroundImageLayout = ImageLayout.Zoom;
         btnAddTab.Cursor = Cursors.Hand;
         btnAddTab.Dock = DockStyle.Left;
@@ -124,7 +122,6 @@ partial class TimelinePanel
         // mnuEdit
         // 
         mnuEdit.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
-        mnuEdit.Image = Properties.Resources.mnuEdit;
         mnuEdit.ImageAlign = ContentAlignment.MiddleLeft;
         mnuEdit.Name = "mnuEdit";
         mnuEdit.Size = new Size(188, 26);
@@ -132,7 +129,6 @@ partial class TimelinePanel
         // 
         // mnuDeletePanel
         // 
-        mnuDeletePanel.Image = Properties.Resources.mnuDelete;
         mnuDeletePanel.Name = "mnuDeletePanel";
         mnuDeletePanel.Size = new Size(188, 26);
         mnuDeletePanel.Text = "Delete Panel";
@@ -144,7 +140,6 @@ partial class TimelinePanel
         // 
         // mnuOpenAtBottom
         // 
-        mnuOpenAtBottom.Image = Properties.Resources.mnuDIsplay;
         mnuOpenAtBottom.ImageAlign = ContentAlignment.MiddleLeft;
         mnuOpenAtBottom.Name = "mnuOpenAtBottom";
         mnuOpenAtBottom.Size = new Size(188, 26);
