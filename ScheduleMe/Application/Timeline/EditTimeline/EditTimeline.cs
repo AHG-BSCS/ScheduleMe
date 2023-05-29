@@ -193,7 +193,7 @@ public partial class EditTimeline : Form
             {
                 EventIds.Remove(CurrentID);
                 using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-                timelineDB.GetCollection<Timeline>("Timeline").Delete(CurrentID);
+                    timelineDB.GetCollection<Timeline>("Timeline").Delete(CurrentID);
 
                 if (CurrentID == PreviousID || PreviousID == null)
                 {

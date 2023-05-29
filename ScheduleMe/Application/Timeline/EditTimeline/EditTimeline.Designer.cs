@@ -48,8 +48,8 @@ partial class EditTimeline
         pckStartDate = new DateTimePicker();
         pnlToolButtons = new Panel();
         btnDelete = new Button();
-        btnAddRow = new Button();
         btnSave = new Button();
+        btnAddRow = new Button();
         pnlEditTimelineTabTools.SuspendLayout();
         pnlColumnLabels.SuspendLayout();
         pnlEditTimelineTool.SuspendLayout();
@@ -79,7 +79,9 @@ partial class EditTimeline
         // 
         // btnAddTab
         // 
-        btnAddTab.BackColor = Color.FromArgb(15, 76, 129);
+        btnAddTab.BackColor = Color.FromArgb(64, 64, 64);
+        btnAddTab.BackgroundImage = Properties.Resources.Add_Tab;
+        btnAddTab.BackgroundImageLayout = ImageLayout.Zoom;
         btnAddTab.Dock = DockStyle.Left;
         btnAddTab.FlatAppearance.BorderColor = Color.White;
         btnAddTab.FlatAppearance.BorderSize = 2;
@@ -92,7 +94,7 @@ partial class EditTimeline
         btnAddTab.Size = new Size(38, 35);
         btnAddTab.TabIndex = 0;
         btnAddTab.TabStop = false;
-        btnAddTab.Text = " +";
+        btnAddTab.Text = " ";
         btnAddTab.UseVisualStyleBackColor = false;
         btnAddTab.Click += btnAddTab_Click;
         // 
@@ -307,61 +309,64 @@ partial class EditTimeline
         // 
         pnlToolButtons.BackColor = Color.Transparent;
         pnlToolButtons.Controls.Add(btnDelete);
-        pnlToolButtons.Controls.Add(btnAddRow);
         pnlToolButtons.Controls.Add(btnSave);
+        pnlToolButtons.Controls.Add(btnAddRow);
         pnlToolButtons.Dock = DockStyle.Left;
         pnlToolButtons.Location = new Point(0, 0);
         pnlToolButtons.Name = "pnlToolButtons";
-        pnlToolButtons.Size = new Size(226, 55);
+        pnlToolButtons.Size = new Size(157, 55);
         pnlToolButtons.TabIndex = 4;
         // 
         // btnDelete
         // 
         btnDelete.BackColor = Color.FromArgb(15, 76, 129);
+        btnDelete.BackgroundImage = Properties.Resources.Delete_W;
+        btnDelete.BackgroundImageLayout = ImageLayout.Zoom;
         btnDelete.FlatAppearance.BorderSize = 0;
         btnDelete.FlatStyle = FlatStyle.Flat;
         btnDelete.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
         btnDelete.ForeColor = Color.White;
-        btnDelete.Location = new Point(152, 13);
+        btnDelete.Location = new Point(104, 12);
         btnDelete.Name = "btnDelete";
-        btnDelete.Size = new Size(65, 30);
+        btnDelete.Size = new Size(40, 30);
         btnDelete.TabIndex = 0;
         btnDelete.TabStop = false;
-        btnDelete.Text = "Delete";
         btnDelete.UseVisualStyleBackColor = false;
         btnDelete.Click += btnDelete_Click;
-        // 
-        // btnAddRow
-        // 
-        btnAddRow.BackColor = Color.FromArgb(15, 76, 129);
-        btnAddRow.FlatAppearance.BorderSize = 0;
-        btnAddRow.FlatStyle = FlatStyle.Flat;
-        btnAddRow.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
-        btnAddRow.ForeColor = Color.White;
-        btnAddRow.Location = new Point(10, 13);
-        btnAddRow.Name = "btnAddRow";
-        btnAddRow.Size = new Size(65, 30);
-        btnAddRow.TabIndex = 0;
-        btnAddRow.TabStop = false;
-        btnAddRow.Text = "Add Row";
-        btnAddRow.UseVisualStyleBackColor = false;
-        btnAddRow.Click += btnAddRow_Click;
         // 
         // btnSave
         // 
         btnSave.BackColor = Color.FromArgb(15, 76, 129);
+        btnSave.BackgroundImage = Properties.Resources.Save_W;
+        btnSave.BackgroundImageLayout = ImageLayout.Zoom;
         btnSave.FlatAppearance.BorderSize = 0;
         btnSave.FlatStyle = FlatStyle.Flat;
         btnSave.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
         btnSave.ForeColor = Color.White;
-        btnSave.Location = new Point(81, 13);
+        btnSave.Location = new Point(58, 12);
         btnSave.Name = "btnSave";
-        btnSave.Size = new Size(65, 30);
+        btnSave.Size = new Size(40, 30);
         btnSave.TabIndex = 0;
         btnSave.TabStop = false;
-        btnSave.Text = "Save";
         btnSave.UseVisualStyleBackColor = false;
         btnSave.Click += btnSave_Click;
+        // 
+        // btnAddRow
+        // 
+        btnAddRow.BackColor = Color.FromArgb(15, 76, 129);
+        btnAddRow.BackgroundImage = Properties.Resources.Add_Rows;
+        btnAddRow.BackgroundImageLayout = ImageLayout.Zoom;
+        btnAddRow.FlatAppearance.BorderSize = 0;
+        btnAddRow.FlatStyle = FlatStyle.Flat;
+        btnAddRow.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
+        btnAddRow.ForeColor = Color.White;
+        btnAddRow.Location = new Point(12, 12);
+        btnAddRow.Name = "btnAddRow";
+        btnAddRow.Size = new Size(40, 30);
+        btnAddRow.TabIndex = 0;
+        btnAddRow.TabStop = false;
+        btnAddRow.UseVisualStyleBackColor = false;
+        btnAddRow.Click += btnAddRow_Click;
         // 
         // EditTimeline
         // 
