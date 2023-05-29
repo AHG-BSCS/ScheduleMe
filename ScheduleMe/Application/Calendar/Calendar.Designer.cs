@@ -133,7 +133,7 @@ partial class Calendar
         // nextBtn
         // 
         nextBtn.BackColor = SystemColors.ButtonFace;
-        nextBtn.Image = Properties.Resources.right_arrow;
+        nextBtn.Image = Properties.Resources.btnRightArrow;
         nextBtn.Location = new Point(1091, 402);
         nextBtn.Name = "nextBtn";
         nextBtn.Size = new Size(63, 67);
@@ -145,7 +145,7 @@ partial class Calendar
         // 
         previousBtn.BackColor = SystemColors.ButtonFace;
         previousBtn.BackgroundImage = (Image)resources.GetObject("previousBtn.BackgroundImage");
-        previousBtn.Image = Properties.Resources.left_arrow;
+        previousBtn.Image = Properties.Resources.btnLeftArrow;
         previousBtn.Location = new Point(82, 404);
         previousBtn.Name = "previousBtn";
         previousBtn.Size = new Size(63, 67);
@@ -167,7 +167,7 @@ partial class Calendar
         // 
         prevYrBtn.BackColor = SystemColors.ButtonFace;
         prevYrBtn.BackgroundImage = (Image)resources.GetObject("prevYrBtn.BackgroundImage");
-        prevYrBtn.Image = Properties.Resources.left_arrow;
+        prevYrBtn.Image = Properties.Resources.btnLeftArrow;
         prevYrBtn.Location = new Point(401, 18);
         prevYrBtn.Name = "prevYrBtn";
         prevYrBtn.Size = new Size(63, 67);
@@ -178,7 +178,7 @@ partial class Calendar
         // nextYrBtn
         // 
         nextYrBtn.BackColor = SystemColors.ButtonFace;
-        nextYrBtn.Image = Properties.Resources.right_arrow;
+        nextYrBtn.Image = Properties.Resources.btnRightArrow;
         nextYrBtn.Location = new Point(793, 19);
         nextYrBtn.Name = "nextYrBtn";
         nextYrBtn.Size = new Size(63, 67);

@@ -31,6 +31,8 @@ partial class TimelinePanel
         components = new System.ComponentModel.Container();
         pnlTabTool = new Panel();
         pnlTab = new Panel();
+        btnEdit = new Button();
+        btnSeek = new Button();
         btnAddTab = new Button();
         pnlEvents = new Panel();
         mnuTimeline = new ContextMenuStrip(components);
@@ -38,8 +40,6 @@ partial class TimelinePanel
         mnuDeletePanel = new ToolStripMenuItem();
         mnuSeparator = new ToolStripSeparator();
         mnuOpenAtBottom = new ToolStripMenuItem();
-        btnSeek = new Button();
-        btnEdit = new Button();
         pnlTabTool.SuspendLayout();
         mnuTimeline.SuspendLayout();
         SuspendLayout();
@@ -65,6 +65,44 @@ partial class TimelinePanel
         pnlTab.Name = "pnlTab";
         pnlTab.Size = new Size(728, 35);
         pnlTab.TabIndex = 0;
+        // 
+        // btnEdit
+        // 
+        btnEdit.BackColor = Color.FromArgb(15, 76, 129);
+        btnEdit.BackgroundImage = Properties.Resources.btnEdit;
+        btnEdit.BackgroundImageLayout = ImageLayout.Zoom;
+        btnEdit.Cursor = Cursors.Hand;
+        btnEdit.Dock = DockStyle.Right;
+        btnEdit.FlatAppearance.BorderSize = 0;
+        btnEdit.FlatStyle = FlatStyle.Flat;
+        btnEdit.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
+        btnEdit.ForeColor = Color.White;
+        btnEdit.Location = new Point(776, 0);
+        btnEdit.Name = "btnEdit";
+        btnEdit.Size = new Size(32, 35);
+        btnEdit.TabIndex = 6;
+        btnEdit.TabStop = false;
+        btnEdit.UseVisualStyleBackColor = false;
+        btnEdit.Click += btnEdit_Click;
+        // 
+        // btnSeek
+        // 
+        btnSeek.BackColor = Color.FromArgb(15, 76, 129);
+        btnSeek.BackgroundImage = Properties.Resources.btnSeek;
+        btnSeek.BackgroundImageLayout = ImageLayout.Zoom;
+        btnSeek.Cursor = Cursors.Hand;
+        btnSeek.Dock = DockStyle.Right;
+        btnSeek.FlatAppearance.BorderSize = 0;
+        btnSeek.FlatStyle = FlatStyle.Flat;
+        btnSeek.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
+        btnSeek.ForeColor = Color.White;
+        btnSeek.Location = new Point(808, 0);
+        btnSeek.Name = "btnSeek";
+        btnSeek.Size = new Size(32, 35);
+        btnSeek.TabIndex = 5;
+        btnSeek.TabStop = false;
+        btnSeek.UseVisualStyleBackColor = false;
+        btnSeek.Click += btnSeek_Click;
         // 
         // btnAddTab
         // 
@@ -136,44 +174,6 @@ partial class TimelinePanel
         mnuOpenAtBottom.Name = "mnuOpenAtBottom";
         mnuOpenAtBottom.Size = new Size(188, 26);
         mnuOpenAtBottom.Text = "Open at the bottom";
-        // 
-        // btnSeek
-        // 
-        btnSeek.BackColor = Color.FromArgb(15, 76, 129);
-        btnSeek.BackgroundImage = Properties.Resources.btnSeek;
-        btnSeek.BackgroundImageLayout = ImageLayout.Zoom;
-        btnSeek.Cursor = Cursors.Hand;
-        btnSeek.Dock = DockStyle.Right;
-        btnSeek.FlatAppearance.BorderSize = 0;
-        btnSeek.FlatStyle = FlatStyle.Flat;
-        btnSeek.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
-        btnSeek.ForeColor = Color.White;
-        btnSeek.Location = new Point(808, 0);
-        btnSeek.Name = "btnSeek";
-        btnSeek.Size = new Size(32, 35);
-        btnSeek.TabIndex = 5;
-        btnSeek.TabStop = false;
-        btnSeek.UseVisualStyleBackColor = false;
-        btnSeek.Click += btnSeek_Click;
-        // 
-        // btnEdit
-        // 
-        btnEdit.BackColor = Color.FromArgb(15, 76, 129);
-        btnEdit.BackgroundImage = Properties.Resources.btnEdit;
-        btnEdit.BackgroundImageLayout = ImageLayout.Zoom;
-        btnEdit.Cursor = Cursors.Hand;
-        btnEdit.Dock = DockStyle.Right;
-        btnEdit.FlatAppearance.BorderSize = 0;
-        btnEdit.FlatStyle = FlatStyle.Flat;
-        btnEdit.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
-        btnEdit.ForeColor = Color.White;
-        btnEdit.Location = new Point(776, 0);
-        btnEdit.Name = "btnEdit";
-        btnEdit.Size = new Size(32, 35);
-        btnEdit.TabIndex = 6;
-        btnEdit.TabStop = false;
-        btnEdit.UseVisualStyleBackColor = false;
-        btnEdit.Click += btnEdit_Click;
         // 
         // TimelinePanel
         // 
