@@ -28,6 +28,7 @@ partial class Calendar
     /// </summary>
     private void InitializeComponent()
     {
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calendar));
         label1 = new Label();
         sundayLbl = new Label();
         mondayLbl = new Label();
@@ -37,6 +38,8 @@ partial class Calendar
         fridayLbl = new Label();
         thursdayLbl = new Label();
         calendarContainer = new FlowLayoutPanel();
+        nextBtn = new Button();
+        previousBtn = new Button();
         SuspendLayout();
         // 
         // label1
@@ -51,7 +54,7 @@ partial class Calendar
         // sundayLbl
         // 
         sundayLbl.AutoSize = true;
-        sundayLbl.Location = new Point(126, 101);
+        sundayLbl.Location = new Point(260, 101);
         sundayLbl.Name = "sundayLbl";
         sundayLbl.Size = new Size(50, 22);
         sundayLbl.TabIndex = 7;
@@ -60,7 +63,7 @@ partial class Calendar
         // mondayLbl
         // 
         mondayLbl.AutoSize = true;
-        mondayLbl.Location = new Point(246, 101);
+        mondayLbl.Location = new Point(372, 101);
         mondayLbl.Name = "mondayLbl";
         mondayLbl.Size = new Size(54, 22);
         mondayLbl.TabIndex = 8;
@@ -69,7 +72,7 @@ partial class Calendar
         // wednesdayLbl
         // 
         wednesdayLbl.AutoSize = true;
-        wednesdayLbl.Location = new Point(505, 101);
+        wednesdayLbl.Location = new Point(587, 101);
         wednesdayLbl.Name = "wednesdayLbl";
         wednesdayLbl.Size = new Size(72, 22);
         wednesdayLbl.TabIndex = 10;
@@ -78,7 +81,7 @@ partial class Calendar
         // tuesdayLbl
         // 
         tuesdayLbl.AutoSize = true;
-        tuesdayLbl.Location = new Point(381, 101);
+        tuesdayLbl.Location = new Point(486, 101);
         tuesdayLbl.Name = "tuesdayLbl";
         tuesdayLbl.Size = new Size(55, 22);
         tuesdayLbl.TabIndex = 9;
@@ -87,7 +90,7 @@ partial class Calendar
         // saturdayLbl
         // 
         saturdayLbl.AutoSize = true;
-        saturdayLbl.Location = new Point(954, 101);
+        saturdayLbl.Location = new Point(937, 101);
         saturdayLbl.Name = "saturdayLbl";
         saturdayLbl.Size = new Size(59, 22);
         saturdayLbl.TabIndex = 13;
@@ -96,7 +99,7 @@ partial class Calendar
         // fridayLbl
         // 
         fridayLbl.AutoSize = true;
-        fridayLbl.Location = new Point(819, 101);
+        fridayLbl.Location = new Point(829, 101);
         fridayLbl.Name = "fridayLbl";
         fridayLbl.Size = new Size(44, 22);
         fridayLbl.TabIndex = 12;
@@ -105,7 +108,7 @@ partial class Calendar
         // thursdayLbl
         // 
         thursdayLbl.AutoSize = true;
-        thursdayLbl.Location = new Point(658, 101);
+        thursdayLbl.Location = new Point(710, 101);
         thursdayLbl.Name = "thursdayLbl";
         thursdayLbl.Size = new Size(61, 22);
         thursdayLbl.TabIndex = 11;
@@ -113,18 +116,44 @@ partial class Calendar
         // 
         // calendarContainer
         // 
+        calendarContainer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         calendarContainer.BackColor = Color.Transparent;
-        calendarContainer.Location = new Point(79, 126);
+        calendarContainer.Location = new Point(228, 143);
         calendarContainer.Name = "calendarContainer";
-        calendarContainer.Size = new Size(976, 594);
+        calendarContainer.Size = new Size(817, 594);
         calendarContainer.TabIndex = 14;
+        // 
+        // nextBtn
+        // 
+        nextBtn.BackColor = SystemColors.ButtonFace;
+        nextBtn.Image = Properties.Resources.right_arrow;
+        nextBtn.Location = new Point(1091, 350);
+        nextBtn.Name = "nextBtn";
+        nextBtn.Size = new Size(63, 67);
+        nextBtn.TabIndex = 15;
+        nextBtn.UseVisualStyleBackColor = false;
+        nextBtn.Click += nextBtn_Click;
+        // 
+        // previousBtn
+        // 
+        previousBtn.BackColor = SystemColors.ButtonFace;
+        previousBtn.BackgroundImage = (Image)resources.GetObject("previousBtn.BackgroundImage");
+        previousBtn.Image = Properties.Resources.left_arrow;
+        previousBtn.Location = new Point(82, 350);
+        previousBtn.Name = "previousBtn";
+        previousBtn.Size = new Size(63, 67);
+        previousBtn.TabIndex = 16;
+        previousBtn.UseVisualStyleBackColor = false;
+        previousBtn.Click += previousBtn_Click;
         // 
         // Calendar
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
-        BackColor = Color.White;
-        ClientSize = new Size(1067, 749);
+        BackColor = Color.WhiteSmoke;
+        ClientSize = new Size(1166, 749);
+        Controls.Add(previousBtn);
+        Controls.Add(nextBtn);
         Controls.Add(calendarContainer);
         Controls.Add(saturdayLbl);
         Controls.Add(fridayLbl);
@@ -156,4 +185,6 @@ partial class Calendar
     private Label fridayLbl;
     private Label thursdayLbl;
     private FlowLayoutPanel calendarContainer;
+    private Button nextBtn;
+    private Button previousBtn;
 }
