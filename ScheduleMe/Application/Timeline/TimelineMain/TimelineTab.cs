@@ -5,7 +5,7 @@ namespace ScheduleMe.Tab;
 public partial class TimelineTab : UserControl
 {
     public ObjectId Id { get; set; }
-    public TimelinePanel TimelinePanel { get; set;  }
+    public TimelinePanel TimelinePanel { get; set; }
 
     public event EventHandler<ToolStripItemClickedEventArgs> TimelineTabMenu_ItemClicked;
     public event EventHandler<ToolStripItemClickedEventArgs> AddOption_ItemClicked;
