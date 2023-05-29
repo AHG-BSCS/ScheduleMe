@@ -61,7 +61,7 @@ partial class Calendar
         // sundayLbl
         // 
         sundayLbl.AutoSize = true;
-        sundayLbl.Location = new Point(260, 179);
+        sundayLbl.Location = new Point(260, 167);
         sundayLbl.Name = "sundayLbl";
         sundayLbl.Size = new Size(50, 22);
         sundayLbl.TabIndex = 7;
@@ -70,7 +70,7 @@ partial class Calendar
         // mondayLbl
         // 
         mondayLbl.AutoSize = true;
-        mondayLbl.Location = new Point(372, 179);
+        mondayLbl.Location = new Point(372, 167);
         mondayLbl.Name = "mondayLbl";
         mondayLbl.Size = new Size(54, 22);
         mondayLbl.TabIndex = 8;
@@ -79,7 +79,7 @@ partial class Calendar
         // wednesdayLbl
         // 
         wednesdayLbl.AutoSize = true;
-        wednesdayLbl.Location = new Point(587, 179);
+        wednesdayLbl.Location = new Point(584, 167);
         wednesdayLbl.Name = "wednesdayLbl";
         wednesdayLbl.Size = new Size(72, 22);
         wednesdayLbl.TabIndex = 10;
@@ -88,7 +88,7 @@ partial class Calendar
         // tuesdayLbl
         // 
         tuesdayLbl.AutoSize = true;
-        tuesdayLbl.Location = new Point(486, 179);
+        tuesdayLbl.Location = new Point(486, 167);
         tuesdayLbl.Name = "tuesdayLbl";
         tuesdayLbl.Size = new Size(55, 22);
         tuesdayLbl.TabIndex = 9;
@@ -97,7 +97,7 @@ partial class Calendar
         // saturdayLbl
         // 
         saturdayLbl.AutoSize = true;
-        saturdayLbl.Location = new Point(937, 179);
+        saturdayLbl.Location = new Point(937, 167);
         saturdayLbl.Name = "saturdayLbl";
         saturdayLbl.Size = new Size(59, 22);
         saturdayLbl.TabIndex = 13;
@@ -106,7 +106,7 @@ partial class Calendar
         // fridayLbl
         // 
         fridayLbl.AutoSize = true;
-        fridayLbl.Location = new Point(829, 179);
+        fridayLbl.Location = new Point(829, 167);
         fridayLbl.Name = "fridayLbl";
         fridayLbl.Size = new Size(44, 22);
         fridayLbl.TabIndex = 12;
@@ -115,7 +115,7 @@ partial class Calendar
         // thursdayLbl
         // 
         thursdayLbl.AutoSize = true;
-        thursdayLbl.Location = new Point(710, 179);
+        thursdayLbl.Location = new Point(710, 167);
         thursdayLbl.Name = "thursdayLbl";
         thursdayLbl.Size = new Size(61, 22);
         thursdayLbl.TabIndex = 11;
@@ -125,7 +125,7 @@ partial class Calendar
         // 
         calendarContainer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         calendarContainer.BackColor = Color.Transparent;
-        calendarContainer.Location = new Point(228, 202);
+        calendarContainer.Location = new Point(228, 190);
         calendarContainer.Name = "calendarContainer";
         calendarContainer.Size = new Size(817, 633);
         calendarContainer.TabIndex = 14;
@@ -134,7 +134,7 @@ partial class Calendar
         // 
         nextBtn.BackColor = SystemColors.ButtonFace;
         nextBtn.Image = Properties.Resources.right_arrow;
-        nextBtn.Location = new Point(1091, 457);
+        nextBtn.Location = new Point(1091, 402);
         nextBtn.Name = "nextBtn";
         nextBtn.Size = new Size(63, 67);
         nextBtn.TabIndex = 15;
@@ -146,7 +146,7 @@ partial class Calendar
         previousBtn.BackColor = SystemColors.ButtonFace;
         previousBtn.BackgroundImage = (Image)resources.GetObject("previousBtn.BackgroundImage");
         previousBtn.Image = Properties.Resources.left_arrow;
-        previousBtn.Location = new Point(82, 451);
+        previousBtn.Location = new Point(82, 404);
         previousBtn.Name = "previousBtn";
         previousBtn.Size = new Size(63, 67);
         previousBtn.TabIndex = 16;
@@ -189,7 +189,7 @@ partial class Calendar
         // monthNowLbl
         // 
         monthNowLbl.Font = new Font("Gill Sans MT", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
-        monthNowLbl.Location = new Point(228, 123);
+        monthNowLbl.Location = new Point(228, 111);
         monthNowLbl.Name = "monthNowLbl";
         monthNowLbl.Size = new Size(197, 40);
         monthNowLbl.TabIndex = 20;
@@ -201,7 +201,7 @@ partial class Calendar
         dayNowLbl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         dayNowLbl.Font = new Font("Gill Sans MT", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
         dayNowLbl.ImageAlign = ContentAlignment.MiddleRight;
-        dayNowLbl.Location = new Point(903, 123);
+        dayNowLbl.Location = new Point(903, 111);
         dayNowLbl.Name = "dayNowLbl";
         dayNowLbl.Size = new Size(64, 40);
         dayNowLbl.TabIndex = 21;
