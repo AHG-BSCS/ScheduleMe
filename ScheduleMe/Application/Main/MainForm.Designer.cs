@@ -30,62 +30,76 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             sideNavPanel = new Panel();
+            pnlSettingBtn = new Panel();
             btnSettingWindow = new Button();
-            btnAboutWindow = new Button();
+            picSetting = new PictureBox();
+            pnlWeatherBtn = new Panel();
             btnWeatherTab = new Button();
+            picWeather = new PictureBox();
+            pnlNoteBtn = new Panel();
             btnNoteTab = new Button();
+            picNote = new PictureBox();
+            pnlTimetableBtn = new Panel();
             btnTimetableTab = new Button();
+            picTimetable = new PictureBox();
+            pnlTimelineBtn = new Panel();
             btnTimelineTab = new Button();
+            picTimeline = new PictureBox();
+            pnlCalendarBtn = new Panel();
             btnCalendarTab = new Button();
+            picCalendar = new PictureBox();
+            pnlAboutBtn = new Panel();
+            btnAboutWindow = new Button();
+            picAbout = new PictureBox();
             tabPanel = new Panel();
-            pictureBox1 = new PictureBox();
-            panel1 = new Panel();
-            panel2 = new Panel();
-            pictureBox2 = new PictureBox();
-            panel3 = new Panel();
-            pictureBox3 = new PictureBox();
-            panel4 = new Panel();
-            pictureBox4 = new PictureBox();
-            panel5 = new Panel();
-            pictureBox5 = new PictureBox();
-            panel6 = new Panel();
-            pictureBox6 = new PictureBox();
-            panel7 = new Panel();
-            pictureBox7 = new PictureBox();
             sideNavPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            pnlSettingBtn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picSetting).BeginInit();
+            pnlWeatherBtn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picWeather).BeginInit();
+            pnlNoteBtn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picNote).BeginInit();
+            pnlTimetableBtn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picTimetable).BeginInit();
+            pnlTimelineBtn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picTimeline).BeginInit();
+            pnlCalendarBtn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picCalendar).BeginInit();
+            pnlAboutBtn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picAbout).BeginInit();
             SuspendLayout();
             // 
             // sideNavPanel
             // 
             sideNavPanel.BackColor = Color.FromArgb(15, 76, 129);
-            sideNavPanel.Controls.Add(panel6);
-            sideNavPanel.Controls.Add(panel5);
-            sideNavPanel.Controls.Add(panel4);
-            sideNavPanel.Controls.Add(panel3);
-            sideNavPanel.Controls.Add(panel2);
-            sideNavPanel.Controls.Add(panel1);
-            sideNavPanel.Controls.Add(panel7);
+            sideNavPanel.Controls.Add(pnlSettingBtn);
+            sideNavPanel.Controls.Add(pnlWeatherBtn);
+            sideNavPanel.Controls.Add(pnlNoteBtn);
+            sideNavPanel.Controls.Add(pnlTimetableBtn);
+            sideNavPanel.Controls.Add(pnlTimelineBtn);
+            sideNavPanel.Controls.Add(pnlCalendarBtn);
+            sideNavPanel.Controls.Add(pnlAboutBtn);
             sideNavPanel.Dock = DockStyle.Left;
             sideNavPanel.Location = new Point(0, 0);
             sideNavPanel.Margin = new Padding(3, 2, 3, 2);
             sideNavPanel.Name = "sideNavPanel";
-            sideNavPanel.Padding = new Padding(0, 35, 0, 10);
+            sideNavPanel.Padding = new Padding(0, 28, 0, 10);
             sideNavPanel.Size = new Size(140, 550);
             sideNavPanel.TabIndex = 0;
+            // 
+            // pnlSettingBtn
+            // 
+            pnlSettingBtn.BackColor = Color.Transparent;
+            pnlSettingBtn.Controls.Add(btnSettingWindow);
+            pnlSettingBtn.Controls.Add(picSetting);
+            pnlSettingBtn.Dock = DockStyle.Bottom;
+            pnlSettingBtn.ForeColor = Color.White;
+            pnlSettingBtn.Location = new Point(0, 452);
+            pnlSettingBtn.Name = "pnlSettingBtn";
+            pnlSettingBtn.Padding = new Padding(5, 8, 0, 8);
+            pnlSettingBtn.Size = new Size(140, 44);
+            pnlSettingBtn.TabIndex = 0;
+            pnlSettingBtn.Click += pnlSettingBtn_Click;
             // 
             // btnSettingWindow
             // 
@@ -102,24 +116,31 @@
             btnSettingWindow.Text = "Setting";
             btnSettingWindow.TextAlign = ContentAlignment.MiddleLeft;
             btnSettingWindow.UseVisualStyleBackColor = true;
-            btnSettingWindow.Click += btnSettingWindow_Click;
             // 
-            // btnAboutWindow
+            // picSetting
             // 
-            btnAboutWindow.Dock = DockStyle.Left;
-            btnAboutWindow.FlatAppearance.BorderSize = 0;
-            btnAboutWindow.FlatStyle = FlatStyle.Flat;
-            btnAboutWindow.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAboutWindow.ForeColor = Color.White;
-            btnAboutWindow.Location = new Point(43, 8);
-            btnAboutWindow.Margin = new Padding(3, 2, 3, 2);
-            btnAboutWindow.Name = "btnAboutWindow";
-            btnAboutWindow.Size = new Size(97, 28);
-            btnAboutWindow.TabIndex = 6;
-            btnAboutWindow.Text = "About";
-            btnAboutWindow.TextAlign = ContentAlignment.MiddleLeft;
-            btnAboutWindow.UseVisualStyleBackColor = true;
-            btnAboutWindow.Click += btnAboutWindow_Click;
+            picSetting.BackgroundImage = Properties.Resources.Setting;
+            picSetting.BackgroundImageLayout = ImageLayout.Zoom;
+            picSetting.Dock = DockStyle.Left;
+            picSetting.Location = new Point(5, 8);
+            picSetting.Name = "picSetting";
+            picSetting.Size = new Size(38, 28);
+            picSetting.TabIndex = 0;
+            picSetting.TabStop = false;
+            // 
+            // pnlWeatherBtn
+            // 
+            pnlWeatherBtn.BackColor = Color.Transparent;
+            pnlWeatherBtn.Controls.Add(btnWeatherTab);
+            pnlWeatherBtn.Controls.Add(picWeather);
+            pnlWeatherBtn.Dock = DockStyle.Top;
+            pnlWeatherBtn.ForeColor = Color.White;
+            pnlWeatherBtn.Location = new Point(0, 204);
+            pnlWeatherBtn.Name = "pnlWeatherBtn";
+            pnlWeatherBtn.Padding = new Padding(5, 8, 0, 8);
+            pnlWeatherBtn.Size = new Size(140, 44);
+            pnlWeatherBtn.TabIndex = 0;
+            pnlWeatherBtn.Click += pnlWeatherBtn_Click;
             // 
             // btnWeatherTab
             // 
@@ -136,7 +157,31 @@
             btnWeatherTab.Text = "Weather";
             btnWeatherTab.TextAlign = ContentAlignment.MiddleLeft;
             btnWeatherTab.UseVisualStyleBackColor = true;
-            btnWeatherTab.Click += btnWeatherTab_Click;
+            // 
+            // picWeather
+            // 
+            picWeather.BackgroundImage = Properties.Resources.Weather;
+            picWeather.BackgroundImageLayout = ImageLayout.Zoom;
+            picWeather.Dock = DockStyle.Left;
+            picWeather.Location = new Point(5, 8);
+            picWeather.Name = "picWeather";
+            picWeather.Size = new Size(38, 28);
+            picWeather.TabIndex = 0;
+            picWeather.TabStop = false;
+            // 
+            // pnlNoteBtn
+            // 
+            pnlNoteBtn.BackColor = Color.Transparent;
+            pnlNoteBtn.Controls.Add(btnNoteTab);
+            pnlNoteBtn.Controls.Add(picNote);
+            pnlNoteBtn.Dock = DockStyle.Top;
+            pnlNoteBtn.ForeColor = Color.White;
+            pnlNoteBtn.Location = new Point(0, 160);
+            pnlNoteBtn.Name = "pnlNoteBtn";
+            pnlNoteBtn.Padding = new Padding(5, 8, 0, 8);
+            pnlNoteBtn.Size = new Size(140, 44);
+            pnlNoteBtn.TabIndex = 0;
+            pnlNoteBtn.Click += pnlNoteBtn_Click;
             // 
             // btnNoteTab
             // 
@@ -153,7 +198,31 @@
             btnNoteTab.Text = "Note";
             btnNoteTab.TextAlign = ContentAlignment.MiddleLeft;
             btnNoteTab.UseVisualStyleBackColor = true;
-            btnNoteTab.Click += btnNoteTab_Click;
+            // 
+            // picNote
+            // 
+            picNote.BackgroundImage = (Image)resources.GetObject("picNote.BackgroundImage");
+            picNote.BackgroundImageLayout = ImageLayout.Zoom;
+            picNote.Dock = DockStyle.Left;
+            picNote.Location = new Point(5, 8);
+            picNote.Name = "picNote";
+            picNote.Size = new Size(38, 28);
+            picNote.TabIndex = 0;
+            picNote.TabStop = false;
+            // 
+            // pnlTimetableBtn
+            // 
+            pnlTimetableBtn.BackColor = Color.Transparent;
+            pnlTimetableBtn.Controls.Add(btnTimetableTab);
+            pnlTimetableBtn.Controls.Add(picTimetable);
+            pnlTimetableBtn.Dock = DockStyle.Top;
+            pnlTimetableBtn.ForeColor = Color.White;
+            pnlTimetableBtn.Location = new Point(0, 116);
+            pnlTimetableBtn.Name = "pnlTimetableBtn";
+            pnlTimetableBtn.Padding = new Padding(5, 8, 0, 8);
+            pnlTimetableBtn.Size = new Size(140, 44);
+            pnlTimetableBtn.TabIndex = 0;
+            pnlTimetableBtn.Click += pnlTimetableBtn_Click;
             // 
             // btnTimetableTab
             // 
@@ -170,7 +239,31 @@
             btnTimetableTab.Text = "Timetable";
             btnTimetableTab.TextAlign = ContentAlignment.MiddleLeft;
             btnTimetableTab.UseVisualStyleBackColor = true;
-            btnTimetableTab.Click += btnTimetableTab_Click;
+            // 
+            // picTimetable
+            // 
+            picTimetable.BackgroundImage = Properties.Resources.Timetable;
+            picTimetable.BackgroundImageLayout = ImageLayout.Zoom;
+            picTimetable.Dock = DockStyle.Left;
+            picTimetable.Location = new Point(5, 8);
+            picTimetable.Name = "picTimetable";
+            picTimetable.Size = new Size(38, 28);
+            picTimetable.TabIndex = 0;
+            picTimetable.TabStop = false;
+            // 
+            // pnlTimelineBtn
+            // 
+            pnlTimelineBtn.BackColor = Color.Transparent;
+            pnlTimelineBtn.Controls.Add(btnTimelineTab);
+            pnlTimelineBtn.Controls.Add(picTimeline);
+            pnlTimelineBtn.Dock = DockStyle.Top;
+            pnlTimelineBtn.ForeColor = Color.White;
+            pnlTimelineBtn.Location = new Point(0, 72);
+            pnlTimelineBtn.Name = "pnlTimelineBtn";
+            pnlTimelineBtn.Padding = new Padding(5, 8, 0, 8);
+            pnlTimelineBtn.Size = new Size(140, 44);
+            pnlTimelineBtn.TabIndex = 0;
+            pnlTimelineBtn.Click += pnlTimelineBtn_Click;
             // 
             // btnTimelineTab
             // 
@@ -187,7 +280,31 @@
             btnTimelineTab.Text = "Timeline";
             btnTimelineTab.TextAlign = ContentAlignment.MiddleLeft;
             btnTimelineTab.UseVisualStyleBackColor = true;
-            btnTimelineTab.Click += btnTimelineTab_Click;
+            // 
+            // picTimeline
+            // 
+            picTimeline.BackgroundImage = Properties.Resources.Timeline;
+            picTimeline.BackgroundImageLayout = ImageLayout.Zoom;
+            picTimeline.Dock = DockStyle.Left;
+            picTimeline.Location = new Point(5, 8);
+            picTimeline.Name = "picTimeline";
+            picTimeline.Size = new Size(38, 28);
+            picTimeline.TabIndex = 0;
+            picTimeline.TabStop = false;
+            // 
+            // pnlCalendarBtn
+            // 
+            pnlCalendarBtn.BackColor = Color.Transparent;
+            pnlCalendarBtn.Controls.Add(btnCalendarTab);
+            pnlCalendarBtn.Controls.Add(picCalendar);
+            pnlCalendarBtn.Dock = DockStyle.Top;
+            pnlCalendarBtn.ForeColor = Color.White;
+            pnlCalendarBtn.Location = new Point(0, 28);
+            pnlCalendarBtn.Name = "pnlCalendarBtn";
+            pnlCalendarBtn.Padding = new Padding(5, 8, 0, 8);
+            pnlCalendarBtn.Size = new Size(140, 44);
+            pnlCalendarBtn.TabIndex = 0;
+            pnlCalendarBtn.Click += pnlCalendarBtn_Click;
             // 
             // btnCalendarTab
             // 
@@ -206,7 +323,58 @@
             btnCalendarTab.Text = "Calendar";
             btnCalendarTab.TextAlign = ContentAlignment.MiddleLeft;
             btnCalendarTab.UseVisualStyleBackColor = true;
-            btnCalendarTab.Click += btnCalendarTab_Click;
+            // 
+            // picCalendar
+            // 
+            picCalendar.BackgroundImage = Properties.Resources.Calendar;
+            picCalendar.BackgroundImageLayout = ImageLayout.Zoom;
+            picCalendar.Dock = DockStyle.Left;
+            picCalendar.Location = new Point(5, 8);
+            picCalendar.Name = "picCalendar";
+            picCalendar.Size = new Size(38, 28);
+            picCalendar.TabIndex = 0;
+            picCalendar.TabStop = false;
+            // 
+            // pnlAboutBtn
+            // 
+            pnlAboutBtn.BackColor = Color.Transparent;
+            pnlAboutBtn.Controls.Add(btnAboutWindow);
+            pnlAboutBtn.Controls.Add(picAbout);
+            pnlAboutBtn.Dock = DockStyle.Bottom;
+            pnlAboutBtn.ForeColor = Color.White;
+            pnlAboutBtn.Location = new Point(0, 496);
+            pnlAboutBtn.Name = "pnlAboutBtn";
+            pnlAboutBtn.Padding = new Padding(5, 8, 0, 8);
+            pnlAboutBtn.Size = new Size(140, 44);
+            pnlAboutBtn.TabIndex = 0;
+            pnlAboutBtn.Click += pnlAboutBtn_Click;
+            // 
+            // btnAboutWindow
+            // 
+            btnAboutWindow.Dock = DockStyle.Left;
+            btnAboutWindow.FlatAppearance.BorderSize = 0;
+            btnAboutWindow.FlatStyle = FlatStyle.Flat;
+            btnAboutWindow.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAboutWindow.ForeColor = Color.White;
+            btnAboutWindow.Location = new Point(43, 8);
+            btnAboutWindow.Margin = new Padding(3, 2, 3, 2);
+            btnAboutWindow.Name = "btnAboutWindow";
+            btnAboutWindow.Size = new Size(97, 28);
+            btnAboutWindow.TabIndex = 6;
+            btnAboutWindow.Text = "About";
+            btnAboutWindow.TextAlign = ContentAlignment.MiddleLeft;
+            btnAboutWindow.UseVisualStyleBackColor = true;
+            // 
+            // picAbout
+            // 
+            picAbout.BackgroundImage = Properties.Resources.About;
+            picAbout.BackgroundImageLayout = ImageLayout.Zoom;
+            picAbout.Dock = DockStyle.Left;
+            picAbout.Location = new Point(5, 8);
+            picAbout.Name = "picAbout";
+            picAbout.Size = new Size(38, 28);
+            picAbout.TabIndex = 0;
+            picAbout.TabStop = false;
             // 
             // tabPanel
             // 
@@ -217,174 +385,6 @@
             tabPanel.Name = "tabPanel";
             tabPanel.Size = new Size(850, 550);
             tabPanel.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackgroundImage = Properties.Resources.Calendar;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Dock = DockStyle.Left;
-            pictureBox1.Location = new Point(5, 8);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(38, 28);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.Transparent;
-            panel1.Controls.Add(btnCalendarTab);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Dock = DockStyle.Top;
-            panel1.ForeColor = Color.White;
-            panel1.Location = new Point(0, 35);
-            panel1.Name = "panel1";
-            panel1.Padding = new Padding(5, 8, 0, 8);
-            panel1.Size = new Size(140, 44);
-            panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.Transparent;
-            panel2.Controls.Add(btnTimelineTab);
-            panel2.Controls.Add(pictureBox2);
-            panel2.Dock = DockStyle.Top;
-            panel2.ForeColor = Color.White;
-            panel2.Location = new Point(0, 79);
-            panel2.Name = "panel2";
-            panel2.Padding = new Padding(5, 8, 0, 8);
-            panel2.Size = new Size(140, 44);
-            panel2.TabIndex = 7;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackgroundImage = Properties.Resources.Timeline;
-            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox2.Dock = DockStyle.Left;
-            pictureBox2.Location = new Point(5, 8);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(38, 28);
-            pictureBox2.TabIndex = 0;
-            pictureBox2.TabStop = false;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.Transparent;
-            panel3.Controls.Add(btnTimetableTab);
-            panel3.Controls.Add(pictureBox3);
-            panel3.Dock = DockStyle.Top;
-            panel3.ForeColor = Color.White;
-            panel3.Location = new Point(0, 123);
-            panel3.Name = "panel3";
-            panel3.Padding = new Padding(5, 8, 0, 8);
-            panel3.Size = new Size(140, 44);
-            panel3.TabIndex = 8;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackgroundImage = Properties.Resources.Timetable;
-            pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox3.Dock = DockStyle.Left;
-            pictureBox3.Location = new Point(5, 8);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(38, 28);
-            pictureBox3.TabIndex = 0;
-            pictureBox3.TabStop = false;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.Transparent;
-            panel4.Controls.Add(btnNoteTab);
-            panel4.Controls.Add(pictureBox4);
-            panel4.Dock = DockStyle.Top;
-            panel4.ForeColor = Color.White;
-            panel4.Location = new Point(0, 167);
-            panel4.Name = "panel4";
-            panel4.Padding = new Padding(5, 8, 0, 8);
-            panel4.Size = new Size(140, 44);
-            panel4.TabIndex = 9;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.BackgroundImage = (Image)resources.GetObject("pictureBox4.BackgroundImage");
-            pictureBox4.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox4.Dock = DockStyle.Left;
-            pictureBox4.Location = new Point(5, 8);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(38, 28);
-            pictureBox4.TabIndex = 0;
-            pictureBox4.TabStop = false;
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.Transparent;
-            panel5.Controls.Add(btnWeatherTab);
-            panel5.Controls.Add(pictureBox5);
-            panel5.Dock = DockStyle.Top;
-            panel5.ForeColor = Color.White;
-            panel5.Location = new Point(0, 211);
-            panel5.Name = "panel5";
-            panel5.Padding = new Padding(5, 8, 0, 8);
-            panel5.Size = new Size(140, 44);
-            panel5.TabIndex = 10;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.BackgroundImage = Properties.Resources.Weather;
-            pictureBox5.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox5.Dock = DockStyle.Left;
-            pictureBox5.Location = new Point(5, 8);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(38, 28);
-            pictureBox5.TabIndex = 0;
-            pictureBox5.TabStop = false;
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.Transparent;
-            panel6.Controls.Add(btnSettingWindow);
-            panel6.Controls.Add(pictureBox6);
-            panel6.Dock = DockStyle.Bottom;
-            panel6.ForeColor = Color.White;
-            panel6.Location = new Point(0, 452);
-            panel6.Name = "panel6";
-            panel6.Padding = new Padding(5, 8, 0, 8);
-            panel6.Size = new Size(140, 44);
-            panel6.TabIndex = 11;
-            // 
-            // pictureBox6
-            // 
-            pictureBox6.BackgroundImage = Properties.Resources.Setting;
-            pictureBox6.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox6.Dock = DockStyle.Left;
-            pictureBox6.Location = new Point(5, 8);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(38, 28);
-            pictureBox6.TabIndex = 0;
-            pictureBox6.TabStop = false;
-            // 
-            // panel7
-            // 
-            panel7.BackColor = Color.Transparent;
-            panel7.Controls.Add(btnAboutWindow);
-            panel7.Controls.Add(pictureBox7);
-            panel7.Dock = DockStyle.Bottom;
-            panel7.ForeColor = Color.White;
-            panel7.Location = new Point(0, 496);
-            panel7.Name = "panel7";
-            panel7.Padding = new Padding(5, 8, 0, 8);
-            panel7.Size = new Size(140, 44);
-            panel7.TabIndex = 12;
-            // 
-            // pictureBox7
-            // 
-            pictureBox7.BackgroundImage = Properties.Resources.About;
-            pictureBox7.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox7.Dock = DockStyle.Left;
-            pictureBox7.Location = new Point(5, 8);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(38, 28);
-            pictureBox7.TabIndex = 0;
-            pictureBox7.TabStop = false;
             // 
             // MainForm
             // 
@@ -404,20 +404,20 @@
             FormClosing += MainForm_FormClosing;
             Load += MainForm_Load;
             sideNavPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            pnlSettingBtn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picSetting).EndInit();
+            pnlWeatherBtn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picWeather).EndInit();
+            pnlNoteBtn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picNote).EndInit();
+            pnlTimetableBtn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picTimetable).EndInit();
+            pnlTimelineBtn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picTimeline).EndInit();
+            pnlCalendarBtn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picCalendar).EndInit();
+            pnlAboutBtn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picAbout).EndInit();
             ResumeLayout(false);
         }
 
@@ -431,19 +431,19 @@
         public Button btnSettingWindow;
         public Panel sideNavPanel;
         public Panel tabPanel;
-        private PictureBox pictureBox1;
-        private Panel panel5;
-        private PictureBox pictureBox5;
-        private Panel panel4;
-        private PictureBox pictureBox4;
-        private Panel panel3;
-        private PictureBox pictureBox3;
-        private Panel panel2;
-        private PictureBox pictureBox2;
-        private Panel panel1;
-        private Panel panel7;
-        private PictureBox pictureBox7;
-        private Panel panel6;
-        private PictureBox pictureBox6;
+        private PictureBox picCalendar;
+        private Panel pnlWeatherBtn;
+        private PictureBox picWeather;
+        private Panel pnlNoteBtn;
+        private PictureBox picNote;
+        private Panel pnlTimetableBtn;
+        private PictureBox picTimetable;
+        private Panel pnlTimelineBtn;
+        private PictureBox picTimeline;
+        private Panel pnlCalendarBtn;
+        private Panel pnlAboutBtn;
+        private PictureBox picAbout;
+        private Panel pnlSettingBtn;
+        private PictureBox picSetting;
     }
 }

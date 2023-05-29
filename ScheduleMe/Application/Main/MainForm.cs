@@ -10,7 +10,7 @@ public partial class MainForm : Form
     private static Timetable timetable;
     private static Note note;
     private static Weather weather;
-    private Button previousButton = new Button();
+    private Panel previousButton = new Panel();
 
     internal Color accentColor = Color.FromArgb(15, 76, 129);
 
@@ -23,7 +23,7 @@ public partial class MainForm : Form
     {
         GetFormInstance(ref activeForm);
         GetFormInstance(ref calendar);
-        HighlightTab(btnCalendarTab, calendar.Visible);
+        HighlightTab(pnlCalendarBtn, calendar.Visible);
         ShowTab(calendar);
     }
 
@@ -48,7 +48,7 @@ public partial class MainForm : Form
         }
     }
 
-    private void HighlightTab(Button button, bool visible)
+    private void HighlightTab(Panel button, bool visible)
     {
         if (visible && !previousButton.Equals(button))
         {
@@ -60,7 +60,7 @@ public partial class MainForm : Form
         }
     }
 
-    private void HighlightTabAndShow(Button button, Form form)
+    private void HighlightTabAndShow(Panel button, Form form)
     {
         button.BackColor = Color.White;
         button.ForeColor = Color.Black;
@@ -69,53 +69,54 @@ public partial class MainForm : Form
         button.ForeColor = Color.White;
     }
 
-    private void btnCalendarTab_Click(object sender, EventArgs e)
+    private void pnlCalendarBtn_Click(object sender, EventArgs e)
     {
         GetFormInstance(ref calendar);
         ShowTab(calendar);
-        HighlightTab(btnCalendarTab, calendar.Visible);
+        HighlightTab(pnlCalendarBtn, calendar.Visible);
     }
 
-    private void btnTimelineTab_Click(object sender, EventArgs e)
+    private void pnlTimelineBtn_Click(object sender, EventArgs e)
     {
         GetFormInstance(ref timeline);
         ShowTab(timeline);
-        HighlightTab(btnTimelineTab, timeline.Visible);
+        HighlightTab(pnlTimelineBtn, timeline.Visible);
     }
 
-    private void btnTimetableTab_Click(object sender, EventArgs e)
+    private void pnlTimetableBtn_Click(object sender, EventArgs e)
     {
         GetFormInstance(ref timetable);
         ShowTab(timetable);
-        HighlightTab(btnTimetableTab, timetable.Visible);
+        HighlightTab(pnlTimetableBtn, timetable.Visible);
     }
 
-    private void btnNoteTab_Click(object sender, EventArgs e)
+    private void pnlNoteBtn_Click(object sender, EventArgs e)
     {
         GetFormInstance(ref note);
         ShowTab(note);
-        HighlightTab(btnNoteTab, note.Visible);
+        HighlightTab(pnlNoteBtn, note.Visible);
     }
 
-    private void btnWeatherTab_Click(object sender, EventArgs e)
+    private void pnlWeatherBtn_Click(object sender, EventArgs e)
     {
         GetFormInstance(ref weather);
         ShowTab(weather);
-        HighlightTab(btnWeatherTab, weather.Visible);
+        HighlightTab(pnlWeatherBtn, weather.Visible);
     }
 
-    private void btnSettingWindow_Click(object sender, EventArgs e)
+    private void pnlSettingBtn_Click(object sender, EventArgs e)
     {
-        HighlightTabAndShow(btnSettingWindow, new Setting());
+        HighlightTabAndShow(pnlSettingBtn, new Setting());
     }
 
-    private void btnAboutWindow_Click(object sender, EventArgs e)
+    private void pnlAboutBtn_Click(object sender, EventArgs e)
     {
-        HighlightTabAndShow(btnAboutWindow, new About());
+        HighlightTabAndShow(pnlAboutBtn, new About());
     }
 
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
         Dispose();
     }
+    
 }
