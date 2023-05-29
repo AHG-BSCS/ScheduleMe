@@ -113,7 +113,7 @@
             lblSetting.TabIndex = 0;
             lblSetting.Text = "Setting";
             lblSetting.TextAlign = ContentAlignment.MiddleCenter;
-            lblSetting.Click += lblSetting_Click;
+            lblSetting.Click += pnlSettingBtn_Click;
             // 
             // picSetting
             // 
@@ -125,7 +125,7 @@
             picSetting.Size = new Size(38, 26);
             picSetting.TabIndex = 0;
             picSetting.TabStop = false;
-            picSetting.Click += picSetting_Click;
+            picSetting.Click += pnlSettingBtn_Click;
             // 
             // pnlWeatherBtn
             // 
@@ -153,7 +153,7 @@
             lblWeather.TabIndex = 0;
             lblWeather.Text = "Weather";
             lblWeather.TextAlign = ContentAlignment.MiddleCenter;
-            lblWeather.Click += lblWeather_Click;
+            lblWeather.Click += pnlWeatherBtn_Click;
             // 
             // picWeather
             // 
@@ -165,7 +165,7 @@
             picWeather.Size = new Size(38, 26);
             picWeather.TabIndex = 0;
             picWeather.TabStop = false;
-            picWeather.Click += picWeather_Click;
+            picWeather.Click += pnlWeatherBtn_Click;
             // 
             // pnlNoteBtn
             // 
@@ -193,7 +193,7 @@
             lblNote.TabIndex = 0;
             lblNote.Text = "Note";
             lblNote.TextAlign = ContentAlignment.MiddleCenter;
-            lblNote.Click += lblNote_Click;
+            lblNote.Click += pnlNoteBtn_Click;
             // 
             // picNote
             // 
@@ -205,7 +205,7 @@
             picNote.Size = new Size(38, 26);
             picNote.TabIndex = 0;
             picNote.TabStop = false;
-            picNote.Click += picNote_Click;
+            picNote.Click += pnlNoteBtn_Click;
             // 
             // pnlTimetableBtn
             // 
@@ -233,7 +233,7 @@
             lblTimetable.TabIndex = 0;
             lblTimetable.Text = "Timetable";
             lblTimetable.TextAlign = ContentAlignment.MiddleCenter;
-            lblTimetable.Click += lblTimetable_Click;
+            lblTimetable.Click += pnlTimetableBtn_Click;
             // 
             // picTimetable
             // 
@@ -245,7 +245,7 @@
             picTimetable.Size = new Size(38, 26);
             picTimetable.TabIndex = 0;
             picTimetable.TabStop = false;
-            picTimetable.Click += picTimetable_Click;
+            picTimetable.Click += pnlTimetableBtn_Click;
             // 
             // pnlTimelineBtn
             // 
@@ -273,7 +273,7 @@
             lblTimeline.TabIndex = 0;
             lblTimeline.Text = "Timeline";
             lblTimeline.TextAlign = ContentAlignment.MiddleCenter;
-            lblTimeline.Click += lblTimeline_Click;
+            lblTimeline.Click += pnlTimelineBtn_Click;
             // 
             // picTimeline
             // 
@@ -285,7 +285,7 @@
             picTimeline.Size = new Size(38, 26);
             picTimeline.TabIndex = 0;
             picTimeline.TabStop = false;
-            picTimeline.Click += picTimeline_Click;
+            picTimeline.Click += pnlTimelineBtn_Click;
             // 
             // pnlCalendarBtn
             // 
@@ -313,7 +313,7 @@
             lblCalendar.TabIndex = 0;
             lblCalendar.Text = "Calendar";
             lblCalendar.TextAlign = ContentAlignment.MiddleCenter;
-            lblCalendar.Click += lblCalendar_Click;
+            lblCalendar.Click += pnlCalendarBtn_Click;
             // 
             // picCalendar
             // 
@@ -325,7 +325,7 @@
             picCalendar.Size = new Size(38, 26);
             picCalendar.TabIndex = 0;
             picCalendar.TabStop = false;
-            picCalendar.Click += picCalendar_Click;
+            picCalendar.Click += pnlCalendarBtn_Click;
             // 
             // pnlAboutBtn
             // 
@@ -353,7 +353,7 @@
             lblAbout.TabIndex = 0;
             lblAbout.Text = "About";
             lblAbout.TextAlign = ContentAlignment.MiddleCenter;
-            lblAbout.Click += lblAbout_Click;
+            lblAbout.Click += pnlAboutBtn_Click;
             // 
             // picAbout
             // 
@@ -365,7 +365,7 @@
             picAbout.Size = new Size(38, 26);
             picAbout.TabIndex = 0;
             picAbout.TabStop = false;
-            picAbout.Click += picAbout_Click;
+            picAbout.Click += pnlAboutBtn_Click;
             // 
             // tabPanel
             // 
