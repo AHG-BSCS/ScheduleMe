@@ -48,6 +48,10 @@
             pictureBox4 = new PictureBox();
             panel5 = new Panel();
             pictureBox5 = new PictureBox();
+            panel6 = new Panel();
+            pictureBox6 = new PictureBox();
+            panel7 = new Panel();
+            pictureBox7 = new PictureBox();
             sideNavPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -59,18 +63,22 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // sideNavPanel
             // 
             sideNavPanel.BackColor = Color.FromArgb(15, 76, 129);
+            sideNavPanel.Controls.Add(panel6);
             sideNavPanel.Controls.Add(panel5);
             sideNavPanel.Controls.Add(panel4);
             sideNavPanel.Controls.Add(panel3);
             sideNavPanel.Controls.Add(panel2);
             sideNavPanel.Controls.Add(panel1);
-            sideNavPanel.Controls.Add(btnSettingWindow);
-            sideNavPanel.Controls.Add(btnAboutWindow);
+            sideNavPanel.Controls.Add(panel7);
             sideNavPanel.Dock = DockStyle.Left;
             sideNavPanel.Location = new Point(0, 0);
             sideNavPanel.Margin = new Padding(3, 2, 3, 2);
@@ -81,34 +89,34 @@
             // 
             // btnSettingWindow
             // 
-            btnSettingWindow.Dock = DockStyle.Bottom;
+            btnSettingWindow.Dock = DockStyle.Left;
             btnSettingWindow.FlatAppearance.BorderSize = 0;
             btnSettingWindow.FlatStyle = FlatStyle.Flat;
             btnSettingWindow.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnSettingWindow.ForeColor = Color.White;
-            btnSettingWindow.Location = new Point(0, 452);
+            btnSettingWindow.Location = new Point(43, 8);
             btnSettingWindow.Margin = new Padding(3, 2, 3, 2);
             btnSettingWindow.Name = "btnSettingWindow";
-            btnSettingWindow.Size = new Size(140, 44);
+            btnSettingWindow.Size = new Size(94, 28);
             btnSettingWindow.TabIndex = 5;
-            btnSettingWindow.Text = "          Setting";
+            btnSettingWindow.Text = "Setting";
             btnSettingWindow.TextAlign = ContentAlignment.MiddleLeft;
             btnSettingWindow.UseVisualStyleBackColor = true;
             btnSettingWindow.Click += btnSettingWindow_Click;
             // 
             // btnAboutWindow
             // 
-            btnAboutWindow.Dock = DockStyle.Bottom;
+            btnAboutWindow.Dock = DockStyle.Left;
             btnAboutWindow.FlatAppearance.BorderSize = 0;
             btnAboutWindow.FlatStyle = FlatStyle.Flat;
             btnAboutWindow.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnAboutWindow.ForeColor = Color.White;
-            btnAboutWindow.Location = new Point(0, 496);
+            btnAboutWindow.Location = new Point(43, 8);
             btnAboutWindow.Margin = new Padding(3, 2, 3, 2);
             btnAboutWindow.Name = "btnAboutWindow";
-            btnAboutWindow.Size = new Size(140, 44);
+            btnAboutWindow.Size = new Size(97, 28);
             btnAboutWindow.TabIndex = 6;
-            btnAboutWindow.Text = "          About";
+            btnAboutWindow.Text = "About";
             btnAboutWindow.TextAlign = ContentAlignment.MiddleLeft;
             btnAboutWindow.UseVisualStyleBackColor = true;
             btnAboutWindow.Click += btnAboutWindow_Click;
@@ -123,7 +131,7 @@
             btnWeatherTab.Location = new Point(43, 8);
             btnWeatherTab.Margin = new Padding(3, 2, 3, 2);
             btnWeatherTab.Name = "btnWeatherTab";
-            btnWeatherTab.Size = new Size(140, 28);
+            btnWeatherTab.Size = new Size(97, 28);
             btnWeatherTab.TabIndex = 4;
             btnWeatherTab.Text = "Weather";
             btnWeatherTab.TextAlign = ContentAlignment.MiddleLeft;
@@ -140,7 +148,7 @@
             btnNoteTab.Location = new Point(43, 8);
             btnNoteTab.Margin = new Padding(3, 2, 3, 2);
             btnNoteTab.Name = "btnNoteTab";
-            btnNoteTab.Size = new Size(140, 28);
+            btnNoteTab.Size = new Size(97, 28);
             btnNoteTab.TabIndex = 3;
             btnNoteTab.Text = "Note";
             btnNoteTab.TextAlign = ContentAlignment.MiddleLeft;
@@ -157,7 +165,7 @@
             btnTimetableTab.Location = new Point(43, 8);
             btnTimetableTab.Margin = new Padding(3, 2, 3, 2);
             btnTimetableTab.Name = "btnTimetableTab";
-            btnTimetableTab.Size = new Size(140, 28);
+            btnTimetableTab.Size = new Size(97, 28);
             btnTimetableTab.TabIndex = 2;
             btnTimetableTab.Text = "Timetable";
             btnTimetableTab.TextAlign = ContentAlignment.MiddleLeft;
@@ -174,7 +182,7 @@
             btnTimelineTab.Location = new Point(43, 8);
             btnTimelineTab.Margin = new Padding(3, 2, 3, 2);
             btnTimelineTab.Name = "btnTimelineTab";
-            btnTimelineTab.Size = new Size(140, 28);
+            btnTimelineTab.Size = new Size(97, 28);
             btnTimelineTab.TabIndex = 1;
             btnTimelineTab.Text = "Timeline";
             btnTimelineTab.TextAlign = ContentAlignment.MiddleLeft;
@@ -212,7 +220,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImage = Properties.Resources.Calendar;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox1.Dock = DockStyle.Left;
             pictureBox1.Location = new Point(5, 8);
@@ -249,7 +257,7 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
+            pictureBox2.BackgroundImage = Properties.Resources.Timeline;
             pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox2.Dock = DockStyle.Left;
             pictureBox2.Location = new Point(5, 8);
@@ -273,7 +281,7 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
+            pictureBox3.BackgroundImage = Properties.Resources.Timetable;
             pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox3.Dock = DockStyle.Left;
             pictureBox3.Location = new Point(5, 8);
@@ -321,7 +329,7 @@
             // 
             // pictureBox5
             // 
-            pictureBox5.BackgroundImage = (Image)resources.GetObject("pictureBox5.BackgroundImage");
+            pictureBox5.BackgroundImage = Properties.Resources.Weather;
             pictureBox5.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox5.Dock = DockStyle.Left;
             pictureBox5.Location = new Point(5, 8);
@@ -329,6 +337,54 @@
             pictureBox5.Size = new Size(38, 28);
             pictureBox5.TabIndex = 0;
             pictureBox5.TabStop = false;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.Transparent;
+            panel6.Controls.Add(btnSettingWindow);
+            panel6.Controls.Add(pictureBox6);
+            panel6.Dock = DockStyle.Bottom;
+            panel6.ForeColor = Color.White;
+            panel6.Location = new Point(0, 452);
+            panel6.Name = "panel6";
+            panel6.Padding = new Padding(5, 8, 0, 8);
+            panel6.Size = new Size(140, 44);
+            panel6.TabIndex = 11;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.BackgroundImage = Properties.Resources.Setting;
+            pictureBox6.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox6.Dock = DockStyle.Left;
+            pictureBox6.Location = new Point(5, 8);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(38, 28);
+            pictureBox6.TabIndex = 0;
+            pictureBox6.TabStop = false;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.Transparent;
+            panel7.Controls.Add(btnAboutWindow);
+            panel7.Controls.Add(pictureBox7);
+            panel7.Dock = DockStyle.Bottom;
+            panel7.ForeColor = Color.White;
+            panel7.Location = new Point(0, 496);
+            panel7.Name = "panel7";
+            panel7.Padding = new Padding(5, 8, 0, 8);
+            panel7.Size = new Size(140, 44);
+            panel7.TabIndex = 12;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.BackgroundImage = Properties.Resources.About;
+            pictureBox7.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox7.Dock = DockStyle.Left;
+            pictureBox7.Location = new Point(5, 8);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(38, 28);
+            pictureBox7.TabIndex = 0;
+            pictureBox7.TabStop = false;
             // 
             // MainForm
             // 
@@ -358,6 +414,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
         }
 
@@ -381,5 +441,9 @@
         private Panel panel2;
         private PictureBox pictureBox2;
         private Panel panel1;
+        private Panel panel7;
+        private PictureBox pictureBox7;
+        private Panel panel6;
+        private PictureBox pictureBox6;
     }
 }
