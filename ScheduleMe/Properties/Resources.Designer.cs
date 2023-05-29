@@ -63,36 +63,6 @@ namespace ScheduleMe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap About {
-            get {
-                object obj = ResourceManager.GetObject("About", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Add {
-            get {
-                object obj = ResourceManager.GetObject("Add", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Add_Row {
-            get {
-                object obj = ResourceManager.GetObject("Add_Row", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Add_Rows {
             get {
                 object obj = ResourceManager.GetObject("Add_Rows", resourceCulture);
@@ -113,9 +83,9 @@ namespace ScheduleMe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Add_Tab1 {
+        internal static System.Drawing.Bitmap btnAddRow {
             get {
-                object obj = ResourceManager.GetObject("Add_Tab1", resourceCulture);
+                object obj = ResourceManager.GetObject("btnAddRow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +93,9 @@ namespace ScheduleMe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Calendar {
+        internal static System.Drawing.Bitmap btnJump {
             get {
-                object obj = ResourceManager.GetObject("Calendar", resourceCulture);
+                object obj = ResourceManager.GetObject("btnJump", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +103,9 @@ namespace ScheduleMe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Delete {
+        internal static System.Drawing.Bitmap btnSeek {
             get {
-                object obj = ResourceManager.GetObject("Delete", resourceCulture);
+                object obj = ResourceManager.GetObject("btnSeek", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +113,9 @@ namespace ScheduleMe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Delete_W {
+        internal static System.Drawing.Bitmap logoScheduleMe {
             get {
-                object obj = ResourceManager.GetObject("Delete_W", resourceCulture);
+                object obj = ResourceManager.GetObject("logoScheduleMe", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +123,9 @@ namespace ScheduleMe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DIsplay {
+        internal static System.Drawing.Bitmap mnuAdd {
             get {
-                object obj = ResourceManager.GetObject("DIsplay", resourceCulture);
+                object obj = ResourceManager.GetObject("mnuAdd", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +133,9 @@ namespace ScheduleMe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Edit {
+        internal static System.Drawing.Bitmap mnuDelete {
             get {
-                object obj = ResourceManager.GetObject("Edit", resourceCulture);
+                object obj = ResourceManager.GetObject("mnuDelete", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +143,9 @@ namespace ScheduleMe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_placeholder {
+        internal static System.Drawing.Bitmap mnuDIsplay {
             get {
-                object obj = ResourceManager.GetObject("icon_placeholder", resourceCulture);
+                object obj = ResourceManager.GetObject("mnuDIsplay", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +153,9 @@ namespace ScheduleMe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Jump {
+        internal static System.Drawing.Bitmap mnuEdit {
             get {
-                object obj = ResourceManager.GetObject("Jump", resourceCulture);
+                object obj = ResourceManager.GetObject("mnuEdit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,19 +163,9 @@ namespace ScheduleMe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Jump1 {
+        internal static System.Drawing.Bitmap mnuSave {
             get {
-                object obj = ResourceManager.GetObject("Jump1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Note {
-            get {
-                object obj = ResourceManager.GetObject("Note", resourceCulture);
+                object obj = ResourceManager.GetObject("mnuSave", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,9 +193,9 @@ namespace ScheduleMe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Save {
+        internal static System.Drawing.Bitmap tabAbout {
             get {
-                object obj = ResourceManager.GetObject("Save", resourceCulture);
+                object obj = ResourceManager.GetObject("tabAbout", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +203,9 @@ namespace ScheduleMe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Save_W {
+        internal static System.Drawing.Bitmap tabCalendar {
             get {
-                object obj = ResourceManager.GetObject("Save_W", resourceCulture);
+                object obj = ResourceManager.GetObject("tabCalendar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +213,9 @@ namespace ScheduleMe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap scheduleme {
+        internal static System.Drawing.Bitmap tabNote {
             get {
-                object obj = ResourceManager.GetObject("scheduleme", resourceCulture);
+                object obj = ResourceManager.GetObject("tabNote", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,9 +223,9 @@ namespace ScheduleMe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap scheduleme_it2_logo {
+        internal static System.Drawing.Bitmap tabSetting {
             get {
-                object obj = ResourceManager.GetObject("scheduleme_it2-logo", resourceCulture);
+                object obj = ResourceManager.GetObject("tabSetting", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,9 +233,9 @@ namespace ScheduleMe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Seek {
+        internal static System.Drawing.Bitmap tabTimeline {
             get {
-                object obj = ResourceManager.GetObject("Seek", resourceCulture);
+                object obj = ResourceManager.GetObject("tabTimeline", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,9 +243,9 @@ namespace ScheduleMe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Setting {
+        internal static System.Drawing.Bitmap tabTimetable {
             get {
-                object obj = ResourceManager.GetObject("Setting", resourceCulture);
+                object obj = ResourceManager.GetObject("tabTimetable", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -293,29 +253,9 @@ namespace ScheduleMe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Timeline {
+        internal static System.Drawing.Bitmap tabWeather {
             get {
-                object obj = ResourceManager.GetObject("Timeline", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Timetable {
-            get {
-                object obj = ResourceManager.GetObject("Timetable", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Weather {
-            get {
-                object obj = ResourceManager.GetObject("Weather", resourceCulture);
+                object obj = ResourceManager.GetObject("tabWeather", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

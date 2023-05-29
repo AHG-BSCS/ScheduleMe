@@ -10,7 +10,7 @@ public partial class MainForm : Form
     private static Timetable timetable;
     private static Note note;
     private static Weather weather;
-    private Panel previousPanelBtn = new Panel();
+    private Button previousBtn = new Button();
 
     public MainForm()
     {
@@ -21,7 +21,7 @@ public partial class MainForm : Form
     {
         GetFormInstance(ref activeForm);
         GetFormInstance(ref calendar);
-        HighlightTab(pnlCalendarBtn, calendar.Visible);
+        HighlightTab(btnCalendar, calendar.Visible);
         ShowTab(calendar);
     }
 
@@ -46,75 +46,74 @@ public partial class MainForm : Form
         }
     }
 
-    private void HighlightTab(Panel panelBtn, bool visible)
+    private void HighlightTab(Button button, bool visible)
     {
-        if (visible && !previousPanelBtn.Equals(panelBtn))
+        if (visible && !previousBtn.Equals(button))
         {
-            panelBtn.BackColor = MainDesigner.HighlightColor;
-            panelBtn.ForeColor = Color.Black;
-            previousPanelBtn.BackColor = MainDesigner.ThemeColor;
-            previousPanelBtn.ForeColor = Color.White;
-            previousPanelBtn = panelBtn;
+            button.BackColor = MainDesigner.HighlightColor;
+            button.ForeColor = Color.Black;
+            previousBtn.BackColor = MainDesigner.ThemeColor;
+            previousBtn.ForeColor = Color.White;
+            previousBtn = button;
         }
     }
 
-    private void HighlightTabAndShow(Panel panelBtn, Form form)
+    private void HighlightTabAndShow(Button button, Form form)
     {
-        panelBtn.BackColor = MainDesigner.HighlightColor;
-        panelBtn.ForeColor = Color.Black;
+        button.BackColor = MainDesigner.HighlightColor;
+        button.ForeColor = Color.Black;
         form.ShowDialog();
-        panelBtn.BackColor = MainDesigner.ThemeColor;
-        panelBtn.ForeColor = Color.White;
+        button.BackColor = MainDesigner.ThemeColor;
+        button.ForeColor = Color.White;
     }
 
-    private void pnlCalendarBtn_Click(object sender, EventArgs e)
+    private void btnCalendar_Click(object sender, EventArgs e)
     {
         GetFormInstance(ref calendar);
         ShowTab(calendar);
-        HighlightTab(pnlCalendarBtn, calendar.Visible);
+        HighlightTab(btnCalendar, calendar.Visible);
     }
 
-    private void pnlTimelineBtn_Click(object sender, EventArgs e)
+    private void btnTimeline_Click(object sender, EventArgs e)
     {
         GetFormInstance(ref timeline);
         ShowTab(timeline);
-        HighlightTab(pnlTimelineBtn, timeline.Visible);
+        HighlightTab(btnTimeline, timeline.Visible);
     }
 
-    private void pnlTimetableBtn_Click(object sender, EventArgs e)
+    private void btnTimetable_Click(object sender, EventArgs e)
     {
         GetFormInstance(ref timetable);
         ShowTab(timetable);
-        HighlightTab(pnlTimetableBtn, timetable.Visible);
+        HighlightTab(btnTimetable, timetable.Visible);
     }
 
-    private void pnlNoteBtn_Click(object sender, EventArgs e)
+    private void btnNote_Click(object sender, EventArgs e)
     {
         GetFormInstance(ref note);
         ShowTab(note);
-        HighlightTab(pnlNoteBtn, note.Visible);
+        HighlightTab(btnNote, note.Visible);
     }
 
-    private void pnlWeatherBtn_Click(object sender, EventArgs e)
+    private void btnWeather_Click(object sender, EventArgs e)
     {
         GetFormInstance(ref weather);
         ShowTab(weather);
-        HighlightTab(pnlWeatherBtn, weather.Visible);
+        HighlightTab(btnWeather, weather.Visible);
     }
 
-    private void pnlSettingBtn_Click(object sender, EventArgs e)
+    private void btnSetting_Click(object sender, EventArgs e)
     {
-        HighlightTabAndShow(pnlSettingBtn, new Setting());
+        HighlightTabAndShow(btnSetting, new Setting());
     }
 
-    private void pnlAboutBtn_Click(object sender, EventArgs e)
+    private void btnAbout_Click(object sender, EventArgs e)
     {
-        HighlightTabAndShow(pnlAboutBtn, new About());
+        HighlightTabAndShow(btnAbout, new About());
     }
 
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
         Dispose();
     }
-
 }

@@ -324,7 +324,6 @@ partial class EditTimeline
         // btnDelete
         // 
         btnDelete.BackColor = Color.FromArgb(15, 76, 129);
-        btnDelete.BackgroundImage = Properties.Resources.Delete_W;
         btnDelete.BackgroundImageLayout = ImageLayout.Zoom;
         btnDelete.Cursor = Cursors.Hand;
         btnDelete.FlatAppearance.BorderSize = 0;
@@ -342,7 +341,6 @@ partial class EditTimeline
         // btnSave
         // 
         btnSave.BackColor = Color.FromArgb(15, 76, 129);
-        btnSave.BackgroundImage = Properties.Resources.Save_W;
         btnSave.BackgroundImageLayout = ImageLayout.Zoom;
         btnSave.Cursor = Cursors.Hand;
         btnSave.FlatAppearance.BorderSize = 0;

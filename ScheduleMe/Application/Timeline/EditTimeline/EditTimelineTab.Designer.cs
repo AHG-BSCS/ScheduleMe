@@ -68,14 +68,14 @@ partial class EditTimelineTab
         // 
         // mnuAdd
         // 
-        mnuAdd.Image = Properties.Resources.Add;
+        mnuAdd.Image = Properties.Resources.mnuAdd;
         mnuAdd.Name = "mnuAdd";
         mnuAdd.Size = new Size(115, 26);
         mnuAdd.Text = "Add";
         // 
         // mnuDelete
         // 
-        mnuDelete.Image = Properties.Resources.Delete;
+        mnuDelete.Image = Properties.Resources.mnuDelete;
         mnuDelete.Name = "mnuDelete";
         mnuDelete.Size = new Size(115, 26);
         mnuDelete.Text = "Delete";

@@ -65,7 +65,7 @@ partial class TimelineEvent
         // 
         // mnuDelete
         // 
-        mnuDelete.Image = Properties.Resources.Delete;
+        mnuDelete.Image = Properties.Resources.mnuDelete;
         mnuDelete.Name = "mnuDelete";
         mnuDelete.Size = new Size(115, 26);
         mnuDelete.Text = "Delete";
