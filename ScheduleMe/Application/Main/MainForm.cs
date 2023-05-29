@@ -12,8 +12,6 @@ public partial class MainForm : Form
     private static Weather weather;
     private Panel previousPanelBtn = new Panel();
 
-    internal Color accentColor = Color.FromArgb(15, 76, 129);
-
     public MainForm()
     {
         InitializeComponent();
