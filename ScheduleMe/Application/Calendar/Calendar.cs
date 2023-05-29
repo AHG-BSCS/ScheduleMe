@@ -55,6 +55,11 @@ public partial class Calendar : Form
         calendarContainer.Controls.Clear();
         month++;
 
+        if (month == 13)
+        {
+            month = 1;
+        }
+
         int days, dayOfTheWeek, i;
 
         string nameMonth = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
@@ -86,6 +91,10 @@ public partial class Calendar : Form
         calendarContainer.Controls.Clear();
         month--;
 
+        if (month == 0)
+        {
+            month = 12;
+        }
         int days, dayOfTheWeek, i;
 
         string nameMonth = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
