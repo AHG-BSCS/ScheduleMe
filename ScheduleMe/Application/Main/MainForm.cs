@@ -10,7 +10,7 @@ public partial class MainForm : Form
     private static Timetable timetable;
     private static Note note;
     private static Weather weather;
-    private Panel previousButton = new Panel();
+    private Panel previousPanelBtn = new Panel();
 
     internal Color accentColor = Color.FromArgb(15, 76, 129);
 
@@ -48,25 +48,25 @@ public partial class MainForm : Form
         }
     }
 
-    private void HighlightTab(Panel button, bool visible)
+    private void HighlightTab(Panel panelBtn, bool visible)
     {
-        if (visible && !previousButton.Equals(button))
+        if (visible && !previousPanelBtn.Equals(panelBtn))
         {
-            button.BackColor = Color.White;
-            button.ForeColor = Color.Black;
-            previousButton.BackColor = sideNavPanel.BackColor;
-            previousButton.ForeColor = Color.White;
-            previousButton = button;
+            panelBtn.BackColor = MainDesigner.HighlightColor;
+            panelBtn.ForeColor = Color.Black;
+            previousPanelBtn.BackColor = MainDesigner.ThemeColor;
+            previousPanelBtn.ForeColor = Color.White;
+            previousPanelBtn = panelBtn;
         }
     }
 
-    private void HighlightTabAndShow(Panel button, Form form)
+    private void HighlightTabAndShow(Panel panelBtn, Form form)
     {
-        button.BackColor = Color.White;
-        button.ForeColor = Color.Black;
+        panelBtn.BackColor = MainDesigner.HighlightColor;
+        panelBtn.ForeColor = Color.Black;
         form.ShowDialog();
-        button.BackColor = sideNavPanel.BackColor;
-        button.ForeColor = Color.White;
+        panelBtn.BackColor = MainDesigner.ThemeColor;
+        panelBtn.ForeColor = Color.White;
     }
 
     private void pnlCalendarBtn_Click(object sender, EventArgs e)
@@ -118,5 +118,4 @@ public partial class MainForm : Form
     {
         Dispose();
     }
-    
 }
