@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualBasic;
 using ScheduleMe.Tab;
+using System.Globalization;
+using System.Runtime.Serialization;
 
 namespace ScheduleMe.Tab;
 
@@ -24,6 +26,8 @@ public partial class Calendar : Form
         month = currentDateTime.Month;
         year = currentDateTime.Year;
 
+        string nameMonth = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
+
         DateTime startOfTheMonth = new DateTime(year, month, 1);
 
         days = DateTime.DaysInMonth(year, month);
@@ -43,7 +47,7 @@ public partial class Calendar : Form
             calendarContainer.Controls.Add(ucdays);
         }
 
-        yearNowLbl.Text = year.ToString();
+        yearNowLbl.Text = nameMonth + " " + year.ToString();
     }
 
     private void nextBtn_Click(object sender, EventArgs e)
@@ -53,6 +57,8 @@ public partial class Calendar : Form
 
         int days, dayOfTheWeek, i;
 
+        string nameMonth = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
+
         DateTime startOfTheMonth = new DateTime(year, month, 1);
 
         days = DateTime.DaysInMonth(year, month);
@@ -72,7 +78,7 @@ public partial class Calendar : Form
             calendarContainer.Controls.Add(ucdays);
         }
 
-        yearNowLbl.Text = year.ToString();
+        yearNowLbl.Text = nameMonth + " " + year.ToString();
     }
 
     private void previousBtn_Click(object sender, EventArgs e)
@@ -82,6 +88,8 @@ public partial class Calendar : Form
 
         int days, dayOfTheWeek, i;
 
+        string nameMonth = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
+
         DateTime startOfTheMonth = new DateTime(year, month, 1);
 
         days = DateTime.DaysInMonth(year, month);
@@ -101,7 +109,7 @@ public partial class Calendar : Form
             calendarContainer.Controls.Add(ucdays);
         }
 
-        yearNowLbl.Text = year.ToString();
+        yearNowLbl.Text = nameMonth + " " + year.ToString();
     }
 
     private void timer1_Tick(object sender, EventArgs e)
@@ -117,6 +125,8 @@ public partial class Calendar : Form
 
         int days, dayOfTheWeek, i;
 
+        string nameMonth = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
+
         DateTime startOfTheMonth = new DateTime(year, month, 1);
 
         days = DateTime.DaysInMonth(year, month);
@@ -136,7 +146,7 @@ public partial class Calendar : Form
             calendarContainer.Controls.Add(ucdays);
         }
 
-        yearNowLbl.Text = year.ToString();
+        yearNowLbl.Text = nameMonth + " " + year.ToString();
     }
 
     private void nextYrBtn_Click(object sender, EventArgs e)
@@ -146,6 +156,7 @@ public partial class Calendar : Form
 
         int days, dayOfTheWeek, i;
 
+        string nameMonth = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
         DateTime startOfTheMonth = new DateTime(year, month, 1);
 
         days = DateTime.DaysInMonth(year, month);
@@ -165,6 +176,6 @@ public partial class Calendar : Form
             calendarContainer.Controls.Add(ucdays);
         }
 
-        yearNowLbl.Text = year.ToString();
+        yearNowLbl.Text = nameMonth + " " + year.ToString();
     }
 }
