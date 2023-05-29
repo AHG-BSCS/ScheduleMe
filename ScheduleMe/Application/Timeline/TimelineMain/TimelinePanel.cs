@@ -9,7 +9,7 @@ public partial class TimelinePanel : Form
     public List<ObjectId> EventIds { get; set; } = new List<ObjectId>();
 
     private readonly byte columnSize = 42;
-    private int currentDateTimePosition = 0;
+    public int CurrentDateTimePosition { get; set; }
 
     public TimelinePanel()
     {
@@ -150,7 +150,7 @@ public partial class TimelinePanel : Form
                 Point point = new Point(timelineDays.Left + (timelineDays.Width / 2)
                     + ((int)(columnSize * (float)(DateTime.Now.Hour / 24.0))),
                     timelineDays.Height - 22);
-                currentDateTimePosition = GenerateTimeIndicator(point);
+                CurrentDateTimePosition = GenerateTimeIndicator(point);
                 line.Width = 2;
             }
         }
@@ -217,7 +217,7 @@ public partial class TimelinePanel : Form
     {
         Screen screen = Screen.PrimaryScreen;
         short screenWidth = (short)screen.Bounds.Width;
-        pnlEvents.AutoScrollPosition = new Point(currentDateTimePosition - (screenWidth / 2));
+        pnlEvents.AutoScrollPosition = new Point(CurrentDateTimePosition - (screenWidth / 2));
     }
 
     private void btnAddTab_Click(object sender, EventArgs e)
@@ -240,6 +240,7 @@ public partial class TimelinePanel : Form
             pnlEvents.Height = 130;
             Height = pnlEvents.Height + 35;
             CurrentID = addTimeline.Id;
+            CurrentDateTimePosition = 0;
             LoadTimelineById(addTimeline.Id);
         }
         addTimeline.Dispose();
@@ -257,6 +258,7 @@ public partial class TimelinePanel : Form
 
             CurrentID = editTimeline.CurrentID;
             EventIds = editTimeline.EventIds;
+            CurrentDateTimePosition = 0;
             editTimeline.Dispose();
             pnlTab.Controls.Clear();
             pnlEvents.Controls.Clear();

@@ -61,6 +61,7 @@ public partial class TimelineTab : UserControl
             using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
             var timelines = timelineDB.GetCollection<Timeline>("Timeline");
             var timelineTabs = timelines.FindById(Id);
+            TimelinePanel.CurrentDateTimePosition = 0;
             TimelinePanel.PopulateTimeline(timelineTabs);
             TimelinePanel.CurrentID = Id;
         }
@@ -80,6 +81,9 @@ public partial class TimelineTab : UserControl
 
             if (confirm.Answer)
             {
+                if (TimelinePanel.CurrentDateTimePosition != 0)
+                    TimelinePanel.CurrentDateTimePosition = 0;
+
                 using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
                 {
                     TimelinePanel.EventIds.Remove(Id);
