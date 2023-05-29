@@ -1,6 +1,7 @@
 ﻿namespace ScheduleMe.Tab
+
 {
-    partial class UserControlBlank
+    partial class UserControlDays
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,30 +29,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            daysLbl = new Label();
+            numDayLbl = new Label();
             SuspendLayout();
             // 
-            // label1
+            // daysLbl
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(31, 28);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 15);
-            label1.TabIndex = 0;
+            daysLbl.AutoSize = true;
+            daysLbl.Location = new Point(13, 22);
+            daysLbl.Name = "daysLbl";
+            daysLbl.Size = new Size(38, 15);
+            daysLbl.TabIndex = 0;
+            daysLbl.Text = "label1";
             // 
-            // UserControlBlank
+            // numDayLbl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label1);
-            Name = "UserControlBlank";
+            numDayLbl.AutoSize = true;
+            numDayLbl.Font = new Font("Sitka Small", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            numDayLbl.Location = new Point(13, 10);
+            numDayLbl.Name = "numDayLbl";
+            numDayLbl.Size = new Size(32, 24);
+            numDayLbl.TabIndex = 0;
+            numDayLbl.Text = "00";
+            // 
+            // UserControlDays
+            // 
+            Controls.Add(numDayLbl);
+            Name = "UserControlDays";
             Size = new Size(108, 80);
+            Load += UserControlDays_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Label daysLbl;
+        private Label numDayLbl;
     }
 }

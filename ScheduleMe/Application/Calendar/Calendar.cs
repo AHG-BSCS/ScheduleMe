@@ -1,4 +1,6 @@
-﻿namespace ScheduleMe.Tab;
+﻿using ScheduleMe.Tab;
+
+namespace ScheduleMe.Tab;
 
 public partial class Calendar : Form
 {
@@ -14,7 +16,7 @@ public partial class Calendar : Form
 
     private void ShowDate()
     {
-        int days, dayOfTheWeek;
+        int days, dayOfTheWeek, i;
 
         DateTime currentDateTime = DateTime.Now;
 
@@ -22,7 +24,19 @@ public partial class Calendar : Form
 
         days = DateTime.DaysInMonth(currentDateTime.Year, currentDateTime.Month);
 
-        dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d"));
+        dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d")+1);
 
+        for (i = 1; i < dayOfTheWeek; i++)
+        {
+            UserControlBlank ucBlank = new UserControlBlank();
+            calendarContainer.Controls.Add(ucBlank);
+        }
+
+        for (i = 1; i<= days; i++)
+        {
+            UserControlDays ucdays = new UserControlDays();
+            ucdays.Days(i);
+            calendarContainer.Controls.Add(ucdays);
+        }
     }
 }
