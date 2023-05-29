@@ -92,6 +92,7 @@
             pnlSettingBtn.BackColor = Color.Transparent;
             pnlSettingBtn.Controls.Add(lblSetting);
             pnlSettingBtn.Controls.Add(picSetting);
+            pnlSettingBtn.Cursor = Cursors.Hand;
             pnlSettingBtn.Dock = DockStyle.Bottom;
             pnlSettingBtn.ForeColor = Color.White;
             pnlSettingBtn.Location = new Point(0, 452);
@@ -104,6 +105,7 @@
             // lblSetting
             // 
             lblSetting.BackColor = Color.Transparent;
+            lblSetting.Cursor = Cursors.Hand;
             lblSetting.Dock = DockStyle.Left;
             lblSetting.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblSetting.ForeColor = Color.White;
@@ -119,6 +121,7 @@
             // 
             picSetting.BackgroundImage = Properties.Resources.Setting;
             picSetting.BackgroundImageLayout = ImageLayout.Zoom;
+            picSetting.Cursor = Cursors.Hand;
             picSetting.Dock = DockStyle.Left;
             picSetting.Location = new Point(5, 9);
             picSetting.Name = "picSetting";
@@ -132,6 +135,7 @@
             pnlWeatherBtn.BackColor = Color.Transparent;
             pnlWeatherBtn.Controls.Add(lblWeather);
             pnlWeatherBtn.Controls.Add(picWeather);
+            pnlWeatherBtn.Cursor = Cursors.Hand;
             pnlWeatherBtn.Dock = DockStyle.Top;
             pnlWeatherBtn.ForeColor = Color.White;
             pnlWeatherBtn.Location = new Point(0, 204);
@@ -144,6 +148,7 @@
             // lblWeather
             // 
             lblWeather.BackColor = Color.Transparent;
+            lblWeather.Cursor = Cursors.Hand;
             lblWeather.Dock = DockStyle.Left;
             lblWeather.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblWeather.ForeColor = Color.White;
@@ -159,6 +164,7 @@
             // 
             picWeather.BackgroundImage = Properties.Resources.Weather;
             picWeather.BackgroundImageLayout = ImageLayout.Zoom;
+            picWeather.Cursor = Cursors.Hand;
             picWeather.Dock = DockStyle.Left;
             picWeather.Location = new Point(5, 9);
             picWeather.Name = "picWeather";
@@ -172,6 +178,7 @@
             pnlNoteBtn.BackColor = Color.Transparent;
             pnlNoteBtn.Controls.Add(lblNote);
             pnlNoteBtn.Controls.Add(picNote);
+            pnlNoteBtn.Cursor = Cursors.Hand;
             pnlNoteBtn.Dock = DockStyle.Top;
             pnlNoteBtn.ForeColor = Color.White;
             pnlNoteBtn.Location = new Point(0, 160);
@@ -184,6 +191,7 @@
             // lblNote
             // 
             lblNote.BackColor = Color.Transparent;
+            lblNote.Cursor = Cursors.Hand;
             lblNote.Dock = DockStyle.Left;
             lblNote.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblNote.ForeColor = Color.White;
@@ -197,7 +205,7 @@
             // 
             // picNote
             // 
-            picNote.BackgroundImage = (Image)resources.GetObject("picNote.BackgroundImage");
+            picNote.BackgroundImage = Properties.Resources.Note;
             picNote.BackgroundImageLayout = ImageLayout.Zoom;
             picNote.Dock = DockStyle.Left;
             picNote.Location = new Point(5, 9);
@@ -212,6 +220,7 @@
             pnlTimetableBtn.BackColor = Color.Transparent;
             pnlTimetableBtn.Controls.Add(lblTimetable);
             pnlTimetableBtn.Controls.Add(picTimetable);
+            pnlTimetableBtn.Cursor = Cursors.Hand;
             pnlTimetableBtn.Dock = DockStyle.Top;
             pnlTimetableBtn.ForeColor = Color.White;
             pnlTimetableBtn.Location = new Point(0, 116);
@@ -224,6 +233,7 @@
             // lblTimetable
             // 
             lblTimetable.BackColor = Color.Transparent;
+            lblTimetable.Cursor = Cursors.Hand;
             lblTimetable.Dock = DockStyle.Left;
             lblTimetable.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblTimetable.ForeColor = Color.White;
@@ -239,6 +249,7 @@
             // 
             picTimetable.BackgroundImage = Properties.Resources.Timetable;
             picTimetable.BackgroundImageLayout = ImageLayout.Zoom;
+            picTimetable.Cursor = Cursors.Hand;
             picTimetable.Dock = DockStyle.Left;
             picTimetable.Location = new Point(5, 9);
             picTimetable.Name = "picTimetable";
@@ -252,6 +263,7 @@
             pnlTimelineBtn.BackColor = Color.Transparent;
             pnlTimelineBtn.Controls.Add(lblTimeline);
             pnlTimelineBtn.Controls.Add(picTimeline);
+            pnlTimelineBtn.Cursor = Cursors.Hand;
             pnlTimelineBtn.Dock = DockStyle.Top;
             pnlTimelineBtn.ForeColor = Color.White;
             pnlTimelineBtn.Location = new Point(0, 72);
@@ -264,6 +276,7 @@
             // lblTimeline
             // 
             lblTimeline.BackColor = Color.Transparent;
+            lblTimeline.Cursor = Cursors.Hand;
             lblTimeline.Dock = DockStyle.Left;
             lblTimeline.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblTimeline.ForeColor = Color.White;
@@ -292,6 +305,7 @@
             pnlCalendarBtn.BackColor = Color.Transparent;
             pnlCalendarBtn.Controls.Add(lblCalendar);
             pnlCalendarBtn.Controls.Add(picCalendar);
+            pnlCalendarBtn.Cursor = Cursors.Hand;
             pnlCalendarBtn.Dock = DockStyle.Top;
             pnlCalendarBtn.ForeColor = Color.White;
             pnlCalendarBtn.Location = new Point(0, 28);
@@ -304,6 +318,7 @@
             // lblCalendar
             // 
             lblCalendar.BackColor = Color.Transparent;
+            lblCalendar.Cursor = Cursors.Hand;
             lblCalendar.Dock = DockStyle.Left;
             lblCalendar.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblCalendar.ForeColor = Color.White;
@@ -319,6 +334,7 @@
             // 
             picCalendar.BackgroundImage = Properties.Resources.Calendar;
             picCalendar.BackgroundImageLayout = ImageLayout.Zoom;
+            picCalendar.Cursor = Cursors.Hand;
             picCalendar.Dock = DockStyle.Left;
             picCalendar.Location = new Point(5, 9);
             picCalendar.Name = "picCalendar";
@@ -332,6 +348,7 @@
             pnlAboutBtn.BackColor = Color.Transparent;
             pnlAboutBtn.Controls.Add(lblAbout);
             pnlAboutBtn.Controls.Add(picAbout);
+            pnlAboutBtn.Cursor = Cursors.Hand;
             pnlAboutBtn.Dock = DockStyle.Bottom;
             pnlAboutBtn.ForeColor = Color.White;
             pnlAboutBtn.Location = new Point(0, 496);
@@ -344,6 +361,7 @@
             // lblAbout
             // 
             lblAbout.BackColor = Color.Transparent;
+            lblAbout.Cursor = Cursors.Hand;
             lblAbout.Dock = DockStyle.Left;
             lblAbout.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblAbout.ForeColor = Color.White;
@@ -359,6 +377,7 @@
             // 
             picAbout.BackgroundImage = Properties.Resources.About;
             picAbout.BackgroundImageLayout = ImageLayout.Zoom;
+            picAbout.Cursor = Cursors.Hand;
             picAbout.Dock = DockStyle.Left;
             picAbout.Location = new Point(5, 9);
             picAbout.Name = "picAbout";

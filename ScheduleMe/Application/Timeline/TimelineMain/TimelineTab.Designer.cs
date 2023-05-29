@@ -30,8 +30,8 @@ partial class TimelineTab
         components = new System.ComponentModel.Container();
         btnTab = new Button();
         mnuTab = new ContextMenuStrip(components);
-        mnuEdit = new ToolStripMenuItem();
         mnuAdd = new ToolStripMenuItem();
+        mnuEdit = new ToolStripMenuItem();
         mnuDelete = new ToolStripMenuItem();
         mnuSeparator = new ToolStripSeparator();
         mnuOpenAtBottom = new ToolStripMenuItem();
@@ -43,6 +43,7 @@ partial class TimelineTab
         btnTab.AutoSize = true;
         btnTab.BackColor = Color.FromArgb(15, 76, 129);
         btnTab.ContextMenuStrip = mnuTab;
+        btnTab.Cursor = Cursors.Hand;
         btnTab.Dock = DockStyle.Fill;
         btnTab.FlatAppearance.BorderColor = Color.White;
         btnTab.FlatAppearance.BorderSize = 0;
@@ -64,9 +65,16 @@ partial class TimelineTab
         mnuTab.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         mnuTab.Items.AddRange(new ToolStripItem[] { mnuAdd, mnuEdit, mnuDelete, mnuSeparator, mnuOpenAtBottom });
         mnuTab.Name = "timelineOption";
-        mnuTab.Size = new Size(189, 136);
+        mnuTab.Size = new Size(189, 114);
         mnuTab.Text = "Option";
         mnuTab.ItemClicked += mnuTab_ItemClicked;
+        // 
+        // mnuAdd
+        // 
+        mnuAdd.Image = Properties.Resources.Add;
+        mnuAdd.Name = "mnuAdd";
+        mnuAdd.Size = new Size(188, 26);
+        mnuAdd.Text = "Add";
         // 
         // mnuEdit
         // 
@@ -75,13 +83,6 @@ partial class TimelineTab
         mnuEdit.Name = "mnuEdit";
         mnuEdit.Size = new Size(188, 26);
         mnuEdit.Text = "Edit";
-        // 
-        // mnuAdd
-        // 
-        mnuAdd.Image = Properties.Resources.Add;
-        mnuAdd.Name = "mnuAdd";
-        mnuAdd.Size = new Size(188, 26);
-        mnuAdd.Text = "Add";
         // 
         // mnuDelete
         // 

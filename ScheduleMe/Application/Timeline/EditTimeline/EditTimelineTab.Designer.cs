@@ -40,6 +40,7 @@ partial class EditTimelineTab
         btnEditTimelineTab.AutoSize = true;
         btnEditTimelineTab.BackColor = Color.FromArgb(15, 76, 129);
         btnEditTimelineTab.ContextMenuStrip = mnuEditTimelineTab;
+        btnEditTimelineTab.Cursor = Cursors.Hand;
         btnEditTimelineTab.Dock = DockStyle.Fill;
         btnEditTimelineTab.FlatAppearance.BorderColor = Color.White;
         btnEditTimelineTab.FlatAppearance.BorderSize = 0;
@@ -61,7 +62,7 @@ partial class EditTimelineTab
         mnuEditTimelineTab.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         mnuEditTimelineTab.Items.AddRange(new ToolStripItem[] { mnuAdd, mnuDelete });
         mnuEditTimelineTab.Name = "timelineOption";
-        mnuEditTimelineTab.Size = new Size(181, 78);
+        mnuEditTimelineTab.Size = new Size(116, 56);
         mnuEditTimelineTab.Text = "Option";
         mnuEditTimelineTab.ItemClicked += mnuEditTimelineTab_ItemClicked;
         // 
@@ -69,14 +70,14 @@ partial class EditTimelineTab
         // 
         mnuAdd.Image = Properties.Resources.Add;
         mnuAdd.Name = "mnuAdd";
-        mnuAdd.Size = new Size(180, 26);
+        mnuAdd.Size = new Size(115, 26);
         mnuAdd.Text = "Add";
         // 
         // mnuDelete
         // 
         mnuDelete.Image = Properties.Resources.Delete;
         mnuDelete.Name = "mnuDelete";
-        mnuDelete.Size = new Size(180, 26);
+        mnuDelete.Size = new Size(115, 26);
         mnuDelete.Text = "Delete";
         // 
         // EditTimelineTab

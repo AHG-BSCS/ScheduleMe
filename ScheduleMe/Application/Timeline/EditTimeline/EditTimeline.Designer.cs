@@ -82,6 +82,7 @@ partial class EditTimeline
         btnAddTab.BackColor = Color.FromArgb(64, 64, 64);
         btnAddTab.BackgroundImage = Properties.Resources.Add_Tab;
         btnAddTab.BackgroundImageLayout = ImageLayout.Zoom;
+        btnAddTab.Cursor = Cursors.Hand;
         btnAddTab.Dock = DockStyle.Left;
         btnAddTab.FlatAppearance.BorderColor = Color.White;
         btnAddTab.FlatAppearance.BorderSize = 2;
@@ -233,6 +234,7 @@ partial class EditTimeline
         // 
         txtTimelineName.BackColor = Color.White;
         txtTimelineName.BorderStyle = BorderStyle.FixedSingle;
+        txtTimelineName.Cursor = Cursors.IBeam;
         txtTimelineName.ForeColor = Color.Black;
         txtTimelineName.Location = new Point(3, 22);
         txtTimelineName.MaxLength = 32;
@@ -266,6 +268,7 @@ partial class EditTimeline
         // 
         // pckEndDate
         // 
+        pckEndDate.Cursor = Cursors.Hand;
         pckEndDate.CustomFormat = "MMM dd, yyyy";
         pckEndDate.Format = DateTimePickerFormat.Custom;
         pckEndDate.Location = new Point(424, 22);
@@ -292,6 +295,7 @@ partial class EditTimeline
         // 
         // pckStartDate
         // 
+        pckStartDate.Cursor = Cursors.Hand;
         pckStartDate.CustomFormat = "MMM dd, yyyy";
         pckStartDate.Format = DateTimePickerFormat.Custom;
         pckStartDate.Location = new Point(254, 22);
@@ -322,6 +326,7 @@ partial class EditTimeline
         btnDelete.BackColor = Color.FromArgb(15, 76, 129);
         btnDelete.BackgroundImage = Properties.Resources.Delete_W;
         btnDelete.BackgroundImageLayout = ImageLayout.Zoom;
+        btnDelete.Cursor = Cursors.Hand;
         btnDelete.FlatAppearance.BorderSize = 0;
         btnDelete.FlatStyle = FlatStyle.Flat;
         btnDelete.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
@@ -339,6 +344,7 @@ partial class EditTimeline
         btnSave.BackColor = Color.FromArgb(15, 76, 129);
         btnSave.BackgroundImage = Properties.Resources.Save_W;
         btnSave.BackgroundImageLayout = ImageLayout.Zoom;
+        btnSave.Cursor = Cursors.Hand;
         btnSave.FlatAppearance.BorderSize = 0;
         btnSave.FlatStyle = FlatStyle.Flat;
         btnSave.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
@@ -356,6 +362,7 @@ partial class EditTimeline
         btnAddRow.BackColor = Color.FromArgb(15, 76, 129);
         btnAddRow.BackgroundImage = Properties.Resources.Add_Rows;
         btnAddRow.BackgroundImageLayout = ImageLayout.Zoom;
+        btnAddRow.Cursor = Cursors.Hand;
         btnAddRow.FlatAppearance.BorderSize = 0;
         btnAddRow.FlatStyle = FlatStyle.Flat;
         btnAddRow.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);

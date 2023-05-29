@@ -39,6 +39,7 @@ partial class TimelineEvent
         // 
         btnEvent.BackColor = Color.FromArgb(15, 76, 129);
         btnEvent.ContextMenuStrip = mnuEvent;
+        btnEvent.Cursor = Cursors.Hand;
         btnEvent.Dock = DockStyle.Fill;
         btnEvent.FlatAppearance.BorderSize = 0;
         btnEvent.FlatStyle = FlatStyle.Flat;
@@ -58,7 +59,7 @@ partial class TimelineEvent
         mnuEvent.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         mnuEvent.Items.AddRange(new ToolStripItem[] { mnuDelete });
         mnuEvent.Name = "timelineOption";
-        mnuEvent.Size = new Size(181, 52);
+        mnuEvent.Size = new Size(116, 30);
         mnuEvent.Text = "Option";
         mnuEvent.ItemClicked += mnuEvent_ItemClicked;
         // 
@@ -66,7 +67,7 @@ partial class TimelineEvent
         // 
         mnuDelete.Image = Properties.Resources.Delete;
         mnuDelete.Name = "mnuDelete";
-        mnuDelete.Size = new Size(180, 26);
+        mnuDelete.Size = new Size(115, 26);
         mnuDelete.Text = "Delete";
         // 
         // TimelineEvent

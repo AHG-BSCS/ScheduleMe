@@ -92,6 +92,7 @@ partial class About
         // linklblGithub
         // 
         linklblGithub.AutoSize = true;
+        linklblGithub.Cursor = Cursors.Hand;
         linklblGithub.Font = new Font("Dubai", 8.999999F, FontStyle.Regular, GraphicsUnit.Point);
         linklblGithub.Location = new Point(194, 151);
         linklblGithub.Name = "linklblGithub";

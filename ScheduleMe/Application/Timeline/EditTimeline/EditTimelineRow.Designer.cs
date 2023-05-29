@@ -74,7 +74,7 @@ partial class EditTimelineRow
         mnuEventRow.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         mnuEventRow.Items.AddRange(new ToolStripItem[] { mnuDelete });
         mnuEventRow.Name = "timelineOption";
-        mnuEventRow.Size = new Size(181, 52);
+        mnuEventRow.Size = new Size(116, 30);
         mnuEventRow.Text = "Option";
         mnuEventRow.ItemClicked += mnuEventRow_ItemClicked;
         // 
@@ -82,12 +82,13 @@ partial class EditTimelineRow
         // 
         mnuDelete.Image = Properties.Resources.Delete;
         mnuDelete.Name = "mnuDelete";
-        mnuDelete.Size = new Size(180, 26);
+        mnuDelete.Size = new Size(115, 26);
         mnuDelete.Text = "Delete";
         // 
         // pckEndDate
         // 
         pckEndDate.ContextMenuStrip = mnuEventRow;
+        pckEndDate.Cursor = Cursors.Hand;
         pckEndDate.CustomFormat = "MMM dd, yyyy hh:MM tt";
         pckEndDate.Dock = DockStyle.Fill;
         pckEndDate.Format = DateTimePickerFormat.Custom;
@@ -106,6 +107,7 @@ partial class EditTimelineRow
         // pckStartDate
         // 
         pckStartDate.ContextMenuStrip = mnuEventRow;
+        pckStartDate.Cursor = Cursors.Hand;
         pckStartDate.CustomFormat = "MMM dd, yyyy hh:MM tt";
         pckStartDate.Dock = DockStyle.Fill;
         pckStartDate.Format = DateTimePickerFormat.Custom;
@@ -126,6 +128,7 @@ partial class EditTimelineRow
         txtDescription.BackColor = Color.White;
         txtDescription.BorderStyle = BorderStyle.None;
         txtDescription.ContextMenuStrip = mnuEventRow;
+        txtDescription.Cursor = Cursors.IBeam;
         txtDescription.Dock = DockStyle.Fill;
         txtDescription.Location = new Point(223, 4);
         txtDescription.Margin = new Padding(5, 3, 3, 3);
@@ -140,6 +143,7 @@ partial class EditTimelineRow
         txtTitle.BackColor = Color.White;
         txtTitle.BorderStyle = BorderStyle.None;
         txtTitle.ContextMenuStrip = mnuEventRow;
+        txtTitle.Cursor = Cursors.IBeam;
         txtTitle.Dock = DockStyle.Fill;
         txtTitle.Location = new Point(6, 4);
         txtTitle.Margin = new Padding(5, 3, 3, 3);
@@ -153,6 +157,7 @@ partial class EditTimelineRow
         // 
         btnColorPicker.BackColor = Color.FromArgb(15, 76, 129);
         btnColorPicker.ContextMenuStrip = mnuEventRow;
+        btnColorPicker.Cursor = Cursors.Hand;
         btnColorPicker.FlatAppearance.BorderSize = 0;
         btnColorPicker.ForeColor = Color.White;
         btnColorPicker.Location = new Point(969, 3);

@@ -75,6 +75,7 @@ partial class AddTimeline
         // 
         txtName.BackColor = Color.White;
         txtName.BorderStyle = BorderStyle.FixedSingle;
+        txtName.Cursor = Cursors.IBeam;
         txtName.ForeColor = Color.Black;
         txtName.Location = new Point(84, 14);
         txtName.MaxLength = 32;
@@ -85,6 +86,7 @@ partial class AddTimeline
         // 
         // pckStartDate
         // 
+        pckStartDate.Cursor = Cursors.Hand;
         pckStartDate.CustomFormat = "dddd, MMM dd, yyyy";
         pckStartDate.Format = DateTimePickerFormat.Custom;
         pckStartDate.Location = new Point(84, 49);
@@ -99,6 +101,7 @@ partial class AddTimeline
         // btnAdd
         // 
         btnAdd.BackColor = Color.FromArgb(128, 128, 255);
+        btnAdd.Cursor = Cursors.Hand;
         btnAdd.FlatAppearance.BorderSize = 0;
         btnAdd.FlatStyle = FlatStyle.Flat;
         btnAdd.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
@@ -115,6 +118,7 @@ partial class AddTimeline
         // btnCancel
         // 
         btnCancel.BackColor = Color.FromArgb(255, 128, 128);
+        btnCancel.Cursor = Cursors.Hand;
         btnCancel.FlatAppearance.BorderSize = 0;
         btnCancel.FlatStyle = FlatStyle.Flat;
         btnCancel.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
@@ -130,6 +134,7 @@ partial class AddTimeline
         // 
         // pckEndDate
         // 
+        pckEndDate.Cursor = Cursors.Hand;
         pckEndDate.CustomFormat = "dddd, MMM dd, yyyy";
         pckEndDate.Format = DateTimePickerFormat.Custom;
         pckEndDate.Location = new Point(84, 84);

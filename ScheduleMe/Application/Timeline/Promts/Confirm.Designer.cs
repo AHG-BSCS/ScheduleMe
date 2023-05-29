@@ -47,6 +47,7 @@ partial class Confirm
         // btnYes
         // 
         btnYes.BackColor = Color.FromArgb(255, 128, 128);
+        btnYes.Cursor = Cursors.Hand;
         btnYes.FlatAppearance.BorderSize = 0;
         btnYes.FlatStyle = FlatStyle.Flat;
         btnYes.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
@@ -63,6 +64,7 @@ partial class Confirm
         // btnNo
         // 
         btnNo.BackColor = Color.FromArgb(128, 128, 255);
+        btnNo.Cursor = Cursors.Hand;
         btnNo.FlatAppearance.BorderSize = 0;
         btnNo.FlatStyle = FlatStyle.Flat;
         btnNo.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);

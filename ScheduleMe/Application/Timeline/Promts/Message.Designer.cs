@@ -49,6 +49,7 @@ partial class Message
         // btnOk
         // 
         btnOk.BackColor = Color.White;
+        btnOk.Cursor = Cursors.Hand;
         btnOk.Dock = DockStyle.Fill;
         btnOk.FlatAppearance.BorderSize = 0;
         btnOk.FlatStyle = FlatStyle.Flat;

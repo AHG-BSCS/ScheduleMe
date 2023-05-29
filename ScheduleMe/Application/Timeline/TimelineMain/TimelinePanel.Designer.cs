@@ -36,9 +36,9 @@ partial class TimelinePanel
         pnlEvents = new Panel();
         mnuTimeline = new ContextMenuStrip(components);
         mnuEdit = new ToolStripMenuItem();
+        mnuDeletePanel = new ToolStripMenuItem();
         mnuSeparator = new ToolStripSeparator();
         mnuOpenAtBottom = new ToolStripMenuItem();
-        mnuDeletePanel = new ToolStripMenuItem();
         pnlTabTool.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)btnJump).BeginInit();
         mnuTimeline.SuspendLayout();
@@ -70,6 +70,7 @@ partial class TimelinePanel
         btnJump.BackColor = Color.Transparent;
         btnJump.BackgroundImage = Properties.Resources.Seek;
         btnJump.BackgroundImageLayout = ImageLayout.Zoom;
+        btnJump.Cursor = Cursors.Hand;
         btnJump.Dock = DockStyle.Right;
         btnJump.Location = new Point(805, 0);
         btnJump.Name = "btnJump";
@@ -83,6 +84,7 @@ partial class TimelinePanel
         btnAddTab.BackColor = Color.FromArgb(64, 64, 64);
         btnAddTab.BackgroundImage = Properties.Resources.Add_Tab1;
         btnAddTab.BackgroundImageLayout = ImageLayout.Zoom;
+        btnAddTab.Cursor = Cursors.Hand;
         btnAddTab.Dock = DockStyle.Left;
         btnAddTab.FlatAppearance.BorderColor = Color.White;
         btnAddTab.FlatAppearance.BorderSize = 2;
@@ -128,6 +130,13 @@ partial class TimelinePanel
         mnuEdit.Size = new Size(188, 26);
         mnuEdit.Text = "Edit";
         // 
+        // mnuDeletePanel
+        // 
+        mnuDeletePanel.Image = Properties.Resources.Delete;
+        mnuDeletePanel.Name = "mnuDeletePanel";
+        mnuDeletePanel.Size = new Size(188, 26);
+        mnuDeletePanel.Text = "Delete Panel";
+        // 
         // mnuSeparator
         // 
         mnuSeparator.Name = "mnuSeparator";
@@ -140,13 +149,6 @@ partial class TimelinePanel
         mnuOpenAtBottom.Name = "mnuOpenAtBottom";
         mnuOpenAtBottom.Size = new Size(188, 26);
         mnuOpenAtBottom.Text = "Open at the bottom";
-        // 
-        // mnuDeletePanel
-        // 
-        mnuDeletePanel.Image = Properties.Resources.Delete;
-        mnuDeletePanel.Name = "mnuDeletePanel";
-        mnuDeletePanel.Size = new Size(188, 26);
-        mnuDeletePanel.Text = "Delete Panel";
         // 
         // TimelinePanel
         // 
