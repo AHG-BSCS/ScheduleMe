@@ -24,15 +24,15 @@ public partial class Calendar : Form
 
         days = DateTime.DaysInMonth(currentDateTime.Year, currentDateTime.Month);
 
-        dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d")+1);
+        dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d"));
 
-        for (i = 1; i < dayOfTheWeek; i++)
+        for (i = 1; i < dayOfTheWeek+1; i++)
         {
             UserControlBlank ucBlank = new UserControlBlank();
             calendarContainer.Controls.Add(ucBlank);
         }
 
-        for (i = 1; i<= days; i++)
+        for (i = 1; i <= days; i++)
         {
             UserControlDays ucdays = new UserControlDays();
             ucdays.Days(i);

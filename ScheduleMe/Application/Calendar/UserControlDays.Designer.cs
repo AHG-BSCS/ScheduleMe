@@ -54,6 +54,7 @@
             // 
             // UserControlDays
             // 
+            BackColor = SystemColors.ActiveCaption;
             Controls.Add(numDayLbl);
             Name = "UserControlDays";
             Size = new Size(108, 80);

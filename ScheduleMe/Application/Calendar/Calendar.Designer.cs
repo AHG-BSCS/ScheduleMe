@@ -51,7 +51,7 @@ partial class Calendar
         // sundayLbl
         // 
         sundayLbl.AutoSize = true;
-        sundayLbl.Location = new Point(97, 101);
+        sundayLbl.Location = new Point(126, 101);
         sundayLbl.Name = "sundayLbl";
         sundayLbl.Size = new Size(50, 22);
         sundayLbl.TabIndex = 7;
@@ -60,7 +60,7 @@ partial class Calendar
         // mondayLbl
         // 
         mondayLbl.AutoSize = true;
-        mondayLbl.Location = new Point(223, 101);
+        mondayLbl.Location = new Point(246, 101);
         mondayLbl.Name = "mondayLbl";
         mondayLbl.Size = new Size(54, 22);
         mondayLbl.TabIndex = 8;
@@ -69,7 +69,7 @@ partial class Calendar
         // wednesdayLbl
         // 
         wednesdayLbl.AutoSize = true;
-        wednesdayLbl.Location = new Point(470, 101);
+        wednesdayLbl.Location = new Point(505, 101);
         wednesdayLbl.Name = "wednesdayLbl";
         wednesdayLbl.Size = new Size(72, 22);
         wednesdayLbl.TabIndex = 10;
@@ -78,7 +78,7 @@ partial class Calendar
         // tuesdayLbl
         // 
         tuesdayLbl.AutoSize = true;
-        tuesdayLbl.Location = new Point(350, 101);
+        tuesdayLbl.Location = new Point(381, 101);
         tuesdayLbl.Name = "tuesdayLbl";
         tuesdayLbl.Size = new Size(55, 22);
         tuesdayLbl.TabIndex = 9;
@@ -87,7 +87,7 @@ partial class Calendar
         // saturdayLbl
         // 
         saturdayLbl.AutoSize = true;
-        saturdayLbl.Location = new Point(866, 101);
+        saturdayLbl.Location = new Point(954, 101);
         saturdayLbl.Name = "saturdayLbl";
         saturdayLbl.Size = new Size(59, 22);
         saturdayLbl.TabIndex = 13;
@@ -96,7 +96,7 @@ partial class Calendar
         // fridayLbl
         // 
         fridayLbl.AutoSize = true;
-        fridayLbl.Location = new Point(737, 101);
+        fridayLbl.Location = new Point(819, 101);
         fridayLbl.Name = "fridayLbl";
         fridayLbl.Size = new Size(44, 22);
         fridayLbl.TabIndex = 12;
@@ -105,7 +105,7 @@ partial class Calendar
         // thursdayLbl
         // 
         thursdayLbl.AutoSize = true;
-        thursdayLbl.Location = new Point(603, 101);
+        thursdayLbl.Location = new Point(658, 101);
         thursdayLbl.Name = "thursdayLbl";
         thursdayLbl.Size = new Size(61, 22);
         thursdayLbl.TabIndex = 11;
@@ -114,9 +114,9 @@ partial class Calendar
         // calendarContainer
         // 
         calendarContainer.BackColor = Color.Transparent;
-        calendarContainer.Location = new Point(12, 126);
+        calendarContainer.Location = new Point(79, 126);
         calendarContainer.Name = "calendarContainer";
-        calendarContainer.Size = new Size(1007, 594);
+        calendarContainer.Size = new Size(976, 594);
         calendarContainer.TabIndex = 14;
         // 
         // Calendar
@@ -124,7 +124,7 @@ partial class Calendar
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
         BackColor = Color.White;
-        ClientSize = new Size(1031, 749);
+        ClientSize = new Size(1067, 749);
         Controls.Add(calendarContainer);
         Controls.Add(saturdayLbl);
         Controls.Add(fridayLbl);
