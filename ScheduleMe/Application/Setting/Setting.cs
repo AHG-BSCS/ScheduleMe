@@ -10,7 +10,7 @@ public partial class Setting : Form
     private void checkBox1_CheckedChanged(object sender, EventArgs e)
     {
         if (checkBox1.Checked == true)
-            this.BackColor = Color.DarkGray;
+            this.BackColor = MainDesigner.HighlightColor;
         else
             this.BackColor = Color.White;
     }

@@ -29,13 +29,11 @@ public partial class TimelineTab : UserControl
         {
             if (TimelinePanel.CurrentID == tab.Id)
             {
-                tab.btnTab.BackColor = Color.FromArgb(15, 76, 129);
-                tab.btnTab.ForeColor = Color.White;
+                tab.btnTab.BackColor = MainDesigner.ThemeColor;
                 break;
             }
         }
-        btnTab.BackColor = Color.White;
-        btnTab.ForeColor = Color.Black;
+        btnTab.BackColor = MainDesigner.HighlightColor;
     }
 
     private void ReverseHighlight()
@@ -45,14 +43,12 @@ public partial class TimelineTab : UserControl
         {
             if (TimelinePanel.CurrentID == tab.Id)
             {
-                tab.btnTab.BackColor = Color.White;
-                tab.btnTab.ForeColor = Color.Black;
+                tab.btnTab.BackColor = MainDesigner.HighlightColor;
                 break;
             }
             else
             {
-                tab.btnTab.BackColor = Color.FromArgb(15, 76, 129);
-                tab.btnTab.ForeColor = Color.White;
+                tab.btnTab.BackColor = MainDesigner.ThemeColor;
             }
         }
     }

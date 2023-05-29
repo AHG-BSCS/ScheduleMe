@@ -175,7 +175,7 @@ public partial class TimelinePanel : Form
     private int GenerateTimeIndicator(Point point)
     {
         Panel timeIndicatorLine = new Panel();
-        timeIndicatorLine.BackColor = Color.FromArgb(15, 76, 129);
+        timeIndicatorLine.BackColor = MainDesigner.ThemeColor;
         timeIndicatorLine.Width = 3;
         timeIndicatorLine.Height = pnlEvents.Height - 35;
         timeIndicatorLine.Location = point;
@@ -183,7 +183,7 @@ public partial class TimelinePanel : Form
         timeIndicatorLine.BringToFront();
 
         Label timeIndicatorText = new Label();
-        timeIndicatorText.BackColor = Color.FromArgb(15, 76, 129);
+        timeIndicatorText.BackColor = MainDesigner.ThemeColor;
         timeIndicatorText.ForeColor = Color.White;
         timeIndicatorText.Text = DateTime.Now.ToString("hh:mm tt");
         timeIndicatorText.Font = new Font("Dubai", 8, FontStyle.Bold);
@@ -209,8 +209,7 @@ public partial class TimelinePanel : Form
 
         if (CurrentID == Id) // Highlight the current tab
         {
-            newTimelineTab.btnTab.BackColor = Color.White;
-            newTimelineTab.btnTab.ForeColor = Color.Black;
+            newTimelineTab.btnTab.BackColor = MainDesigner.HighlightColor;
         }
     }
 
@@ -232,8 +231,7 @@ public partial class TimelinePanel : Form
             {
                 if (CurrentID == tab.Id)
                 {
-                    tab.btnTab.BackColor = Color.FromArgb(15, 76, 129);
-                    tab.btnTab.ForeColor = Color.White;
+                    tab.btnTab.BackColor = MainDesigner.ThemeColor;
                     break;
                 }
             }
@@ -318,8 +316,7 @@ public partial class TimelinePanel : Form
                     else
                     {
                         timelineTab = timelines.FindById(tab.Id);
-                        tab.btnTab.BackColor = Color.White;
-                        tab.btnTab.ForeColor = Color.Black;
+                        tab.btnTab.BackColor = MainDesigner.HighlightColor;
                         CurrentID = tab.Id;
                     }
                     PopulateTimeline(timelineTab);

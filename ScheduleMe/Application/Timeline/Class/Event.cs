@@ -8,5 +8,5 @@ internal class Event
     public DateTime EventStartDate { get; set; } = DateTime.Now;
     public DateTime EventEndDate { get; set; } = DateTime.Now.AddDays(1);
 
-    public int EventColor { get; set; } = Color.FromArgb(15, 76, 129).ToArgb();
+    public int EventColor { get; set; } = MainDesigner.ThemeColor.ToArgb();
 }

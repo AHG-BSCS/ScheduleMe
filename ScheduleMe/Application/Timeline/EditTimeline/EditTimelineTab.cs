@@ -27,13 +27,11 @@ public partial class EditTimelineTab : UserControl
         {
             if (EditTimeline.CurrentID == tab.Id)
             {
-                tab.btnEditTimelineTab.BackColor = Color.FromArgb(15, 76, 129);
-                tab.btnEditTimelineTab.ForeColor = Color.White;
+                tab.btnEditTimelineTab.BackColor = MainDesigner.ThemeColor;
                 break;
             }
         }
-        btnEditTimelineTab.BackColor = Color.White;
-        btnEditTimelineTab.ForeColor = Color.Black;
+        btnEditTimelineTab.BackColor = MainDesigner.HighlightColor;
     }
 
     private void btnEditTimelineTab_Click(object sender, EventArgs e)

@@ -77,8 +77,7 @@ public partial class EditTimeline : Form
         {
             if (PreviousID == tab.Id)
             {
-                tab.btnEditTimelineTab.BackColor = Color.White;
-                tab.btnEditTimelineTab.ForeColor = Color.Black;
+                tab.btnEditTimelineTab.BackColor = MainDesigner.HighlightColor;
             }
             else if (deletedId == tab.Id)
                 disposeThis = tab;
@@ -100,8 +99,7 @@ public partial class EditTimeline : Form
 
         if (CurrentID == Id) // Highlight the current tab
         {
-            newTimelineTab.btnEditTimelineTab.BackColor = Color.White;
-            newTimelineTab.btnEditTimelineTab.ForeColor = Color.Black;
+            newTimelineTab.btnEditTimelineTab.BackColor = MainDesigner.HighlightColor;
         }
     }
 
@@ -116,8 +114,7 @@ public partial class EditTimeline : Form
             {
                 if (CurrentID == tab.Id)
                 {
-                    tab.btnEditTimelineTab.BackColor = Color.FromArgb(15, 76, 129);
-                    tab.btnEditTimelineTab.ForeColor = Color.White;
+                    tab.btnEditTimelineTab.BackColor = MainDesigner.ThemeColor;
                     break;
                 }
             }
