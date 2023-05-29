@@ -41,6 +41,7 @@ partial class About
         // 
         // logoScheduleMe
         // 
+        logoScheduleMe.BackgroundImage = Properties.Resources.icoScheduleMe;
         logoScheduleMe.BackgroundImageLayout = ImageLayout.Zoom;
         logoScheduleMe.Location = new Point(12, 12);
         logoScheduleMe.Name = "logoScheduleMe";

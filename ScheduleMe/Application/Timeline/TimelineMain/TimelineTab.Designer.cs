@@ -65,12 +65,13 @@ partial class TimelineTab
         mnuTab.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         mnuTab.Items.AddRange(new ToolStripItem[] { mnuAdd, mnuEdit, mnuDelete, mnuSeparator, mnuOpenAtBottom });
         mnuTab.Name = "timelineOption";
-        mnuTab.Size = new Size(189, 114);
+        mnuTab.Size = new Size(189, 136);
         mnuTab.Text = "Option";
         mnuTab.ItemClicked += mnuTab_ItemClicked;
         // 
         // mnuAdd
         // 
+        mnuAdd.Image = Properties.Resources.mnuAdd;
         mnuAdd.Name = "mnuAdd";
         mnuAdd.Size = new Size(188, 26);
         mnuAdd.Text = "Add";
@@ -78,12 +79,14 @@ partial class TimelineTab
         // mnuEdit
         // 
         mnuEdit.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        mnuEdit.Image = Properties.Resources.mnuEdit;
         mnuEdit.Name = "mnuEdit";
         mnuEdit.Size = new Size(188, 26);
         mnuEdit.Text = "Edit";
         // 
         // mnuDelete
         // 
+        mnuDelete.Image = Properties.Resources.mnuDelete;
         mnuDelete.Name = "mnuDelete";
         mnuDelete.Size = new Size(188, 26);
         mnuDelete.Text = "Delete";
@@ -95,6 +98,7 @@ partial class TimelineTab
         // 
         // mnuOpenAtBottom
         // 
+        mnuOpenAtBottom.Image = Properties.Resources.mnuDIsplay;
         mnuOpenAtBottom.Name = "mnuOpenAtBottom";
         mnuOpenAtBottom.Size = new Size(188, 26);
         mnuOpenAtBottom.Text = "Open at the bottom";

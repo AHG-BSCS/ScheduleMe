@@ -80,6 +80,7 @@ partial class EditTimeline
         // btnAddTab
         // 
         btnAddTab.BackColor = Color.FromArgb(64, 64, 64);
+        btnAddTab.BackgroundImage = Properties.Resources.btnAddTab;
         btnAddTab.BackgroundImageLayout = ImageLayout.Zoom;
         btnAddTab.Cursor = Cursors.Hand;
         btnAddTab.Dock = DockStyle.Left;
@@ -323,6 +324,7 @@ partial class EditTimeline
         // btnDelete
         // 
         btnDelete.BackColor = Color.FromArgb(15, 76, 129);
+        btnDelete.BackgroundImage = Properties.Resources.btnDelete;
         btnDelete.BackgroundImageLayout = ImageLayout.Zoom;
         btnDelete.Cursor = Cursors.Hand;
         btnDelete.FlatAppearance.BorderSize = 0;
@@ -331,7 +333,7 @@ partial class EditTimeline
         btnDelete.ForeColor = Color.White;
         btnDelete.Location = new Point(104, 12);
         btnDelete.Name = "btnDelete";
-        btnDelete.Size = new Size(40, 30);
+        btnDelete.Size = new Size(32, 32);
         btnDelete.TabIndex = 0;
         btnDelete.TabStop = false;
         btnDelete.UseVisualStyleBackColor = false;
@@ -340,6 +342,7 @@ partial class EditTimeline
         // btnSave
         // 
         btnSave.BackColor = Color.FromArgb(15, 76, 129);
+        btnSave.BackgroundImage = Properties.Resources.btnSave;
         btnSave.BackgroundImageLayout = ImageLayout.Zoom;
         btnSave.Cursor = Cursors.Hand;
         btnSave.FlatAppearance.BorderSize = 0;
@@ -348,7 +351,7 @@ partial class EditTimeline
         btnSave.ForeColor = Color.White;
         btnSave.Location = new Point(58, 12);
         btnSave.Name = "btnSave";
-        btnSave.Size = new Size(40, 30);
+        btnSave.Size = new Size(32, 32);
         btnSave.TabIndex = 0;
         btnSave.TabStop = false;
         btnSave.UseVisualStyleBackColor = false;
@@ -357,6 +360,7 @@ partial class EditTimeline
         // btnAddRow
         // 
         btnAddRow.BackColor = Color.FromArgb(15, 76, 129);
+        btnAddRow.BackgroundImage = Properties.Resources.btnAddRow;
         btnAddRow.BackgroundImageLayout = ImageLayout.Zoom;
         btnAddRow.Cursor = Cursors.Hand;
         btnAddRow.FlatAppearance.BorderSize = 0;
@@ -365,7 +369,7 @@ partial class EditTimeline
         btnAddRow.ForeColor = Color.White;
         btnAddRow.Location = new Point(12, 12);
         btnAddRow.Name = "btnAddRow";
-        btnAddRow.Size = new Size(40, 30);
+        btnAddRow.Size = new Size(32, 32);
         btnAddRow.TabIndex = 0;
         btnAddRow.TabStop = false;
         btnAddRow.UseVisualStyleBackColor = false;

@@ -118,8 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tabAbout" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tabAbout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icoLSPU" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoLSPU.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnSeek" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnSeek.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mnuEdit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mnuEdit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tabWeather" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tabWeather.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnAddTab" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnAddTab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tabCalendar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tabCalendar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -127,16 +139,40 @@
   <data name="tabNote" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tabNote.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="tabTimetable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tabTimetable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tabAbout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tabAbout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mnuAdd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mnuAdd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="tabSetting" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tabSetting.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mnuDIsplay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mnuDIsplay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icoScheduleMe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icoScheduleMe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mnuDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mnuDelete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tabTimeline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tabTimeline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tabTimetable" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tabTimetable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mnuSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mnuSave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tabWeather" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tabWeather.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnAddRow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnAddRow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnDelete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnSave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

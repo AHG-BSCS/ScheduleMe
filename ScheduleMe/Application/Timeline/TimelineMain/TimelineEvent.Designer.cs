@@ -59,14 +59,15 @@ partial class TimelineEvent
         mnuEvent.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         mnuEvent.Items.AddRange(new ToolStripItem[] { mnuDelete });
         mnuEvent.Name = "timelineOption";
-        mnuEvent.Size = new Size(116, 30);
+        mnuEvent.Size = new Size(181, 52);
         mnuEvent.Text = "Option";
         mnuEvent.ItemClicked += mnuEvent_ItemClicked;
         // 
         // mnuDelete
         // 
+        mnuDelete.Image = Properties.Resources.mnuDelete;
         mnuDelete.Name = "mnuDelete";
-        mnuDelete.Size = new Size(115, 26);
+        mnuDelete.Size = new Size(180, 26);
         mnuDelete.Text = "Delete";
         // 
         // TimelineEvent
