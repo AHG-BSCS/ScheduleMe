@@ -28,10 +28,9 @@ partial class Calendar
     /// </summary>
     private void InitializeComponent()
     {
+        components = new System.ComponentModel.Container();
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calendar));
         label1 = new Label();
-        flowLayoutPanel1 = new FlowLayoutPanel();
-        nextMonthBtn = new Button();
-        previousMonthBtn = new Button();
         sundayLbl = new Label();
         mondayLbl = new Label();
         wednesdayLbl = new Label();
@@ -39,49 +38,15 @@ partial class Calendar
         saturdayLbl = new Label();
         fridayLbl = new Label();
         thursdayLbl = new Label();
-        panel1 = new Panel();
-        panel2 = new Panel();
-        panel3 = new Panel();
-        panel4 = new Panel();
-        panel5 = new Panel();
-        panel6 = new Panel();
-        panel7 = new Panel();
-        panel8 = new Panel();
-        panel9 = new Panel();
-        panel10 = new Panel();
-        panel11 = new Panel();
-        panel12 = new Panel();
-        panel13 = new Panel();
-        panel14 = new Panel();
-        panel15 = new Panel();
-        panel16 = new Panel();
-        panel17 = new Panel();
-        panel18 = new Panel();
-        panel19 = new Panel();
-        panel20 = new Panel();
-        panel21 = new Panel();
-        panel22 = new Panel();
-        panel23 = new Panel();
-        panel24 = new Panel();
-        panel25 = new Panel();
-        panel26 = new Panel();
-        panel27 = new Panel();
-        panel28 = new Panel();
-        panel29 = new Panel();
-        panel30 = new Panel();
-        panel31 = new Panel();
-        panel32 = new Panel();
-        panel33 = new Panel();
-        panel34 = new Panel();
-        panel35 = new Panel();
-        panel36 = new Panel();
-        panel37 = new Panel();
-        panel38 = new Panel();
-        panel39 = new Panel();
-        panel40 = new Panel();
-        panel41 = new Panel();
-        panel42 = new Panel();
-        flowLayoutPanel1.SuspendLayout();
+        calendarContainer = new FlowLayoutPanel();
+        nextBtn = new Button();
+        previousBtn = new Button();
+        yearNowLbl = new Label();
+        prevYrBtn = new Button();
+        nextYrBtn = new Button();
+        monthNowLbl = new Label();
+        dayNowLbl = new Label();
+        timer1 = new System.Windows.Forms.Timer(components);
         SuspendLayout();
         // 
         // label1
@@ -93,81 +58,10 @@ partial class Calendar
         label1.TabIndex = 2;
         label1.Text = "Calendar";
         // 
-        // flowLayoutPanel1
-        // 
-        flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-        flowLayoutPanel1.Controls.Add(panel1);
-        flowLayoutPanel1.Controls.Add(panel2);
-        flowLayoutPanel1.Controls.Add(panel3);
-        flowLayoutPanel1.Controls.Add(panel4);
-        flowLayoutPanel1.Controls.Add(panel5);
-        flowLayoutPanel1.Controls.Add(panel7);
-        flowLayoutPanel1.Controls.Add(panel6);
-        flowLayoutPanel1.Controls.Add(panel8);
-        flowLayoutPanel1.Controls.Add(panel14);
-        flowLayoutPanel1.Controls.Add(panel13);
-        flowLayoutPanel1.Controls.Add(panel12);
-        flowLayoutPanel1.Controls.Add(panel11);
-        flowLayoutPanel1.Controls.Add(panel10);
-        flowLayoutPanel1.Controls.Add(panel9);
-        flowLayoutPanel1.Controls.Add(panel21);
-        flowLayoutPanel1.Controls.Add(panel20);
-        flowLayoutPanel1.Controls.Add(panel19);
-        flowLayoutPanel1.Controls.Add(panel18);
-        flowLayoutPanel1.Controls.Add(panel17);
-        flowLayoutPanel1.Controls.Add(panel16);
-        flowLayoutPanel1.Controls.Add(panel15);
-        flowLayoutPanel1.Controls.Add(panel22);
-        flowLayoutPanel1.Controls.Add(panel23);
-        flowLayoutPanel1.Controls.Add(panel24);
-        flowLayoutPanel1.Controls.Add(panel25);
-        flowLayoutPanel1.Controls.Add(panel26);
-        flowLayoutPanel1.Controls.Add(panel27);
-        flowLayoutPanel1.Controls.Add(panel28);
-        flowLayoutPanel1.Controls.Add(panel29);
-        flowLayoutPanel1.Controls.Add(panel30);
-        flowLayoutPanel1.Controls.Add(panel31);
-        flowLayoutPanel1.Controls.Add(panel32);
-        flowLayoutPanel1.Controls.Add(panel33);
-        flowLayoutPanel1.Controls.Add(panel34);
-        flowLayoutPanel1.Controls.Add(panel35);
-        flowLayoutPanel1.Controls.Add(panel36);
-        flowLayoutPanel1.Controls.Add(panel37);
-        flowLayoutPanel1.Controls.Add(panel38);
-        flowLayoutPanel1.Controls.Add(panel39);
-        flowLayoutPanel1.Controls.Add(panel40);
-        flowLayoutPanel1.Controls.Add(panel41);
-        flowLayoutPanel1.Controls.Add(panel42);
-        flowLayoutPanel1.Location = new Point(64, 126);
-        flowLayoutPanel1.Name = "flowLayoutPanel1";
-        flowLayoutPanel1.Size = new Size(897, 638);
-        flowLayoutPanel1.TabIndex = 3;
-        // 
-        // nextMonthBtn
-        // 
-        nextMonthBtn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        nextMonthBtn.Location = new Point(967, 311);
-        nextMonthBtn.Name = "nextMonthBtn";
-        nextMonthBtn.Size = new Size(31, 92);
-        nextMonthBtn.TabIndex = 4;
-        nextMonthBtn.Text = "button1";
-        nextMonthBtn.UseVisualStyleBackColor = true;
-        // 
-        // previousMonthBtn
-        // 
-        previousMonthBtn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        previousMonthBtn.Location = new Point(27, 311);
-        previousMonthBtn.Name = "previousMonthBtn";
-        previousMonthBtn.Size = new Size(31, 92);
-        previousMonthBtn.TabIndex = 6;
-        previousMonthBtn.Text = "button1";
-        previousMonthBtn.UseVisualStyleBackColor = true;
-        // 
         // sundayLbl
         // 
         sundayLbl.AutoSize = true;
-        sundayLbl.Location = new Point(97, 101);
+        sundayLbl.Location = new Point(260, 167);
         sundayLbl.Name = "sundayLbl";
         sundayLbl.Size = new Size(50, 22);
         sundayLbl.TabIndex = 7;
@@ -176,7 +70,7 @@ partial class Calendar
         // mondayLbl
         // 
         mondayLbl.AutoSize = true;
-        mondayLbl.Location = new Point(223, 101);
+        mondayLbl.Location = new Point(372, 167);
         mondayLbl.Name = "mondayLbl";
         mondayLbl.Size = new Size(54, 22);
         mondayLbl.TabIndex = 8;
@@ -185,7 +79,7 @@ partial class Calendar
         // wednesdayLbl
         // 
         wednesdayLbl.AutoSize = true;
-        wednesdayLbl.Location = new Point(470, 101);
+        wednesdayLbl.Location = new Point(584, 167);
         wednesdayLbl.Name = "wednesdayLbl";
         wednesdayLbl.Size = new Size(72, 22);
         wednesdayLbl.TabIndex = 10;
@@ -194,7 +88,7 @@ partial class Calendar
         // tuesdayLbl
         // 
         tuesdayLbl.AutoSize = true;
-        tuesdayLbl.Location = new Point(350, 101);
+        tuesdayLbl.Location = new Point(486, 167);
         tuesdayLbl.Name = "tuesdayLbl";
         tuesdayLbl.Size = new Size(55, 22);
         tuesdayLbl.TabIndex = 9;
@@ -203,7 +97,7 @@ partial class Calendar
         // saturdayLbl
         // 
         saturdayLbl.AutoSize = true;
-        saturdayLbl.Location = new Point(866, 101);
+        saturdayLbl.Location = new Point(937, 167);
         saturdayLbl.Name = "saturdayLbl";
         saturdayLbl.Size = new Size(59, 22);
         saturdayLbl.TabIndex = 13;
@@ -212,7 +106,7 @@ partial class Calendar
         // fridayLbl
         // 
         fridayLbl.AutoSize = true;
-        fridayLbl.Location = new Point(737, 101);
+        fridayLbl.Location = new Point(829, 167);
         fridayLbl.Name = "fridayLbl";
         fridayLbl.Size = new Size(44, 22);
         fridayLbl.TabIndex = 12;
@@ -221,312 +115,119 @@ partial class Calendar
         // thursdayLbl
         // 
         thursdayLbl.AutoSize = true;
-        thursdayLbl.Location = new Point(603, 101);
+        thursdayLbl.Location = new Point(710, 167);
         thursdayLbl.Name = "thursdayLbl";
         thursdayLbl.Size = new Size(61, 22);
         thursdayLbl.TabIndex = 11;
         thursdayLbl.Text = "Thursday";
         // 
-        // panel1
-        // 
-        panel1.Location = new Point(3, 3);
-        panel1.Name = "panel1";
-        panel1.Size = new Size(122, 100);
-        panel1.TabIndex = 0;
-        // 
-        // panel2
-        // 
-        panel2.Location = new Point(131, 3);
-        panel2.Name = "panel2";
-        panel2.Size = new Size(122, 100);
-        panel2.TabIndex = 1;
-        // 
-        // panel3
-        // 
-        panel3.Location = new Point(259, 3);
-        panel3.Name = "panel3";
-        panel3.Size = new Size(122, 100);
-        panel3.TabIndex = 2;
-        // 
-        // panel4
-        // 
-        panel4.Location = new Point(387, 3);
-        panel4.Name = "panel4";
-        panel4.Size = new Size(122, 100);
-        panel4.TabIndex = 3;
-        // 
-        // panel5
-        // 
-        panel5.Location = new Point(515, 3);
-        panel5.Name = "panel5";
-        panel5.Size = new Size(122, 100);
-        panel5.TabIndex = 4;
-        // 
-        // panel6
-        // 
-        panel6.Location = new Point(771, 3);
-        panel6.Name = "panel6";
-        panel6.Size = new Size(122, 100);
-        panel6.TabIndex = 5;
-        // 
-        // panel7
-        // 
-        panel7.Location = new Point(643, 3);
-        panel7.Name = "panel7";
-        panel7.Size = new Size(122, 100);
-        panel7.TabIndex = 6;
-        // 
-        // panel8
-        // 
-        panel8.Location = new Point(3, 109);
-        panel8.Name = "panel8";
-        panel8.Size = new Size(122, 100);
-        panel8.TabIndex = 7;
-        // 
-        // panel9
-        // 
-        panel9.Location = new Point(771, 109);
-        panel9.Name = "panel9";
-        panel9.Size = new Size(122, 100);
-        panel9.TabIndex = 8;
-        // 
-        // panel10
-        // 
-        panel10.Location = new Point(643, 109);
-        panel10.Name = "panel10";
-        panel10.Size = new Size(122, 100);
-        panel10.TabIndex = 9;
-        // 
-        // panel11
-        // 
-        panel11.Location = new Point(515, 109);
-        panel11.Name = "panel11";
-        panel11.Size = new Size(122, 100);
-        panel11.TabIndex = 10;
-        // 
-        // panel12
-        // 
-        panel12.Location = new Point(387, 109);
-        panel12.Name = "panel12";
-        panel12.Size = new Size(122, 100);
-        panel12.TabIndex = 11;
-        // 
-        // panel13
-        // 
-        panel13.Location = new Point(259, 109);
-        panel13.Name = "panel13";
-        panel13.Size = new Size(122, 100);
-        panel13.TabIndex = 13;
-        // 
-        // panel14
-        // 
-        panel14.Location = new Point(131, 109);
-        panel14.Name = "panel14";
-        panel14.Size = new Size(122, 100);
-        panel14.TabIndex = 12;
-        // 
-        // panel15
-        // 
-        panel15.Location = new Point(771, 215);
-        panel15.Name = "panel15";
-        panel15.Size = new Size(122, 100);
-        panel15.TabIndex = 14;
-        // 
-        // panel16
-        // 
-        panel16.Location = new Point(643, 215);
-        panel16.Name = "panel16";
-        panel16.Size = new Size(122, 100);
-        panel16.TabIndex = 19;
-        // 
-        // panel17
-        // 
-        panel17.Location = new Point(515, 215);
-        panel17.Name = "panel17";
-        panel17.Size = new Size(122, 100);
-        panel17.TabIndex = 20;
-        // 
-        // panel18
-        // 
-        panel18.Location = new Point(387, 215);
-        panel18.Name = "panel18";
-        panel18.Size = new Size(122, 100);
-        panel18.TabIndex = 18;
-        // 
-        // panel19
-        // 
-        panel19.Location = new Point(259, 215);
-        panel19.Name = "panel19";
-        panel19.Size = new Size(122, 100);
-        panel19.TabIndex = 17;
-        // 
-        // panel20
-        // 
-        panel20.Location = new Point(131, 215);
-        panel20.Name = "panel20";
-        panel20.Size = new Size(122, 100);
-        panel20.TabIndex = 16;
-        // 
-        // panel21
-        // 
-        panel21.Location = new Point(3, 215);
-        panel21.Name = "panel21";
-        panel21.Size = new Size(122, 100);
-        panel21.TabIndex = 15;
-        // 
-        // panel22
-        // 
-        panel22.Location = new Point(3, 321);
-        panel22.Name = "panel22";
-        panel22.Size = new Size(122, 100);
-        panel22.TabIndex = 21;
-        // 
-        // panel23
-        // 
-        panel23.Location = new Point(131, 321);
-        panel23.Name = "panel23";
-        panel23.Size = new Size(122, 100);
-        panel23.TabIndex = 26;
-        // 
-        // panel24
-        // 
-        panel24.Location = new Point(259, 321);
-        panel24.Name = "panel24";
-        panel24.Size = new Size(122, 100);
-        panel24.TabIndex = 27;
-        // 
-        // panel25
-        // 
-        panel25.Location = new Point(387, 321);
-        panel25.Name = "panel25";
-        panel25.Size = new Size(122, 100);
-        panel25.TabIndex = 25;
-        // 
-        // panel26
-        // 
-        panel26.Location = new Point(515, 321);
-        panel26.Name = "panel26";
-        panel26.Size = new Size(122, 100);
-        panel26.TabIndex = 24;
-        // 
-        // panel27
-        // 
-        panel27.Location = new Point(643, 321);
-        panel27.Name = "panel27";
-        panel27.Size = new Size(122, 100);
-        panel27.TabIndex = 23;
-        // 
-        // panel28
-        // 
-        panel28.Location = new Point(771, 321);
-        panel28.Name = "panel28";
-        panel28.Size = new Size(122, 100);
-        panel28.TabIndex = 22;
-        // 
-        // panel29
-        // 
-        panel29.Location = new Point(3, 427);
-        panel29.Name = "panel29";
-        panel29.Size = new Size(122, 100);
-        panel29.TabIndex = 28;
-        // 
-        // panel30
-        // 
-        panel30.Location = new Point(131, 427);
-        panel30.Name = "panel30";
-        panel30.Size = new Size(122, 100);
-        panel30.TabIndex = 33;
-        // 
-        // panel31
-        // 
-        panel31.Location = new Point(259, 427);
-        panel31.Name = "panel31";
-        panel31.Size = new Size(122, 100);
-        panel31.TabIndex = 34;
-        // 
-        // panel32
-        // 
-        panel32.Location = new Point(387, 427);
-        panel32.Name = "panel32";
-        panel32.Size = new Size(122, 100);
-        panel32.TabIndex = 32;
-        // 
-        // panel33
-        // 
-        panel33.Location = new Point(515, 427);
-        panel33.Name = "panel33";
-        panel33.Size = new Size(122, 100);
-        panel33.TabIndex = 31;
-        // 
-        // panel34
-        // 
-        panel34.Location = new Point(643, 427);
-        panel34.Name = "panel34";
-        panel34.Size = new Size(122, 100);
-        panel34.TabIndex = 30;
-        // 
-        // panel35
-        // 
-        panel35.Location = new Point(771, 427);
-        panel35.Name = "panel35";
-        panel35.Size = new Size(122, 100);
-        panel35.TabIndex = 29;
-        // 
-        // panel36
-        // 
-        panel36.Location = new Point(3, 533);
-        panel36.Name = "panel36";
-        panel36.Size = new Size(122, 100);
-        panel36.TabIndex = 35;
-        // 
-        // panel37
-        // 
-        panel37.Location = new Point(131, 533);
-        panel37.Name = "panel37";
-        panel37.Size = new Size(122, 100);
-        panel37.TabIndex = 40;
-        // 
-        // panel38
-        // 
-        panel38.Location = new Point(259, 533);
-        panel38.Name = "panel38";
-        panel38.Size = new Size(122, 100);
-        panel38.TabIndex = 41;
-        // 
-        // panel39
-        // 
-        panel39.Location = new Point(387, 533);
-        panel39.Name = "panel39";
-        panel39.Size = new Size(122, 100);
-        panel39.TabIndex = 39;
-        // 
-        // panel40
-        // 
-        panel40.Location = new Point(515, 533);
-        panel40.Name = "panel40";
-        panel40.Size = new Size(122, 100);
-        panel40.TabIndex = 38;
-        // 
-        // panel41
-        // 
-        panel41.Location = new Point(643, 533);
-        panel41.Name = "panel41";
-        panel41.Size = new Size(122, 100);
-        panel41.TabIndex = 37;
-        // 
-        // panel42
-        // 
-        panel42.Location = new Point(771, 533);
-        panel42.Name = "panel42";
-        panel42.Size = new Size(122, 100);
-        panel42.TabIndex = 36;
+        // calendarContainer
+        // 
+        calendarContainer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        calendarContainer.BackColor = Color.Transparent;
+        calendarContainer.Location = new Point(228, 190);
+        calendarContainer.Name = "calendarContainer";
+        calendarContainer.Size = new Size(817, 633);
+        calendarContainer.TabIndex = 14;
+        // 
+        // nextBtn
+        // 
+        nextBtn.BackColor = SystemColors.ButtonFace;
+        nextBtn.Image = Properties.Resources.right_arrow;
+        nextBtn.Location = new Point(1091, 402);
+        nextBtn.Name = "nextBtn";
+        nextBtn.Size = new Size(63, 67);
+        nextBtn.TabIndex = 15;
+        nextBtn.UseVisualStyleBackColor = false;
+        nextBtn.Click += nextBtn_Click;
+        // 
+        // previousBtn
+        // 
+        previousBtn.BackColor = SystemColors.ButtonFace;
+        previousBtn.BackgroundImage = (Image)resources.GetObject("previousBtn.BackgroundImage");
+        previousBtn.Image = Properties.Resources.left_arrow;
+        previousBtn.Location = new Point(82, 404);
+        previousBtn.Name = "previousBtn";
+        previousBtn.Size = new Size(63, 67);
+        previousBtn.TabIndex = 16;
+        previousBtn.UseVisualStyleBackColor = false;
+        previousBtn.Click += previousBtn_Click;
+        // 
+        // yearNowLbl
+        // 
+        yearNowLbl.Font = new Font("Gill Sans MT", 36F, FontStyle.Bold, GraphicsUnit.Point);
+        yearNowLbl.Location = new Point(466, 18);
+        yearNowLbl.Name = "yearNowLbl";
+        yearNowLbl.Size = new Size(325, 67);
+        yearNowLbl.TabIndex = 17;
+        yearNowLbl.Text = "month year";
+        yearNowLbl.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // prevYrBtn
+        // 
+        prevYrBtn.BackColor = SystemColors.ButtonFace;
+        prevYrBtn.BackgroundImage = (Image)resources.GetObject("prevYrBtn.BackgroundImage");
+        prevYrBtn.Image = Properties.Resources.left_arrow;
+        prevYrBtn.Location = new Point(401, 18);
+        prevYrBtn.Name = "prevYrBtn";
+        prevYrBtn.Size = new Size(63, 67);
+        prevYrBtn.TabIndex = 18;
+        prevYrBtn.UseVisualStyleBackColor = false;
+        prevYrBtn.Click += prevYrBtn_Click;
+        // 
+        // nextYrBtn
+        // 
+        nextYrBtn.BackColor = SystemColors.ButtonFace;
+        nextYrBtn.Image = Properties.Resources.right_arrow;
+        nextYrBtn.Location = new Point(793, 19);
+        nextYrBtn.Name = "nextYrBtn";
+        nextYrBtn.Size = new Size(63, 67);
+        nextYrBtn.TabIndex = 19;
+        nextYrBtn.UseVisualStyleBackColor = false;
+        nextYrBtn.Click += nextYrBtn_Click;
+        // 
+        // monthNowLbl
+        // 
+        monthNowLbl.Font = new Font("Gill Sans MT", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+        monthNowLbl.Location = new Point(228, 111);
+        monthNowLbl.Name = "monthNowLbl";
+        monthNowLbl.Size = new Size(197, 40);
+        monthNowLbl.TabIndex = 20;
+        monthNowLbl.Text = "month";
+        monthNowLbl.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // dayNowLbl
+        // 
+        dayNowLbl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        dayNowLbl.Font = new Font("Gill Sans MT", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+        dayNowLbl.ImageAlign = ContentAlignment.MiddleRight;
+        dayNowLbl.Location = new Point(903, 111);
+        dayNowLbl.Name = "dayNowLbl";
+        dayNowLbl.Size = new Size(64, 40);
+        dayNowLbl.TabIndex = 21;
+        dayNowLbl.Text = "day";
+        dayNowLbl.TextAlign = ContentAlignment.MiddleRight;
+        // 
+        // timer1
+        // 
+        timer1.Enabled = true;
+        timer1.Interval = 1000;
+        timer1.Tick += timer1_Tick;
         // 
         // Calendar
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
-        BackColor = Color.White;
-        ClientSize = new Size(1010, 788);
+        BackColor = Color.WhiteSmoke;
+        ClientSize = new Size(1166, 749);
+        Controls.Add(dayNowLbl);
+        Controls.Add(monthNowLbl);
+        Controls.Add(nextYrBtn);
+        Controls.Add(prevYrBtn);
+        Controls.Add(yearNowLbl);
+        Controls.Add(previousBtn);
+        Controls.Add(nextBtn);
+        Controls.Add(calendarContainer);
         Controls.Add(saturdayLbl);
         Controls.Add(fridayLbl);
         Controls.Add(thursdayLbl);
@@ -534,9 +235,6 @@ partial class Calendar
         Controls.Add(tuesdayLbl);
         Controls.Add(mondayLbl);
         Controls.Add(sundayLbl);
-        Controls.Add(previousMonthBtn);
-        Controls.Add(nextMonthBtn);
-        Controls.Add(flowLayoutPanel1);
         Controls.Add(label1);
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         FormBorderStyle = FormBorderStyle.None;
@@ -545,7 +243,6 @@ partial class Calendar
         Text = "Calendar";
         WindowState = FormWindowState.Maximized;
         Load += Calendar_Load;
-        flowLayoutPanel1.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -553,9 +250,6 @@ partial class Calendar
     #endregion
 
     private Label label1;
-    private FlowLayoutPanel flowLayoutPanel1;
-    private Button nextMonthBtn;
-    private Button previousMonthBtn;
     private Label sundayLbl;
     private Label mondayLbl;
     private Label wednesdayLbl;
@@ -563,46 +257,13 @@ partial class Calendar
     private Label saturdayLbl;
     private Label fridayLbl;
     private Label thursdayLbl;
-    private Panel panel1;
-    private Panel panel2;
-    private Panel panel3;
-    private Panel panel4;
-    private Panel panel5;
-    private Panel panel7;
-    private Panel panel6;
-    private Panel panel8;
-    private Panel panel14;
-    private Panel panel13;
-    private Panel panel12;
-    private Panel panel11;
-    private Panel panel10;
-    private Panel panel9;
-    private Panel panel21;
-    private Panel panel20;
-    private Panel panel19;
-    private Panel panel18;
-    private Panel panel17;
-    private Panel panel16;
-    private Panel panel15;
-    private Panel panel22;
-    private Panel panel23;
-    private Panel panel24;
-    private Panel panel25;
-    private Panel panel26;
-    private Panel panel27;
-    private Panel panel28;
-    private Panel panel29;
-    private Panel panel30;
-    private Panel panel31;
-    private Panel panel32;
-    private Panel panel33;
-    private Panel panel34;
-    private Panel panel35;
-    private Panel panel36;
-    private Panel panel37;
-    private Panel panel38;
-    private Panel panel39;
-    private Panel panel40;
-    private Panel panel41;
-    private Panel panel42;
+    private FlowLayoutPanel calendarContainer;
+    private Button nextBtn;
+    private Button previousBtn;
+    private Label yearNowLbl;
+    private Button prevYrBtn;
+    private Button nextYrBtn;
+    private Label monthNowLbl;
+    private Label dayNowLbl;
+    private System.Windows.Forms.Timer timer1;
 }
