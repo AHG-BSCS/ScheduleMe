@@ -118,4 +118,74 @@ public partial class MainForm : Form
     {
         Dispose();
     }
+
+    private void lblCalendar_Click(object sender, EventArgs e)
+    {
+        pnlCalendarBtn_Click(sender, e);
+    }
+
+    private void picCalendar_Click(object sender, EventArgs e)
+    {
+        pnlCalendarBtn_Click(sender, e);
+    }
+
+    private void lblTimeline_Click(object sender, EventArgs e)
+    {
+        pnlTimelineBtn_Click(sender, e);
+    }
+
+    private void picTimeline_Click(object sender, EventArgs e)
+    {
+        pnlTimelineBtn_Click(sender, e);
+    }
+
+    private void lblTimetable_Click(object sender, EventArgs e)
+    {
+        pnlTimetableBtn_Click(sender, e);
+    }
+
+    private void picTimetable_Click(object sender, EventArgs e)
+    {
+        pnlTimetableBtn_Click(sender, e);
+    }
+
+    private void lblNote_Click(object sender, EventArgs e)
+    {
+        pnlNoteBtn_Click(sender, e);
+    }
+
+    private void picNote_Click(object sender, EventArgs e)
+    {
+        pnlNoteBtn_Click(sender, e);
+    }
+
+    private void lblWeather_Click(object sender, EventArgs e)
+    {
+        pnlWeatherBtn_Click(sender, e);
+    }
+
+    private void picWeather_Click(object sender, EventArgs e)
+    {
+        pnlWeatherBtn_Click(sender, e);
+    }
+
+    private void lblSetting_Click(object sender, EventArgs e)
+    {
+        pnlSettingBtn_Click(sender, e);
+    }
+
+    private void picSetting_Click(object sender, EventArgs e)
+    {
+        pnlSettingBtn_Click(sender, e);
+    }
+
+    private void lblAbout_Click(object sender, EventArgs e)
+    {
+        pnlAboutBtn_Click(sender, e);
+    }
+
+    private void picAbout_Click(object sender, EventArgs e)
+    {
+        pnlAboutBtn_Click(sender, e);
+    }
 }
