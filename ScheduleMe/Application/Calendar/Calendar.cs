@@ -42,6 +42,8 @@ public partial class Calendar : Form
             ucdays.Days(i);
             calendarContainer.Controls.Add(ucdays);
         }
+
+        yearNowLbl.Text = year.ToString();
     }
 
     private void nextBtn_Click(object sender, EventArgs e)
@@ -69,6 +71,8 @@ public partial class Calendar : Form
             ucdays.Days(i);
             calendarContainer.Controls.Add(ucdays);
         }
+
+        yearNowLbl.Text = year.ToString();
     }
 
     private void previousBtn_Click(object sender, EventArgs e)
@@ -96,5 +100,71 @@ public partial class Calendar : Form
             ucdays.Days(i);
             calendarContainer.Controls.Add(ucdays);
         }
+
+        yearNowLbl.Text = year.ToString();
+    }
+
+    private void timer1_Tick(object sender, EventArgs e)
+    {
+        monthNowLbl.Text = DateTime.Now.ToString("MMMM").ToUpper();
+        dayNowLbl.Text = DateTime.Now.ToString("dd").ToUpper();
+    }
+
+    private void prevYrBtn_Click(object sender, EventArgs e)
+    {
+        calendarContainer.Controls.Clear();
+        year--;
+
+        int days, dayOfTheWeek, i;
+
+        DateTime startOfTheMonth = new DateTime(year, month, 1);
+
+        days = DateTime.DaysInMonth(year, month);
+
+        dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d"));
+
+        for (i = 1; i < dayOfTheWeek + 1; i++)
+        {
+            UserControlBlank ucBlank = new UserControlBlank();
+            calendarContainer.Controls.Add(ucBlank);
+        }
+
+        for (i = 1; i <= days; i++)
+        {
+            UserControlDays ucdays = new UserControlDays();
+            ucdays.Days(i);
+            calendarContainer.Controls.Add(ucdays);
+        }
+
+        yearNowLbl.Text = year.ToString();
+    }
+
+    private void nextYrBtn_Click(object sender, EventArgs e)
+    {
+        calendarContainer.Controls.Clear();
+        year++;
+
+        int days, dayOfTheWeek, i;
+
+        DateTime startOfTheMonth = new DateTime(year, month, 1);
+
+        days = DateTime.DaysInMonth(year, month);
+
+        dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d"));
+
+        for (i = 1; i < dayOfTheWeek + 1; i++)
+        {
+            UserControlBlank ucBlank = new UserControlBlank();
+            calendarContainer.Controls.Add(ucBlank);
+        }
+
+        for (i = 1; i <= days; i++)
+        {
+            UserControlDays ucdays = new UserControlDays();
+            ucdays.Days(i);
+            calendarContainer.Controls.Add(ucdays);
+        }
+
+        yearNowLbl.Text = year.ToString();
     }
 }
