@@ -89,6 +89,7 @@ public partial class TimelinePanel : Form
                 events[i].EventStartDate,
                 events[i].EventEndDate,
                 events[i].EventColor);
+
             newEvent.Id = id;
             newEvent.Index = i;
             newEvent.Width = (eventDuration * columnSize) + 1;
@@ -296,6 +297,7 @@ public partial class TimelinePanel : Form
                 newtimelinePanel.Show();
                 newtimelinePanel.TopLevel = false;
                 newtimelinePanel.Dock = DockStyle.Top;
+
                 mainForm.tabPanel.Controls.Add(newtimelinePanel);
                 newtimelinePanel.BringToFront();
                 mainForm.tabPanel.Focus();

@@ -2,12 +2,11 @@
 
 internal static class DBConnection
 {
-    static internal string timelineConnection = $"{GetBasePath()}\\Timelines.db";
+    static internal string timelineConnection = $"{GetBasePath()}\\timelines.db";
+    static internal string calendarConnection = $"{GetBasePath()}\\calendar.db";
 
-    static string GetBasePath()
+    static internal string GetBasePath()
     {
-        string basePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-        basePath = Path.Combine(basePath, "Downloads");
-        return basePath;
+        return Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
     }
 }
