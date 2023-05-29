@@ -121,6 +121,9 @@
   <data name="icoLSPU" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icoLSPU.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btnDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnDelete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="btnSeek" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnSeek.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -138,6 +141,9 @@
   </data>
   <data name="tabNote" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tabNote.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnSave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tabTimetable" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tabTimetable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,16 +169,13 @@
   <data name="tabTimeline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tabTimeline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mnuSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mnuSave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="btnAddRow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnAddRow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnDelete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mnuSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mnuSave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnSave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnEdit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnEdit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

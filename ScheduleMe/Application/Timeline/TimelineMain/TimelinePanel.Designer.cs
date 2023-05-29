@@ -31,7 +31,6 @@ partial class TimelinePanel
         components = new System.ComponentModel.Container();
         pnlTabTool = new Panel();
         pnlTab = new Panel();
-        btnJump = new PictureBox();
         btnAddTab = new Button();
         pnlEvents = new Panel();
         mnuTimeline = new ContextMenuStrip(components);
@@ -39,8 +38,9 @@ partial class TimelinePanel
         mnuDeletePanel = new ToolStripMenuItem();
         mnuSeparator = new ToolStripSeparator();
         mnuOpenAtBottom = new ToolStripMenuItem();
+        btnSeek = new Button();
+        btnEdit = new Button();
         pnlTabTool.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)btnJump).BeginInit();
         mnuTimeline.SuspendLayout();
         SuspendLayout();
         // 
@@ -48,7 +48,8 @@ partial class TimelinePanel
         // 
         pnlTabTool.BackColor = Color.FromArgb(15, 76, 129);
         pnlTabTool.Controls.Add(pnlTab);
-        pnlTabTool.Controls.Add(btnJump);
+        pnlTabTool.Controls.Add(btnEdit);
+        pnlTabTool.Controls.Add(btnSeek);
         pnlTabTool.Controls.Add(btnAddTab);
         pnlTabTool.Dock = DockStyle.Top;
         pnlTabTool.Location = new Point(0, 0);
@@ -62,22 +63,8 @@ partial class TimelinePanel
         pnlTab.Dock = DockStyle.Fill;
         pnlTab.Location = new Point(48, 0);
         pnlTab.Name = "pnlTab";
-        pnlTab.Size = new Size(757, 35);
+        pnlTab.Size = new Size(728, 35);
         pnlTab.TabIndex = 0;
-        // 
-        // btnJump
-        // 
-        btnJump.BackColor = Color.Transparent;
-        btnJump.BackgroundImage = Properties.Resources.btnSeek;
-        btnJump.BackgroundImageLayout = ImageLayout.Zoom;
-        btnJump.Cursor = Cursors.Hand;
-        btnJump.Dock = DockStyle.Right;
-        btnJump.Location = new Point(805, 0);
-        btnJump.Name = "btnJump";
-        btnJump.Size = new Size(35, 35);
-        btnJump.TabIndex = 3;
-        btnJump.TabStop = false;
-        btnJump.Click += btnJump_Click;
         // 
         // btnAddTab
         // 
@@ -150,6 +137,44 @@ partial class TimelinePanel
         mnuOpenAtBottom.Size = new Size(188, 26);
         mnuOpenAtBottom.Text = "Open at the bottom";
         // 
+        // btnSeek
+        // 
+        btnSeek.BackColor = Color.FromArgb(15, 76, 129);
+        btnSeek.BackgroundImage = Properties.Resources.btnSeek;
+        btnSeek.BackgroundImageLayout = ImageLayout.Zoom;
+        btnSeek.Cursor = Cursors.Hand;
+        btnSeek.Dock = DockStyle.Right;
+        btnSeek.FlatAppearance.BorderSize = 0;
+        btnSeek.FlatStyle = FlatStyle.Flat;
+        btnSeek.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
+        btnSeek.ForeColor = Color.White;
+        btnSeek.Location = new Point(808, 0);
+        btnSeek.Name = "btnSeek";
+        btnSeek.Size = new Size(32, 35);
+        btnSeek.TabIndex = 5;
+        btnSeek.TabStop = false;
+        btnSeek.UseVisualStyleBackColor = false;
+        btnSeek.Click += btnSeek_Click;
+        // 
+        // btnEdit
+        // 
+        btnEdit.BackColor = Color.FromArgb(15, 76, 129);
+        btnEdit.BackgroundImage = Properties.Resources.btnEdit;
+        btnEdit.BackgroundImageLayout = ImageLayout.Zoom;
+        btnEdit.Cursor = Cursors.Hand;
+        btnEdit.Dock = DockStyle.Right;
+        btnEdit.FlatAppearance.BorderSize = 0;
+        btnEdit.FlatStyle = FlatStyle.Flat;
+        btnEdit.Font = new Font("Dubai", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
+        btnEdit.ForeColor = Color.White;
+        btnEdit.Location = new Point(776, 0);
+        btnEdit.Name = "btnEdit";
+        btnEdit.Size = new Size(32, 35);
+        btnEdit.TabIndex = 6;
+        btnEdit.TabStop = false;
+        btnEdit.UseVisualStyleBackColor = false;
+        btnEdit.Click += btnEdit_Click;
+        // 
         // TimelinePanel
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
@@ -166,14 +191,12 @@ partial class TimelinePanel
         WindowState = FormWindowState.Maximized;
         Load += Timeline_Load;
         pnlTabTool.ResumeLayout(false);
-        ((System.ComponentModel.ISupportInitialize)btnJump).EndInit();
         mnuTimeline.ResumeLayout(false);
         ResumeLayout(false);
     }
 
     #endregion
     private Button btnAddTab;
-    private PictureBox btnJump;
     internal Panel pnlEvents;
     public Panel pnlTabTool;
     public Panel pnlTab;
@@ -182,4 +205,6 @@ partial class TimelinePanel
     private ToolStripMenuItem mnuOpenAtBottom;
     private ToolStripMenuItem mnuDeletePanel;
     private ToolStripSeparator mnuSeparator;
+    private Button btnEdit;
+    private Button btnSeek;
 }

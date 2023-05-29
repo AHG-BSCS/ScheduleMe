@@ -213,13 +213,6 @@ public partial class TimelinePanel : Form
         }
     }
 
-    private void btnJump_Click(object sender, EventArgs e) // Need to improve
-    {
-        Screen screen = Screen.PrimaryScreen;
-        short screenWidth = (short)screen.Bounds.Width;
-        pnlEvents.AutoScrollPosition = new Point(CurrentDateTimePosition - (screenWidth / 2));
-    }
-
     private void btnAddTab_Click(object sender, EventArgs e)
     {
         AddTimeline addTimeline = new AddTimeline();
@@ -246,38 +239,50 @@ public partial class TimelinePanel : Form
         addTimeline.Dispose();
     }
 
+    private void btnEdit_Click(object sender, EventArgs e)
+    {
+        MainForm mainForm = (MainForm)ParentForm;
+        EditTimeline editTimeline = new EditTimeline();
+        editTimeline.CurrentID = CurrentID;
+        editTimeline.EventIds = EventIds;
+        editTimeline.ShowDialog();
+
+        CurrentID = editTimeline.CurrentID;
+        EventIds = editTimeline.EventIds;
+        CurrentDateTimePosition = 0;
+        editTimeline.Dispose();
+        pnlTab.Controls.Clear();
+        pnlEvents.Controls.Clear();
+
+        if (EventIds.Any())
+        {
+            using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
+            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+            foreach (ObjectId id in EventIds)
+            {
+                var tab = timelines.FindById(id);
+                AddNewTab(tab.TimelineName, tab.Id);
+
+                if (id == CurrentID)
+                    PopulateTimeline(tab);
+            }
+        }
+        else if (mainForm.tabPanel.Controls.Count > 1)
+            Dispose();
+    }
+
+    private void btnSeek_Click(object sender, EventArgs e) // Need to improve
+    {
+        Screen screen = Screen.PrimaryScreen;
+        short screenWidth = (short)screen.Bounds.Width;
+        pnlEvents.AutoScrollPosition = new Point(CurrentDateTimePosition - (screenWidth / 2));
+    }
+
     private void mnuTimeline_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {
         if (e.ClickedItem.Name == mnuEdit.Name)
         {
-            MainForm mainForm = (MainForm)ParentForm;
-            EditTimeline editTimeline = new EditTimeline();
-            editTimeline.CurrentID = CurrentID;
-            editTimeline.EventIds = EventIds;
-            editTimeline.ShowDialog();
-
-            CurrentID = editTimeline.CurrentID;
-            EventIds = editTimeline.EventIds;
-            CurrentDateTimePosition = 0;
-            editTimeline.Dispose();
-            pnlTab.Controls.Clear();
-            pnlEvents.Controls.Clear();
-
-            if (EventIds.Any())
-            {
-                using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
-                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                foreach (ObjectId id in EventIds)
-                {
-                    var tab = timelines.FindById(id);
-                    AddNewTab(tab.TimelineName, tab.Id);
-
-                    if (id == CurrentID)
-                        PopulateTimeline(tab);
-                }
-            }
-            else if (mainForm.tabPanel.Controls.Count > 1)
-                Dispose();
+            btnEdit_Click(sender, e);
         }
 
         else if (e.ClickedItem.Name == mnuOpenAtBottom.Name)
