@@ -160,7 +160,7 @@ partial class Calendar
         yearNowLbl.Name = "yearNowLbl";
         yearNowLbl.Size = new Size(325, 67);
         yearNowLbl.TabIndex = 17;
-        yearNowLbl.Text = "year";
+        yearNowLbl.Text = "month year";
         yearNowLbl.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // prevYrBtn
