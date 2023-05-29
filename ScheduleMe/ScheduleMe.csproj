@@ -34,6 +34,7 @@
   <ItemGroup>
     <Folder Include="Database\" />
     <Folder Include="Properties\DataSources\" />
+    <Folder Include="Resources\TabIcon\" />
   </ItemGroup>
 
 </Project>
