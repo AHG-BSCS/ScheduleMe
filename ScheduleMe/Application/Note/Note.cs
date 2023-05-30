@@ -23,7 +23,7 @@ namespace ScheduleMe.Tab
             notes.Columns.Add("Note");
             dataGridView1.DataSource = notes;
 
-            db = new LiteDatabase("myDatabase.db");
+            db = new LiteDatabase(DBConnection.databaseConnection);
             var columnDataCollection = db.GetCollection<ColumnData>("columnData");
             var columnData = columnDataCollection.FindAll().ToList();
 
@@ -49,30 +49,38 @@ namespace ScheduleMe.Tab
 
         private void button3_Click(object sender, EventArgs e)
         {
+            string title = textBox1.Text;
+            string note = textBox2.Text;
+
+            if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(note))
+            {
+                MessageBox.Show("Title and Note cannot be empty.");
+                return;
+            }
+
             if (editing)
             {
-
-                notes.Rows[dataGridView1.CurrentCell.RowIndex]["Title"] = textBox1.Text;
-                notes.Rows[dataGridView1.CurrentCell.RowIndex]["Note"] = textBox2.Text;
+                notes.Rows[dataGridView1.CurrentCell.RowIndex]["Title"] = title;
+                notes.Rows[dataGridView1.CurrentCell.RowIndex]["Note"] = note;
 
                 var columnDataCollection = db.GetCollection<ColumnData>("columnData");
                 var data = columnDataCollection.FindById(dataGridView1.CurrentCell.RowIndex + 1);
                 if (data != null)
                 {
-                    data.Title = textBox1.Text;
-                    data.Note = textBox2.Text;
+                    data.Title = title;
+                    data.Note = note;
                     columnDataCollection.Update(data);
                 }
             }
             else
             {
-                notes.Rows.Add(textBox1.Text, textBox2.Text);
+                notes.Rows.Add(title, note);
 
                 var columnDataCollection = db.GetCollection<ColumnData>("columnData");
                 var data = new ColumnData
                 {
-                    Title = textBox1.Text,
-                    Note = textBox2.Text
+                    Title = title,
+                    Note = note
                 };
                 columnDataCollection.Insert(data);
             }
@@ -82,6 +90,7 @@ namespace ScheduleMe.Tab
             editing = false;
         }
 
+
         private void button4_Click(object sender, EventArgs e)
         {
             textBox1.Text = null;
@@ -90,18 +99,32 @@ namespace ScheduleMe.Tab
 
         private void button2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                notes.Rows[dataGridView1.CurrentCell.RowIndex].Delete();
+            int rowIndex = dataGridView1.CurrentCell.RowIndex;
 
-                var columnDataCollection = db.GetCollection<ColumnData>("columnData");
-                columnDataCollection.Delete(dataGridView1.CurrentCell.RowIndex + 1);
-            }
-            catch (Exception exception)
+            if (rowIndex >= 0 && rowIndex < notes.Rows.Count)
             {
-                MessageBox.Show(exception.Message);
+                // Delete from the DataTable
+                notes.Rows[rowIndex].Delete();
+
+                // Delete from the LiteDB database
+                var columnDataCollection = db.GetCollection<ColumnData>("columnData");
+
+                if (rowIndex < columnDataCollection.Count())
+                {
+                    var data = columnDataCollection.FindById(rowIndex + 1);
+
+                    if (data != null)
+                    {
+                        columnDataCollection.Delete(data.Id);
+                    }
+                }
+
+                // Refresh the DataGridView
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = notes;
             }
         }
+
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
