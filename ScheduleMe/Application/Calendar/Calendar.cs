@@ -149,6 +149,11 @@ public partial class Calendar : Form
         yearNowLbl.Text = nameMonth + " " + year.ToString();
     }
 
+    private void Calendar_Load_1(object sender, EventArgs e)
+    {
+
+    }
+
     private void nextYrBtn_Click(object sender, EventArgs e)
     {
         calendarContainer.Controls.Clear();
