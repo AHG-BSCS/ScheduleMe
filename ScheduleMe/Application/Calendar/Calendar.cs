@@ -8,7 +8,7 @@ namespace ScheduleMe.Tab;
 public partial class Calendar : Form
 {
     int month, year;
-    //string nameMonth;
+    public static string staticMonth, staticYear;
     public Calendar()
     {
         InitializeComponent();
@@ -26,6 +26,9 @@ public partial class Calendar : Form
         DateTime currentDateTime = DateTime.Now;
         month = currentDateTime.Month;
         year = currentDateTime.Year;
+
+        staticMonth = month.ToString();
+        staticYear = year.ToString();
 
         string nameMonth = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
 
@@ -65,6 +68,9 @@ public partial class Calendar : Form
             month = 1;
             year++;
         }
+
+        staticMonth = month.ToString();
+        staticYear = year.ToString();
 
         int days, dayOfTheWeek, i;
 
@@ -106,6 +112,10 @@ public partial class Calendar : Form
             month = 12;
             year--;
         }
+
+        staticMonth = month.ToString();
+        staticYear = year.ToString();
+
         int days, dayOfTheWeek, i;
 
         string nameMonth = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
@@ -132,7 +142,6 @@ public partial class Calendar : Form
         UCMonthYearDisplay ucMY = new UCMonthYearDisplay();
         ucMY.MonthYearDetails(nameMonth, year);
         monthYearContainer.Controls.Add(ucMY);
-        //yearNowLbl.Text = nameMonth + " " + year.ToString();
     }
 
     private void timer1_Tick(object sender, EventArgs e)
@@ -147,6 +156,9 @@ public partial class Calendar : Form
         monthYearContainer.Controls.Clear();
         year--;
 
+        staticMonth = month.ToString();
+        staticYear = year.ToString();
+
         int days, dayOfTheWeek, i;
 
         string nameMonth = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
@@ -173,7 +185,6 @@ public partial class Calendar : Form
         UCMonthYearDisplay ucMY = new UCMonthYearDisplay();
         ucMY.MonthYearDetails(nameMonth, year);
         monthYearContainer.Controls.Add(ucMY);
-        //yearNowLbl.Text = nameMonth + " " + year.ToString();
     }
 
     private void Calendar_Load_1(object sender, EventArgs e)
@@ -187,6 +198,9 @@ public partial class Calendar : Form
         monthYearContainer.Controls.Clear();
         year++;
 
+        staticMonth = month.ToString();
+        staticYear = year.ToString();
+
         int days, dayOfTheWeek, i;
 
         string nameMonth = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
@@ -212,6 +226,5 @@ public partial class Calendar : Form
         UCMonthYearDisplay ucMY = new UCMonthYearDisplay();
         ucMY.MonthYearDetails(nameMonth, year);
         monthYearContainer.Controls.Add(ucMY);
-        //yearNowLbl.Text = nameMonth + " " + year.ToString();
     }
 }

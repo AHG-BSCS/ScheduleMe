@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ScheduleMe.Application.Calendar
+namespace ScheduleMe.Tab
 {
     public partial class AddEventForm : Form
     {
@@ -17,5 +17,9 @@ namespace ScheduleMe.Application.Calendar
             InitializeComponent();
         }
 
+        private void saveEventButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

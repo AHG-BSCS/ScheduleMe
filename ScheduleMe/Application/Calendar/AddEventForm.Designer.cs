@@ -1,4 +1,5 @@
-﻿namespace ScheduleMe.Application.Calendar
+﻿namespace ScheduleMe.Tab
+
 {
     partial class AddEventForm
     {
@@ -28,19 +29,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
+            eventNameTxtBx = new TextBox();
             eventNameLbl = new Label();
             label1 = new Label();
-            textBox2 = new TextBox();
+            eventDateTxtBx = new TextBox();
             saveEventButton = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // eventNameTxtBx
             // 
-            textBox1.Location = new Point(57, 165);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(381, 23);
-            textBox1.TabIndex = 0;
+            eventNameTxtBx.Location = new Point(57, 165);
+            eventNameTxtBx.Name = "eventNameTxtBx";
+            eventNameTxtBx.Size = new Size(381, 23);
+            eventNameTxtBx.TabIndex = 0;
             // 
             // eventNameLbl
             // 
@@ -60,12 +61,12 @@
             label1.TabIndex = 2;
             label1.Text = "Date:";
             // 
-            // textBox2
+            // eventDateTxtBx
             // 
-            textBox2.Location = new Point(57, 59);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(381, 23);
-            textBox2.TabIndex = 3;
+            eventDateTxtBx.Location = new Point(57, 59);
+            eventDateTxtBx.Name = "eventDateTxtBx";
+            eventDateTxtBx.Size = new Size(381, 23);
+            eventDateTxtBx.TabIndex = 3;
             // 
             // saveEventButton
             // 
@@ -75,6 +76,7 @@
             saveEventButton.TabIndex = 4;
             saveEventButton.Text = "Save Event";
             saveEventButton.UseVisualStyleBackColor = true;
+            saveEventButton.Click += saveEventButton_Click;
             // 
             // AddEventForm
             // 
@@ -82,10 +84,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(506, 317);
             Controls.Add(saveEventButton);
-            Controls.Add(textBox2);
+            Controls.Add(eventDateTxtBx);
             Controls.Add(label1);
             Controls.Add(eventNameLbl);
-            Controls.Add(textBox1);
+            Controls.Add(eventNameTxtBx);
             Name = "AddEventForm";
             ResumeLayout(false);
             PerformLayout();
@@ -93,10 +95,10 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox eventNameTxtBx;
         private Label eventNameLbl;
         private Label label1;
-        private TextBox textBox2;
+        private TextBox eventDateTxtBx;
         private Button saveEventButton;
     }
 }
