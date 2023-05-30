@@ -237,7 +237,6 @@ partial class Calendar
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(4);
         Name = "Calendar";
-        Text = "Calendar";
         WindowState = FormWindowState.Maximized;
         Load += Calendar_Load;
         ResumeLayout(false);
