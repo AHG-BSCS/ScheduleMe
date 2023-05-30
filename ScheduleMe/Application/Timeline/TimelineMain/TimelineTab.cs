@@ -58,11 +58,11 @@ public partial class TimelineTab : UserControl
         if (TimelinePanel.CurrentID != Id)
         {
             HighlightButton();
-            using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
-            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-            var timelineTabs = timelines.FindById(Id);
+            using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection);
+            var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
+            var timeline = timelineDB.FindById(Id);
             TimelinePanel.CurrentDateTimePosition = 0;
-            TimelinePanel.PopulateTimeline(timelineTabs);
+            TimelinePanel.PopulateTimeline(timeline);
             TimelinePanel.CurrentID = Id;
         }
     }
@@ -84,15 +84,15 @@ public partial class TimelineTab : UserControl
                 if (TimelinePanel.CurrentDateTimePosition != 0)
                     TimelinePanel.CurrentDateTimePosition = 0;
 
-                using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+                using (var timelineConnection = new LiteDatabase(DBConnection.databaseConnection))
                 {
                     TimelinePanel.EventIds.Remove(Id);
-                    var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                    timelines.Delete(Id); // Delete this Timeline
+                    var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
+                    timelineDB.Delete(Id); // Delete this Timeline
 
                     foreach (ObjectId id in TimelinePanel.EventIds)
                     {
-                        Timeline firstToLoad = timelines.FindById(id);
+                        Timeline firstToLoad = timelineDB.FindById(id);
                         if (TimelinePanel.CurrentID == Id) // If this Id is deleted
                         {
                             TimelinePanel.CurrentID = firstToLoad.Id;

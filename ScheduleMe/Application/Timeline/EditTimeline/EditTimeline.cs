@@ -28,22 +28,22 @@ public partial class EditTimeline : Form
 
     internal void LoadTimelineById(ObjectId id)
     {
-        using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
-        var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-        var timelineTab = timelines.FindById(id);
+        using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection);
+        var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
+        var timeline = timelineDB.FindById(id);
 
         if (id == CurrentID || CurrentID == null)
         {
-            CurrentID = timelineTab.Id;
-            MinDate = timelineTab.TimelineStartDate;
-            MaxDate = timelineTab.TimelineEndDate;
-            SetTimelineDateRange(timelineTab.TimelineName);
+            CurrentID = timeline.Id;
+            MinDate = timeline.TimelineStartDate;
+            MaxDate = timeline.TimelineEndDate;
+            SetTimelineDateRange(timeline.TimelineName);
 
-            if (timelineTab.Events.Any())
-                PopulateRows(timelineTab);
+            if (timeline.Events.Any())
+                PopulateRows(timeline);
         }
         if (PreviousID == null)
-            AddNewTab(timelineTab.TimelineName, timelineTab.Id);
+            AddNewTab(timeline.TimelineName, timeline.Id);
     }
 
     internal void SetTimelineDateRange(string timelineName)
@@ -150,9 +150,9 @@ public partial class EditTimeline : Form
     {
         if (CurrentID != null)
         {
-            using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
-            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-            Timeline timeline = timelines.FindById(CurrentID);
+            using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection);
+            var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
+            Timeline timeline = timelineDB.FindById(CurrentID);
 
             // This will clear the current Events in class and replace with new list of Events
             // Kind of ineficient but I don't know how to fix this right now
@@ -168,10 +168,10 @@ public partial class EditTimeline : Form
                 timeline.Events.Add(row.GetRowInfo());
             }
 
-            timelines.Update(timeline);
+            timelineDB.Update(timeline);
             new Message(timeline.TimelineName + " is Saved");
             pnlEventRows.Controls.Clear();
-            timeline = timelines.FindById(CurrentID);
+            timeline = timelineDB.FindById(CurrentID);
             PopulateRows(timeline);
         }
         else
@@ -189,8 +189,8 @@ public partial class EditTimeline : Form
             if (confirm.Answer)
             {
                 EventIds.Remove(CurrentID);
-                using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
-                    timelineDB.GetCollection<Timeline>("Timeline").Delete(CurrentID);
+                using (var timelineConnection = new LiteDatabase(DBConnection.databaseConnection))
+                    timelineConnection.GetCollection<Timeline>("Timeline").Delete(CurrentID);
 
                 if (CurrentID == PreviousID || PreviousID == null)
                 {
@@ -257,12 +257,12 @@ public partial class EditTimeline : Form
         {
             if (tab.Id == CurrentID)
             {
-                using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
-                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                Timeline timeline = timelines.FindById(CurrentID);
+                using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection);
+                var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
+                Timeline timeline = timelineDB.FindById(CurrentID);
                 tab.btnEditTimelineTab.Text = txtTimelineName.Text;
                 timeline.TimelineName = txtTimelineName.Text;
-                timelines.Update(timeline);
+                timelineDB.Update(timeline);
             }
         }
     }
