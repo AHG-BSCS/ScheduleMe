@@ -63,6 +63,7 @@ public partial class Calendar : Form
         if (month == 13)
         {
             month = 1;
+            year++;
         }
 
         int days, dayOfTheWeek, i;
@@ -103,6 +104,7 @@ public partial class Calendar : Form
         if (month == 0)
         {
             month = 12;
+            year--;
         }
         int days, dayOfTheWeek, i;
 
