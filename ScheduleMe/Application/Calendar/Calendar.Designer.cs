@@ -39,8 +39,8 @@ partial class Calendar
         fridayLbl = new Label();
         thursdayLbl = new Label();
         calendarContainer = new FlowLayoutPanel();
-        nextBtn = new Button();
-        previousBtn = new Button();
+        nextMonthBtn = new Button();
+        previousMonthBtn = new Button();
         prevYrBtn = new Button();
         nextYrBtn = new Button();
         monthNowLbl = new Label();
@@ -130,28 +130,28 @@ partial class Calendar
         calendarContainer.Size = new Size(817, 633);
         calendarContainer.TabIndex = 14;
         // 
-        // nextBtn
+        // nextMonthBtn
         // 
-        nextBtn.BackColor = SystemColors.ButtonFace;
-        nextBtn.Image = Properties.Resources.btnRightArrow;
-        nextBtn.Location = new Point(1091, 402);
-        nextBtn.Name = "nextBtn";
-        nextBtn.Size = new Size(63, 67);
-        nextBtn.TabIndex = 15;
-        nextBtn.UseVisualStyleBackColor = false;
-        nextBtn.Click += nextBtn_Click;
+        nextMonthBtn.BackColor = SystemColors.ButtonFace;
+        nextMonthBtn.Image = Properties.Resources.btnRightArrow;
+        nextMonthBtn.Location = new Point(1091, 402);
+        nextMonthBtn.Name = "nextMonthBtn";
+        nextMonthBtn.Size = new Size(63, 67);
+        nextMonthBtn.TabIndex = 15;
+        nextMonthBtn.UseVisualStyleBackColor = false;
+        nextMonthBtn.Click += nextBtn_Click;
         // 
-        // previousBtn
+        // previousMonthBtn
         // 
-        previousBtn.BackColor = SystemColors.ButtonFace;
-        previousBtn.BackgroundImage = (Image)resources.GetObject("previousBtn.BackgroundImage");
-        previousBtn.Image = Properties.Resources.btnLeftArrow;
-        previousBtn.Location = new Point(82, 404);
-        previousBtn.Name = "previousBtn";
-        previousBtn.Size = new Size(63, 67);
-        previousBtn.TabIndex = 16;
-        previousBtn.UseVisualStyleBackColor = false;
-        previousBtn.Click += previousBtn_Click;
+        previousMonthBtn.BackColor = SystemColors.ButtonFace;
+        previousMonthBtn.BackgroundImage = (Image)resources.GetObject("previousMonthBtn.BackgroundImage");
+        previousMonthBtn.Image = Properties.Resources.btnLeftArrow;
+        previousMonthBtn.Location = new Point(82, 404);
+        previousMonthBtn.Name = "previousMonthBtn";
+        previousMonthBtn.Size = new Size(63, 67);
+        previousMonthBtn.TabIndex = 16;
+        previousMonthBtn.UseVisualStyleBackColor = false;
+        previousMonthBtn.Click += previousBtn_Click;
         // 
         // prevYrBtn
         // 
@@ -222,8 +222,8 @@ partial class Calendar
         Controls.Add(monthYearContainer);
         Controls.Add(dayNowLbl);
         Controls.Add(monthNowLbl);
-        Controls.Add(previousBtn);
-        Controls.Add(nextBtn);
+        Controls.Add(previousMonthBtn);
+        Controls.Add(nextMonthBtn);
         Controls.Add(calendarContainer);
         Controls.Add(saturdayLbl);
         Controls.Add(fridayLbl);
@@ -255,8 +255,8 @@ partial class Calendar
     private Label fridayLbl;
     private Label thursdayLbl;
     private FlowLayoutPanel calendarContainer;
-    private Button nextBtn;
-    private Button previousBtn;
+    private Button nextMonthBtn;
+    private Button previousMonthBtn;
     private Button prevYrBtn;
     private Button nextYrBtn;
     private Label monthNowLbl;
