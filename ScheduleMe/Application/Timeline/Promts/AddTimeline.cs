@@ -13,9 +13,9 @@ public partial class AddTimeline : Form
 
     private void CreateTimeline()
     {
-        using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+        using (var timelineConnection = new LiteDatabase(DBConnection.databaseConnection))
         {
-            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+            var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
 
             var newTimeline = new Timeline
             {
@@ -28,7 +28,7 @@ public partial class AddTimeline : Form
 
             else if (txtName.Text == "Academic Year 22-23") newTimeline.Events = TestDateAcademicCalendar();
 
-            timelines.Insert(newTimeline);
+            timelineDB.Insert(newTimeline);
             Id = newTimeline.Id;
         }
         Close();

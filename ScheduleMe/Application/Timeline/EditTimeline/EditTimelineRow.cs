@@ -76,13 +76,13 @@ public partial class EditTimelineRow : UserControl
     {
         if (e.ClickedItem == mnuDelete && Id != null)
         {
-            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+            using (var timelineConnection = new LiteDatabase(DBConnection.databaseConnection))
             {
                 EditTimeline editTimeline = (EditTimeline)Parent.Parent;
-                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                var timeline = timelines.FindById(Id);
+                var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
+                var timeline = timelineDB.FindById(Id);
                 timeline.Events.RemoveAt(Index);
-                timelines.Update(timeline);
+                timelineDB.Update(timeline);
 
                 // Reload the timeline
                 editTimeline.pnlEventRows.Controls.Clear();

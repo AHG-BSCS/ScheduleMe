@@ -19,13 +19,13 @@ public partial class TimelineEvent : UserControl
     {
         if (e.ClickedItem == mnuDelete)
         {
-            using (var timelineDB = new LiteDatabase(DBConnection.timelineConnection))
+            using (var timelineConnection = new LiteDatabase(DBConnection.databaseConnection))
             {
                 TimelinePanel timelinePanel = (TimelinePanel)Parent.Parent;
-                var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-                var timeline = timelines.FindById(Id);
+                var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
+                var timeline = timelineDB.FindById(Id);
                 timeline.Events.RemoveAt(Index);
-                timelines.Update(timeline);
+                timelineDB.Update(timeline);
 
                 // Reload the timeline
                 timelinePanel.pnlEvents.Controls.Clear();

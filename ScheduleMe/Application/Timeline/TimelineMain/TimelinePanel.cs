@@ -27,16 +27,16 @@ public partial class TimelinePanel : Form
 
     private void LoadFirstTimeline()
     {
-        using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
-        var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-        var timelineTabs = timelines.FindAll();
+        using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection);
+        var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
+        var timelines = timelineDB.FindAll();
 
-        if (timelineTabs.Any())
+        if (timelines.Any())
         {
-            Timeline firstToLoad = timelineTabs.First();
+            Timeline firstToLoad = timelines.First();
             CurrentID = firstToLoad.Id;
 
-            foreach (var tab in timelineTabs) // Load all the Timeline Tabs
+            foreach (var tab in timelines) // Load all the Timeline Tabs
             {
                 EventIds.Add(tab.Id);
                 AddNewTab(tab.TimelineName, tab.Id);
@@ -47,12 +47,12 @@ public partial class TimelinePanel : Form
 
     private void LoadTimelineById(ObjectId id)
     {
-        using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
-        var timelines = timelineDB.GetCollection<Timeline>("Timeline");
-        var timelineTab = timelines.FindById(id);
+        using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection);
+        var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
+        var timeline = timelineDB.FindById(id);
         EventIds.Add(id);
-        AddNewTab(timelineTab.TimelineName, timelineTab.Id);
-        PopulateTimeline(timelineTab);
+        AddNewTab(timeline.TimelineName, timeline.Id);
+        PopulateTimeline(timeline);
     }
 
     internal void PopulateTimeline(Timeline timeline)
@@ -257,11 +257,11 @@ public partial class TimelinePanel : Form
 
         if (EventIds.Any())
         {
-            using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
-            var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+            using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection);
+            var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
             foreach (ObjectId id in EventIds)
             {
-                var tab = timelines.FindById(id);
+                var tab = timelineDB.FindById(id);
                 AddNewTab(tab.TimelineName, tab.Id);
 
                 if (id == CurrentID)
@@ -314,17 +314,17 @@ public partial class TimelinePanel : Form
 
                 foreach (TimelineTab tab in pnlTab.Controls) // Prevent the loading of moved tab
                 {
-                    using var timelineDB = new LiteDatabase(DBConnection.timelineConnection);
-                    var timelines = timelineDB.GetCollection<Timeline>("Timeline");
+                    using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection);
+                    var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
                     Timeline timelineTab;
                     if (CurrentID != PreviousID && PreviousID != null)
                     {
-                        timelineTab = timelines.FindById(PreviousID);
+                        timelineTab = timelineDB.FindById(PreviousID);
                         CurrentID = PreviousID;
                     }
                     else
                     {
-                        timelineTab = timelines.FindById(tab.Id);
+                        timelineTab = timelineDB.FindById(tab.Id);
                         tab.btnTab.BackColor = MainDesigner.HighlightColor;
                         CurrentID = tab.Id;
                     }
