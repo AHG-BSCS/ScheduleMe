@@ -8,6 +8,7 @@ namespace ScheduleMe.Tab;
 public partial class Calendar : Form
 {
     int month, year;
+    //string nameMonth;
     public Calendar()
     {
         InitializeComponent();
@@ -47,13 +48,23 @@ public partial class Calendar : Form
             calendarContainer.Controls.Add(ucdays);
         }
 
-        yearNowLbl.Text = nameMonth + " " + year.ToString();
+        UCMonthYearDisplay ucMY = new UCMonthYearDisplay();
+        ucMY.MonthYearDetails(nameMonth, year);
+        monthYearContainer.Controls.Add(ucMY);
+        //yearNowLbl.Text = nameMonth + " " + year.ToString();
     }
 
     private void nextBtn_Click(object sender, EventArgs e)
     {
         calendarContainer.Controls.Clear();
+        monthYearContainer.Controls.Clear();
         month++;
+
+        if (month == 13)
+        {
+            month = 1;
+            year++;
+        }
 
         int days, dayOfTheWeek, i;
 
@@ -78,14 +89,23 @@ public partial class Calendar : Form
             calendarContainer.Controls.Add(ucdays);
         }
 
-        yearNowLbl.Text = nameMonth + " " + year.ToString();
+        UCMonthYearDisplay ucMY = new UCMonthYearDisplay();
+        ucMY.MonthYearDetails(nameMonth, year);
+        monthYearContainer.Controls.Add(ucMY);
+        //yearNowLbl.Text = nameMonth + " " + year.ToString();
     }
 
     private void previousBtn_Click(object sender, EventArgs e)
     {
         calendarContainer.Controls.Clear();
+        monthYearContainer.Controls.Clear();
         month--;
 
+        if (month == 0)
+        {
+            month = 12;
+            year--;
+        }
         int days, dayOfTheWeek, i;
 
         string nameMonth = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
@@ -109,7 +129,10 @@ public partial class Calendar : Form
             calendarContainer.Controls.Add(ucdays);
         }
 
-        yearNowLbl.Text = nameMonth + " " + year.ToString();
+        UCMonthYearDisplay ucMY = new UCMonthYearDisplay();
+        ucMY.MonthYearDetails(nameMonth, year);
+        monthYearContainer.Controls.Add(ucMY);
+        //yearNowLbl.Text = nameMonth + " " + year.ToString();
     }
 
     private void timer1_Tick(object sender, EventArgs e)
@@ -121,6 +144,7 @@ public partial class Calendar : Form
     private void prevYrBtn_Click(object sender, EventArgs e)
     {
         calendarContainer.Controls.Clear();
+        monthYearContainer.Controls.Clear();
         year--;
 
         int days, dayOfTheWeek, i;
@@ -146,7 +170,10 @@ public partial class Calendar : Form
             calendarContainer.Controls.Add(ucdays);
         }
 
-        yearNowLbl.Text = nameMonth + " " + year.ToString();
+        UCMonthYearDisplay ucMY = new UCMonthYearDisplay();
+        ucMY.MonthYearDetails(nameMonth, year);
+        monthYearContainer.Controls.Add(ucMY);
+        //yearNowLbl.Text = nameMonth + " " + year.ToString();
     }
 
     private void Calendar_Load_1(object sender, EventArgs e)
@@ -157,6 +184,7 @@ public partial class Calendar : Form
     private void nextYrBtn_Click(object sender, EventArgs e)
     {
         calendarContainer.Controls.Clear();
+        monthYearContainer.Controls.Clear();
         year++;
 
         int days, dayOfTheWeek, i;
@@ -181,6 +209,9 @@ public partial class Calendar : Form
             calendarContainer.Controls.Add(ucdays);
         }
 
-        yearNowLbl.Text = nameMonth + " " + year.ToString();
+        UCMonthYearDisplay ucMY = new UCMonthYearDisplay();
+        ucMY.MonthYearDetails(nameMonth, year);
+        monthYearContainer.Controls.Add(ucMY);
+        //yearNowLbl.Text = nameMonth + " " + year.ToString();
     }
 }
