@@ -1,4 +1,5 @@
-﻿using System.Net.NetworkInformation;
+﻿using System.Net;
+using System.Net.NetworkInformation;
 
 namespace ScheduleMe.Tab;
 
@@ -29,7 +30,6 @@ public partial class Timetable : Form
 
     private async void Timetable_Load(object sender, EventArgs e)
     {
-     
 
         HttpClient client = new HttpClient();
         client.BaseAddress = new Uri("https://api.vldz.tk/1a/sched/all");
