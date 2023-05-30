@@ -128,9 +128,16 @@ namespace ScheduleMe.Tab
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBox1.Text = notes.Rows[dataGridView1.CurrentCell.RowIndex].ItemArray[0].ToString();
-            textBox2.Text = notes.Rows[dataGridView1.CurrentCell.RowIndex].ItemArray[1].ToString();
-            editing = true;
+            try
+            {
+                textBox1.Text = notes.Rows[dataGridView1.CurrentCell.RowIndex].ItemArray[0].ToString();
+                textBox2.Text = notes.Rows[dataGridView1.CurrentCell.RowIndex].ItemArray[1].ToString();
+                editing = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("You really can't open a blank file can you");
+            }
         }
 
     }
