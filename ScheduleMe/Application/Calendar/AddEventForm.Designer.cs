@@ -65,8 +65,10 @@
             // 
             eventDateTxtBx.Location = new Point(57, 59);
             eventDateTxtBx.Name = "eventDateTxtBx";
+            eventDateTxtBx.ReadOnly = true;
             eventDateTxtBx.Size = new Size(381, 23);
             eventDateTxtBx.TabIndex = 3;
+            eventDateTxtBx.TextAlign = HorizontalAlignment.Center;
             // 
             // saveEventButton
             // 
@@ -89,6 +91,7 @@
             Controls.Add(eventNameLbl);
             Controls.Add(eventNameTxtBx);
             Name = "AddEventForm";
+            Load += AddEventForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

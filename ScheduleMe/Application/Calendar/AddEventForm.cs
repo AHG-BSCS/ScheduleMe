@@ -21,5 +21,10 @@ namespace ScheduleMe.Tab
         {
 
         }
+
+        private void AddEventForm_Load(object sender, EventArgs e)
+        {
+            eventDateTxtBx.Text = Calendar.staticMonth + " / " + UserControlDays.staticDays.ToString() + " / " + Calendar.staticYear;
+        }
     }
 }
