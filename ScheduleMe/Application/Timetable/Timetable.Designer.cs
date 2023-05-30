@@ -102,7 +102,6 @@ partial class Timetable
             this.label4.Size = new System.Drawing.Size(225, 55);
             this.label4.TabIndex = 4;
             this.label4.Text = "WEDNESDAY";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -267,7 +266,6 @@ partial class Timetable
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(173, 478);
             this.panel7.TabIndex = 15;
-            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // label16
             // 
@@ -298,7 +296,6 @@ partial class Timetable
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(189, 35);
             this.comboBox1.TabIndex = 17;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // comboBox2
             // 

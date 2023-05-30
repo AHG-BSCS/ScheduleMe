@@ -33,7 +33,7 @@ public partial class Timetable : Form
 
 
         HttpClient client = new HttpClient();
-        client.BaseAddress = new Uri("https://api.vldz.tk/1a/sched/all");
+        client.BaseAddress = new Uri("https://cdngate.api.vldz.tk/1a/sched/all");
         if (IsInternetConnected() == true)
         {
             HttpResponseMessage response = await client.GetAsync(client.BaseAddress);
@@ -99,7 +99,7 @@ public partial class Timetable : Form
         {
             sector = "1a";
             HttpClient client = new HttpClient();
-            string url_calix = "https://api.vldz.tk/" + sector + "/sched/all";
+            string url_calix = "https://cdngate.api.vldz.tk/" + sector + "/sched/all";
             client.BaseAddress = new Uri(url_calix);
             if (IsInternetConnected() == true)
             {
@@ -120,7 +120,7 @@ public partial class Timetable : Form
         {
             sector = "1b";
             HttpClient client = new HttpClient();
-            string url_calix = "https://api.vldz.tk/" + sector + "/sched/all";
+            string url_calix = "https://cdngate.api.vldz.tk/" + sector + "/sched/all";
             client.BaseAddress = new Uri(url_calix);
             if (IsInternetConnected() == true)
             {
