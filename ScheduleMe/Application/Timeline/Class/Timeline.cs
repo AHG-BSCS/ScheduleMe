@@ -9,15 +9,10 @@ internal class Timeline
 
     public string TimelineName { get; set; }
     public string Description { get; set; }
+
     public DateTime TimelineStartDate { get; set; }
     public DateTime TimelineEndDate { get; set; }
 
-    private List<Event> _events = new List<Event>();
-
-    public List<Event> Events
-    {
-        get { return _events; }
-        set { _events = value; }
-    }
+    public List<Event> Events { get; set; } = new List<Event>();
     // Logo if possible
 }

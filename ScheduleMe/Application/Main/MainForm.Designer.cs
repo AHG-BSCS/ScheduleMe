@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             sideNavPanel = new Panel();
-            btnSettingWindow = new Button();
-            btnAboutWindow = new Button();
-            btnWeatherTab = new Button();
-            btnNoteTab = new Button();
-            btnTimetableTab = new Button();
-            btnTimelineTab = new Button();
-            btnCalendarTab = new Button();
+            btnSetting = new Button();
+            btnWeather = new Button();
+            btnNote = new Button();
+            btnTimetable = new Button();
+            btnTimeline = new Button();
+            btnCalendar = new Button();
+            btnAbout = new Button();
             tabPanel = new Panel();
             sideNavPanel.SuspendLayout();
             SuspendLayout();
@@ -44,142 +44,171 @@
             // sideNavPanel
             // 
             sideNavPanel.BackColor = Color.FromArgb(15, 76, 129);
-            sideNavPanel.Controls.Add(btnSettingWindow);
-            sideNavPanel.Controls.Add(btnAboutWindow);
-            sideNavPanel.Controls.Add(btnWeatherTab);
-            sideNavPanel.Controls.Add(btnNoteTab);
-            sideNavPanel.Controls.Add(btnTimetableTab);
-            sideNavPanel.Controls.Add(btnTimelineTab);
-            sideNavPanel.Controls.Add(btnCalendarTab);
+            sideNavPanel.Controls.Add(btnSetting);
+            sideNavPanel.Controls.Add(btnWeather);
+            sideNavPanel.Controls.Add(btnNote);
+            sideNavPanel.Controls.Add(btnTimetable);
+            sideNavPanel.Controls.Add(btnTimeline);
+            sideNavPanel.Controls.Add(btnCalendar);
+            sideNavPanel.Controls.Add(btnAbout);
             sideNavPanel.Dock = DockStyle.Left;
             sideNavPanel.Location = new Point(0, 0);
             sideNavPanel.Margin = new Padding(3, 2, 3, 2);
             sideNavPanel.Name = "sideNavPanel";
-            sideNavPanel.Padding = new Padding(0, 35, 0, 10);
+            sideNavPanel.Padding = new Padding(0, 28, 0, 10);
             sideNavPanel.Size = new Size(140, 550);
             sideNavPanel.TabIndex = 0;
             // 
-            // btnSettingWindow
+            // btnSetting
             // 
-            btnSettingWindow.Dock = DockStyle.Bottom;
-            btnSettingWindow.FlatAppearance.BorderSize = 0;
-            btnSettingWindow.FlatStyle = FlatStyle.Flat;
-            btnSettingWindow.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSettingWindow.ForeColor = Color.White;
-            btnSettingWindow.Location = new Point(0, 452);
-            btnSettingWindow.Margin = new Padding(3, 2, 3, 2);
-            btnSettingWindow.Name = "btnSettingWindow";
-            btnSettingWindow.Size = new Size(140, 44);
-            btnSettingWindow.TabIndex = 5;
-            btnSettingWindow.Text = "          Setting";
-            btnSettingWindow.TextAlign = ContentAlignment.MiddleLeft;
-            btnSettingWindow.UseVisualStyleBackColor = true;
-            btnSettingWindow.Click += btnSettingWindow_Click;
+            btnSetting.BackColor = Color.Transparent;
+            btnSetting.BackgroundImage = Properties.Resources.tabSetting;
+            btnSetting.BackgroundImageLayout = ImageLayout.Zoom;
+            btnSetting.Cursor = Cursors.Hand;
+            btnSetting.Dock = DockStyle.Bottom;
+            btnSetting.FlatAppearance.BorderSize = 0;
+            btnSetting.FlatStyle = FlatStyle.Flat;
+            btnSetting.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSetting.ForeColor = Color.White;
+            btnSetting.Location = new Point(0, 452);
+            btnSetting.Name = "btnSetting";
+            btnSetting.Size = new Size(140, 44);
+            btnSetting.TabIndex = 5;
+            btnSetting.TabStop = false;
+            btnSetting.Text = "              Setting";
+            btnSetting.TextAlign = ContentAlignment.MiddleLeft;
+            btnSetting.UseVisualStyleBackColor = false;
+            btnSetting.Click += btnSetting_Click;
             // 
-            // btnAboutWindow
+            // btnWeather
             // 
-            btnAboutWindow.Dock = DockStyle.Bottom;
-            btnAboutWindow.FlatAppearance.BorderSize = 0;
-            btnAboutWindow.FlatStyle = FlatStyle.Flat;
-            btnAboutWindow.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAboutWindow.ForeColor = Color.White;
-            btnAboutWindow.Location = new Point(0, 496);
-            btnAboutWindow.Margin = new Padding(3, 2, 3, 2);
-            btnAboutWindow.Name = "btnAboutWindow";
-            btnAboutWindow.Size = new Size(140, 44);
-            btnAboutWindow.TabIndex = 6;
-            btnAboutWindow.Text = "          About";
-            btnAboutWindow.TextAlign = ContentAlignment.MiddleLeft;
-            btnAboutWindow.UseVisualStyleBackColor = true;
-            btnAboutWindow.Click += btnAboutWindow_Click;
+            btnWeather.BackColor = Color.Transparent;
+            btnWeather.BackgroundImage = Properties.Resources.tabWeather;
+            btnWeather.BackgroundImageLayout = ImageLayout.Zoom;
+            btnWeather.Cursor = Cursors.Hand;
+            btnWeather.Dock = DockStyle.Top;
+            btnWeather.FlatAppearance.BorderSize = 0;
+            btnWeather.FlatStyle = FlatStyle.Flat;
+            btnWeather.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnWeather.ForeColor = Color.White;
+            btnWeather.Location = new Point(0, 204);
+            btnWeather.Name = "btnWeather";
+            btnWeather.Size = new Size(140, 44);
+            btnWeather.TabIndex = 4;
+            btnWeather.TabStop = false;
+            btnWeather.Text = "              Weather";
+            btnWeather.TextAlign = ContentAlignment.MiddleLeft;
+            btnWeather.UseVisualStyleBackColor = false;
+            btnWeather.Click += btnWeather_Click;
             // 
-            // btnWeatherTab
+            // btnNote
             // 
-            btnWeatherTab.Dock = DockStyle.Top;
-            btnWeatherTab.FlatAppearance.BorderSize = 0;
-            btnWeatherTab.FlatStyle = FlatStyle.Flat;
-            btnWeatherTab.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnWeatherTab.ForeColor = Color.White;
-            btnWeatherTab.Location = new Point(0, 211);
-            btnWeatherTab.Margin = new Padding(3, 2, 3, 2);
-            btnWeatherTab.Name = "btnWeatherTab";
-            btnWeatherTab.Size = new Size(140, 44);
-            btnWeatherTab.TabIndex = 4;
-            btnWeatherTab.Text = "          Weather";
-            btnWeatherTab.TextAlign = ContentAlignment.MiddleLeft;
-            btnWeatherTab.UseVisualStyleBackColor = true;
-            btnWeatherTab.Click += btnWeatherTab_Click;
+            btnNote.BackColor = Color.Transparent;
+            btnNote.BackgroundImage = Properties.Resources.tabNote;
+            btnNote.BackgroundImageLayout = ImageLayout.Zoom;
+            btnNote.Cursor = Cursors.Hand;
+            btnNote.Dock = DockStyle.Top;
+            btnNote.FlatAppearance.BorderSize = 0;
+            btnNote.FlatStyle = FlatStyle.Flat;
+            btnNote.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnNote.ForeColor = Color.White;
+            btnNote.Location = new Point(0, 160);
+            btnNote.Name = "btnNote";
+            btnNote.Size = new Size(140, 44);
+            btnNote.TabIndex = 3;
+            btnNote.TabStop = false;
+            btnNote.Text = "              Note";
+            btnNote.TextAlign = ContentAlignment.MiddleLeft;
+            btnNote.UseVisualStyleBackColor = false;
+            btnNote.Click += btnNote_Click;
             // 
-            // btnNoteTab
+            // btnTimetable
             // 
-            btnNoteTab.Dock = DockStyle.Top;
-            btnNoteTab.FlatAppearance.BorderSize = 0;
-            btnNoteTab.FlatStyle = FlatStyle.Flat;
-            btnNoteTab.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnNoteTab.ForeColor = Color.White;
-            btnNoteTab.Location = new Point(0, 167);
-            btnNoteTab.Margin = new Padding(3, 2, 3, 2);
-            btnNoteTab.Name = "btnNoteTab";
-            btnNoteTab.Size = new Size(140, 44);
-            btnNoteTab.TabIndex = 3;
-            btnNoteTab.Text = "          Note";
-            btnNoteTab.TextAlign = ContentAlignment.MiddleLeft;
-            btnNoteTab.UseVisualStyleBackColor = true;
-            btnNoteTab.Click += btnNoteTab_Click;
+            btnTimetable.BackColor = Color.Transparent;
+            btnTimetable.BackgroundImage = Properties.Resources.tabTimetable;
+            btnTimetable.BackgroundImageLayout = ImageLayout.Zoom;
+            btnTimetable.Cursor = Cursors.Hand;
+            btnTimetable.Dock = DockStyle.Top;
+            btnTimetable.FlatAppearance.BorderSize = 0;
+            btnTimetable.FlatStyle = FlatStyle.Flat;
+            btnTimetable.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnTimetable.ForeColor = Color.White;
+            btnTimetable.Location = new Point(0, 116);
+            btnTimetable.Name = "btnTimetable";
+            btnTimetable.Size = new Size(140, 44);
+            btnTimetable.TabIndex = 2;
+            btnTimetable.TabStop = false;
+            btnTimetable.Text = "              Timetable";
+            btnTimetable.TextAlign = ContentAlignment.MiddleLeft;
+            btnTimetable.UseVisualStyleBackColor = false;
+            btnTimetable.Click += btnTimetable_Click;
             // 
-            // btnTimetableTab
+            // btnTimeline
             // 
-            btnTimetableTab.Dock = DockStyle.Top;
-            btnTimetableTab.FlatAppearance.BorderSize = 0;
-            btnTimetableTab.FlatStyle = FlatStyle.Flat;
-            btnTimetableTab.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnTimetableTab.ForeColor = Color.White;
-            btnTimetableTab.Location = new Point(0, 123);
-            btnTimetableTab.Margin = new Padding(3, 2, 3, 2);
-            btnTimetableTab.Name = "btnTimetableTab";
-            btnTimetableTab.Size = new Size(140, 44);
-            btnTimetableTab.TabIndex = 2;
-            btnTimetableTab.Text = "          Timetable";
-            btnTimetableTab.TextAlign = ContentAlignment.MiddleLeft;
-            btnTimetableTab.UseVisualStyleBackColor = true;
-            btnTimetableTab.Click += btnTimetableTab_Click;
+            btnTimeline.BackColor = Color.Transparent;
+            btnTimeline.BackgroundImage = Properties.Resources.tabTimeline;
+            btnTimeline.BackgroundImageLayout = ImageLayout.Zoom;
+            btnTimeline.Cursor = Cursors.Hand;
+            btnTimeline.Dock = DockStyle.Top;
+            btnTimeline.FlatAppearance.BorderSize = 0;
+            btnTimeline.FlatStyle = FlatStyle.Flat;
+            btnTimeline.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnTimeline.ForeColor = Color.White;
+            btnTimeline.Location = new Point(0, 72);
+            btnTimeline.Name = "btnTimeline";
+            btnTimeline.Size = new Size(140, 44);
+            btnTimeline.TabIndex = 1;
+            btnTimeline.TabStop = false;
+            btnTimeline.Text = "              Timeline";
+            btnTimeline.TextAlign = ContentAlignment.MiddleLeft;
+            btnTimeline.UseVisualStyleBackColor = false;
+            btnTimeline.Click += btnTimeline_Click;
             // 
-            // btnTimelineTab
+            // btnCalendar
             // 
-            btnTimelineTab.Dock = DockStyle.Top;
-            btnTimelineTab.FlatAppearance.BorderSize = 0;
-            btnTimelineTab.FlatStyle = FlatStyle.Flat;
-            btnTimelineTab.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnTimelineTab.ForeColor = Color.White;
-            btnTimelineTab.Location = new Point(0, 79);
-            btnTimelineTab.Margin = new Padding(3, 2, 3, 2);
-            btnTimelineTab.Name = "btnTimelineTab";
-            btnTimelineTab.Size = new Size(140, 44);
-            btnTimelineTab.TabIndex = 1;
-            btnTimelineTab.Text = "          Timeline";
-            btnTimelineTab.TextAlign = ContentAlignment.MiddleLeft;
-            btnTimelineTab.UseVisualStyleBackColor = true;
-            btnTimelineTab.Click += btnTimelineTab_Click;
+            btnCalendar.BackColor = Color.Transparent;
+            btnCalendar.BackgroundImage = Properties.Resources.tabCalendar;
+            btnCalendar.BackgroundImageLayout = ImageLayout.Zoom;
+            btnCalendar.Cursor = Cursors.Hand;
+            btnCalendar.Dock = DockStyle.Top;
+            btnCalendar.FlatAppearance.BorderSize = 0;
+            btnCalendar.FlatStyle = FlatStyle.Flat;
+            btnCalendar.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCalendar.ForeColor = Color.White;
+            btnCalendar.Location = new Point(0, 28);
+            btnCalendar.Name = "btnCalendar";
+            btnCalendar.Size = new Size(140, 44);
+            btnCalendar.TabIndex = 0;
+            btnCalendar.TabStop = false;
+            btnCalendar.Text = "              Calendar";
+            btnCalendar.TextAlign = ContentAlignment.MiddleLeft;
+            btnCalendar.UseVisualStyleBackColor = false;
+            btnCalendar.Click += btnCalendar_Click;
             // 
-            // btnCalendarTab
+            // btnAbout
             // 
-            btnCalendarTab.Dock = DockStyle.Top;
-            btnCalendarTab.FlatAppearance.BorderSize = 0;
-            btnCalendarTab.FlatStyle = FlatStyle.Flat;
-            btnCalendarTab.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCalendarTab.ForeColor = Color.White;
-            btnCalendarTab.Location = new Point(0, 35);
-            btnCalendarTab.Margin = new Padding(3, 2, 3, 2);
-            btnCalendarTab.Name = "btnCalendarTab";
-            btnCalendarTab.Size = new Size(140, 44);
-            btnCalendarTab.TabIndex = 0;
-            btnCalendarTab.Text = "          Calendar";
-            btnCalendarTab.TextAlign = ContentAlignment.MiddleLeft;
-            btnCalendarTab.UseVisualStyleBackColor = true;
-            btnCalendarTab.Click += btnCalendarTab_Click;
+            btnAbout.BackColor = Color.Transparent;
+            btnAbout.BackgroundImage = Properties.Resources.tabAbout;
+            btnAbout.BackgroundImageLayout = ImageLayout.Zoom;
+            btnAbout.Cursor = Cursors.Hand;
+            btnAbout.Dock = DockStyle.Bottom;
+            btnAbout.FlatAppearance.BorderSize = 0;
+            btnAbout.FlatStyle = FlatStyle.Flat;
+            btnAbout.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAbout.ForeColor = Color.White;
+            btnAbout.Location = new Point(0, 496);
+            btnAbout.Name = "btnAbout";
+            btnAbout.Size = new Size(140, 44);
+            btnAbout.TabIndex = 6;
+            btnAbout.TabStop = false;
+            btnAbout.Text = "              About";
+            btnAbout.TextAlign = ContentAlignment.MiddleLeft;
+            btnAbout.UseVisualStyleBackColor = false;
+            btnAbout.Click += btnAbout_Click;
             // 
             // tabPanel
             // 
+            tabPanel.AutoScroll = true;
             tabPanel.BackColor = Color.White;
             tabPanel.Dock = DockStyle.Fill;
             tabPanel.Location = new Point(140, 0);
@@ -199,23 +228,24 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "MainForm";
-            StartPosition = FormStartPosition.Manual;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ScheduleMe";
             WindowState = FormWindowState.Maximized;
+            FormClosing += MainForm_FormClosing;
             Load += MainForm_Load;
             sideNavPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-        private Button btnNoteTab;
-        private Button btnTimetableTab;
-        private Button btnCalendarTab;
-        private Button btnTimelineTab;
-        private Button btnWeatherTab;
-        private Button btnAboutWindow;
-        private Panel tabPanel;
-        public Button btnSettingWindow;
         public Panel sideNavPanel;
+        public Panel tabPanel;
+        private Button btnCalendar;
+        private Button btnNote;
+        private Button btnTimetable;
+        private Button btnTimeline;
+        private Button btnAbout;
+        private Button btnSetting;
+        private Button btnWeather;
     }
 }

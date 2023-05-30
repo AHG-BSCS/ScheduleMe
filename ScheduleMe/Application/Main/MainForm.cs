@@ -1,134 +1,114 @@
-using LiteDB;
 using ScheduleMe.Tab;
 
-namespace ScheduleMe
+namespace ScheduleMe;
+
+public partial class MainForm : Form
 {
-    public partial class MainForm : Form
+    private static Form activeForm;
+    private static Calendar calendar;
+    private static TimelinePanel timeline;
+    private static Timetable timetable;
+    private static Note note;
+    private static Weather weather;
+    private Button previousBtn = new Button();
+
+    public MainForm()
     {
-        private static Form activeForm;
-        private static Calendar calendar;
-        private static TimelineMain timeline;
-        private static Timetable timetable;
-        private static Note note;
-        private static Weather weather;
-        private static Setting setting;
-        private static About about;
-        private Button previousButton = new Button();
+        InitializeComponent();
+    }
 
-        public Color accentColor = Color.FromArgb(15, 76, 129);
+    private void MainForm_Load(object sender, EventArgs e)
+    {
+        GetFormInstance(ref activeForm);
+        btnCalendar_Click(sender, e);
+    }
 
-        public MainForm()
+    private void GetFormInstance<T>(ref T instance) where T : Form, new()
+    {
+        if (instance == null || instance.IsDisposed)
+            instance = new T();
+
+        instance.Show();
+    }
+
+    private void ShowTab(Form newForm)
+    {
+        if (!newForm.Equals(activeForm))
         {
-            InitializeComponent();
+            activeForm.Hide();
+            tabPanel.Controls.Clear();
+            activeForm = newForm;
+            newForm.TopLevel = false;
+            newForm.Dock = DockStyle.Top;
+            tabPanel.Controls.Add(newForm);
+            tabPanel.Focus();
         }
+    }
 
-        private void MainForm_Load(object sender, EventArgs e)
+    private void HighlightTab(Button button, bool visible)
+    {
+        if (visible && !previousBtn.Equals(button))
         {
-            showFormInstance(ref activeForm);
-            showFormInstance(ref calendar);
-            highlightButton(btnCalendarTab, calendar.Visible);
-            openInTabPanel(calendar);
+            button.BackColor = MainDesigner.HighlightColor;
+            previousBtn.BackColor = MainDesigner.ThemeColor;
+            previousBtn = button;
         }
+    }
 
-        private void showFormInstance<T>(ref T instance) where T : Form, new()
-        {
-            if (instance == null || instance.IsDisposed)
-                instance = new T();
-            instance.BringToFront();
-            instance.Show();
-        }
+    private void HighlightTabAndShow(Button button, Form form)
+    {
+        button.BackColor = MainDesigner.HighlightColor;
+        form.ShowDialog();
+        button.BackColor = MainDesigner.ThemeColor;
+    }
 
-        private void openInTabPanel(Form newForm)
-        {
-            if (!newForm.Equals(activeForm))
-            {
-                activeForm.Hide();
-                activeForm = newForm;
-                newForm.TopLevel = false;
-                newForm.Dock = DockStyle.Fill;
-                tabPanel.Controls.Add(newForm);
-                tabPanel.Focus();
-            }
-        }
+    private void btnCalendar_Click(object sender, EventArgs e)
+    {
+        GetFormInstance(ref calendar);
+        ShowTab(calendar);
+        HighlightTab(btnCalendar, calendar.Visible);
+    }
 
-        private void highlightButton(Button button, bool visible)
-        {
-            if (visible && !previousButton.Equals(button))
-            {
-                button.BackColor = Color.White;
-                button.ForeColor = Color.Black;
-                previousButton.BackColor = sideNavPanel.BackColor;
-                previousButton.ForeColor = Color.White;
-                previousButton = button;
-            }
-        }
+    private void btnTimeline_Click(object sender, EventArgs e)
+    {
+        GetFormInstance(ref timeline);
+        ShowTab(timeline);
+        HighlightTab(btnTimeline, timeline.Visible);
+    }
 
-        private void highlightButton(Button button)
-        {
-            button.BackColor = Color.White;
-            button.ForeColor = Color.Black;
-        }
+    private void btnTimetable_Click(object sender, EventArgs e)
+    {
+        GetFormInstance(ref timetable);
+        ShowTab(timetable);
+        HighlightTab(btnTimetable, timetable.Visible);
+    }
 
-        private void setting_FormClosedEvent(object sender, FormClosedEventArgs e)
-        {
-            btnSettingWindow.BackColor = sideNavPanel.BackColor;
-            btnSettingWindow.ForeColor = Color.White;
-        }
+    private void btnNote_Click(object sender, EventArgs e)
+    {
+        GetFormInstance(ref note);
+        ShowTab(note);
+        HighlightTab(btnNote, note.Visible);
+    }
 
-        private void about_FormClosedEvent(object sender, FormClosedEventArgs e)
-        {
-            btnAboutWindow.BackColor = sideNavPanel.BackColor;
-            btnAboutWindow.ForeColor = Color.White;
-        }
+    private void btnWeather_Click(object sender, EventArgs e)
+    {
+        GetFormInstance(ref weather);
+        ShowTab(weather);
+        HighlightTab(btnWeather, weather.Visible);
+    }
 
-        private void btnCalendarTab_Click(object sender, EventArgs e)
-        {
-            showFormInstance(ref calendar);
-            openInTabPanel(calendar);
-            highlightButton(btnCalendarTab, calendar.Visible);
-        }
+    private void btnSetting_Click(object sender, EventArgs e)
+    {
+        HighlightTabAndShow(btnSetting, new Setting());
+    }
 
-        private void btnTimelineTab_Click(object sender, EventArgs e)
-        {
-            showFormInstance(ref timeline);
-            openInTabPanel(timeline);
-            highlightButton(btnTimelineTab, timeline.Visible);
-        }
+    private void btnAbout_Click(object sender, EventArgs e)
+    {
+        HighlightTabAndShow(btnAbout, new About());
+    }
 
-        private void btnTimetableTab_Click(object sender, EventArgs e)
-        {
-            showFormInstance(ref timetable);
-            openInTabPanel(timetable);
-            highlightButton(btnTimetableTab, timetable.Visible);
-        }
-
-        private void btnNoteTab_Click(object sender, EventArgs e)
-        {
-            showFormInstance(ref note);
-            openInTabPanel(note);
-            highlightButton(btnNoteTab, note.Visible);
-        }
-
-        private void btnWeatherTab_Click(object sender, EventArgs e)
-        {
-            showFormInstance(ref weather);
-            openInTabPanel(weather);
-            highlightButton(btnWeatherTab, weather.Visible);
-        }
-
-        private void btnSettingWindow_Click(object sender, EventArgs e)
-        {
-            showFormInstance(ref setting);
-            highlightButton(btnSettingWindow);
-            setting.FormClosedEvent += setting_FormClosedEvent;
-        }
-
-        private void btnAboutWindow_Click(object sender, EventArgs e)
-        {
-            showFormInstance(ref about);
-            highlightButton(btnAboutWindow);
-            about.FormClosedEvent += about_FormClosedEvent;
-        }
-
+    private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        Dispose();
     }
 }
