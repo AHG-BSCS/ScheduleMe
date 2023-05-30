@@ -41,12 +41,12 @@ partial class Calendar
         calendarContainer = new FlowLayoutPanel();
         nextBtn = new Button();
         previousBtn = new Button();
-        yearNowLbl = new Label();
         prevYrBtn = new Button();
         nextYrBtn = new Button();
         monthNowLbl = new Label();
         dayNowLbl = new Label();
         timer1 = new System.Windows.Forms.Timer(components);
+        monthYearContainer = new FlowLayoutPanel();
         SuspendLayout();
         // 
         // label1
@@ -153,16 +153,6 @@ partial class Calendar
         previousBtn.UseVisualStyleBackColor = false;
         previousBtn.Click += previousBtn_Click;
         // 
-        // yearNowLbl
-        // 
-        yearNowLbl.Font = new Font("Gill Sans MT", 36F, FontStyle.Bold, GraphicsUnit.Point);
-        yearNowLbl.Location = new Point(466, 18);
-        yearNowLbl.Name = "yearNowLbl";
-        yearNowLbl.Size = new Size(325, 67);
-        yearNowLbl.TabIndex = 17;
-        yearNowLbl.Text = "month year";
-        yearNowLbl.TextAlign = ContentAlignment.MiddleCenter;
-        // 
         // prevYrBtn
         // 
         prevYrBtn.BackColor = SystemColors.ButtonFace;
@@ -214,17 +204,24 @@ partial class Calendar
         timer1.Interval = 1000;
         timer1.Tick += timer1_Tick;
         // 
+        // monthYearContainer
+        // 
+        monthYearContainer.Location = new Point(476, 14);
+        monthYearContainer.Name = "monthYearContainer";
+        monthYearContainer.Size = new Size(325, 67);
+        monthYearContainer.TabIndex = 22;
+        // 
         // Calendar
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
         BackColor = Color.WhiteSmoke;
         ClientSize = new Size(1166, 749);
+        Controls.Add(prevYrBtn);
+        Controls.Add(nextYrBtn);
+        Controls.Add(monthYearContainer);
         Controls.Add(dayNowLbl);
         Controls.Add(monthNowLbl);
-        Controls.Add(nextYrBtn);
-        Controls.Add(prevYrBtn);
-        Controls.Add(yearNowLbl);
         Controls.Add(previousBtn);
         Controls.Add(nextBtn);
         Controls.Add(calendarContainer);
@@ -260,10 +257,10 @@ partial class Calendar
     private FlowLayoutPanel calendarContainer;
     private Button nextBtn;
     private Button previousBtn;
-    private Label yearNowLbl;
     private Button prevYrBtn;
     private Button nextYrBtn;
     private Label monthNowLbl;
     private Label dayNowLbl;
     private System.Windows.Forms.Timer timer1;
+    private FlowLayoutPanel monthYearContainer;
 }
