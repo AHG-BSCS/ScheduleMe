@@ -23,7 +23,6 @@ namespace ScheduleMe.Tab
             notes.Columns.Add("Note");
             dataGridView1.DataSource = notes;
 
-            // Step 2: Retrieve the data from the database and load it into the DataTable
             db = new LiteDatabase("myDatabase.db");
             var columnDataCollection = db.GetCollection<ColumnData>("columnData");
             var columnData = columnDataCollection.FindAll().ToList();
@@ -52,11 +51,10 @@ namespace ScheduleMe.Tab
         {
             if (editing)
             {
-                // Update existing data in the DataTable
+
                 notes.Rows[dataGridView1.CurrentCell.RowIndex]["Title"] = textBox1.Text;
                 notes.Rows[dataGridView1.CurrentCell.RowIndex]["Note"] = textBox2.Text;
 
-                // Update the data in the LiteDB database
                 var columnDataCollection = db.GetCollection<ColumnData>("columnData");
                 var data = columnDataCollection.FindById(dataGridView1.CurrentCell.RowIndex + 1);
                 if (data != null)
@@ -68,10 +66,8 @@ namespace ScheduleMe.Tab
             }
             else
             {
-                // Add new data to the DataTable
                 notes.Rows.Add(textBox1.Text, textBox2.Text);
 
-                // Add new data to the LiteDB database
                 var columnDataCollection = db.GetCollection<ColumnData>("columnData");
                 var data = new ColumnData
                 {
@@ -98,7 +94,6 @@ namespace ScheduleMe.Tab
             {
                 notes.Rows[dataGridView1.CurrentCell.RowIndex].Delete();
 
-                // Delete the corresponding data from the LiteDB database
                 var columnDataCollection = db.GetCollection<ColumnData>("columnData");
                 columnDataCollection.Delete(dataGridView1.CurrentCell.RowIndex + 1);
             }
