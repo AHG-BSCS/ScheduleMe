@@ -76,7 +76,7 @@ public partial class EditTimelineRow : UserControl
     {
         if (e.ClickedItem == mnuDelete && Id != null)
         {
-            using (var timelineConnection = new LiteDatabase(DBConnection.databaseConnection))
+            using (var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_timeline))
             {
                 EditTimeline editTimeline = (EditTimeline)Parent.Parent;
                 var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");

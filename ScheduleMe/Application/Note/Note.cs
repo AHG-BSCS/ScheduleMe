@@ -23,7 +23,7 @@ namespace ScheduleMe.Tab
             notes.Columns.Add("Note");
             dataGridView1.DataSource = notes;
 
-            db = new LiteDatabase(DBConnection.databaseConnection);
+            db = new LiteDatabase(DBConnection.databaseConnection_note);
             var columnDataCollection = db.GetCollection<ColumnData>("columnData");
             var columnData = columnDataCollection.FindAll().ToList();
 
@@ -132,5 +132,6 @@ namespace ScheduleMe.Tab
             textBox2.Text = notes.Rows[dataGridView1.CurrentCell.RowIndex].ItemArray[1].ToString();
             editing = true;
         }
+
     }
 }

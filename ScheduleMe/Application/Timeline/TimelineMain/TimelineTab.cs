@@ -58,7 +58,7 @@ public partial class TimelineTab : UserControl
         if (TimelinePanel.CurrentID != Id)
         {
             HighlightButton();
-            using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection);
+            using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_timeline);
             var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
             var timeline = timelineDB.FindById(Id);
             TimelinePanel.CurrentDateTimePosition = 0;
@@ -84,7 +84,7 @@ public partial class TimelineTab : UserControl
                 if (TimelinePanel.CurrentDateTimePosition != 0)
                     TimelinePanel.CurrentDateTimePosition = 0;
 
-                using (var timelineConnection = new LiteDatabase(DBConnection.databaseConnection))
+                using (var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_timeline))
                 {
                     TimelinePanel.EventIds.Remove(Id);
                     var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");

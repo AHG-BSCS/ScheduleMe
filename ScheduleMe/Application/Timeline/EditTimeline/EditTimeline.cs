@@ -28,7 +28,7 @@ public partial class EditTimeline : Form
 
     internal void LoadTimelineById(ObjectId id)
     {
-        using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection);
+        using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_timeline);
         var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
         var timeline = timelineDB.FindById(id);
 
@@ -150,7 +150,7 @@ public partial class EditTimeline : Form
     {
         if (CurrentID != null)
         {
-            using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection);
+            using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_timeline);
             var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
             Timeline timeline = timelineDB.FindById(CurrentID);
 
@@ -189,7 +189,7 @@ public partial class EditTimeline : Form
             if (confirm.Answer)
             {
                 EventIds.Remove(CurrentID);
-                using (var timelineConnection = new LiteDatabase(DBConnection.databaseConnection))
+                using (var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_timeline))
                     timelineConnection.GetCollection<Timeline>("Timeline").Delete(CurrentID);
 
                 if (CurrentID == PreviousID || PreviousID == null)
@@ -257,7 +257,7 @@ public partial class EditTimeline : Form
         {
             if (tab.Id == CurrentID)
             {
-                using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection);
+                using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_timeline);
                 var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
                 Timeline timeline = timelineDB.FindById(CurrentID);
                 tab.btnEditTimelineTab.Text = txtTimelineName.Text;

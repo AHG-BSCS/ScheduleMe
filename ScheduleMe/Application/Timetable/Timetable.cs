@@ -36,7 +36,7 @@ namespace ScheduleMe.Tab
 
         private async void Timetable_Load(object sender, EventArgs e)
         {
-            db = new LiteDatabase(DBConnection.databaseConnection);
+            db = new LiteDatabase(DBConnection.databaseConnection_timetable);
 
             var collection = db.GetCollection<TimetableData>("timetable");
 

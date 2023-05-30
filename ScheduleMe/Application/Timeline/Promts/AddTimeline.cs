@@ -13,7 +13,7 @@ public partial class AddTimeline : Form
 
     private void CreateTimeline()
     {
-        using (var timelineConnection = new LiteDatabase(DBConnection.databaseConnection))
+        using (var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_timeline))
         {
             var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
 

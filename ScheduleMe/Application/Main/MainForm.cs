@@ -17,10 +17,35 @@ public partial class MainForm : Form
         InitializeComponent();
     }
 
+    static internal string GetBasePath()
+    {
+        return Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+    }
+
     private void MainForm_Load(object sender, EventArgs e)
     {
         GetFormInstance(ref activeForm);
         btnCalendar_Click(sender, e);
+
+        string directoryPath = $"{GetBasePath()}\\ScheduleMe";
+
+        try
+        {
+            // Check if the directory already exists
+            if (Directory.Exists(directoryPath))
+            {
+            }
+            else
+            {
+                // Create the directory
+                Directory.CreateDirectory(directoryPath);
+                MessageBox.Show("Welcome to ScheduleMe! Thank you for using our app!", "First time Running!");
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error creating the directory: " + ex.Message);
+        }
     }
 
     private void GetFormInstance<T>(ref T instance) where T : Form, new()

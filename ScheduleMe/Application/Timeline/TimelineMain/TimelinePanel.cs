@@ -27,7 +27,7 @@ public partial class TimelinePanel : Form
 
     private void LoadFirstTimeline()
     {
-        using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection);
+        using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_timeline);
         var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
         var timelines = timelineDB.FindAll();
 
@@ -47,7 +47,7 @@ public partial class TimelinePanel : Form
 
     private void LoadTimelineById(ObjectId id)
     {
-        using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection);
+        using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_timeline);
         var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
         var timeline = timelineDB.FindById(id);
         EventIds.Add(id);
@@ -257,7 +257,7 @@ public partial class TimelinePanel : Form
 
         if (EventIds.Any())
         {
-            using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection);
+            using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_timeline);
             var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
             foreach (ObjectId id in EventIds)
             {
@@ -314,7 +314,7 @@ public partial class TimelinePanel : Form
 
                 foreach (TimelineTab tab in pnlTab.Controls) // Prevent the loading of moved tab
                 {
-                    using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection);
+                    using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_timeline);
                     var timelineDB = timelineConnection.GetCollection<Timeline>("Timeline");
                     Timeline timelineTab;
                     if (CurrentID != PreviousID && PreviousID != null)
