@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using LiteDB;
 
 namespace ScheduleMe.Tab
 {
     public partial class AddEventForm : Form
     {
+        public DateTime EventDate { get; set; }
         public AddEventForm()
         {
             InitializeComponent();
@@ -19,7 +12,15 @@ namespace ScheduleMe.Tab
 
         private void saveEventButton_Click(object sender, EventArgs e)
         {
+            using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_calendar);
+            var timelineDB = timelineConnection.GetCollection<CalendarEvent>("Calendar");
 
+            CalendarEvent calendarEvent = new CalendarEvent();
+            calendarEvent.EventName = eventNameTxtBx.Text;
+            calendarEvent.EventDate = EventDate;
+            timelineDB.Insert(calendarEvent);
+            MessageBox.Show("Saved!");
+            this.Dispose();
         }
 
         private void AddEventForm_Load(object sender, EventArgs e)

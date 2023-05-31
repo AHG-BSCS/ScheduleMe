@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ScheduleMe.Tab
-
 {
     public partial class UserControlDays : UserControl
     {
+        public DateTime OwnDate { get; set; }
         public static string staticDays;
         public UserControlDays()
         {
@@ -33,7 +33,8 @@ namespace ScheduleMe.Tab
         {
             staticDays = numDayLbl.Text;
             AddEventForm eventForm = new AddEventForm();
-            eventForm.Show();
+            eventForm.EventDate = OwnDate;
+            eventForm.ShowDialog();
         }
     }
 }

@@ -1,13 +1,11 @@
-﻿using Microsoft.VisualBasic;
-using ScheduleMe.Tab;
+﻿using LiteDB;
 using System.Globalization;
-using System.Runtime.Serialization;
 
 namespace ScheduleMe.Tab;
 
 public partial class Calendar : Form
 {
-    int month, year;
+    public static int month, year;
     public static string staticMonth, staticYear;
     public Calendar()
     {
@@ -46,15 +44,35 @@ public partial class Calendar : Form
 
         for (i = 1; i <= days; i++)
         {
-            UserControlDays ucdays = new UserControlDays();
-            ucdays.Days(i);
-            calendarContainer.Controls.Add(ucdays);
+            using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_calendar);
+            var timelineDB = timelineConnection.GetCollection<CalendarEvent>("Calendar");
+            var calendarEvents = timelineDB.FindAll();
+
+            foreach (CalendarEvent calendarEvent in calendarEvents)
+            {
+                if (calendarEvent.EventDate != new DateTime(year, month, i))
+                {
+                    UserControlDays ucdays = new UserControlDays();
+                    ucdays.Days(i);
+                    ucdays.OwnDate = new DateTime(year, month, i);
+                    calendarContainer.Controls.Add(ucdays);
+                    break;
+                }
+
+                else if (calendarEvent.EventDate == new DateTime(year, month, i))
+                {
+                    UserControlDays ucdays = new UserControlDays();
+                    ucdays.Days(i);
+                    ucdays.OwnDate = new DateTime(year, month, i);
+                    calendarContainer.Controls.Add(ucdays);
+                }
+            }
+
         }
 
         UCMonthYearDisplay ucMY = new UCMonthYearDisplay();
         ucMY.MonthYearDetails(nameMonth, year);
         monthYearContainer.Controls.Add(ucMY);
-        //yearNowLbl.Text = nameMonth + " " + year.ToString();
     }
 
     private void nextBtn_Click(object sender, EventArgs e)
@@ -92,6 +110,7 @@ public partial class Calendar : Form
         {
             UserControlDays ucdays = new UserControlDays();
             ucdays.Days(i);
+            ucdays.OwnDate = new DateTime(year, month, i);
             calendarContainer.Controls.Add(ucdays);
         }
 
@@ -136,6 +155,8 @@ public partial class Calendar : Form
         {
             UserControlDays ucdays = new UserControlDays();
             ucdays.Days(i);
+            ucdays.OwnDate = new DateTime(year, month, i);
+
             calendarContainer.Controls.Add(ucdays);
         }
 
@@ -179,6 +200,7 @@ public partial class Calendar : Form
         {
             UserControlDays ucdays = new UserControlDays();
             ucdays.Days(i);
+            ucdays.OwnDate = new DateTime(year, month, i);
             calendarContainer.Controls.Add(ucdays);
         }
 
@@ -220,6 +242,7 @@ public partial class Calendar : Form
         {
             UserControlDays ucdays = new UserControlDays();
             ucdays.Days(i);
+            ucdays.OwnDate = new DateTime(year, month, i);
             calendarContainer.Controls.Add(ucdays);
         }
 
