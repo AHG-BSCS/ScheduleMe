@@ -53,6 +53,7 @@ partial class Timetable
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -61,13 +62,14 @@ partial class Timetable
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Dubai Medium", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(38, 69);
+            this.label2.Location = new System.Drawing.Point(43, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(166, 55);
             this.label2.TabIndex = 2;
@@ -77,7 +79,7 @@ partial class Timetable
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Dubai Medium", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(242, 69);
+            this.label3.Location = new System.Drawing.Point(235, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(171, 55);
             this.label3.TabIndex = 3;
@@ -87,7 +89,7 @@ partial class Timetable
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Dubai Medium", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(432, 69);
+            this.label4.Location = new System.Drawing.Point(425, 32);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(225, 55);
             this.label4.TabIndex = 4;
@@ -97,7 +99,7 @@ partial class Timetable
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Dubai Medium", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(668, 69);
+            this.label5.Location = new System.Drawing.Point(661, 32);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(196, 55);
             this.label5.TabIndex = 5;
@@ -107,7 +109,7 @@ partial class Timetable
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Dubai Medium", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(884, 69);
+            this.label6.Location = new System.Drawing.Point(877, 32);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(138, 55);
             this.label6.TabIndex = 6;
@@ -117,7 +119,7 @@ partial class Timetable
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Dubai Medium", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(1052, 69);
+            this.label7.Location = new System.Drawing.Point(1045, 32);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(194, 55);
             this.label7.TabIndex = 7;
@@ -127,7 +129,7 @@ partial class Timetable
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Dubai Medium", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(1262, 69);
+            this.label8.Location = new System.Drawing.Point(1255, 32);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(156, 55);
             this.label8.TabIndex = 8;
@@ -144,7 +146,7 @@ partial class Timetable
             // panel1
             // 
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Location = new System.Drawing.Point(31, 151);
+            this.panel1.Location = new System.Drawing.Point(43, 114);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(173, 478);
             this.panel1.TabIndex = 10;
@@ -172,7 +174,7 @@ partial class Timetable
             // panel2
             // 
             this.panel2.Controls.Add(this.label11);
-            this.panel2.Location = new System.Drawing.Point(240, 151);
+            this.panel2.Location = new System.Drawing.Point(233, 114);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(173, 478);
             this.panel2.TabIndex = 11;
@@ -180,7 +182,7 @@ partial class Timetable
             // panel3
             // 
             this.panel3.Controls.Add(this.label12);
-            this.panel3.Location = new System.Drawing.Point(452, 151);
+            this.panel3.Location = new System.Drawing.Point(445, 114);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(173, 478);
             this.panel3.TabIndex = 12;
@@ -198,7 +200,7 @@ partial class Timetable
             // panel4
             // 
             this.panel4.Controls.Add(this.label13);
-            this.panel4.Location = new System.Drawing.Point(677, 151);
+            this.panel4.Location = new System.Drawing.Point(670, 114);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(173, 478);
             this.panel4.TabIndex = 13;
@@ -216,7 +218,7 @@ partial class Timetable
             // panel5
             // 
             this.panel5.Controls.Add(this.label14);
-            this.panel5.Location = new System.Drawing.Point(874, 151);
+            this.panel5.Location = new System.Drawing.Point(867, 114);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(178, 478);
             this.panel5.TabIndex = 14;
@@ -234,7 +236,7 @@ partial class Timetable
             // panel6
             // 
             this.panel6.Controls.Add(this.label15);
-            this.panel6.Location = new System.Drawing.Point(1073, 151);
+            this.panel6.Location = new System.Drawing.Point(1051, 114);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(173, 478);
             this.panel6.TabIndex = 12;
@@ -252,7 +254,7 @@ partial class Timetable
             // panel7
             // 
             this.panel7.Controls.Add(this.label16);
-            this.panel7.Location = new System.Drawing.Point(1262, 151);
+            this.panel7.Location = new System.Drawing.Point(1238, 114);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(173, 478);
             this.panel7.TabIndex = 15;
@@ -270,7 +272,7 @@ partial class Timetable
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ScheduleMe.Properties.Resources.icoLSPU;
-            this.pictureBox1.Location = new System.Drawing.Point(1502, 69);
+            this.pictureBox1.Location = new System.Drawing.Point(1466, 54);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(186, 182);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -282,7 +284,7 @@ partial class Timetable
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "CCS"});
-            this.comboBox1.Location = new System.Drawing.Point(1502, 257);
+            this.comboBox1.Location = new System.Drawing.Point(1466, 242);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(189, 35);
             this.comboBox1.TabIndex = 17;
@@ -290,11 +292,40 @@ partial class Timetable
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(1502, 298);
+            this.comboBox2.Location = new System.Drawing.Point(1466, 283);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(189, 35);
             this.comboBox2.TabIndex = 18;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // panel8
+            // 
+            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel8.AutoScroll = true;
+            this.panel8.AutoSize = true;
+            this.panel8.Controls.Add(this.panel1);
+            this.panel8.Controls.Add(this.comboBox2);
+            this.panel8.Controls.Add(this.label2);
+            this.panel8.Controls.Add(this.comboBox1);
+            this.panel8.Controls.Add(this.panel2);
+            this.panel8.Controls.Add(this.pictureBox1);
+            this.panel8.Controls.Add(this.label3);
+            this.panel8.Controls.Add(this.panel7);
+            this.panel8.Controls.Add(this.label4);
+            this.panel8.Controls.Add(this.panel6);
+            this.panel8.Controls.Add(this.label5);
+            this.panel8.Controls.Add(this.panel5);
+            this.panel8.Controls.Add(this.label6);
+            this.panel8.Controls.Add(this.panel4);
+            this.panel8.Controls.Add(this.label7);
+            this.panel8.Controls.Add(this.panel3);
+            this.panel8.Controls.Add(this.label8);
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1703, 641);
+            this.panel8.TabIndex = 19;
             // 
             // Timetable
             // 
@@ -303,24 +334,8 @@ partial class Timetable
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1703, 641);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.panel7);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Dubai", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -343,6 +358,8 @@ partial class Timetable
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,4 +391,5 @@ partial class Timetable
     private PictureBox pictureBox1;
     private ComboBox comboBox1;
     private ComboBox comboBox2;
+    private Panel panel8;
 }
