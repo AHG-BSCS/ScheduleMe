@@ -71,7 +71,7 @@ partial class Timetable
         label2.Font = new Font("Dubai Medium", 19.8F, FontStyle.Bold, GraphicsUnit.Point);
         label2.Location = new Point(3, 0);
         label2.Name = "label2";
-        label2.Size = new Size(171, 85);
+        label2.Size = new Size(189, 96);
         label2.TabIndex = 2;
         label2.Text = "MONDAY";
         label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -80,9 +80,9 @@ partial class Timetable
         // 
         label3.Dock = DockStyle.Fill;
         label3.Font = new Font("Dubai Medium", 19.8F, FontStyle.Bold, GraphicsUnit.Point);
-        label3.Location = new Point(180, 0);
+        label3.Location = new Point(198, 0);
         label3.Name = "label3";
-        label3.Size = new Size(171, 85);
+        label3.Size = new Size(189, 96);
         label3.TabIndex = 3;
         label3.Text = "TUESDAY";
         label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -91,9 +91,9 @@ partial class Timetable
         // 
         label4.Dock = DockStyle.Fill;
         label4.Font = new Font("Dubai Medium", 19.8F, FontStyle.Bold, GraphicsUnit.Point);
-        label4.Location = new Point(357, 0);
+        label4.Location = new Point(393, 0);
         label4.Name = "label4";
-        label4.Size = new Size(171, 85);
+        label4.Size = new Size(189, 96);
         label4.TabIndex = 4;
         label4.Text = "WEDNESDAY";
         label4.TextAlign = ContentAlignment.MiddleCenter;
@@ -102,9 +102,9 @@ partial class Timetable
         // 
         label5.Dock = DockStyle.Fill;
         label5.Font = new Font("Dubai Medium", 19.8F, FontStyle.Bold, GraphicsUnit.Point);
-        label5.Location = new Point(534, 0);
+        label5.Location = new Point(588, 0);
         label5.Name = "label5";
-        label5.Size = new Size(171, 85);
+        label5.Size = new Size(189, 96);
         label5.TabIndex = 5;
         label5.Text = "THURSDAY";
         label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -113,9 +113,9 @@ partial class Timetable
         // 
         label6.Dock = DockStyle.Fill;
         label6.Font = new Font("Dubai Medium", 19.8F, FontStyle.Bold, GraphicsUnit.Point);
-        label6.Location = new Point(711, 0);
+        label6.Location = new Point(783, 0);
         label6.Name = "label6";
-        label6.Size = new Size(171, 85);
+        label6.Size = new Size(189, 96);
         label6.TabIndex = 6;
         label6.Text = "FRIDAY";
         label6.TextAlign = ContentAlignment.MiddleCenter;
@@ -124,9 +124,9 @@ partial class Timetable
         // 
         label7.Dock = DockStyle.Fill;
         label7.Font = new Font("Dubai Medium", 19.8F, FontStyle.Bold, GraphicsUnit.Point);
-        label7.Location = new Point(888, 0);
+        label7.Location = new Point(978, 0);
         label7.Name = "label7";
-        label7.Size = new Size(171, 85);
+        label7.Size = new Size(189, 96);
         label7.TabIndex = 7;
         label7.Text = "SATURDAY";
         label7.TextAlign = ContentAlignment.MiddleCenter;
@@ -135,9 +135,9 @@ partial class Timetable
         // 
         label8.Dock = DockStyle.Fill;
         label8.Font = new Font("Dubai Medium", 19.8F, FontStyle.Bold, GraphicsUnit.Point);
-        label8.Location = new Point(1065, 0);
+        label8.Location = new Point(1173, 0);
         label8.Name = "label8";
-        label8.Size = new Size(173, 85);
+        label8.Size = new Size(194, 96);
         label8.TabIndex = 8;
         label8.Text = "SUNDAY";
         label8.TextAlign = ContentAlignment.MiddleCenter;
@@ -154,27 +154,29 @@ partial class Timetable
         // 
         panel1.Controls.Add(label10);
         panel1.Dock = DockStyle.Fill;
-        panel1.Location = new Point(3, 88);
+        panel1.Location = new Point(3, 99);
         panel1.Name = "panel1";
-        panel1.Size = new Size(171, 476);
+        panel1.Size = new Size(189, 539);
         panel1.TabIndex = 10;
         // 
         // label10
         // 
+        label10.AutoSize = true;
         label10.Font = new Font("Dubai", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-        label10.Location = new Point(0, 0);
+        label10.Location = new Point(26, 15);
         label10.Name = "label10";
-        label10.Size = new Size(189, 32);
+        label10.Size = new Size(91, 32);
         label10.TabIndex = 0;
         label10.Text = "dataMON";
         label10.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // label11
         // 
+        label11.AutoSize = true;
         label11.Font = new Font("Dubai", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-        label11.Location = new Point(0, 0);
+        label11.Location = new Point(36, 15);
         label11.Name = "label11";
-        label11.Size = new Size(189, 32);
+        label11.Size = new Size(83, 32);
         label11.TabIndex = 0;
         label11.Text = "dataTUE";
         label11.TextAlign = ContentAlignment.MiddleCenter;
@@ -183,26 +185,27 @@ partial class Timetable
         // 
         panel2.Controls.Add(label11);
         panel2.Dock = DockStyle.Fill;
-        panel2.Location = new Point(180, 88);
+        panel2.Location = new Point(198, 99);
         panel2.Name = "panel2";
-        panel2.Size = new Size(171, 476);
+        panel2.Size = new Size(189, 539);
         panel2.TabIndex = 11;
         // 
         // panel3
         // 
         panel3.Controls.Add(label12);
         panel3.Dock = DockStyle.Fill;
-        panel3.Location = new Point(357, 88);
+        panel3.Location = new Point(393, 99);
         panel3.Name = "panel3";
-        panel3.Size = new Size(171, 476);
+        panel3.Size = new Size(189, 539);
         panel3.TabIndex = 12;
         // 
         // label12
         // 
+        label12.AutoSize = true;
         label12.Font = new Font("Dubai", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-        label12.Location = new Point(0, 0);
+        label12.Location = new Point(39, 15);
         label12.Name = "label12";
-        label12.Size = new Size(189, 32);
+        label12.Size = new Size(89, 32);
         label12.TabIndex = 0;
         label12.Text = "dataWED";
         label12.TextAlign = ContentAlignment.MiddleCenter;
@@ -211,17 +214,18 @@ partial class Timetable
         // 
         panel4.Controls.Add(label13);
         panel4.Dock = DockStyle.Fill;
-        panel4.Location = new Point(534, 88);
+        panel4.Location = new Point(588, 99);
         panel4.Name = "panel4";
-        panel4.Size = new Size(171, 476);
+        panel4.Size = new Size(189, 539);
         panel4.TabIndex = 13;
         // 
         // label13
         // 
+        label13.AutoSize = true;
         label13.Font = new Font("Dubai", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-        label13.Location = new Point(0, 0);
+        label13.Location = new Point(41, 15);
         label13.Name = "label13";
-        label13.Size = new Size(189, 32);
+        label13.Size = new Size(86, 32);
         label13.TabIndex = 0;
         label13.Text = "dataTHU";
         label13.TextAlign = ContentAlignment.MiddleCenter;
@@ -230,17 +234,18 @@ partial class Timetable
         // 
         panel5.Controls.Add(label14);
         panel5.Dock = DockStyle.Fill;
-        panel5.Location = new Point(711, 88);
+        panel5.Location = new Point(783, 99);
         panel5.Name = "panel5";
-        panel5.Size = new Size(171, 476);
+        panel5.Size = new Size(189, 539);
         panel5.TabIndex = 14;
         // 
         // label14
         // 
+        label14.AutoSize = true;
         label14.Font = new Font("Dubai", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-        label14.Location = new Point(0, 0);
+        label14.Location = new Point(39, 15);
         label14.Name = "label14";
-        label14.Size = new Size(189, 32);
+        label14.Size = new Size(75, 32);
         label14.TabIndex = 0;
         label14.Text = "dataFRI";
         label14.TextAlign = ContentAlignment.MiddleCenter;
@@ -249,17 +254,18 @@ partial class Timetable
         // 
         panel6.Controls.Add(label15);
         panel6.Dock = DockStyle.Fill;
-        panel6.Location = new Point(888, 88);
+        panel6.Location = new Point(978, 99);
         panel6.Name = "panel6";
-        panel6.Size = new Size(171, 476);
+        panel6.Size = new Size(189, 539);
         panel6.TabIndex = 12;
         // 
         // label15
         // 
+        label15.AutoSize = true;
         label15.Font = new Font("Dubai", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-        label15.Location = new Point(0, 0);
+        label15.Location = new Point(43, 15);
         label15.Name = "label15";
-        label15.Size = new Size(189, 32);
+        label15.Size = new Size(82, 32);
         label15.TabIndex = 0;
         label15.Text = "dataSAT";
         label15.TextAlign = ContentAlignment.MiddleCenter;
@@ -268,17 +274,18 @@ partial class Timetable
         // 
         panel7.Controls.Add(label16);
         panel7.Dock = DockStyle.Fill;
-        panel7.Location = new Point(1065, 88);
+        panel7.Location = new Point(1173, 99);
         panel7.Name = "panel7";
-        panel7.Size = new Size(173, 476);
+        panel7.Size = new Size(194, 539);
         panel7.TabIndex = 15;
         // 
         // label16
         // 
+        label16.AutoSize = true;
         label16.Font = new Font("Dubai", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-        label16.Location = new Point(0, 0);
+        label16.Location = new Point(47, 15);
         label16.Name = "label16";
-        label16.Size = new Size(194, 32);
+        label16.Size = new Size(85, 32);
         label16.TabIndex = 0;
         label16.Text = "dataSUN";
         label16.TextAlign = ContentAlignment.MiddleCenter;
@@ -335,12 +342,13 @@ partial class Timetable
         tableLayoutPanel1.Controls.Add(label4, 2, 0);
         tableLayoutPanel1.Controls.Add(label5, 3, 0);
         tableLayoutPanel1.Controls.Add(label6, 4, 0);
+        tableLayoutPanel1.Dock = DockStyle.Fill;
         tableLayoutPanel1.Location = new Point(0, 0);
         tableLayoutPanel1.Name = "tableLayoutPanel1";
         tableLayoutPanel1.RowCount = 2;
         tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
         tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 85F));
-        tableLayoutPanel1.Size = new Size(1241, 567);
+        tableLayoutPanel1.Size = new Size(1370, 641);
         tableLayoutPanel1.TabIndex = 1;
         // 
         // Timetable
@@ -363,12 +371,19 @@ partial class Timetable
         WindowState = FormWindowState.Maximized;
         Load += Timetable_Load;
         panel1.ResumeLayout(false);
+        panel1.PerformLayout();
         panel2.ResumeLayout(false);
+        panel2.PerformLayout();
         panel3.ResumeLayout(false);
+        panel3.PerformLayout();
         panel4.ResumeLayout(false);
+        panel4.PerformLayout();
         panel5.ResumeLayout(false);
+        panel5.PerformLayout();
         panel6.ResumeLayout(false);
+        panel6.PerformLayout();
         panel7.ResumeLayout(false);
+        panel7.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         tableLayoutPanel1.ResumeLayout(false);
         ResumeLayout(false);
