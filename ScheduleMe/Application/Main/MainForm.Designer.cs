@@ -56,7 +56,7 @@
             this.sideNavPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sideNavPanel.Name = "sideNavPanel";
             this.sideNavPanel.Padding = new System.Windows.Forms.Padding(0, 28, 0, 10);
-            this.sideNavPanel.Size = new System.Drawing.Size(140, 550);
+            this.sideNavPanel.Size = new System.Drawing.Size(176, 550);
             this.sideNavPanel.TabIndex = 0;
             // 
             // btnSetting
@@ -72,7 +72,7 @@
             this.btnSetting.ForeColor = System.Drawing.Color.White;
             this.btnSetting.Location = new System.Drawing.Point(0, 452);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(140, 44);
+            this.btnSetting.Size = new System.Drawing.Size(176, 44);
             this.btnSetting.TabIndex = 5;
             this.btnSetting.TabStop = false;
             this.btnSetting.Text = "              Setting";
@@ -91,9 +91,9 @@
             this.btnWeather.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWeather.Font = new System.Drawing.Font("Dubai", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnWeather.ForeColor = System.Drawing.Color.White;
-            this.btnWeather.Location = new System.Drawing.Point(0, 204);
+            this.btnWeather.Location = new System.Drawing.Point(0, 203);
             this.btnWeather.Name = "btnWeather";
-            this.btnWeather.Size = new System.Drawing.Size(140, 44);
+            this.btnWeather.Size = new System.Drawing.Size(176, 44);
             this.btnWeather.TabIndex = 4;
             this.btnWeather.TabStop = false;
             this.btnWeather.Text = "              Weather";
@@ -112,9 +112,9 @@
             this.btnNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNote.Font = new System.Drawing.Font("Dubai", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnNote.ForeColor = System.Drawing.Color.White;
-            this.btnNote.Location = new System.Drawing.Point(0, 160);
+            this.btnNote.Location = new System.Drawing.Point(0, 159);
             this.btnNote.Name = "btnNote";
-            this.btnNote.Size = new System.Drawing.Size(140, 44);
+            this.btnNote.Size = new System.Drawing.Size(176, 44);
             this.btnNote.TabIndex = 3;
             this.btnNote.TabStop = false;
             this.btnNote.Text = "              Note";
@@ -133,9 +133,9 @@
             this.btnTimetable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimetable.Font = new System.Drawing.Font("Dubai", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnTimetable.ForeColor = System.Drawing.Color.White;
-            this.btnTimetable.Location = new System.Drawing.Point(0, 116);
+            this.btnTimetable.Location = new System.Drawing.Point(0, 115);
             this.btnTimetable.Name = "btnTimetable";
-            this.btnTimetable.Size = new System.Drawing.Size(140, 44);
+            this.btnTimetable.Size = new System.Drawing.Size(176, 44);
             this.btnTimetable.TabIndex = 2;
             this.btnTimetable.TabStop = false;
             this.btnTimetable.Text = "              Timetable";
@@ -154,9 +154,9 @@
             this.btnTimeline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimeline.Font = new System.Drawing.Font("Dubai", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnTimeline.ForeColor = System.Drawing.Color.White;
-            this.btnTimeline.Location = new System.Drawing.Point(0, 72);
+            this.btnTimeline.Location = new System.Drawing.Point(0, 71);
             this.btnTimeline.Name = "btnTimeline";
-            this.btnTimeline.Size = new System.Drawing.Size(140, 44);
+            this.btnTimeline.Size = new System.Drawing.Size(176, 44);
             this.btnTimeline.TabIndex = 1;
             this.btnTimeline.TabStop = false;
             this.btnTimeline.Text = "              Timeline";
@@ -177,7 +177,7 @@
             this.btnCalendar.ForeColor = System.Drawing.Color.White;
             this.btnCalendar.Location = new System.Drawing.Point(0, 28);
             this.btnCalendar.Name = "btnCalendar";
-            this.btnCalendar.Size = new System.Drawing.Size(140, 44);
+            this.btnCalendar.Size = new System.Drawing.Size(176, 43);
             this.btnCalendar.TabIndex = 0;
             this.btnCalendar.TabStop = false;
             this.btnCalendar.Text = "              Calendar";
@@ -198,7 +198,7 @@
             this.btnAbout.ForeColor = System.Drawing.Color.White;
             this.btnAbout.Location = new System.Drawing.Point(0, 496);
             this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(140, 44);
+            this.btnAbout.Size = new System.Drawing.Size(176, 44);
             this.btnAbout.TabIndex = 6;
             this.btnAbout.TabStop = false;
             this.btnAbout.Text = "              About";
@@ -211,9 +211,9 @@
             this.tabPanel.AutoScroll = true;
             this.tabPanel.BackColor = System.Drawing.Color.White;
             this.tabPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabPanel.Location = new System.Drawing.Point(140, 0);
+            this.tabPanel.Location = new System.Drawing.Point(176, 0);
             this.tabPanel.Name = "tabPanel";
-            this.tabPanel.Size = new System.Drawing.Size(850, 550);
+            this.tabPanel.Size = new System.Drawing.Size(814, 550);
             this.tabPanel.TabIndex = 0;
             // 
             // MainForm
