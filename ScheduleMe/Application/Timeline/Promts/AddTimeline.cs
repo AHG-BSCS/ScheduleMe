@@ -116,7 +116,7 @@ public partial class AddTimeline : Form
     {
         if (txtName.Text != "")
         {
-            if (pckStartDate.Value < pckEndDate.Value)
+            if (pckStartDate.Value < pckEndDate.Value && (pckEndDate.Value - pckStartDate.Value).TotalDays < 730)
                 CreateTimeline();
             else
                 new Message("Invalid Dates");
