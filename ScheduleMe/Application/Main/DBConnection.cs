@@ -11,6 +11,4 @@ internal static class DBConnection
     {
         return Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
     }
-
-   
 }

@@ -74,7 +74,7 @@ partial class EditTimelineRow
         mnuEventRow.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         mnuEventRow.Items.AddRange(new ToolStripItem[] { mnuDelete });
         mnuEventRow.Name = "timelineOption";
-        mnuEventRow.Size = new Size(181, 52);
+        mnuEventRow.Size = new Size(116, 30);
         mnuEventRow.Text = "Option";
         mnuEventRow.ItemClicked += mnuEventRow_ItemClicked;
         // 
@@ -82,7 +82,7 @@ partial class EditTimelineRow
         // 
         mnuDelete.Image = Properties.Resources.mnuDelete;
         mnuDelete.Name = "mnuDelete";
-        mnuDelete.Size = new Size(180, 26);
+        mnuDelete.Size = new Size(115, 26);
         mnuDelete.Text = "Delete";
         // 
         // pckEndDate

@@ -9,6 +9,7 @@ public partial class EditTimelineRow : UserControl
     public ushort Index { get; set; }
     public DateTime MinDate { get; set; }
     public DateTime MaxDate { get; set; }
+    private bool pauseEvent = false;
 
     public EditTimelineRow()
     {
@@ -54,22 +55,26 @@ public partial class EditTimelineRow : UserControl
 
     internal Event GetRowInfo()
     {
+        pauseEvent = true;
         eventInfo.EventTitle = Title;
         eventInfo.EventDescription = Description;
         eventInfo.EventStartDate = StartDate;
         eventInfo.EventEndDate = EndDate;
         eventInfo.EventColor = Colour;
         return eventInfo;
+        pauseEvent = false;
     }
 
     internal void SetRowInfo(Event eventInfo)
     {
+        pauseEvent = true;
         this.eventInfo = eventInfo;
         Title = eventInfo.EventTitle;
         Description = eventInfo.EventDescription;
         StartDate = eventInfo.EventStartDate;
         EndDate = eventInfo.EventEndDate;
         Colour = eventInfo.EventColor;
+        pauseEvent = false;
     }
 
     private void mnuEventRow_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -97,19 +102,25 @@ public partial class EditTimelineRow : UserControl
 
     private void pckStartDate_ValueChanged(object sender, EventArgs e)
     {
-        if (pckStartDate.Value < MinDate || pckStartDate.Value > MaxDate)
-            pckStartDate.Value = MinDate;
+        if (!pauseEvent)
+        {
+            if (pckStartDate.Value < MinDate || pckStartDate.Value > MaxDate)
+                pckStartDate.Value = MinDate;
 
-        if (pckStartDate.Value > pckEndDate.Value)
-            pckStartDate.Value = pckEndDate.Value;
+            if (pckStartDate.Value > pckEndDate.Value)
+                pckStartDate.Value = pckEndDate.Value;
+        }
     }
 
     private void pckEndDate_ValueChanged(object sender, EventArgs e)
     {
-        if (pckEndDate.Value > MaxDate || pckEndDate.Value < MinDate)
-            pckEndDate.Value = MaxDate;
+        if (!pauseEvent)
+        {
+            if (pckEndDate.Value > MaxDate || pckEndDate.Value < MinDate)
+                pckEndDate.Value = MaxDate;
 
-        if (pckEndDate.Value < pckStartDate.Value)
-            pckEndDate.Value = pckStartDate.Value;
+            if (pckEndDate.Value < pckStartDate.Value)
+                pckEndDate.Value = pckStartDate.Value;
+        }
     }
 }

@@ -132,9 +132,10 @@ public partial class EditTimeline : Form
         if (CurrentID != null)
         {
             EditTimelineRow newRow = new EditTimelineRow();
-            newRow.eventInfo = new Event();
+            newRow.eventInfo = new Event() { EventStartDate = MinDate, EventEndDate = MinDate.AddDays(1)};
             newRow.MinDate = MinDate;
             newRow.MaxDate = MaxDate;
+
             // newRow.Id = currentID; this can produce wrong deletion of data if Index was not accurate
             // newRow.Index is can't be set since it wasn't save to database yet
             // Or prevent the show of MenuStrip to this row
