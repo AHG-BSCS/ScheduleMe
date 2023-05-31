@@ -54,6 +54,7 @@ partial class Timetable
         comboBox1 = new ComboBox();
         comboBox2 = new ComboBox();
         tableLayoutPanel1 = new TableLayoutPanel();
+        panel9 = new Panel();
         panel1.SuspendLayout();
         panel2.SuspendLayout();
         panel3.SuspendLayout();
@@ -63,6 +64,7 @@ partial class Timetable
         panel7.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         tableLayoutPanel1.SuspendLayout();
+        panel9.SuspendLayout();
         SuspendLayout();
         // 
         // label2
@@ -71,7 +73,7 @@ partial class Timetable
         label2.Font = new Font("Dubai Medium", 19.8F, FontStyle.Bold, GraphicsUnit.Point);
         label2.Location = new Point(3, 0);
         label2.Name = "label2";
-        label2.Size = new Size(189, 96);
+        label2.Size = new Size(168, 93);
         label2.TabIndex = 2;
         label2.Text = "MONDAY";
         label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -80,9 +82,9 @@ partial class Timetable
         // 
         label3.Dock = DockStyle.Fill;
         label3.Font = new Font("Dubai Medium", 19.8F, FontStyle.Bold, GraphicsUnit.Point);
-        label3.Location = new Point(198, 0);
+        label3.Location = new Point(177, 0);
         label3.Name = "label3";
-        label3.Size = new Size(189, 96);
+        label3.Size = new Size(168, 93);
         label3.TabIndex = 3;
         label3.Text = "TUESDAY";
         label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -91,9 +93,9 @@ partial class Timetable
         // 
         label4.Dock = DockStyle.Fill;
         label4.Font = new Font("Dubai Medium", 19.8F, FontStyle.Bold, GraphicsUnit.Point);
-        label4.Location = new Point(393, 0);
+        label4.Location = new Point(351, 0);
         label4.Name = "label4";
-        label4.Size = new Size(189, 96);
+        label4.Size = new Size(168, 93);
         label4.TabIndex = 4;
         label4.Text = "WEDNESDAY";
         label4.TextAlign = ContentAlignment.MiddleCenter;
@@ -102,9 +104,9 @@ partial class Timetable
         // 
         label5.Dock = DockStyle.Fill;
         label5.Font = new Font("Dubai Medium", 19.8F, FontStyle.Bold, GraphicsUnit.Point);
-        label5.Location = new Point(588, 0);
+        label5.Location = new Point(525, 0);
         label5.Name = "label5";
-        label5.Size = new Size(189, 96);
+        label5.Size = new Size(168, 93);
         label5.TabIndex = 5;
         label5.Text = "THURSDAY";
         label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -113,9 +115,9 @@ partial class Timetable
         // 
         label6.Dock = DockStyle.Fill;
         label6.Font = new Font("Dubai Medium", 19.8F, FontStyle.Bold, GraphicsUnit.Point);
-        label6.Location = new Point(783, 0);
+        label6.Location = new Point(699, 0);
         label6.Name = "label6";
-        label6.Size = new Size(189, 96);
+        label6.Size = new Size(168, 93);
         label6.TabIndex = 6;
         label6.Text = "FRIDAY";
         label6.TextAlign = ContentAlignment.MiddleCenter;
@@ -124,9 +126,9 @@ partial class Timetable
         // 
         label7.Dock = DockStyle.Fill;
         label7.Font = new Font("Dubai Medium", 19.8F, FontStyle.Bold, GraphicsUnit.Point);
-        label7.Location = new Point(978, 0);
+        label7.Location = new Point(873, 0);
         label7.Name = "label7";
-        label7.Size = new Size(189, 96);
+        label7.Size = new Size(168, 93);
         label7.TabIndex = 7;
         label7.Text = "SATURDAY";
         label7.TextAlign = ContentAlignment.MiddleCenter;
@@ -135,9 +137,9 @@ partial class Timetable
         // 
         label8.Dock = DockStyle.Fill;
         label8.Font = new Font("Dubai Medium", 19.8F, FontStyle.Bold, GraphicsUnit.Point);
-        label8.Location = new Point(1173, 0);
+        label8.Location = new Point(1047, 0);
         label8.Name = "label8";
-        label8.Size = new Size(194, 96);
+        label8.Size = new Size(174, 93);
         label8.TabIndex = 8;
         label8.Text = "SUNDAY";
         label8.TextAlign = ContentAlignment.MiddleCenter;
@@ -154,9 +156,9 @@ partial class Timetable
         // 
         panel1.Controls.Add(label10);
         panel1.Dock = DockStyle.Fill;
-        panel1.Location = new Point(3, 99);
+        panel1.Location = new Point(3, 96);
         panel1.Name = "panel1";
-        panel1.Size = new Size(189, 539);
+        panel1.Size = new Size(168, 521);
         panel1.TabIndex = 10;
         // 
         // label10
@@ -185,18 +187,18 @@ partial class Timetable
         // 
         panel2.Controls.Add(label11);
         panel2.Dock = DockStyle.Fill;
-        panel2.Location = new Point(198, 99);
+        panel2.Location = new Point(177, 96);
         panel2.Name = "panel2";
-        panel2.Size = new Size(189, 539);
+        panel2.Size = new Size(168, 521);
         panel2.TabIndex = 11;
         // 
         // panel3
         // 
         panel3.Controls.Add(label12);
         panel3.Dock = DockStyle.Fill;
-        panel3.Location = new Point(393, 99);
+        panel3.Location = new Point(351, 96);
         panel3.Name = "panel3";
-        panel3.Size = new Size(189, 539);
+        panel3.Size = new Size(168, 521);
         panel3.TabIndex = 12;
         // 
         // label12
@@ -214,9 +216,9 @@ partial class Timetable
         // 
         panel4.Controls.Add(label13);
         panel4.Dock = DockStyle.Fill;
-        panel4.Location = new Point(588, 99);
+        panel4.Location = new Point(525, 96);
         panel4.Name = "panel4";
-        panel4.Size = new Size(189, 539);
+        panel4.Size = new Size(168, 521);
         panel4.TabIndex = 13;
         // 
         // label13
@@ -234,9 +236,9 @@ partial class Timetable
         // 
         panel5.Controls.Add(label14);
         panel5.Dock = DockStyle.Fill;
-        panel5.Location = new Point(783, 99);
+        panel5.Location = new Point(699, 96);
         panel5.Name = "panel5";
-        panel5.Size = new Size(189, 539);
+        panel5.Size = new Size(168, 521);
         panel5.TabIndex = 14;
         // 
         // label14
@@ -254,9 +256,9 @@ partial class Timetable
         // 
         panel6.Controls.Add(label15);
         panel6.Dock = DockStyle.Fill;
-        panel6.Location = new Point(978, 99);
+        panel6.Location = new Point(873, 96);
         panel6.Name = "panel6";
-        panel6.Size = new Size(189, 539);
+        panel6.Size = new Size(168, 521);
         panel6.TabIndex = 12;
         // 
         // label15
@@ -274,9 +276,9 @@ partial class Timetable
         // 
         panel7.Controls.Add(label16);
         panel7.Dock = DockStyle.Fill;
-        panel7.Location = new Point(1173, 99);
+        panel7.Location = new Point(1047, 96);
         panel7.Name = "panel7";
-        panel7.Size = new Size(194, 539);
+        panel7.Size = new Size(174, 521);
         panel7.TabIndex = 15;
         // 
         // label16
@@ -292,29 +294,32 @@ partial class Timetable
         // 
         // pictureBox1
         // 
+        pictureBox1.Dock = DockStyle.Top;
         pictureBox1.Image = Properties.Resources.icoLSPU;
-        pictureBox1.Location = new Point(1502, 69);
+        pictureBox1.Location = new Point(0, 0);
         pictureBox1.Name = "pictureBox1";
-        pictureBox1.Size = new Size(186, 182);
+        pictureBox1.Size = new Size(146, 146);
         pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         pictureBox1.TabIndex = 16;
         pictureBox1.TabStop = false;
         // 
         // comboBox1
         // 
+        comboBox1.Dock = DockStyle.Top;
         comboBox1.FormattingEnabled = true;
         comboBox1.Items.AddRange(new object[] { "CCS" });
-        comboBox1.Location = new Point(1502, 257);
+        comboBox1.Location = new Point(0, 146);
         comboBox1.Name = "comboBox1";
-        comboBox1.Size = new Size(189, 30);
+        comboBox1.Size = new Size(146, 30);
         comboBox1.TabIndex = 17;
         // 
         // comboBox2
         // 
+        comboBox2.Dock = DockStyle.Top;
         comboBox2.FormattingEnabled = true;
-        comboBox2.Location = new Point(1502, 298);
+        comboBox2.Location = new Point(0, 176);
         comboBox2.Name = "comboBox2";
-        comboBox2.Size = new Size(189, 30);
+        comboBox2.Size = new Size(146, 30);
         comboBox2.TabIndex = 18;
         comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
         // 
@@ -322,12 +327,12 @@ partial class Timetable
         // 
         tableLayoutPanel1.ColumnCount = 7;
         tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.2857113F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.2857151F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.2857151F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.2857151F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.2857151F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.2857151F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.2857151F));
+        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.2857161F));
+        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.2857161F));
+        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.2857161F));
+        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.2857161F));
+        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.2857161F));
+        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.2857161F));
         tableLayoutPanel1.Controls.Add(panel1, 0, 1);
         tableLayoutPanel1.Controls.Add(panel2, 1, 1);
         tableLayoutPanel1.Controls.Add(panel3, 2, 1);
@@ -345,11 +350,23 @@ partial class Timetable
         tableLayoutPanel1.Dock = DockStyle.Fill;
         tableLayoutPanel1.Location = new Point(0, 0);
         tableLayoutPanel1.Name = "tableLayoutPanel1";
-        tableLayoutPanel1.RowCount = 2;
+        tableLayoutPanel1.RowCount = 3;
         tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
         tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 85F));
-        tableLayoutPanel1.Size = new Size(1370, 641);
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+        tableLayoutPanel1.Size = new Size(1224, 641);
         tableLayoutPanel1.TabIndex = 1;
+        // 
+        // panel9
+        // 
+        panel9.Controls.Add(comboBox2);
+        panel9.Controls.Add(comboBox1);
+        panel9.Controls.Add(pictureBox1);
+        panel9.Dock = DockStyle.Right;
+        panel9.Location = new Point(1224, 0);
+        panel9.Name = "panel9";
+        panel9.Size = new Size(146, 641);
+        panel9.TabIndex = 19;
         // 
         // Timetable
         // 
@@ -359,9 +376,7 @@ partial class Timetable
         BackColor = Color.White;
         ClientSize = new Size(1370, 641);
         Controls.Add(tableLayoutPanel1);
-        Controls.Add(comboBox2);
-        Controls.Add(comboBox1);
-        Controls.Add(pictureBox1);
+        Controls.Add(panel9);
         Controls.Add(label9);
         Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         FormBorderStyle = FormBorderStyle.None;
@@ -386,6 +401,7 @@ partial class Timetable
         panel7.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         tableLayoutPanel1.ResumeLayout(false);
+        panel9.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -417,4 +433,5 @@ partial class Timetable
     private ComboBox comboBox1;
     private ComboBox comboBox2;
     private TableLayoutPanel tableLayoutPanel1;
+    private Panel panel9;
 }
