@@ -19,4 +19,9 @@ public partial class Setting : Form
     {
         Dispose();
     }
+
+    private void Setting_Load(object sender, EventArgs e)
+    {
+
+    }
 }
