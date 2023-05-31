@@ -54,9 +54,8 @@ partial class Calendar
         label1.AutoSize = true;
         label1.Location = new Point(12, 9);
         label1.Name = "label1";
-        label1.Size = new Size(57, 22);
+        label1.Size = new Size(0, 22);
         label1.TabIndex = 2;
-        label1.Text = "Calendar";
         // 
         // sundayLbl
         // 
