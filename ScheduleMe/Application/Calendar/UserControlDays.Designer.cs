@@ -31,6 +31,7 @@
         {
             daysLbl = new Label();
             numDayLbl = new Label();
+            lblEventName = new Label();
             SuspendLayout();
             // 
             // daysLbl
@@ -48,13 +49,22 @@
             numDayLbl.Font = new Font("Sitka Small", 12F, FontStyle.Italic, GraphicsUnit.Point);
             numDayLbl.Location = new Point(13, 10);
             numDayLbl.Name = "numDayLbl";
-            numDayLbl.Size = new Size(32, 24);
+            numDayLbl.Size = new Size(32, 23);
             numDayLbl.TabIndex = 0;
             numDayLbl.Text = "00";
+            // 
+            // lblEventName
+            // 
+            lblEventName.Font = new Font("Sitka Small", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            lblEventName.Location = new Point(13, 33);
+            lblEventName.Name = "lblEventName";
+            lblEventName.Size = new Size(95, 47);
+            lblEventName.TabIndex = 1;
             // 
             // UserControlDays
             // 
             BackColor = SystemColors.ActiveCaption;
+            Controls.Add(lblEventName);
             Controls.Add(numDayLbl);
             Name = "UserControlDays";
             Size = new Size(108, 80);
@@ -68,5 +78,6 @@
 
         private Label daysLbl;
         private Label numDayLbl;
+        public Label lblEventName;
     }
 }

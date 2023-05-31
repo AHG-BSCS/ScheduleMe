@@ -56,6 +56,7 @@ public partial class Calendar : Form
                     UserControlDays ucdays2 = new UserControlDays();
                     ucdays2.Days(i);
                     ucdays2.OwnDate = new DateTime(year, month, i);
+                    ucdays2.lblEventName.Text = calendarEvent.EventName;
                     calendarContainer.Controls.Add(ucdays2);
                     isCreated = true;
                     break;
