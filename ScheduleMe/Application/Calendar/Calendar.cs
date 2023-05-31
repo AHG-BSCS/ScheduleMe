@@ -56,16 +56,18 @@ public partial class Calendar : Form
                     ucdays.Days(i);
                     ucdays.OwnDate = new DateTime(year, month, i);
                     calendarContainer.Controls.Add(ucdays);
-                    break;
+                    
+                    if (calendarEvent.EventDate == new DateTime(year, month, i))
+                    {
+                        UserControlDays ucdays2 = new UserControlDays();
+                        ucdays.Days(i);
+                        ucdays.OwnDate = new DateTime(year, month, i);
+                        calendarContainer.Controls.Add(ucdays);
+                        break;
+                    }
                 }
 
-                else if (calendarEvent.EventDate == new DateTime(year, month, i))
-                {
-                    UserControlDays ucdays = new UserControlDays();
-                    ucdays.Days(i);
-                    ucdays.OwnDate = new DateTime(year, month, i);
-                    calendarContainer.Controls.Add(ucdays);
-                }
+
             }
 
         }
