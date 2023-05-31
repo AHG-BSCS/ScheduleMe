@@ -44,30 +44,32 @@ public partial class Calendar : Form
 
         for (i = 1; i <= days; i++)
         {
+            bool isCreated = false;
             using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_calendar);
             var timelineDB = timelineConnection.GetCollection<CalendarEvent>("Calendar");
             var calendarEvents = timelineDB.FindAll();
 
             foreach (CalendarEvent calendarEvent in calendarEvents)
             {
-                if (calendarEvent.EventDate != new DateTime(year, month, i))
+                if (calendarEvent.EventDate == new DateTime(year, month, i))
                 {
-                    UserControlDays ucdays = new UserControlDays();
-                    ucdays.Days(i);
-                    ucdays.OwnDate = new DateTime(year, month, i);
-                    calendarContainer.Controls.Add(ucdays);
-                    
-                    if (calendarEvent.EventDate == new DateTime(year, month, i))
-                    {
-                        UserControlDays ucdays2 = new UserControlDays();
-                        ucdays.Days(i);
-                        ucdays.OwnDate = new DateTime(year, month, i);
-                        calendarContainer.Controls.Add(ucdays);
-                        break;
-                    }
+                    UserControlDays ucdays2 = new UserControlDays();
+                    ucdays2.Days(i);
+                    ucdays2.OwnDate = new DateTime(year, month, i);
+                    calendarContainer.Controls.Add(ucdays2);
+                    isCreated = true;
+                    break;
                 }
+                else
+                    isCreated = false;
+            }
 
-
+            if (!isCreated)
+            {
+                UserControlDays ucdays = new UserControlDays();
+                ucdays.Days(i);
+                ucdays.OwnDate = new DateTime(year, month, i);
+                calendarContainer.Controls.Add(ucdays);
             }
 
         }
