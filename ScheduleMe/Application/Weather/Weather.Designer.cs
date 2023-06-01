@@ -28,279 +28,278 @@ partial class Weather
     /// </summary>
     private void InitializeComponent()
     {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(60, 186);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(93, 87);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Dubai Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(159, 203);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 29);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "CONDITION";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Dubai", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(679, 37);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 67);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "CITY";
-            this.label3.TextChanged += new System.EventHandler(this.label3_TextChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(1304, 692);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 35);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.Text = "San Pablo Laguna";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1345, 750);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 45);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "SEND";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Dubai Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(60, 600);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(160, 29);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "5 DAY FORECAST:";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(60, 326);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(93, 79);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Dubai Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(159, 338);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(158, 29);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "CHANCE OF RAIN";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Dubai", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(655, 98);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(154, 79);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "TEMP";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Dubai Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(695, 158);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 29);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "feels like";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.pictureBox7);
-            this.panel1.Controls.Add(this.pictureBox6);
-            this.panel1.Controls.Add(this.pictureBox5);
-            this.panel1.Controls.Add(this.pictureBox4);
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Location = new System.Drawing.Point(67, 632);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1220, 259);
-            this.panel1.TabIndex = 12;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(804, 166);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 29);
-            this.label12.TabIndex = 9;
-            this.label12.Text = "day5";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(628, 166);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(47, 29);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "day4";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(448, 166);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(47, 29);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "day3";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(260, 166);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(47, 29);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "day2";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(70, 166);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 29);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "TODAY";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Location = new System.Drawing.Point(804, 53);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(114, 110);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 4;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Location = new System.Drawing.Point(628, 53);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(114, 110);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 3;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Location = new System.Drawing.Point(448, 53);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(114, 110);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 2;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Location = new System.Drawing.Point(260, 53);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(114, 110);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 1;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(70, 53);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(114, 110);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
-            // Weather
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1565, 935);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox1);
-            this.Font = new System.Drawing.Font("Dubai", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "Weather";
-            this.Text = "Weather";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Weather_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+        pictureBox1 = new PictureBox();
+        label2 = new Label();
+        label3 = new Label();
+        textBox1 = new TextBox();
+        button1 = new Button();
+        label4 = new Label();
+        pictureBox2 = new PictureBox();
+        label5 = new Label();
+        label6 = new Label();
+        label7 = new Label();
+        panel1 = new Panel();
+        label12 = new Label();
+        label11 = new Label();
+        label10 = new Label();
+        label9 = new Label();
+        label8 = new Label();
+        pictureBox7 = new PictureBox();
+        pictureBox6 = new PictureBox();
+        pictureBox5 = new PictureBox();
+        pictureBox4 = new PictureBox();
+        pictureBox3 = new PictureBox();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+        panel1.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+        SuspendLayout();
+        // 
+        // pictureBox1
+        // 
+        pictureBox1.Location = new Point(60, 155);
+        pictureBox1.Name = "pictureBox1";
+        pictureBox1.Size = new Size(93, 87);
+        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        pictureBox1.TabIndex = 2;
+        pictureBox1.TabStop = false;
+        // 
+        // label2
+        // 
+        label2.AutoSize = true;
+        label2.Font = new Font("Dubai Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+        label2.Location = new Point(159, 172);
+        label2.Name = "label2";
+        label2.Size = new Size(92, 24);
+        label2.TabIndex = 3;
+        label2.Text = "CONDITION";
+        // 
+        // label3
+        // 
+        label3.AutoSize = true;
+        label3.Font = new Font("Dubai", 24F, FontStyle.Bold, GraphicsUnit.Point);
+        label3.Location = new Point(580, 18);
+        label3.Name = "label3";
+        label3.Size = new Size(88, 54);
+        label3.TabIndex = 4;
+        label3.Text = "CITY";
+        label3.TextChanged += label3_TextChanged;
+        // 
+        // textBox1
+        // 
+        textBox1.Location = new Point(959, 462);
+        textBox1.Name = "textBox1";
+        textBox1.Size = new Size(182, 29);
+        textBox1.TabIndex = 5;
+        textBox1.Text = "San Pablo Laguna";
+        textBox1.TextChanged += textBox1_TextChanged;
+        // 
+        // button1
+        // 
+        button1.Location = new Point(959, 509);
+        button1.Name = "button1";
+        button1.Size = new Size(94, 45);
+        button1.TabIndex = 6;
+        button1.Text = "SEND";
+        button1.UseVisualStyleBackColor = true;
+        button1.Click += button1_Click;
+        // 
+        // label4
+        // 
+        label4.AutoSize = true;
+        label4.Font = new Font("Dubai Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+        label4.Location = new Point(60, 413);
+        label4.Name = "label4";
+        label4.Size = new Size(135, 24);
+        label4.TabIndex = 7;
+        label4.Text = "5 DAY FORECAST:";
+        // 
+        // pictureBox2
+        // 
+        pictureBox2.Location = new Point(60, 295);
+        pictureBox2.Name = "pictureBox2";
+        pictureBox2.Size = new Size(93, 79);
+        pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+        pictureBox2.TabIndex = 8;
+        pictureBox2.TabStop = false;
+        // 
+        // label5
+        // 
+        label5.AutoSize = true;
+        label5.Font = new Font("Dubai Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+        label5.Location = new Point(159, 307);
+        label5.Name = "label5";
+        label5.Size = new Size(131, 24);
+        label5.TabIndex = 9;
+        label5.Text = "CHANCE OF RAIN";
+        // 
+        // label6
+        // 
+        label6.AutoSize = true;
+        label6.Font = new Font("Dubai", 28.2F, FontStyle.Bold, GraphicsUnit.Point);
+        label6.Location = new Point(556, 61);
+        label6.Name = "label6";
+        label6.Size = new Size(124, 64);
+        label6.TabIndex = 10;
+        label6.Text = "TEMP";
+        label6.Click += label6_Click;
+        // 
+        // label7
+        // 
+        label7.AutoSize = true;
+        label7.Font = new Font("Dubai Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+        label7.Location = new Point(580, 125);
+        label7.Name = "label7";
+        label7.Size = new Size(71, 24);
+        label7.TabIndex = 11;
+        label7.Text = "feels like";
+        // 
+        // panel1
+        // 
+        panel1.Controls.Add(label12);
+        panel1.Controls.Add(label11);
+        panel1.Controls.Add(label10);
+        panel1.Controls.Add(label9);
+        panel1.Controls.Add(label8);
+        panel1.Controls.Add(pictureBox7);
+        panel1.Controls.Add(pictureBox6);
+        panel1.Controls.Add(pictureBox5);
+        panel1.Controls.Add(pictureBox4);
+        panel1.Controls.Add(pictureBox3);
+        panel1.Location = new Point(67, 445);
+        panel1.Name = "panel1";
+        panel1.Size = new Size(875, 172);
+        panel1.TabIndex = 12;
+        // 
+        // label12
+        // 
+        label12.AutoSize = true;
+        label12.Location = new Point(748, 130);
+        label12.Name = "label12";
+        label12.Size = new Size(36, 22);
+        label12.TabIndex = 9;
+        label12.Text = "day5";
+        // 
+        // label11
+        // 
+        label11.AutoSize = true;
+        label11.Location = new Point(572, 130);
+        label11.Name = "label11";
+        label11.Size = new Size(36, 22);
+        label11.TabIndex = 8;
+        label11.Text = "day4";
+        // 
+        // label10
+        // 
+        label10.AutoSize = true;
+        label10.Location = new Point(392, 130);
+        label10.Name = "label10";
+        label10.Size = new Size(36, 22);
+        label10.TabIndex = 7;
+        label10.Text = "day3";
+        // 
+        // label9
+        // 
+        label9.AutoSize = true;
+        label9.Location = new Point(204, 130);
+        label9.Name = "label9";
+        label9.Size = new Size(36, 22);
+        label9.TabIndex = 6;
+        label9.Text = "day2";
+        // 
+        // label8
+        // 
+        label8.AutoSize = true;
+        label8.Location = new Point(14, 130);
+        label8.Name = "label8";
+        label8.Size = new Size(52, 22);
+        label8.TabIndex = 5;
+        label8.Text = "TODAY";
+        // 
+        // pictureBox7
+        // 
+        pictureBox7.Location = new Point(748, 17);
+        pictureBox7.Name = "pictureBox7";
+        pictureBox7.Size = new Size(114, 110);
+        pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
+        pictureBox7.TabIndex = 4;
+        pictureBox7.TabStop = false;
+        // 
+        // pictureBox6
+        // 
+        pictureBox6.Location = new Point(572, 17);
+        pictureBox6.Name = "pictureBox6";
+        pictureBox6.Size = new Size(114, 110);
+        pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
+        pictureBox6.TabIndex = 3;
+        pictureBox6.TabStop = false;
+        // 
+        // pictureBox5
+        // 
+        pictureBox5.Location = new Point(392, 17);
+        pictureBox5.Name = "pictureBox5";
+        pictureBox5.Size = new Size(114, 110);
+        pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+        pictureBox5.TabIndex = 2;
+        pictureBox5.TabStop = false;
+        // 
+        // pictureBox4
+        // 
+        pictureBox4.Location = new Point(204, 17);
+        pictureBox4.Name = "pictureBox4";
+        pictureBox4.Size = new Size(114, 110);
+        pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+        pictureBox4.TabIndex = 1;
+        pictureBox4.TabStop = false;
+        // 
+        // pictureBox3
+        // 
+        pictureBox3.Location = new Point(14, 17);
+        pictureBox3.Name = "pictureBox3";
+        pictureBox3.Size = new Size(114, 110);
+        pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+        pictureBox3.TabIndex = 0;
+        pictureBox3.TabStop = false;
+        // 
+        // Weather
+        // 
+        AutoScaleDimensions = new SizeF(96F, 96F);
+        AutoScaleMode = AutoScaleMode.Dpi;
+        BackColor = Color.White;
+        ClientSize = new Size(1162, 640);
+        Controls.Add(panel1);
+        Controls.Add(label7);
+        Controls.Add(label6);
+        Controls.Add(label5);
+        Controls.Add(pictureBox2);
+        Controls.Add(label4);
+        Controls.Add(button1);
+        Controls.Add(textBox1);
+        Controls.Add(label3);
+        Controls.Add(label2);
+        Controls.Add(pictureBox1);
+        Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        FormBorderStyle = FormBorderStyle.None;
+        Margin = new Padding(3, 4, 3, 4);
+        Name = "Weather";
+        Text = "Weather";
+        WindowState = FormWindowState.Maximized;
+        Load += Weather_Load;
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+        panel1.ResumeLayout(false);
+        panel1.PerformLayout();
+        ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+        ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion

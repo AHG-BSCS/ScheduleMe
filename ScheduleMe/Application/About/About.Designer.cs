@@ -28,114 +28,115 @@ partial class About
     /// </summary>
     private void InitializeComponent()
     {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(About));
-            this.logoScheduleMe = new System.Windows.Forms.PictureBox();
-            this.lblScheduleMe = new System.Windows.Forms.Label();
-            this.lblVersion = new System.Windows.Forms.Label();
-            this.lblProjectType = new System.Windows.Forms.Label();
-            this.lblDeveloper = new System.Windows.Forms.Label();
-            this.linklblGithub = new System.Windows.Forms.LinkLabel();
-            this.lblSection = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.logoScheduleMe)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // logoScheduleMe
-            // 
-            this.logoScheduleMe.BackgroundImage = global::ScheduleMe.Properties.Resources.icoScheduleMe;
-            this.logoScheduleMe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.logoScheduleMe.Location = new System.Drawing.Point(12, 12);
-            this.logoScheduleMe.Name = "logoScheduleMe";
-            this.logoScheduleMe.Size = new System.Drawing.Size(160, 160);
-            this.logoScheduleMe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logoScheduleMe.TabIndex = 0;
-            this.logoScheduleMe.TabStop = false;
-            // 
-            // lblScheduleMe
-            // 
-            this.lblScheduleMe.AutoSize = true;
-            this.lblScheduleMe.Font = new System.Drawing.Font("Dubai", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblScheduleMe.Location = new System.Drawing.Point(189, 11);
-            this.lblScheduleMe.Name = "lblScheduleMe";
-            this.lblScheduleMe.Size = new System.Drawing.Size(202, 57);
-            this.lblScheduleMe.TabIndex = 1;
-            this.lblScheduleMe.Text = "ScheduleMe";
-            // 
-            // lblVersion
-            // 
-            this.lblVersion.AutoSize = true;
-            this.lblVersion.Font = new System.Drawing.Font("Dubai", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblVersion.Location = new System.Drawing.Point(194, 61);
-            this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(116, 29);
-            this.lblVersion.TabIndex = 2;
-            this.lblVersion.Text = "version dev-gh";
-            // 
-            // lblProjectType
-            // 
-            this.lblProjectType.AutoSize = true;
-            this.lblProjectType.Font = new System.Drawing.Font("Dubai", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblProjectType.Location = new System.Drawing.Point(194, 111);
-            this.lblProjectType.Name = "lblProjectType";
-            this.lblProjectType.Size = new System.Drawing.Size(166, 25);
-            this.lblProjectType.TabIndex = 3;
-            this.lblProjectType.Text = "Final Project of ITEC 103";
-            // 
-            // lblDeveloper
-            // 
-            this.lblDeveloper.AutoSize = true;
-            this.lblDeveloper.Font = new System.Drawing.Font("Dubai", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDeveloper.Location = new System.Drawing.Point(194, 90);
-            this.lblDeveloper.Name = "lblDeveloper";
-            this.lblDeveloper.Size = new System.Drawing.Size(200, 25);
-            this.lblDeveloper.TabIndex = 4;
-            this.lblDeveloper.Text = "Developed By Al Hans Gaming";
-            // 
-            // linklblGithub
-            // 
-            this.linklblGithub.AutoSize = true;
-            this.linklblGithub.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linklblGithub.Font = new System.Drawing.Font("Dubai", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linklblGithub.Location = new System.Drawing.Point(194, 151);
-            this.linklblGithub.Name = "linklblGithub";
-            this.linklblGithub.Size = new System.Drawing.Size(223, 25);
-            this.linklblGithub.TabIndex = 5;
-            this.linklblGithub.TabStop = true;
-            this.linklblGithub.Text = "https://github.com/AHG-BSCS1A";
-            // 
-            // lblSection
-            // 
-            this.lblSection.AutoSize = true;
-            this.lblSection.Font = new System.Drawing.Font("Dubai", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblSection.Location = new System.Drawing.Point(194, 132);
-            this.lblSection.Name = "lblSection";
-            this.lblSection.Size = new System.Drawing.Size(115, 25);
-            this.lblSection.TabIndex = 6;
-            this.lblSection.Text = "LSPU - BSCS 1A";
-            // 
-            // About
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(452, 196);
-            this.Controls.Add(this.lblSection);
-            this.Controls.Add(this.linklblGithub);
-            this.Controls.Add(this.lblDeveloper);
-            this.Controls.Add(this.lblProjectType);
-            this.Controls.Add(this.lblVersion);
-            this.Controls.Add(this.lblScheduleMe);
-            this.Controls.Add(this.logoScheduleMe);
-            this.Font = new System.Drawing.Font("Dubai", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "About";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "About ScheduleMe";
-            this.TopMost = true;
-            ((System.ComponentModel.ISupportInitialize)(this.logoScheduleMe)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(About));
+        logoScheduleMe = new PictureBox();
+        lblScheduleMe = new Label();
+        lblVersion = new Label();
+        lblProjectType = new Label();
+        lblDeveloper = new Label();
+        linklblGithub = new LinkLabel();
+        lblSection = new Label();
+        ((System.ComponentModel.ISupportInitialize)logoScheduleMe).BeginInit();
+        SuspendLayout();
+        // 
+        // logoScheduleMe
+        // 
+        logoScheduleMe.BackgroundImage = Properties.Resources.icoScheduleMe;
+        logoScheduleMe.BackgroundImageLayout = ImageLayout.Zoom;
+        logoScheduleMe.Location = new Point(12, 12);
+        logoScheduleMe.Name = "logoScheduleMe";
+        logoScheduleMe.Size = new Size(160, 160);
+        logoScheduleMe.SizeMode = PictureBoxSizeMode.Zoom;
+        logoScheduleMe.TabIndex = 0;
+        logoScheduleMe.TabStop = false;
+        // 
+        // lblScheduleMe
+        // 
+        lblScheduleMe.AutoSize = true;
+        lblScheduleMe.Font = new Font("Dubai", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+        lblScheduleMe.Location = new Point(189, 11);
+        lblScheduleMe.Name = "lblScheduleMe";
+        lblScheduleMe.Size = new Size(161, 45);
+        lblScheduleMe.TabIndex = 1;
+        lblScheduleMe.Text = "ScheduleMe";
+        // 
+        // lblVersion
+        // 
+        lblVersion.AutoSize = true;
+        lblVersion.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        lblVersion.Location = new Point(194, 61);
+        lblVersion.Name = "lblVersion";
+        lblVersion.Size = new Size(68, 22);
+        lblVersion.TabIndex = 2;
+        lblVersion.Text = "version 1.0";
+        // 
+        // lblProjectType
+        // 
+        lblProjectType.AutoSize = true;
+        lblProjectType.Font = new Font("Dubai", 8.999999F, FontStyle.Regular, GraphicsUnit.Point);
+        lblProjectType.Location = new Point(194, 111);
+        lblProjectType.Name = "lblProjectType";
+        lblProjectType.Size = new Size(132, 21);
+        lblProjectType.TabIndex = 3;
+        lblProjectType.Text = "Final Project of ITEC 103";
+        // 
+        // lblDeveloper
+        // 
+        lblDeveloper.AutoSize = true;
+        lblDeveloper.Font = new Font("Dubai", 8.999999F, FontStyle.Regular, GraphicsUnit.Point);
+        lblDeveloper.Location = new Point(194, 90);
+        lblDeveloper.Name = "lblDeveloper";
+        lblDeveloper.Size = new Size(151, 21);
+        lblDeveloper.TabIndex = 4;
+        lblDeveloper.Text = "Developed By AHG-BSCS1A";
+        // 
+        // linklblGithub
+        // 
+        linklblGithub.AutoSize = true;
+        linklblGithub.Cursor = Cursors.Hand;
+        linklblGithub.Font = new Font("Dubai", 8.999999F, FontStyle.Regular, GraphicsUnit.Point);
+        linklblGithub.Location = new Point(194, 151);
+        linklblGithub.Name = "linklblGithub";
+        linklblGithub.Size = new Size(179, 21);
+        linklblGithub.TabIndex = 5;
+        linklblGithub.TabStop = true;
+        linklblGithub.Text = "https://github.com/AHG-BSCS1A";
+        linklblGithub.LinkClicked += linkLabel1_LinkClicked;
+        // 
+        // lblSection
+        // 
+        lblSection.AutoSize = true;
+        lblSection.Font = new Font("Dubai", 8.999999F, FontStyle.Regular, GraphicsUnit.Point);
+        lblSection.Location = new Point(194, 132);
+        lblSection.Name = "lblSection";
+        lblSection.Size = new Size(94, 21);
+        lblSection.TabIndex = 6;
+        lblSection.Text = "LSPU - BSCS 1A";
+        // 
+        // About
+        // 
+        AutoScaleDimensions = new SizeF(96F, 96F);
+        AutoScaleMode = AutoScaleMode.Dpi;
+        BackColor = Color.White;
+        ClientSize = new Size(452, 196);
+        Controls.Add(lblSection);
+        Controls.Add(linklblGithub);
+        Controls.Add(lblDeveloper);
+        Controls.Add(lblProjectType);
+        Controls.Add(lblVersion);
+        Controls.Add(lblScheduleMe);
+        Controls.Add(logoScheduleMe);
+        Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+        FormBorderStyle = FormBorderStyle.FixedToolWindow;
+        Icon = (Icon)resources.GetObject("$this.Icon");
+        Name = "About";
+        StartPosition = FormStartPosition.CenterParent;
+        Text = "About ScheduleMe";
+        TopMost = true;
+        Load += About_Load;
+        ((System.ComponentModel.ISupportInitialize)logoScheduleMe).EndInit();
+        ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion

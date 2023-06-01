@@ -56,7 +56,7 @@
             sideNavPanel.Margin = new Padding(3, 2, 3, 2);
             sideNavPanel.Name = "sideNavPanel";
             sideNavPanel.Padding = new Padding(0, 28, 0, 10);
-            sideNavPanel.Size = new Size(170, 550);
+            sideNavPanel.Size = new Size(164, 550);
             sideNavPanel.TabIndex = 0;
             // 
             // btnSetting
@@ -72,10 +72,10 @@
             btnSetting.ForeColor = Color.White;
             btnSetting.Location = new Point(0, 452);
             btnSetting.Name = "btnSetting";
-            btnSetting.Size = new Size(170, 44);
+            btnSetting.Size = new Size(164, 44);
             btnSetting.TabIndex = 5;
             btnSetting.TabStop = false;
-            btnSetting.Text = "                Setting";
+            btnSetting.Text = "                  Setting";
             btnSetting.TextAlign = ContentAlignment.MiddleLeft;
             btnSetting.UseVisualStyleBackColor = false;
             btnSetting.Click += btnSetting_Click;
@@ -93,10 +93,10 @@
             btnWeather.ForeColor = Color.White;
             btnWeather.Location = new Point(0, 203);
             btnWeather.Name = "btnWeather";
-            btnWeather.Size = new Size(170, 44);
+            btnWeather.Size = new Size(164, 44);
             btnWeather.TabIndex = 4;
             btnWeather.TabStop = false;
-            btnWeather.Text = "                Weather";
+            btnWeather.Text = "                  Weather";
             btnWeather.TextAlign = ContentAlignment.MiddleLeft;
             btnWeather.UseVisualStyleBackColor = false;
             btnWeather.Click += btnWeather_Click;
@@ -114,10 +114,10 @@
             btnNote.ForeColor = Color.White;
             btnNote.Location = new Point(0, 159);
             btnNote.Name = "btnNote";
-            btnNote.Size = new Size(170, 44);
+            btnNote.Size = new Size(164, 44);
             btnNote.TabIndex = 3;
             btnNote.TabStop = false;
-            btnNote.Text = "                Note";
+            btnNote.Text = "                  Note";
             btnNote.TextAlign = ContentAlignment.MiddleLeft;
             btnNote.UseVisualStyleBackColor = false;
             btnNote.Click += btnNote_Click;
@@ -135,10 +135,10 @@
             btnTimetable.ForeColor = Color.White;
             btnTimetable.Location = new Point(0, 115);
             btnTimetable.Name = "btnTimetable";
-            btnTimetable.Size = new Size(170, 44);
+            btnTimetable.Size = new Size(164, 44);
             btnTimetable.TabIndex = 2;
             btnTimetable.TabStop = false;
-            btnTimetable.Text = "                Timetable";
+            btnTimetable.Text = "                  Timetable";
             btnTimetable.TextAlign = ContentAlignment.MiddleLeft;
             btnTimetable.UseVisualStyleBackColor = false;
             btnTimetable.Click += btnTimetable_Click;
@@ -156,10 +156,10 @@
             btnTimeline.ForeColor = Color.White;
             btnTimeline.Location = new Point(0, 71);
             btnTimeline.Name = "btnTimeline";
-            btnTimeline.Size = new Size(170, 44);
+            btnTimeline.Size = new Size(164, 44);
             btnTimeline.TabIndex = 1;
             btnTimeline.TabStop = false;
-            btnTimeline.Text = "                Timeline";
+            btnTimeline.Text = "                  Timeline";
             btnTimeline.TextAlign = ContentAlignment.MiddleLeft;
             btnTimeline.UseVisualStyleBackColor = false;
             btnTimeline.Click += btnTimeline_Click;
@@ -177,10 +177,10 @@
             btnCalendar.ForeColor = Color.White;
             btnCalendar.Location = new Point(0, 28);
             btnCalendar.Name = "btnCalendar";
-            btnCalendar.Size = new Size(170, 43);
+            btnCalendar.Size = new Size(164, 43);
             btnCalendar.TabIndex = 0;
             btnCalendar.TabStop = false;
-            btnCalendar.Text = "                Calendar";
+            btnCalendar.Text = "                  Calendar";
             btnCalendar.TextAlign = ContentAlignment.MiddleLeft;
             btnCalendar.UseVisualStyleBackColor = false;
             btnCalendar.Click += btnCalendar_Click;
@@ -198,10 +198,10 @@
             btnAbout.ForeColor = Color.White;
             btnAbout.Location = new Point(0, 496);
             btnAbout.Name = "btnAbout";
-            btnAbout.Size = new Size(170, 44);
+            btnAbout.Size = new Size(164, 44);
             btnAbout.TabIndex = 6;
             btnAbout.TabStop = false;
-            btnAbout.Text = "                About";
+            btnAbout.Text = "                  About";
             btnAbout.TextAlign = ContentAlignment.MiddleLeft;
             btnAbout.UseVisualStyleBackColor = false;
             btnAbout.Click += btnAbout_Click;
@@ -211,9 +211,9 @@
             tabPanel.AutoScroll = true;
             tabPanel.BackColor = Color.White;
             tabPanel.Dock = DockStyle.Fill;
-            tabPanel.Location = new Point(170, 0);
+            tabPanel.Location = new Point(164, 0);
             tabPanel.Name = "tabPanel";
-            tabPanel.Size = new Size(820, 550);
+            tabPanel.Size = new Size(826, 550);
             tabPanel.TabIndex = 0;
             // 
             // MainForm

@@ -85,21 +85,21 @@ public partial class Weather : Form
     {
         try
         {
-        HttpClient client = new HttpClient();
-        var url_calix = "https://api.weatherapi.com/v1/forecast.json?key=168c66e6792c4e7dbe5122918232305&q=" + textBox1.Text + "&days=5&aqi=no";
-        client.BaseAddress = new Uri(url_calix);
-        HttpResponseMessage response = await client.GetAsync(client.BaseAddress);
-        string result = await response.Content.ReadAsStringAsync();
-        dynamic post = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            HttpClient client = new HttpClient();
+            var url_calix = "https://api.weatherapi.com/v1/forecast.json?key=168c66e6792c4e7dbe5122918232305&q=" + textBox1.Text + "&days=5&aqi=no";
+            client.BaseAddress = new Uri(url_calix);
+            HttpResponseMessage response = await client.GetAsync(client.BaseAddress);
+            string result = await response.Content.ReadAsStringAsync();
+            dynamic post = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
 
-        pictureBox1.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.current.condition.icon)));
-        label2.Text = post.current.condition.text;
-        label3.Text = post.location.name + ", " + post.location.region;
+            pictureBox1.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.current.condition.icon)));
+            label2.Text = post.current.condition.text;
+            label3.Text = post.location.name + ", " + post.location.region;
 
-        //forecast
+            //forecast
 
-        pictureBox2.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[0].day.condition.icon)));
-        label5.Text = "Expect " + post.forecast.forecastday[0].day.condition.text + " with a " + post.forecast.forecastday[0].day.daily_chance_of_rain + "%" + " chance of rain";
+            pictureBox2.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[0].day.condition.icon)));
+            label5.Text = "Expect " + post.forecast.forecastday[0].day.condition.text + " with a " + post.forecast.forecastday[0].day.daily_chance_of_rain + "%" + " chance of rain";
 
             //5day forecast
             pictureBox3.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.current.condition.icon)));
@@ -121,8 +121,8 @@ public partial class Weather : Form
         {
             MessageBox.Show(ex.ToString());
         }
-        }
-    
+    }
+
     private void textBox1_TextChanged(object sender, EventArgs e)
     {
         this.AcceptButton = button1;
