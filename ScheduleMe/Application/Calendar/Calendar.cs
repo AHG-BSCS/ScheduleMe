@@ -113,10 +113,34 @@ public partial class Calendar : Form
 
         for (i = 1; i <= days; i++)
         {
-            UserControlDays ucdays = new UserControlDays();
-            ucdays.Days(i);
-            ucdays.OwnDate = new DateTime(year, month, i);
-            calendarContainer.Controls.Add(ucdays);
+            bool isCreated = false;
+            using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_calendar);
+            var timelineDB = timelineConnection.GetCollection<CalendarEvent>("Calendar");
+            var calendarEvents = timelineDB.FindAll();
+
+            foreach (CalendarEvent calendarEvent in calendarEvents)
+            {
+                if (calendarEvent.EventDate == new DateTime(year, month, i))
+                {
+                    UserControlDays ucdays2 = new UserControlDays();
+                    ucdays2.Days(i);
+                    ucdays2.OwnDate = new DateTime(year, month, i);
+                    ucdays2.lblEventName.Text = calendarEvent.EventName;
+                    calendarContainer.Controls.Add(ucdays2);
+                    isCreated = true;
+                    break;
+                }
+                else
+                    isCreated = false;
+            }
+
+            if (!isCreated)
+            {
+                UserControlDays ucdays = new UserControlDays();
+                ucdays.Days(i);
+                ucdays.OwnDate = new DateTime(year, month, i);
+                calendarContainer.Controls.Add(ucdays);
+            }
         }
 
         UCMonthYearDisplay ucMY = new UCMonthYearDisplay();
@@ -158,11 +182,34 @@ public partial class Calendar : Form
 
         for (i = 1; i <= days; i++)
         {
-            UserControlDays ucdays = new UserControlDays();
-            ucdays.Days(i);
-            ucdays.OwnDate = new DateTime(year, month, i);
+            bool isCreated = false;
+            using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_calendar);
+            var timelineDB = timelineConnection.GetCollection<CalendarEvent>("Calendar");
+            var calendarEvents = timelineDB.FindAll();
 
-            calendarContainer.Controls.Add(ucdays);
+            foreach (CalendarEvent calendarEvent in calendarEvents)
+            {
+                if (calendarEvent.EventDate == new DateTime(year, month, i))
+                {
+                    UserControlDays ucdays2 = new UserControlDays();
+                    ucdays2.Days(i);
+                    ucdays2.OwnDate = new DateTime(year, month, i);
+                    ucdays2.lblEventName.Text = calendarEvent.EventName;
+                    calendarContainer.Controls.Add(ucdays2);
+                    isCreated = true;
+                    break;
+                }
+                else
+                    isCreated = false;
+            }
+
+            if (!isCreated)
+            {
+                UserControlDays ucdays = new UserControlDays();
+                ucdays.Days(i);
+                ucdays.OwnDate = new DateTime(year, month, i);
+                calendarContainer.Controls.Add(ucdays);
+            }
         }
 
         UCMonthYearDisplay ucMY = new UCMonthYearDisplay();
@@ -203,10 +250,34 @@ public partial class Calendar : Form
 
         for (i = 1; i <= days; i++)
         {
-            UserControlDays ucdays = new UserControlDays();
-            ucdays.Days(i);
-            ucdays.OwnDate = new DateTime(year, month, i);
-            calendarContainer.Controls.Add(ucdays);
+            bool isCreated = false;
+            using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_calendar);
+            var timelineDB = timelineConnection.GetCollection<CalendarEvent>("Calendar");
+            var calendarEvents = timelineDB.FindAll();
+
+            foreach (CalendarEvent calendarEvent in calendarEvents)
+            {
+                if (calendarEvent.EventDate == new DateTime(year, month, i))
+                {
+                    UserControlDays ucdays2 = new UserControlDays();
+                    ucdays2.Days(i);
+                    ucdays2.OwnDate = new DateTime(year, month, i);
+                    ucdays2.lblEventName.Text = calendarEvent.EventName;
+                    calendarContainer.Controls.Add(ucdays2);
+                    isCreated = true;
+                    break;
+                }
+                else
+                    isCreated = false;
+            }
+
+            if (!isCreated)
+            {
+                UserControlDays ucdays = new UserControlDays();
+                ucdays.Days(i);
+                ucdays.OwnDate = new DateTime(year, month, i);
+                calendarContainer.Controls.Add(ucdays);
+            }
         }
 
         UCMonthYearDisplay ucMY = new UCMonthYearDisplay();
@@ -245,10 +316,34 @@ public partial class Calendar : Form
 
         for (i = 1; i <= days; i++)
         {
-            UserControlDays ucdays = new UserControlDays();
-            ucdays.Days(i);
-            ucdays.OwnDate = new DateTime(year, month, i);
-            calendarContainer.Controls.Add(ucdays);
+            bool isCreated = false;
+            using var timelineConnection = new LiteDatabase(DBConnection.databaseConnection_calendar);
+            var timelineDB = timelineConnection.GetCollection<CalendarEvent>("Calendar");
+            var calendarEvents = timelineDB.FindAll();
+
+            foreach (CalendarEvent calendarEvent in calendarEvents)
+            {
+                if (calendarEvent.EventDate == new DateTime(year, month, i))
+                {
+                    UserControlDays ucdays2 = new UserControlDays();
+                    ucdays2.Days(i);
+                    ucdays2.OwnDate = new DateTime(year, month, i);
+                    ucdays2.lblEventName.Text = calendarEvent.EventName;
+                    calendarContainer.Controls.Add(ucdays2);
+                    isCreated = true;
+                    break;
+                }
+                else
+                    isCreated = false;
+            }
+
+            if (!isCreated)
+            {
+                UserControlDays ucdays = new UserControlDays();
+                ucdays.Days(i);
+                ucdays.OwnDate = new DateTime(year, month, i);
+                calendarContainer.Controls.Add(ucdays);
+            }
         }
 
         UCMonthYearDisplay ucMY = new UCMonthYearDisplay();

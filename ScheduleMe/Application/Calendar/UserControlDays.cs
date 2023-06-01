@@ -35,6 +35,7 @@ namespace ScheduleMe.Tab
             AddEventForm eventForm = new AddEventForm();
             eventForm.EventDate = OwnDate;
             eventForm.ShowDialog();
+
         }
     }
 }
