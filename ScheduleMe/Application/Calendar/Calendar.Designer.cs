@@ -127,7 +127,7 @@ partial class Calendar
         calendarContainer.Location = new Point(228, 190);
         calendarContainer.MaximumSize = new Size(817, 633);
         calendarContainer.Name = "calendarContainer";
-        calendarContainer.Size = new Size(817, 633);
+        calendarContainer.Size = new Size(801, 624);
         calendarContainer.TabIndex = 14;
         // 
         // nextMonthBtn
@@ -191,7 +191,7 @@ partial class Calendar
         dayNowLbl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         dayNowLbl.Font = new Font("Gill Sans MT", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
         dayNowLbl.ImageAlign = ContentAlignment.MiddleRight;
-        dayNowLbl.Location = new Point(903, 111);
+        dayNowLbl.Location = new Point(887, 111);
         dayNowLbl.Name = "dayNowLbl";
         dayNowLbl.Size = new Size(64, 40);
         dayNowLbl.TabIndex = 21;
@@ -216,7 +216,7 @@ partial class Calendar
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
         BackColor = Color.WhiteSmoke;
-        ClientSize = new Size(1166, 749);
+        ClientSize = new Size(1150, 740);
         Controls.Add(prevYrBtn);
         Controls.Add(nextYrBtn);
         Controls.Add(monthYearContainer);

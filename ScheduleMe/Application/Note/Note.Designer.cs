@@ -28,142 +28,134 @@ partial class Note
     /// </summary>
     private void InitializeComponent()
     {
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Note";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(582, 90);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(346, 27);
-            this.textBox1.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(582, 143);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(346, 395);
-            this.textBox2.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(582, 52);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(377, 25);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Title:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(582, 115);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(377, 25);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Content:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(14, 52);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(541, 389);
-            this.dataGridView1.TabIndex = 6;
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(14, 447);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "LOAD";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(314, 447);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 29);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "DELETE";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(114, 447);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 29);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "SAVE";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(214, 447);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(94, 29);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "NEW NOTE";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // Note
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 731);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "Note";
-            this.Text = "Note";
-            this.Load += new System.EventHandler(this.Note_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+        textBox1 = new TextBox();
+        textBox2 = new TextBox();
+        label2 = new Label();
+        label3 = new Label();
+        dataGridView1 = new DataGridView();
+        button1 = new Button();
+        button2 = new Button();
+        button3 = new Button();
+        button4 = new Button();
+        ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+        SuspendLayout();
+        // 
+        // textBox1
+        // 
+        textBox1.Location = new Point(509, 68);
+        textBox1.Margin = new Padding(3, 2, 3, 2);
+        textBox1.Name = "textBox1";
+        textBox1.Size = new Size(303, 23);
+        textBox1.TabIndex = 2;
+        // 
+        // textBox2
+        // 
+        textBox2.Location = new Point(509, 107);
+        textBox2.Margin = new Padding(3, 2, 3, 2);
+        textBox2.Multiline = true;
+        textBox2.Name = "textBox2";
+        textBox2.Size = new Size(303, 297);
+        textBox2.TabIndex = 3;
+        // 
+        // label2
+        // 
+        label2.Location = new Point(509, 39);
+        label2.Name = "label2";
+        label2.Size = new Size(330, 19);
+        label2.TabIndex = 4;
+        label2.Text = "Title:";
+        label2.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // label3
+        // 
+        label3.Location = new Point(509, 86);
+        label3.Name = "label3";
+        label3.Size = new Size(330, 19);
+        label3.TabIndex = 5;
+        label3.Text = "Content:";
+        label3.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // dataGridView1
+        // 
+        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dataGridView1.Location = new Point(12, 39);
+        dataGridView1.Margin = new Padding(3, 2, 3, 2);
+        dataGridView1.Name = "dataGridView1";
+        dataGridView1.RowHeadersWidth = 51;
+        dataGridView1.RowTemplate.Height = 29;
+        dataGridView1.Size = new Size(473, 292);
+        dataGridView1.TabIndex = 6;
+        dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
+        // 
+        // button1
+        // 
+        button1.Location = new Point(12, 335);
+        button1.Margin = new Padding(3, 2, 3, 2);
+        button1.Name = "button1";
+        button1.Size = new Size(82, 22);
+        button1.TabIndex = 7;
+        button1.Text = "LOAD";
+        button1.UseVisualStyleBackColor = true;
+        button1.Click += button1_Click;
+        // 
+        // button2
+        // 
+        button2.Location = new Point(275, 335);
+        button2.Margin = new Padding(3, 2, 3, 2);
+        button2.Name = "button2";
+        button2.Size = new Size(82, 22);
+        button2.TabIndex = 8;
+        button2.Text = "DELETE";
+        button2.UseVisualStyleBackColor = true;
+        button2.Click += button2_Click;
+        // 
+        // button3
+        // 
+        button3.Location = new Point(100, 335);
+        button3.Margin = new Padding(3, 2, 3, 2);
+        button3.Name = "button3";
+        button3.Size = new Size(82, 22);
+        button3.TabIndex = 9;
+        button3.Text = "SAVE";
+        button3.UseVisualStyleBackColor = true;
+        button3.Click += button3_Click;
+        // 
+        // button4
+        // 
+        button4.Location = new Point(187, 335);
+        button4.Margin = new Padding(3, 2, 3, 2);
+        button4.Name = "button4";
+        button4.Size = new Size(82, 22);
+        button4.TabIndex = 10;
+        button4.Text = "NEW NOTE";
+        button4.UseVisualStyleBackColor = true;
+        button4.Click += button4_Click;
+        // 
+        // Note
+        // 
+        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleMode = AutoScaleMode.Font;
+        ClientSize = new Size(835, 450);
+        Controls.Add(button4);
+        Controls.Add(button3);
+        Controls.Add(button2);
+        Controls.Add(button1);
+        Controls.Add(dataGridView1);
+        Controls.Add(label3);
+        Controls.Add(label2);
+        Controls.Add(textBox2);
+        Controls.Add(textBox1);
+        FormBorderStyle = FormBorderStyle.None;
+        Name = "Note";
+        Text = "Note";
+        Load += Note_Load;
+        ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+        ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
-
-    private Label label1;
     private TextBox textBox1;
     private TextBox textBox2;
     private Label label2;
