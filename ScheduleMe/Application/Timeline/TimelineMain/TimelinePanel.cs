@@ -93,7 +93,6 @@ public partial class TimelinePanel : Form
             newEvent.Index = i;
             newEvent.Width = (eventDuration * columnSize) + 1;
             newEvent.Location = new Point(eventsXAxis + (new TimelineDays().Width / 2), (int)(70 * MainDesigner.BaseHeightFactor()));
-            //newEvent.Location = new Point(eventsXAxis + (new TimelineDays().Width / 2), eventsYAxis);
 
             pnlEvents.Controls.Add(newEvent);
             StackEvents(newEvent, ref lowestBottom);

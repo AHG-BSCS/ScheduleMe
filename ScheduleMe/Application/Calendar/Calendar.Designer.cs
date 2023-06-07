@@ -125,9 +125,8 @@ partial class Calendar
         calendarContainer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         calendarContainer.BackColor = Color.Transparent;
         calendarContainer.Location = new Point(228, 190);
-        calendarContainer.MaximumSize = new Size(817, 633);
         calendarContainer.Name = "calendarContainer";
-        calendarContainer.Size = new Size(801, 624);
+        calendarContainer.Size = new Size(801, 473);
         calendarContainer.TabIndex = 14;
         // 
         // nextMonthBtn

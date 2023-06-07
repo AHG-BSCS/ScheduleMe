@@ -118,7 +118,7 @@ partial class About
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
         BackColor = Color.White;
-        ClientSize = new Size(452, 196);
+        ClientSize = new Size(390, 196);
         Controls.Add(lblSection);
         Controls.Add(linklblGithub);
         Controls.Add(lblDeveloper);
