@@ -17,34 +17,22 @@ public partial class MainForm : Form
         InitializeComponent();
     }
 
-    static internal string GetBasePath()
-    {
-        return Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-    }
-
     private void MainForm_Load(object sender, EventArgs e)
     {
         GetFormInstance(ref activeForm);
         btnCalendar_Click(sender, e);
 
-        string directoryPath = $"{GetBasePath()}\\ScheduleMe";
-
         try
         {
-            // Check if the directory already exists
-            if (Directory.Exists(directoryPath))
+            if (!Directory.Exists($"{DBConnection.GetBasePath()}\\ScheduleMe"))
             {
-            }
-            else
-            {
-                // Create the directory
-                Directory.CreateDirectory(directoryPath);
+                Directory.CreateDirectory($"{DBConnection.GetBasePath()}\\ScheduleMe");
                 MessageBox.Show("Welcome to ScheduleMe! Thank you for using our app!", "First time Running!");
             }
         }
-        catch (Exception ex)
+        catch
         {
-            MessageBox.Show("Error creating the directory: " + ex.Message);
+            MessageBox.Show("Can't create database folder: ");
         }
     }
 
