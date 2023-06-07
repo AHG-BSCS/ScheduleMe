@@ -377,8 +377,8 @@ partial class EditTimeline
         // 
         // EditTimeline
         // 
-        AutoScaleDimensions = new SizeF(96F, 96F);
-        AutoScaleMode = AutoScaleMode.Dpi;
+        AutoScaleDimensions = new SizeF(7F, 22F);
+        AutoScaleMode = AutoScaleMode.Font;
         AutoScroll = true;
         BackColor = Color.White;
         ClientSize = new Size(984, 511);

@@ -177,8 +177,7 @@ partial class EditTimelineRow
         // 
         // EditTimelineRow
         // 
-        AutoScaleDimensions = new SizeF(96F, 96F);
-        AutoScaleMode = AutoScaleMode.Dpi;
+        AutoScaleMode = AutoScaleMode.Inherit;
         BackColor = Color.White;
         ContextMenuStrip = mnuEventRow;
         Controls.Add(pnlEventRow);

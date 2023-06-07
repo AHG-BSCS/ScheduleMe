@@ -212,8 +212,7 @@ partial class Calendar
         // 
         // Calendar
         // 
-        AutoScaleDimensions = new SizeF(96F, 96F);
-        AutoScaleMode = AutoScaleMode.Dpi;
+        AutoScaleMode = AutoScaleMode.Inherit;
         BackColor = Color.WhiteSmoke;
         ClientSize = new Size(1150, 740);
         Controls.Add(prevYrBtn);

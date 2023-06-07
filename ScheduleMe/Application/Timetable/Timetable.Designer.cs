@@ -371,8 +371,7 @@ partial class Timetable
         // 
         // Timetable
         // 
-        AutoScaleDimensions = new SizeF(7F, 22F);
-        AutoScaleMode = AutoScaleMode.Font;
+        AutoScaleMode = AutoScaleMode.Inherit;
         AutoSize = true;
         BackColor = Color.White;
         ClientSize = new Size(1370, 641);

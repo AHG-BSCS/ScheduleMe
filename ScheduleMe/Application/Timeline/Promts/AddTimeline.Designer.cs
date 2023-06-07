@@ -148,8 +148,8 @@ partial class AddTimeline
         // 
         // AddTimeline
         // 
-        AutoScaleDimensions = new SizeF(96F, 96F);
-        AutoScaleMode = AutoScaleMode.Dpi;
+        AutoScaleDimensions = new SizeF(7F, 22F);
+        AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(15, 76, 129);
         ClientSize = new Size(297, 175);
         Controls.Add(pckEndDate);
