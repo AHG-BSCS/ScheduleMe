@@ -65,7 +65,7 @@ partial class TimelineTab
         mnuTab.Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         mnuTab.Items.AddRange(new ToolStripItem[] { mnuAdd, mnuEdit, mnuDelete, mnuSeparator, mnuOpenAtBottom });
         mnuTab.Name = "timelineOption";
-        mnuTab.Size = new Size(189, 136);
+        mnuTab.Size = new Size(189, 114);
         mnuTab.Text = "Option";
         mnuTab.ItemClicked += mnuTab_ItemClicked;
         // 
@@ -105,8 +105,7 @@ partial class TimelineTab
         // 
         // TimelineTab
         // 
-        AutoScaleDimensions = new SizeF(96F, 96F);
-        AutoScaleMode = AutoScaleMode.Dpi;
+        AutoScaleMode = AutoScaleMode.Inherit;
         AutoSize = true;
         BackColor = Color.Transparent;
         Controls.Add(btnTab);

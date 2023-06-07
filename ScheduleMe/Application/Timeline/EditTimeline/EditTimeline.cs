@@ -132,7 +132,7 @@ public partial class EditTimeline : Form
         if (CurrentID != null)
         {
             EditTimelineRow newRow = new EditTimelineRow();
-            newRow.eventInfo = new Event() { EventStartDate = MinDate, EventEndDate = MinDate.AddDays(1)};
+            newRow.eventInfo = new Event() { EventStartDate = MinDate, EventEndDate = MinDate.AddDays(1) };
             newRow.MinDate = MinDate;
             newRow.MaxDate = MaxDate;
 

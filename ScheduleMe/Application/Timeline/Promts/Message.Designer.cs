@@ -77,8 +77,8 @@ partial class Message
         // 
         // Message
         // 
-        AutoScaleDimensions = new SizeF(96F, 96F);
-        AutoScaleMode = AutoScaleMode.Dpi;
+        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleMode = AutoScaleMode.Font;
         AutoSize = true;
         BackColor = SystemColors.ControlDarkDark;
         ClientSize = new Size(145, 79);

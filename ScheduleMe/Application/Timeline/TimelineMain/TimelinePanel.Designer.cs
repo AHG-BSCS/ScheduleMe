@@ -177,8 +177,7 @@ partial class TimelinePanel
         // 
         // TimelinePanel
         // 
-        AutoScaleDimensions = new SizeF(96F, 96F);
-        AutoScaleMode = AutoScaleMode.Dpi;
+        AutoScaleMode = AutoScaleMode.Inherit;
         BackColor = Color.White;
         ClientSize = new Size(850, 35);
         Controls.Add(pnlEvents);

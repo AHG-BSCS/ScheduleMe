@@ -267,8 +267,7 @@ partial class Weather
         // 
         // Weather
         // 
-        AutoScaleDimensions = new SizeF(96F, 96F);
-        AutoScaleMode = AutoScaleMode.Dpi;
+        AutoScaleMode = AutoScaleMode.Inherit;
         BackColor = Color.White;
         ClientSize = new Size(1162, 640);
         Controls.Add(panel1);

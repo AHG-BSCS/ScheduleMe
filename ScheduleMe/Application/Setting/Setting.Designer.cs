@@ -28,37 +28,36 @@ partial class Setting
     /// </summary>
     private void InitializeComponent()
     {
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.SuspendLayout();
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(15, 62);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(105, 24);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Dark Mode";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // Setting
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1042, 639);
-            this.Controls.Add(this.checkBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Setting";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Setting";
-            this.TopMost = true;
-            this.Load += new System.EventHandler(this.Setting_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+        checkBox1 = new CheckBox();
+        SuspendLayout();
+        // 
+        // checkBox1
+        // 
+        checkBox1.AutoSize = true;
+        checkBox1.Location = new Point(11, 11);
+        checkBox1.Margin = new Padding(2);
+        checkBox1.Name = "checkBox1";
+        checkBox1.Size = new Size(84, 19);
+        checkBox1.TabIndex = 2;
+        checkBox1.Text = "Dark Mode";
+        checkBox1.UseVisualStyleBackColor = true;
+        checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+        // 
+        // Setting
+        // 
+        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleMode = AutoScaleMode.Font;
+        BackColor = Color.White;
+        ClientSize = new Size(834, 511);
+        Controls.Add(checkBox1);
+        FormBorderStyle = FormBorderStyle.FixedToolWindow;
+        Name = "Setting";
+        StartPosition = FormStartPosition.CenterParent;
+        Text = "Setting";
+        TopMost = true;
+        Load += Setting_Load;
+        ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion

@@ -134,8 +134,7 @@ partial class Note
         // 
         // Note
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
-        AutoScaleMode = AutoScaleMode.Font;
+        AutoScaleMode = AutoScaleMode.Inherit;
         ClientSize = new Size(835, 450);
         Controls.Add(button4);
         Controls.Add(button3);

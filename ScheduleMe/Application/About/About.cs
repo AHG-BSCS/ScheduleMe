@@ -20,9 +20,5 @@ namespace ScheduleMe.Tab
             Dispose();
         }
 
-        private void About_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -115,10 +115,10 @@ partial class About
         // 
         // About
         // 
-        AutoScaleDimensions = new SizeF(96F, 96F);
-        AutoScaleMode = AutoScaleMode.Dpi;
+        AutoScaleDimensions = new SizeF(7F, 22F);
+        AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.White;
-        ClientSize = new Size(452, 196);
+        ClientSize = new Size(388, 196);
         Controls.Add(lblSection);
         Controls.Add(linklblGithub);
         Controls.Add(lblDeveloper);
@@ -133,7 +133,6 @@ partial class About
         StartPosition = FormStartPosition.CenterParent;
         Text = "About ScheduleMe";
         TopMost = true;
-        Load += About_Load;
         ((System.ComponentModel.ISupportInitialize)logoScheduleMe).EndInit();
         ResumeLayout(false);
         PerformLayout();

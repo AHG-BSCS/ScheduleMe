@@ -58,14 +58,13 @@ partial class TimelineDays
         lblDate.Text = "12";
         lblDate.TextAlign = ContentAlignment.TopCenter;
         // 
-        // DayDates
+        // TimelineDays
         // 
-        AutoScaleDimensions = new SizeF(96F, 96F);
-        AutoScaleMode = AutoScaleMode.Dpi;
+        AutoScaleMode = AutoScaleMode.Inherit;
         BackColor = Color.White;
         Controls.Add(lblDay);
         Controls.Add(lblDate);
-        Name = "DayDates";
+        Name = "TimelineDays";
         Size = new Size(35, 40);
         ResumeLayout(false);
     }
