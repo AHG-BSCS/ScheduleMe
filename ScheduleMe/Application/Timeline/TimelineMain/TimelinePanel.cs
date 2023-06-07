@@ -8,7 +8,7 @@ public partial class TimelinePanel : Form
     public ObjectId PreviousID { get; set; }
     public List<ObjectId> EventIds { get; set; } = new List<ObjectId>();
 
-    private readonly byte columnSize = 42;
+    private readonly byte columnSize = (byte)(42 * MainDesigner.BaseWidthFactor());
     public int CurrentDateTimePosition { get; set; }
 
     public TimelinePanel()
@@ -65,7 +65,7 @@ public partial class TimelinePanel : Form
         }
         else
         {
-            pnlEvents.Height = 130;
+            pnlEvents.Height = (int)(130 * MainDesigner.BaseHeightFactor());
             Height = pnlEvents.Height + 35;
         }
         PopulateDates(timeline.TimelineStartDate, timeline.TimelineEndDate);
@@ -78,9 +78,8 @@ public partial class TimelinePanel : Form
         for (ushort i = 0; i < events.Count; i++)
         {
             int eventDuration = (int)(events[i].EventEndDate - events[i].EventStartDate).TotalDays;
-            int eventsXAxis = pnlEvents.HorizontalScroll.Value
-                        + ((events[i].EventStartDate - startDate).Days
-                        * columnSize);
+            int eventsXAxis = (events[i].EventStartDate - startDate).Days * columnSize;
+            int eventsYAxis = (new TimelineDays().Bottom * 2);
 
             TimelineEvent newEvent = new TimelineEvent();
             newEvent.SetEventProperty(
@@ -93,7 +92,8 @@ public partial class TimelinePanel : Form
             newEvent.Id = id;
             newEvent.Index = i;
             newEvent.Width = (eventDuration * columnSize) + 1;
-            newEvent.Location = new Point(eventsXAxis + 17, 70);
+            newEvent.Location = new Point(eventsXAxis + (new TimelineDays().Width / 2), (int)(70 * MainDesigner.BaseHeightFactor()));
+            //newEvent.Location = new Point(eventsXAxis + (new TimelineDays().Width / 2), eventsYAxis);
 
             pnlEvents.Controls.Add(newEvent);
             StackEvents(newEvent, ref lowestBottom);
@@ -104,9 +104,9 @@ public partial class TimelinePanel : Form
 
     private void StackEvents(TimelineEvent newEvent, ref int lowestBottom)
     {
-        int currentRow = 70;
+        int currentRow = (int)(70 * MainDesigner.BaseHeightFactor());
 
-        foreach (TimelineEvent previousEvent in pnlEvents.Controls)
+        foreach (TimelineEvent previousEvent in pnlEvents.Controls.OfType<TimelineEvent>())
         {
             // Not the same object and newEvent is above previousEvent
             if (previousEvent != newEvent && newEvent.Top <= previousEvent.Top)
@@ -117,7 +117,7 @@ public partial class TimelinePanel : Form
                     || (newEvent.StartDate <= previousEvent.StartDate && newEvent.EndDate > previousEvent.StartDate)
                     || (newEvent.StartDate <= previousEvent.StartDate && newEvent.EndDate >= previousEvent.EndDate))
                 {
-                    currentRow += 40;
+                    currentRow += (int)(40 * MainDesigner.BaseHeightFactor());
                 }
             }
         }
@@ -128,15 +128,16 @@ public partial class TimelinePanel : Form
     private void PopulateDates(DateTime startDate, DateTime endDate)
     {
         int firstMonthRight = 0;
+        int firstMonthBottom = 0;
         for (DateTime currentDate = startDate; currentDate <= endDate; currentDate = currentDate.AddDays(1))
         {
             if (currentDate.Day == 1 || currentDate.DayOfYear == startDate.DayOfYear)
-                GenerateMonthLabel(currentDate, startDate, ref firstMonthRight);
+                GenerateMonthLabel(currentDate, startDate, ref firstMonthRight, ref firstMonthBottom);
 
             TimelineDays timelineDays = new TimelineDays();
             timelineDays.Day = currentDate.ToString("ddd");
             timelineDays.Date = currentDate.Day.ToString();
-            timelineDays.Location = new Point(columnSize * (currentDate - startDate).Days, 23 - 5);
+            timelineDays.Location = new Point(columnSize * (currentDate - startDate).Days, firstMonthBottom - 5);
             pnlEvents.Controls.Add(timelineDays);
 
             Panel line = new Panel();
@@ -157,7 +158,7 @@ public partial class TimelinePanel : Form
         }
     }
 
-    private void GenerateMonthLabel(DateTime currentDate, DateTime startDate, ref int firstMonthRight)
+    private void GenerateMonthLabel(DateTime currentDate, DateTime startDate, ref int firstMonthRight, ref int firstMonthBottom)
     {
         Label nextMonths = new Label();
         nextMonths.Text = currentDate.ToString("MMMM yyyy");
@@ -170,7 +171,10 @@ public partial class TimelinePanel : Form
             nextMonths.Left = firstMonthRight;
 
         else if (currentDate.Day == startDate.Day)
+        {
             firstMonthRight = nextMonths.Right;
+            firstMonthBottom = nextMonths.Bottom;
+        }
     }
 
     private int GenerateTimeIndicator(Point point)
@@ -272,11 +276,9 @@ public partial class TimelinePanel : Form
             Dispose();
     }
 
-    private void btnSeek_Click(object sender, EventArgs e) // Need to improve
+    private void btnSeek_Click(object sender, EventArgs e)
     {
-        Screen screen = Screen.PrimaryScreen;
-        short screenWidth = (short)screen.Bounds.Width;
-        pnlEvents.AutoScrollPosition = new Point(CurrentDateTimePosition - (screenWidth / 2));
+        pnlEvents.AutoScrollPosition = new Point(CurrentDateTimePosition - (Screen.PrimaryScreen.Bounds.Width / 2));
     }
 
     private void mnuTimeline_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

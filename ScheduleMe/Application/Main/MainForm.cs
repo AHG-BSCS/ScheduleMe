@@ -19,9 +19,6 @@ public partial class MainForm : Form
 
     private void MainForm_Load(object sender, EventArgs e)
     {
-        GetFormInstance(ref activeForm);
-        btnCalendar_Click(sender, e);
-
         try
         {
             if (!Directory.Exists($"{DBConnection.GetBasePath()}\\ScheduleMe"))
@@ -34,6 +31,11 @@ public partial class MainForm : Form
         {
             MessageBox.Show("Can't create database folder: ");
         }
+
+        sideNavPanel.Width = (int)(sideNavPanel.Width * MainDesigner.BaseWidthFactor());
+
+        GetFormInstance(ref activeForm);
+        btnCalendar_Click(sender, e);
     }
 
     private void GetFormInstance<T>(ref T instance) where T : Form, new()
