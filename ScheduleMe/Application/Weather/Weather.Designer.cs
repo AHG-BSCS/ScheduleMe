@@ -71,10 +71,10 @@ partial class Weather
         // label2
         // 
         label2.AutoSize = true;
-        label2.Font = new Font("Dubai Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+        label2.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
         label2.Location = new Point(159, 172);
         label2.Name = "label2";
-        label2.Size = new Size(92, 24);
+        label2.Size = new Size(92, 25);
         label2.TabIndex = 3;
         label2.Text = "CONDITION";
         // 
@@ -82,7 +82,7 @@ partial class Weather
         // 
         label3.AutoSize = true;
         label3.Font = new Font("Dubai", 24F, FontStyle.Bold, GraphicsUnit.Point);
-        label3.Location = new Point(580, 18);
+        label3.Location = new Point(566, 22);
         label3.Name = "label3";
         label3.Size = new Size(88, 54);
         label3.TabIndex = 4;
@@ -100,21 +100,26 @@ partial class Weather
         // 
         // button1
         // 
+        button1.BackColor = Color.FromArgb(15, 76, 129);
+        button1.FlatAppearance.BorderSize = 0;
+        button1.FlatStyle = FlatStyle.Flat;
+        button1.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        button1.ForeColor = Color.White;
         button1.Location = new Point(959, 509);
         button1.Name = "button1";
-        button1.Size = new Size(94, 45);
+        button1.Size = new Size(60, 30);
         button1.TabIndex = 6;
-        button1.Text = "SEND";
-        button1.UseVisualStyleBackColor = true;
+        button1.Text = "Search";
+        button1.UseVisualStyleBackColor = false;
         button1.Click += button1_Click;
         // 
         // label4
         // 
         label4.AutoSize = true;
-        label4.Font = new Font("Dubai Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+        label4.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
         label4.Location = new Point(60, 413);
         label4.Name = "label4";
-        label4.Size = new Size(135, 24);
+        label4.Size = new Size(131, 25);
         label4.TabIndex = 7;
         label4.Text = "5 DAY FORECAST:";
         // 
@@ -130,10 +135,10 @@ partial class Weather
         // label5
         // 
         label5.AutoSize = true;
-        label5.Font = new Font("Dubai Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+        label5.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
         label5.Location = new Point(159, 307);
         label5.Name = "label5";
-        label5.Size = new Size(131, 24);
+        label5.Size = new Size(129, 25);
         label5.TabIndex = 9;
         label5.Text = "CHANCE OF RAIN";
         // 
@@ -141,20 +146,20 @@ partial class Weather
         // 
         label6.AutoSize = true;
         label6.Font = new Font("Dubai", 28.2F, FontStyle.Bold, GraphicsUnit.Point);
-        label6.Location = new Point(556, 61);
+        label6.Location = new Point(566, 61);
         label6.Name = "label6";
-        label6.Size = new Size(124, 64);
+        label6.Size = new Size(98, 64);
         label6.TabIndex = 10;
-        label6.Text = "TEMP";
+        label6.Text = "36.0";
         label6.Click += label6_Click;
         // 
         // label7
         // 
         label7.AutoSize = true;
-        label7.Font = new Font("Dubai Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-        label7.Location = new Point(580, 125);
+        label7.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+        label7.Location = new Point(576, 116);
         label7.Name = "label7";
-        label7.Size = new Size(71, 24);
+        label7.Size = new Size(68, 25);
         label7.TabIndex = 11;
         label7.Text = "feels like";
         // 
@@ -216,9 +221,9 @@ partial class Weather
         label8.AutoSize = true;
         label8.Location = new Point(14, 130);
         label8.Name = "label8";
-        label8.Size = new Size(52, 22);
+        label8.Size = new Size(44, 22);
         label8.TabIndex = 5;
-        label8.Text = "TODAY";
+        label8.Text = "Today";
         // 
         // pictureBox7
         // 

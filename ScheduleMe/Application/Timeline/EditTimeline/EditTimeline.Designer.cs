@@ -323,7 +323,7 @@ partial class EditTimeline
         // 
         // btnDelete
         // 
-        btnDelete.BackColor = Color.FromArgb(15, 76, 129);
+        btnDelete.BackColor = Color.Maroon;
         btnDelete.BackgroundImage = Properties.Resources.btnDelete;
         btnDelete.BackgroundImageLayout = ImageLayout.Zoom;
         btnDelete.Cursor = Cursors.Hand;

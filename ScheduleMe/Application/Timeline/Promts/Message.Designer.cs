@@ -80,7 +80,7 @@ partial class Message
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         AutoSize = true;
-        BackColor = SystemColors.ControlDarkDark;
+        BackColor = Color.Maroon;
         ClientSize = new Size(145, 79);
         Controls.Add(pnlSpace);
         Controls.Add(lblMessage);

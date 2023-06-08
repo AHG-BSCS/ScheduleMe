@@ -19,7 +19,7 @@ namespace ScheduleMe.Tab
             calendarEvent.EventName = eventNameTxtBx.Text;
             calendarEvent.EventDate = EventDate;
             timelineDB.Insert(calendarEvent);
-            MessageBox.Show("Saved!");
+            new Message("Saved");
             this.Dispose();
         }
 

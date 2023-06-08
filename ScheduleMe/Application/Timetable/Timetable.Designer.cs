@@ -176,7 +176,7 @@ partial class Timetable
         // 
         label11.AutoSize = true;
         label11.Font = new Font("Dubai", 12F, FontStyle.Regular, GraphicsUnit.Point);
-        label11.Location = new Point(36, 15);
+        label11.Location = new Point(27, 15);
         label11.Name = "label11";
         label11.Size = new Size(69, 27);
         label11.TabIndex = 0;
@@ -205,7 +205,7 @@ partial class Timetable
         // 
         label12.AutoSize = true;
         label12.Font = new Font("Dubai", 12F, FontStyle.Regular, GraphicsUnit.Point);
-        label12.Location = new Point(39, 15);
+        label12.Location = new Point(25, 15);
         label12.Name = "label12";
         label12.Size = new Size(75, 27);
         label12.TabIndex = 0;
@@ -225,7 +225,7 @@ partial class Timetable
         // 
         label13.AutoSize = true;
         label13.Font = new Font("Dubai", 12F, FontStyle.Regular, GraphicsUnit.Point);
-        label13.Location = new Point(41, 15);
+        label13.Location = new Point(24, 15);
         label13.Name = "label13";
         label13.Size = new Size(71, 27);
         label13.TabIndex = 0;
@@ -245,7 +245,7 @@ partial class Timetable
         // 
         label14.AutoSize = true;
         label14.Font = new Font("Dubai", 12F, FontStyle.Regular, GraphicsUnit.Point);
-        label14.Location = new Point(39, 15);
+        label14.Location = new Point(25, 15);
         label14.Name = "label14";
         label14.Size = new Size(61, 27);
         label14.TabIndex = 0;
@@ -265,7 +265,7 @@ partial class Timetable
         // 
         label15.AutoSize = true;
         label15.Font = new Font("Dubai", 12F, FontStyle.Regular, GraphicsUnit.Point);
-        label15.Location = new Point(43, 15);
+        label15.Location = new Point(34, 15);
         label15.Name = "label15";
         label15.Size = new Size(68, 27);
         label15.TabIndex = 0;
@@ -285,7 +285,7 @@ partial class Timetable
         // 
         label16.AutoSize = true;
         label16.Font = new Font("Dubai", 12F, FontStyle.Regular, GraphicsUnit.Point);
-        label16.Location = new Point(47, 15);
+        label16.Location = new Point(21, 15);
         label16.Name = "label16";
         label16.Size = new Size(71, 27);
         label16.TabIndex = 0;

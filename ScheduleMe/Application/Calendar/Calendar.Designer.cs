@@ -52,7 +52,7 @@ partial class Calendar
         // label1
         // 
         label1.AutoSize = true;
-        label1.Location = new Point(12, 9);
+        label1.Location = new Point(0, 9);
         label1.Name = "label1";
         label1.Size = new Size(0, 22);
         label1.TabIndex = 2;
@@ -61,7 +61,7 @@ partial class Calendar
         // 
         sundayLbl.AutoSize = true;
         sundayLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        sundayLbl.Location = new Point(260, 167);
+        sundayLbl.Location = new Point(248, 167);
         sundayLbl.Name = "sundayLbl";
         sundayLbl.Size = new Size(50, 22);
         sundayLbl.TabIndex = 7;
@@ -71,7 +71,7 @@ partial class Calendar
         // 
         mondayLbl.AutoSize = true;
         mondayLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        mondayLbl.Location = new Point(372, 167);
+        mondayLbl.Location = new Point(360, 167);
         mondayLbl.Name = "mondayLbl";
         mondayLbl.Size = new Size(54, 22);
         mondayLbl.TabIndex = 8;
@@ -81,7 +81,7 @@ partial class Calendar
         // 
         wednesdayLbl.AutoSize = true;
         wednesdayLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        wednesdayLbl.Location = new Point(584, 167);
+        wednesdayLbl.Location = new Point(572, 167);
         wednesdayLbl.Name = "wednesdayLbl";
         wednesdayLbl.Size = new Size(73, 22);
         wednesdayLbl.TabIndex = 10;
@@ -91,7 +91,7 @@ partial class Calendar
         // 
         tuesdayLbl.AutoSize = true;
         tuesdayLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        tuesdayLbl.Location = new Point(486, 167);
+        tuesdayLbl.Location = new Point(474, 167);
         tuesdayLbl.Name = "tuesdayLbl";
         tuesdayLbl.Size = new Size(56, 22);
         tuesdayLbl.TabIndex = 9;
@@ -101,7 +101,7 @@ partial class Calendar
         // 
         saturdayLbl.AutoSize = true;
         saturdayLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        saturdayLbl.Location = new Point(937, 167);
+        saturdayLbl.Location = new Point(925, 167);
         saturdayLbl.Name = "saturdayLbl";
         saturdayLbl.Size = new Size(59, 22);
         saturdayLbl.TabIndex = 13;
@@ -111,7 +111,7 @@ partial class Calendar
         // 
         fridayLbl.AutoSize = true;
         fridayLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        fridayLbl.Location = new Point(829, 167);
+        fridayLbl.Location = new Point(817, 167);
         fridayLbl.Name = "fridayLbl";
         fridayLbl.Size = new Size(44, 22);
         fridayLbl.TabIndex = 12;
@@ -121,7 +121,7 @@ partial class Calendar
         // 
         thursdayLbl.AutoSize = true;
         thursdayLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
-        thursdayLbl.Location = new Point(710, 167);
+        thursdayLbl.Location = new Point(698, 167);
         thursdayLbl.Name = "thursdayLbl";
         thursdayLbl.Size = new Size(62, 22);
         thursdayLbl.TabIndex = 11;
@@ -131,7 +131,7 @@ partial class Calendar
         // 
         calendarContainer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         calendarContainer.BackColor = Color.Transparent;
-        calendarContainer.Location = new Point(228, 190);
+        calendarContainer.Location = new Point(216, 190);
         calendarContainer.Name = "calendarContainer";
         calendarContainer.Size = new Size(801, 473);
         calendarContainer.TabIndex = 14;
@@ -139,10 +139,11 @@ partial class Calendar
         // nextMonthBtn
         // 
         nextMonthBtn.BackColor = SystemColors.ButtonFace;
-        nextMonthBtn.Image = Properties.Resources.btnRightArrow;
-        nextMonthBtn.Location = new Point(1091, 402);
+        nextMonthBtn.BackgroundImage = Properties.Resources.btnRightArrow;
+        nextMonthBtn.BackgroundImageLayout = ImageLayout.Zoom;
+        nextMonthBtn.Location = new Point(1063, 368);
         nextMonthBtn.Name = "nextMonthBtn";
-        nextMonthBtn.Size = new Size(63, 67);
+        nextMonthBtn.Size = new Size(40, 40);
         nextMonthBtn.TabIndex = 15;
         nextMonthBtn.UseVisualStyleBackColor = false;
         nextMonthBtn.Click += nextBtn_Click;
@@ -151,10 +152,10 @@ partial class Calendar
         // 
         previousMonthBtn.BackColor = SystemColors.ButtonFace;
         previousMonthBtn.BackgroundImage = (Image)resources.GetObject("previousMonthBtn.BackgroundImage");
-        previousMonthBtn.Image = Properties.Resources.btnLeftArrow;
-        previousMonthBtn.Location = new Point(82, 404);
+        previousMonthBtn.BackgroundImageLayout = ImageLayout.Zoom;
+        previousMonthBtn.Location = new Point(131, 368);
         previousMonthBtn.Name = "previousMonthBtn";
-        previousMonthBtn.Size = new Size(63, 67);
+        previousMonthBtn.Size = new Size(40, 40);
         previousMonthBtn.TabIndex = 16;
         previousMonthBtn.UseVisualStyleBackColor = false;
         previousMonthBtn.Click += previousBtn_Click;
@@ -163,10 +164,10 @@ partial class Calendar
         // 
         prevYrBtn.BackColor = SystemColors.ButtonFace;
         prevYrBtn.BackgroundImage = (Image)resources.GetObject("prevYrBtn.BackgroundImage");
-        prevYrBtn.Image = Properties.Resources.btnLeftArrow;
-        prevYrBtn.Location = new Point(407, 14);
+        prevYrBtn.BackgroundImageLayout = ImageLayout.Zoom;
+        prevYrBtn.Location = new Point(428, 51);
         prevYrBtn.Name = "prevYrBtn";
-        prevYrBtn.Size = new Size(63, 67);
+        prevYrBtn.Size = new Size(40, 40);
         prevYrBtn.TabIndex = 18;
         prevYrBtn.UseVisualStyleBackColor = false;
         prevYrBtn.Click += prevYrBtn_Click;
@@ -174,10 +175,11 @@ partial class Calendar
         // nextYrBtn
         // 
         nextYrBtn.BackColor = SystemColors.ButtonFace;
-        nextYrBtn.Image = Properties.Resources.btnRightArrow;
-        nextYrBtn.Location = new Point(810, 12);
+        nextYrBtn.BackgroundImage = Properties.Resources.btnRightArrow;
+        nextYrBtn.BackgroundImageLayout = ImageLayout.Zoom;
+        nextYrBtn.Location = new Point(776, 51);
         nextYrBtn.Name = "nextYrBtn";
-        nextYrBtn.Size = new Size(63, 67);
+        nextYrBtn.Size = new Size(40, 40);
         nextYrBtn.TabIndex = 19;
         nextYrBtn.UseVisualStyleBackColor = false;
         nextYrBtn.Click += nextYrBtn_Click;
@@ -185,11 +187,11 @@ partial class Calendar
         // monthNowLbl
         // 
         monthNowLbl.Font = new Font("Dubai", 24F, FontStyle.Bold, GraphicsUnit.Point);
-        monthNowLbl.Location = new Point(228, 111);
+        monthNowLbl.Location = new Point(216, 111);
         monthNowLbl.Name = "monthNowLbl";
         monthNowLbl.Size = new Size(197, 40);
         monthNowLbl.TabIndex = 20;
-        monthNowLbl.Text = "month";
+        monthNowLbl.Text = "Month";
         monthNowLbl.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // dayNowLbl
@@ -197,11 +199,11 @@ partial class Calendar
         dayNowLbl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         dayNowLbl.Font = new Font("Dubai", 24F, FontStyle.Bold, GraphicsUnit.Point);
         dayNowLbl.ImageAlign = ContentAlignment.MiddleRight;
-        dayNowLbl.Location = new Point(887, 111);
+        dayNowLbl.Location = new Point(885, 111);
         dayNowLbl.Name = "dayNowLbl";
         dayNowLbl.Size = new Size(64, 40);
         dayNowLbl.TabIndex = 21;
-        dayNowLbl.Text = "day";
+        dayNowLbl.Text = "13";
         dayNowLbl.TextAlign = ContentAlignment.MiddleRight;
         // 
         // timer1
@@ -212,9 +214,9 @@ partial class Calendar
         // 
         // monthYearContainer
         // 
-        monthYearContainer.Location = new Point(476, 14);
+        monthYearContainer.Location = new Point(474, 40);
         monthYearContainer.Name = "monthYearContainer";
-        monthYearContainer.Size = new Size(325, 67);
+        monthYearContainer.Size = new Size(296, 67);
         monthYearContainer.TabIndex = 22;
         // 
         // Calendar

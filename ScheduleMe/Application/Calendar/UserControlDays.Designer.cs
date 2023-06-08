@@ -72,7 +72,6 @@
             Controls.Add(numDayLbl);
             Name = "UserControlDays";
             Size = new Size(108, 80);
-            Load += UserControlDays_Load;
             Click += UserControlDays_Click;
             ResumeLayout(false);
             PerformLayout();

@@ -38,6 +38,8 @@
             // 
             // eventNameTxtBx
             // 
+            eventNameTxtBx.BackColor = SystemColors.Control;
+            eventNameTxtBx.Cursor = Cursors.IBeam;
             eventNameTxtBx.Location = new Point(12, 101);
             eventNameTxtBx.Margin = new Padding(3, 4, 3, 4);
             eventNameTxtBx.Name = "eventNameTxtBx";
@@ -47,23 +49,29 @@
             // eventNameLbl
             // 
             eventNameLbl.AutoSize = true;
+            eventNameLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+            eventNameLbl.ForeColor = Color.White;
             eventNameLbl.Location = new Point(12, 75);
             eventNameLbl.Name = "eventNameLbl";
-            eventNameLbl.Size = new Size(43, 22);
+            eventNameLbl.Size = new Size(44, 22);
             eventNameLbl.TabIndex = 1;
             eventNameLbl.Text = "Event:";
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(12, 7);
             label1.Name = "label1";
-            label1.Size = new Size(38, 22);
+            label1.Size = new Size(39, 22);
             label1.TabIndex = 2;
             label1.Text = "Date:";
             // 
             // eventDateTxtBx
             // 
+            eventDateTxtBx.BackColor = SystemColors.Control;
+            eventDateTxtBx.Cursor = Cursors.No;
             eventDateTxtBx.Location = new Point(12, 33);
             eventDateTxtBx.Margin = new Padding(3, 4, 3, 4);
             eventDateTxtBx.Name = "eventDateTxtBx";
@@ -74,19 +82,26 @@
             // 
             // saveEventButton
             // 
+            saveEventButton.BackColor = Color.FromArgb(64, 64, 64);
+            saveEventButton.Cursor = Cursors.Hand;
+            saveEventButton.FlatAppearance.BorderSize = 0;
+            saveEventButton.FlatStyle = FlatStyle.Flat;
+            saveEventButton.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+            saveEventButton.ForeColor = Color.White;
             saveEventButton.Location = new Point(61, 148);
             saveEventButton.Margin = new Padding(3, 4, 3, 4);
             saveEventButton.Name = "saveEventButton";
             saveEventButton.Size = new Size(85, 34);
             saveEventButton.TabIndex = 4;
             saveEventButton.Text = "Save Event";
-            saveEventButton.UseVisualStyleBackColor = true;
+            saveEventButton.UseVisualStyleBackColor = false;
             saveEventButton.Click += saveEventButton_Click;
             // 
             // AddEventForm
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.FromArgb(15, 76, 129);
             ClientSize = new Size(212, 195);
             Controls.Add(saveEventButton);
             Controls.Add(eventDateTxtBx);

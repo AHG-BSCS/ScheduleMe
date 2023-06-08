@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace ScheduleMe.Tab
+﻿namespace ScheduleMe.Tab
 {
     public partial class UserControlDays : UserControl
     {
@@ -17,11 +7,6 @@ namespace ScheduleMe.Tab
         public UserControlDays()
         {
             InitializeComponent();
-        }
-
-        private void UserControlDays_Load(object sender, EventArgs e)
-        {
-
         }
 
         public void Days(int numDay)
@@ -35,7 +20,6 @@ namespace ScheduleMe.Tab
             AddEventForm eventForm = new AddEventForm();
             eventForm.EventDate = OwnDate;
             eventForm.ShowDialog();
-
         }
     }
 }
