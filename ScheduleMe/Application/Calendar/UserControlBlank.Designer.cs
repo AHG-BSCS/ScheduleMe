@@ -42,7 +42,7 @@
             // UserControlBlank
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
-            BackColor = SystemColors.ControlDark;
+            BackColor = Color.FromArgb(64, 64, 64);
             Controls.Add(label1);
             Name = "UserControlBlank";
             Size = new Size(108, 80);

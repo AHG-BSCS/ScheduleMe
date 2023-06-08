@@ -47,7 +47,7 @@ partial class Setting
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
-        BackColor = Color.White;
+        BackColor = SystemColors.Control;
         ClientSize = new Size(834, 511);
         Controls.Add(checkBox1);
         FormBorderStyle = FormBorderStyle.FixedToolWindow;

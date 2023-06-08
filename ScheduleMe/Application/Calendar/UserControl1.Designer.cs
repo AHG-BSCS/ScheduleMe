@@ -45,14 +45,14 @@
             // 
             // monthYearLbl
             // 
-            monthYearLbl.Anchor = AnchorStyles.None;
-            monthYearLbl.Font = new Font("Gill Sans MT", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            monthYearLbl.Location = new Point(3, -10);
+            monthYearLbl.Dock = DockStyle.Fill;
+            monthYearLbl.Font = new Font("Dubai", 26.2499962F, FontStyle.Bold, GraphicsUnit.Point);
+            monthYearLbl.Location = new Point(0, 0);
             monthYearLbl.Name = "monthYearLbl";
             monthYearLbl.RightToLeft = RightToLeft.No;
             monthYearLbl.Size = new Size(295, 67);
             monthYearLbl.TabIndex = 19;
-            monthYearLbl.Text = "label1";
+            monthYearLbl.Text = "Month";
             monthYearLbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // UCMonthYearDisplay

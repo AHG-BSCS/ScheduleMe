@@ -373,7 +373,7 @@ partial class Timetable
         // 
         AutoScaleMode = AutoScaleMode.Inherit;
         AutoSize = true;
-        BackColor = Color.White;
+        BackColor = SystemColors.Control;
         ClientSize = new Size(1370, 641);
         Controls.Add(tableLayoutPanel1);
         Controls.Add(panel9);

@@ -268,7 +268,7 @@ partial class Weather
         // Weather
         // 
         AutoScaleMode = AutoScaleMode.Inherit;
-        BackColor = Color.White;
+        BackColor = SystemColors.Control;
         ClientSize = new Size(1162, 640);
         Controls.Add(panel1);
         Controls.Add(label7);

@@ -46,24 +46,28 @@
             // numDayLbl
             // 
             numDayLbl.AutoSize = true;
-            numDayLbl.Font = new Font("Sitka Small", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            numDayLbl.Font = new Font("Dubai", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            numDayLbl.ForeColor = Color.White;
             numDayLbl.Location = new Point(13, 10);
             numDayLbl.Name = "numDayLbl";
-            numDayLbl.Size = new Size(32, 23);
+            numDayLbl.Size = new Size(30, 27);
             numDayLbl.TabIndex = 0;
             numDayLbl.Text = "00";
+            numDayLbl.Click += UserControlDays_Click;
             // 
             // lblEventName
             // 
             lblEventName.Font = new Font("Sitka Small", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            lblEventName.ForeColor = Color.White;
             lblEventName.Location = new Point(13, 33);
             lblEventName.Name = "lblEventName";
             lblEventName.Size = new Size(95, 47);
-            lblEventName.TabIndex = 1;
+            lblEventName.TabIndex = 0;
+            lblEventName.Click += UserControlDays_Click;
             // 
             // UserControlDays
             // 
-            BackColor = SystemColors.ActiveCaption;
+            BackColor = Color.FromArgb(15, 76, 129);
             Controls.Add(lblEventName);
             Controls.Add(numDayLbl);
             Name = "UserControlDays";

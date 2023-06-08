@@ -30,22 +30,22 @@ partial class Note
     {
         textBox1 = new TextBox();
         textBox2 = new TextBox();
-        label2 = new Label();
-        label3 = new Label();
         dataGridView1 = new DataGridView();
         button1 = new Button();
         button2 = new Button();
         button3 = new Button();
         button4 = new Button();
+        label3 = new Label();
+        label2 = new Label();
         ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
         SuspendLayout();
         // 
         // textBox1
         // 
-        textBox1.Location = new Point(509, 68);
+        textBox1.Location = new Point(509, 40);
         textBox1.Margin = new Padding(3, 2, 3, 2);
         textBox1.Name = "textBox1";
-        textBox1.Size = new Size(303, 23);
+        textBox1.Size = new Size(303, 29);
         textBox1.TabIndex = 2;
         // 
         // textBox2
@@ -57,43 +57,27 @@ partial class Note
         textBox2.Size = new Size(303, 297);
         textBox2.TabIndex = 3;
         // 
-        // label2
-        // 
-        label2.Location = new Point(509, 39);
-        label2.Name = "label2";
-        label2.Size = new Size(330, 19);
-        label2.TabIndex = 4;
-        label2.Text = "Title:";
-        label2.TextAlign = ContentAlignment.MiddleLeft;
-        // 
-        // label3
-        // 
-        label3.Location = new Point(509, 86);
-        label3.Name = "label3";
-        label3.Size = new Size(330, 19);
-        label3.TabIndex = 5;
-        label3.Text = "Content:";
-        label3.TextAlign = ContentAlignment.MiddleLeft;
-        // 
         // dataGridView1
         // 
         dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        dataGridView1.BackgroundColor = Color.FromArgb(64, 64, 64);
         dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dataGridView1.Location = new Point(12, 39);
+        dataGridView1.Location = new Point(12, 11);
         dataGridView1.Margin = new Padding(3, 2, 3, 2);
         dataGridView1.Name = "dataGridView1";
         dataGridView1.RowHeadersWidth = 51;
         dataGridView1.RowTemplate.Height = 29;
-        dataGridView1.Size = new Size(473, 292);
+        dataGridView1.Size = new Size(473, 320);
         dataGridView1.TabIndex = 6;
         dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
         // 
         // button1
         // 
-        button1.Location = new Point(12, 335);
+        button1.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        button1.Location = new Point(14, 347);
         button1.Margin = new Padding(3, 2, 3, 2);
         button1.Name = "button1";
-        button1.Size = new Size(82, 22);
+        button1.Size = new Size(82, 27);
         button1.TabIndex = 7;
         button1.Text = "LOAD";
         button1.UseVisualStyleBackColor = true;
@@ -101,10 +85,11 @@ partial class Note
         // 
         // button2
         // 
-        button2.Location = new Point(275, 335);
+        button2.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        button2.Location = new Point(277, 347);
         button2.Margin = new Padding(3, 2, 3, 2);
         button2.Name = "button2";
-        button2.Size = new Size(82, 22);
+        button2.Size = new Size(82, 27);
         button2.TabIndex = 8;
         button2.Text = "DELETE";
         button2.UseVisualStyleBackColor = true;
@@ -112,10 +97,11 @@ partial class Note
         // 
         // button3
         // 
-        button3.Location = new Point(100, 335);
+        button3.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        button3.Location = new Point(102, 347);
         button3.Margin = new Padding(3, 2, 3, 2);
         button3.Name = "button3";
-        button3.Size = new Size(82, 22);
+        button3.Size = new Size(82, 27);
         button3.TabIndex = 9;
         button3.Text = "SAVE";
         button3.UseVisualStyleBackColor = true;
@@ -123,20 +109,41 @@ partial class Note
         // 
         // button4
         // 
-        button4.Location = new Point(187, 335);
+        button4.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        button4.Location = new Point(189, 347);
         button4.Margin = new Padding(3, 2, 3, 2);
         button4.Name = "button4";
-        button4.Size = new Size(82, 22);
+        button4.Size = new Size(82, 27);
         button4.TabIndex = 10;
         button4.Text = "NEW NOTE";
         button4.UseVisualStyleBackColor = true;
         button4.Click += button4_Click;
         // 
+        // label3
+        // 
+        label3.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        label3.Location = new Point(509, 86);
+        label3.Name = "label3";
+        label3.Size = new Size(330, 19);
+        label3.TabIndex = 5;
+        label3.Text = "Content:";
+        label3.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // label2
+        // 
+        label2.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+        label2.Location = new Point(509, 11);
+        label2.Name = "label2";
+        label2.Size = new Size(303, 19);
+        label2.TabIndex = 4;
+        label2.Text = "Title:";
+        label2.TextAlign = ContentAlignment.MiddleLeft;
+        // 
         // Note
         // 
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Dpi;
-        ClientSize = new Size(835, 450);
+        ClientSize = new Size(1000, 550);
         Controls.Add(button4);
         Controls.Add(button3);
         Controls.Add(button2);
@@ -146,6 +153,7 @@ partial class Note
         Controls.Add(label2);
         Controls.Add(textBox2);
         Controls.Add(textBox1);
+        Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
         FormBorderStyle = FormBorderStyle.None;
         Name = "Note";
         Text = "Note";
@@ -158,11 +166,11 @@ partial class Note
     #endregion
     private TextBox textBox1;
     private TextBox textBox2;
-    private Label label2;
-    private Label label3;
     private DataGridView dataGridView1;
     private Button button1;
     private Button button2;
     private Button button3;
     private Button button4;
+    private Label label3;
+    private Label label2;
 }

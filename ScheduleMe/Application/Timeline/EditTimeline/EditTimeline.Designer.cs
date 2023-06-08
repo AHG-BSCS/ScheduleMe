@@ -380,7 +380,7 @@ partial class EditTimeline
         AutoScaleDimensions = new SizeF(7F, 22F);
         AutoScaleMode = AutoScaleMode.Font;
         AutoScroll = true;
-        BackColor = Color.White;
+        BackColor = SystemColors.Control;
         ClientSize = new Size(984, 511);
         Controls.Add(pnlEventRows);
         Controls.Add(pnlColumnLabels);

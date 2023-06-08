@@ -210,7 +210,7 @@
             // tabPanel
             // 
             tabPanel.AutoScroll = true;
-            tabPanel.BackColor = Color.White;
+            tabPanel.BackColor = SystemColors.Control;
             tabPanel.Dock = DockStyle.Fill;
             tabPanel.Location = new Point(150, 0);
             tabPanel.Name = "tabPanel";
@@ -221,7 +221,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = SystemColors.Control;
             ClientSize = new Size(990, 550);
             Controls.Add(tabPanel);
             Controls.Add(sideNavPanel);

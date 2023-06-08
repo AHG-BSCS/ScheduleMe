@@ -178,7 +178,7 @@ partial class TimelinePanel
         // TimelinePanel
         // 
         AutoScaleMode = AutoScaleMode.Inherit;
-        BackColor = Color.White;
+        BackColor = SystemColors.Control;
         ClientSize = new Size(850, 35);
         Controls.Add(pnlEvents);
         Controls.Add(pnlTabTool);

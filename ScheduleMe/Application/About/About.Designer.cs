@@ -117,7 +117,7 @@ partial class About
         // 
         AutoScaleDimensions = new SizeF(7F, 22F);
         AutoScaleMode = AutoScaleMode.Font;
-        BackColor = Color.White;
+        BackColor = SystemColors.Control;
         ClientSize = new Size(390, 196);
         Controls.Add(lblSection);
         Controls.Add(linklblGithub);

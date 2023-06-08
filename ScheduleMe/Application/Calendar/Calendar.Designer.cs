@@ -60,6 +60,7 @@ partial class Calendar
         // sundayLbl
         // 
         sundayLbl.AutoSize = true;
+        sundayLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
         sundayLbl.Location = new Point(260, 167);
         sundayLbl.Name = "sundayLbl";
         sundayLbl.Size = new Size(50, 22);
@@ -69,6 +70,7 @@ partial class Calendar
         // mondayLbl
         // 
         mondayLbl.AutoSize = true;
+        mondayLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
         mondayLbl.Location = new Point(372, 167);
         mondayLbl.Name = "mondayLbl";
         mondayLbl.Size = new Size(54, 22);
@@ -78,24 +80,27 @@ partial class Calendar
         // wednesdayLbl
         // 
         wednesdayLbl.AutoSize = true;
+        wednesdayLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
         wednesdayLbl.Location = new Point(584, 167);
         wednesdayLbl.Name = "wednesdayLbl";
-        wednesdayLbl.Size = new Size(72, 22);
+        wednesdayLbl.Size = new Size(73, 22);
         wednesdayLbl.TabIndex = 10;
         wednesdayLbl.Text = "Wednesday";
         // 
         // tuesdayLbl
         // 
         tuesdayLbl.AutoSize = true;
+        tuesdayLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
         tuesdayLbl.Location = new Point(486, 167);
         tuesdayLbl.Name = "tuesdayLbl";
-        tuesdayLbl.Size = new Size(55, 22);
+        tuesdayLbl.Size = new Size(56, 22);
         tuesdayLbl.TabIndex = 9;
         tuesdayLbl.Text = "Tuesday";
         // 
         // saturdayLbl
         // 
         saturdayLbl.AutoSize = true;
+        saturdayLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
         saturdayLbl.Location = new Point(937, 167);
         saturdayLbl.Name = "saturdayLbl";
         saturdayLbl.Size = new Size(59, 22);
@@ -105,6 +110,7 @@ partial class Calendar
         // fridayLbl
         // 
         fridayLbl.AutoSize = true;
+        fridayLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
         fridayLbl.Location = new Point(829, 167);
         fridayLbl.Name = "fridayLbl";
         fridayLbl.Size = new Size(44, 22);
@@ -114,9 +120,10 @@ partial class Calendar
         // thursdayLbl
         // 
         thursdayLbl.AutoSize = true;
+        thursdayLbl.Font = new Font("Dubai", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
         thursdayLbl.Location = new Point(710, 167);
         thursdayLbl.Name = "thursdayLbl";
-        thursdayLbl.Size = new Size(61, 22);
+        thursdayLbl.Size = new Size(62, 22);
         thursdayLbl.TabIndex = 11;
         thursdayLbl.Text = "Thursday";
         // 
@@ -157,7 +164,7 @@ partial class Calendar
         prevYrBtn.BackColor = SystemColors.ButtonFace;
         prevYrBtn.BackgroundImage = (Image)resources.GetObject("prevYrBtn.BackgroundImage");
         prevYrBtn.Image = Properties.Resources.btnLeftArrow;
-        prevYrBtn.Location = new Point(401, 18);
+        prevYrBtn.Location = new Point(407, 14);
         prevYrBtn.Name = "prevYrBtn";
         prevYrBtn.Size = new Size(63, 67);
         prevYrBtn.TabIndex = 18;
@@ -168,7 +175,7 @@ partial class Calendar
         // 
         nextYrBtn.BackColor = SystemColors.ButtonFace;
         nextYrBtn.Image = Properties.Resources.btnRightArrow;
-        nextYrBtn.Location = new Point(793, 19);
+        nextYrBtn.Location = new Point(810, 12);
         nextYrBtn.Name = "nextYrBtn";
         nextYrBtn.Size = new Size(63, 67);
         nextYrBtn.TabIndex = 19;
@@ -177,7 +184,7 @@ partial class Calendar
         // 
         // monthNowLbl
         // 
-        monthNowLbl.Font = new Font("Gill Sans MT", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+        monthNowLbl.Font = new Font("Dubai", 24F, FontStyle.Bold, GraphicsUnit.Point);
         monthNowLbl.Location = new Point(228, 111);
         monthNowLbl.Name = "monthNowLbl";
         monthNowLbl.Size = new Size(197, 40);
@@ -188,7 +195,7 @@ partial class Calendar
         // dayNowLbl
         // 
         dayNowLbl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        dayNowLbl.Font = new Font("Gill Sans MT", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+        dayNowLbl.Font = new Font("Dubai", 24F, FontStyle.Bold, GraphicsUnit.Point);
         dayNowLbl.ImageAlign = ContentAlignment.MiddleRight;
         dayNowLbl.Location = new Point(887, 111);
         dayNowLbl.Name = "dayNowLbl";
@@ -213,7 +220,7 @@ partial class Calendar
         // Calendar
         // 
         AutoScaleMode = AutoScaleMode.Inherit;
-        BackColor = Color.WhiteSmoke;
+        BackColor = SystemColors.Control;
         ClientSize = new Size(1150, 740);
         Controls.Add(prevYrBtn);
         Controls.Add(nextYrBtn);

@@ -61,7 +61,7 @@ partial class TimelineDays
         // TimelineDays
         // 
         AutoScaleMode = AutoScaleMode.Inherit;
-        BackColor = Color.White;
+        BackColor = SystemColors.Control;
         Controls.Add(lblDay);
         Controls.Add(lblDate);
         Name = "TimelineDays";
