@@ -61,9 +61,9 @@ partial class Weather
         // 
         // pictureBox1
         // 
-        pictureBox1.Location = new Point(60, 155);
+        pictureBox1.Location = new Point(406, 167);
         pictureBox1.Name = "pictureBox1";
-        pictureBox1.Size = new Size(93, 87);
+        pictureBox1.Size = new Size(50, 50);
         pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         pictureBox1.TabIndex = 2;
         pictureBox1.TabStop = false;
@@ -72,11 +72,12 @@ partial class Weather
         // 
         label2.AutoSize = true;
         label2.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-        label2.Location = new Point(159, 172);
+        label2.Location = new Point(462, 180);
         label2.Name = "label2";
         label2.Size = new Size(92, 25);
         label2.TabIndex = 3;
         label2.Text = "CONDITION";
+        label2.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // label3
         // 
@@ -87,6 +88,7 @@ partial class Weather
         label3.Size = new Size(88, 54);
         label3.TabIndex = 4;
         label3.Text = "CITY";
+        label3.TextAlign = ContentAlignment.MiddleCenter;
         label3.TextChanged += label3_TextChanged;
         // 
         // textBox1
@@ -125,9 +127,9 @@ partial class Weather
         // 
         // pictureBox2
         // 
-        pictureBox2.Location = new Point(60, 295);
+        pictureBox2.Location = new Point(406, 241);
         pictureBox2.Name = "pictureBox2";
-        pictureBox2.Size = new Size(93, 79);
+        pictureBox2.Size = new Size(50, 50);
         pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
         pictureBox2.TabIndex = 8;
         pictureBox2.TabStop = false;
@@ -136,11 +138,12 @@ partial class Weather
         // 
         label5.AutoSize = true;
         label5.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-        label5.Location = new Point(159, 307);
+        label5.Location = new Point(462, 254);
         label5.Name = "label5";
         label5.Size = new Size(129, 25);
         label5.TabIndex = 9;
         label5.Text = "CHANCE OF RAIN";
+        label5.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // label6
         // 
@@ -151,6 +154,7 @@ partial class Weather
         label6.Size = new Size(98, 64);
         label6.TabIndex = 10;
         label6.Text = "36.0";
+        label6.TextAlign = ContentAlignment.MiddleCenter;
         label6.Click += label6_Click;
         // 
         // label7
@@ -162,6 +166,7 @@ partial class Weather
         label7.Size = new Size(68, 25);
         label7.TabIndex = 11;
         label7.Text = "feels like";
+        label7.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // panel1
         // 
@@ -185,18 +190,18 @@ partial class Weather
         label12.AutoSize = true;
         label12.Location = new Point(748, 130);
         label12.Name = "label12";
-        label12.Size = new Size(36, 22);
+        label12.Size = new Size(55, 22);
         label12.TabIndex = 9;
-        label12.Text = "day5";
+        label12.Text = "loading...";
         // 
         // label11
         // 
         label11.AutoSize = true;
         label11.Location = new Point(572, 130);
         label11.Name = "label11";
-        label11.Size = new Size(36, 22);
+        label11.Size = new Size(55, 22);
         label11.TabIndex = 8;
-        label11.Text = "day4";
+        label11.Text = "loading...";
         // 
         // label10
         // 
@@ -229,7 +234,7 @@ partial class Weather
         // 
         pictureBox7.Location = new Point(748, 17);
         pictureBox7.Name = "pictureBox7";
-        pictureBox7.Size = new Size(114, 110);
+        pictureBox7.Size = new Size(100, 100);
         pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
         pictureBox7.TabIndex = 4;
         pictureBox7.TabStop = false;
@@ -238,7 +243,7 @@ partial class Weather
         // 
         pictureBox6.Location = new Point(572, 17);
         pictureBox6.Name = "pictureBox6";
-        pictureBox6.Size = new Size(114, 110);
+        pictureBox6.Size = new Size(100, 100);
         pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
         pictureBox6.TabIndex = 3;
         pictureBox6.TabStop = false;
@@ -247,7 +252,7 @@ partial class Weather
         // 
         pictureBox5.Location = new Point(392, 17);
         pictureBox5.Name = "pictureBox5";
-        pictureBox5.Size = new Size(114, 110);
+        pictureBox5.Size = new Size(100, 100);
         pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
         pictureBox5.TabIndex = 2;
         pictureBox5.TabStop = false;
@@ -256,7 +261,7 @@ partial class Weather
         // 
         pictureBox4.Location = new Point(204, 17);
         pictureBox4.Name = "pictureBox4";
-        pictureBox4.Size = new Size(114, 110);
+        pictureBox4.Size = new Size(100, 100);
         pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
         pictureBox4.TabIndex = 1;
         pictureBox4.TabStop = false;
@@ -265,7 +270,7 @@ partial class Weather
         // 
         pictureBox3.Location = new Point(14, 17);
         pictureBox3.Name = "pictureBox3";
-        pictureBox3.Size = new Size(114, 110);
+        pictureBox3.Size = new Size(100, 100);
         pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
         pictureBox3.TabIndex = 0;
         pictureBox3.TabStop = false;

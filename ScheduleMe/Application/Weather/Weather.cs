@@ -57,23 +57,27 @@ public partial class Weather : Form
             label7.Location = new Point((this.Width - label7.Width) / 2, label7.Location.Y);
 
             //5day forecast
-            pictureBox3.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.current.condition.icon)));
-            label8.Text = post.forecast.forecastday[0].day.condition.text + "\n" + "TODAY";
+            try
+            {
+                pictureBox3.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.current.condition.icon)));
+                label8.Text = post.forecast.forecastday[0].day.condition.text + "\n" + "TODAY";
 
-            pictureBox4.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[1].day.condition.icon)));
-            label9.Text = post.forecast.forecastday[1].day.condition.text + "\n" + post.forecast.forecastday[1].date;
+                pictureBox4.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[1].day.condition.icon)));
+                label9.Text = post.forecast.forecastday[1].day.condition.text + "\n" + post.forecast.forecastday[1].date;
 
-            pictureBox5.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[2].day.condition.icon)));
-            label10.Text = post.forecast.forecastday[2].day.condition.text + "\n" + post.forecast.forecastday[2].date;
+                pictureBox5.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[2].day.condition.icon)));
+                label10.Text = post.forecast.forecastday[2].day.condition.text + "\n" + post.forecast.forecastday[2].date;
 
-            pictureBox6.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[3].day.condition.icon)));
-            label11.Text = post.forecast.forecastday[3].day.condition.text + "\n" + post.forecast.forecastday[3].date;
+                pictureBox6.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[3].day.condition.icon)));
+                label11.Text = post.forecast.forecastday[3].day.condition.text + "\n" + post.forecast.forecastday[3].date;
 
-            pictureBox7.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[4].day.condition.icon)));
-            label12.Text = post.forecast.forecastday[4].day.condition.text + "\n" + post.forecast.forecastday[4].date;
+                pictureBox7.Image = new Bitmap(new MemoryStream(new WebClient().DownloadData("https:" + post.forecast.forecastday[4].day.condition.icon)));
+                label12.Text = post.forecast.forecastday[4].day.condition.text + "\n" + post.forecast.forecastday[4].date;
+            }
+            catch
+            {
 
-
-
+            }
         }
         else
         {
@@ -119,7 +123,7 @@ public partial class Weather : Form
         }
         catch (Exception ex)
         {
-            MessageBox.Show(ex.ToString());
+            //MessageBox.Show(ex.ToString());
         }
     }
 
