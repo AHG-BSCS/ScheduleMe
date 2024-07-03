@@ -28,7 +28,7 @@ A Windows form application that provides different time management solutions. On
 
 ## Installation
 1. Download the latest version of [ScheduleMe][release-page].
-2. Install [ScheduleMe-0.1.0.exe-Alpha][latest-release].
+2. Install [ScheduleMe-0.1.0-Alpha.exe][latest-release].
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -47,7 +47,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [scheduleme-badge]: https://img.shields.io/badge/Windows-Time_Management-0F4C81
 
 [release-page]: https://github.com/Mindkerchief/README-MKC-Standard/releases
-[latest-release]: https://github.com/Mindkerchief/README-MKC-Standard/releases
+[latest-release]: https://github.com/AHG-BSCS/ScheduleMe/releases/download/v0.1.0-Alpha/ScheduleMe-0.1.0-Alpha.exe
 
 [calendar]: https://github.com/AHG-BSCS/ScheduleMe/assets/130748576/8d459266-0f88-472d-9aa6-fb8803ff4584
 [timetable]: https://github.com/AHG-BSCS/ScheduleMe/assets/130748576/9c636b5f-350e-4c29-a198-4fe952bbb20e
