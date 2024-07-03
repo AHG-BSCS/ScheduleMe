@@ -69,7 +69,7 @@
             btnSetting.Dock = DockStyle.Bottom;
             btnSetting.FlatAppearance.BorderSize = 0;
             btnSetting.FlatStyle = FlatStyle.Flat;
-            btnSetting.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSetting.Font = new Font("Dubai", 11.25F, FontStyle.Bold);
             btnSetting.ForeColor = Color.White;
             btnSetting.Location = new Point(0, 452);
             btnSetting.Name = "btnSetting";
@@ -90,7 +90,7 @@
             btnWeather.Dock = DockStyle.Top;
             btnWeather.FlatAppearance.BorderSize = 0;
             btnWeather.FlatStyle = FlatStyle.Flat;
-            btnWeather.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnWeather.Font = new Font("Dubai", 11.25F, FontStyle.Bold);
             btnWeather.ForeColor = Color.White;
             btnWeather.Location = new Point(0, 203);
             btnWeather.Name = "btnWeather";
@@ -111,7 +111,7 @@
             btnNote.Dock = DockStyle.Top;
             btnNote.FlatAppearance.BorderSize = 0;
             btnNote.FlatStyle = FlatStyle.Flat;
-            btnNote.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnNote.Font = new Font("Dubai", 11.25F, FontStyle.Bold);
             btnNote.ForeColor = Color.White;
             btnNote.Location = new Point(0, 159);
             btnNote.Name = "btnNote";
@@ -132,7 +132,7 @@
             btnTimetable.Dock = DockStyle.Top;
             btnTimetable.FlatAppearance.BorderSize = 0;
             btnTimetable.FlatStyle = FlatStyle.Flat;
-            btnTimetable.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnTimetable.Font = new Font("Dubai", 11.25F, FontStyle.Bold);
             btnTimetable.ForeColor = Color.White;
             btnTimetable.Location = new Point(0, 115);
             btnTimetable.Name = "btnTimetable";
@@ -153,7 +153,7 @@
             btnTimeline.Dock = DockStyle.Top;
             btnTimeline.FlatAppearance.BorderSize = 0;
             btnTimeline.FlatStyle = FlatStyle.Flat;
-            btnTimeline.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnTimeline.Font = new Font("Dubai", 11.25F, FontStyle.Bold);
             btnTimeline.ForeColor = Color.White;
             btnTimeline.Location = new Point(0, 71);
             btnTimeline.Name = "btnTimeline";
@@ -174,7 +174,7 @@
             btnCalendar.Dock = DockStyle.Top;
             btnCalendar.FlatAppearance.BorderSize = 0;
             btnCalendar.FlatStyle = FlatStyle.Flat;
-            btnCalendar.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCalendar.Font = new Font("Dubai", 11.25F, FontStyle.Bold);
             btnCalendar.ForeColor = Color.White;
             btnCalendar.Location = new Point(0, 28);
             btnCalendar.Name = "btnCalendar";
@@ -195,7 +195,7 @@
             btnAbout.Dock = DockStyle.Bottom;
             btnAbout.FlatAppearance.BorderSize = 0;
             btnAbout.FlatStyle = FlatStyle.Flat;
-            btnAbout.Font = new Font("Dubai", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAbout.Font = new Font("Dubai", 11.25F, FontStyle.Bold);
             btnAbout.ForeColor = Color.White;
             btnAbout.Location = new Point(0, 496);
             btnAbout.Name = "btnAbout";
@@ -225,7 +225,7 @@
             ClientSize = new Size(990, 550);
             Controls.Add(tabPanel);
             Controls.Add(sideNavPanel);
-            Font = new Font("Dubai", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+            Font = new Font("Dubai", 9.749999F);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "MainForm";
