@@ -46,7 +46,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [scheduleme-thumbnail]: https://github.com/AHG-BSCS/ScheduleMe/assets/130748576/25f9f536-8a03-4586-9259-48b565595be1
 [scheduleme-badge]: https://img.shields.io/badge/Windows-Time_Management-0F4C81
 
-[release-page]: https://github.com/Mindkerchief/README-MKC-Standard/releases
+[release-page]: https://github.com/AHG-BSCS/ScheduleMe/releases
 [latest-release]: https://github.com/AHG-BSCS/ScheduleMe/releases/download/v0.1.0-Alpha/ScheduleMe-0.1.0-Alpha.exe
 
 [calendar]: https://github.com/AHG-BSCS/ScheduleMe/assets/130748576/8d459266-0f88-472d-9aa6-fb8803ff4584
