@@ -35,12 +35,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 - **[Visual Studio 2022][visual-studio-2022]**: For development environment.
-- **[Windows Forms][windows-forms]**: - For graphical user interface.
-- **[Advanced Installer][advanced-installer]** - For installer.
+- **[Windows Forms][windows-forms]**: For graphical user interface.
+- **[Advanced Installer][advanced-installer]**: For installer.
 - **[LiteDB][litedb]**: For serverless database.
-- **[Newtonsoft.Json][newtonsoft-json]**: - For JSON serializer.
-- **[Weather API][weather]**: - For weather forecast.
-- ~~**[VLDZ Group API][vldz-group]**: - For timetable schedule.~~
+- **[Newtonsoft.Json][newtonsoft-json]**: For JSON serializer.
+- **[Weather API][weather]**: For weather forecast.
+- ~~**[VLDZ Group API][vldz-group]**: For timetable schedule.~~
 
 <!-- Reference -->
 [scheduleme-thumbnail]: https://github.com/AHG-BSCS/ScheduleMe/assets/130748576/25f9f536-8a03-4586-9259-48b565595be1
