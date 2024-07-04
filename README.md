@@ -20,7 +20,7 @@ A Windows form application that provides different time management solutions. On
 - **Notes** - Write down what's on your mind for later. Create, edit, save and delete your notes.
 - **Weather** - Be aware of weather conditions during your day and upcoming days.
 
-### Additionl Features
+### Additional Features
 ![timeline editor][timeline-editor] &nbsp;
 ![timeline stacks][timeline-stacks]
 - **Timeline Editor** - Customize timeline events to fit the user's preferences.
