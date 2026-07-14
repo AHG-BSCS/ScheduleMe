@@ -1,5 +1,5 @@
 # ![scheduleme thumbnail][scheduleme-thumbnail] ScheduleMe ![scheduleme badge][scheduleme-badge]
-A Windows form application that provides different time management solutions. One of the basic features of this application is the calendar, where users can set calendar events. Users can also create their timelines to be up-to-date and stay organized with their busy schedules. Other features that can help the user be more effective with their time are timetables for class schedules, notes for random stuff and weather forecasts in case of outdoor events.
+A Windows application that provides different time management solutions. One of the basic features of this application is the calendar, where users can set calendar events. Users can also create their timelines to be up-to-date and stay organized with their busy schedules. Other features that can help the user be more effective with their time are timetables for class schedules, notes for random stuff and weather forecasts in case of outdoor events.
 
 ## Table of Contents
 - [Features](#features)
@@ -33,7 +33,7 @@ A Windows form application that provides different time management solutions. On
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
-- **[Windows Forms][windows-forms]**: For graphical user interface.
+- **[Windows Forms][windows-forms]**: For GUI.
 - **[Advanced Installer][advanced-installer]**: For installer.
 - **[LiteDB][litedb]**: For serverless database.
 - **[Newtonsoft.Json][newtonsoft-json]**: For JSON serializer.
@@ -55,7 +55,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [timeline-editor]: https://github.com/AHG-BSCS/ScheduleMe/assets/130748576/1eb6db27-6c1c-4670-aa71-0c8fa39c6c8d
 [timeline-stacks]: https://github.com/AHG-BSCS/ScheduleMe/assets/130748576/29942ee1-778c-4180-9cc5-153d3da439dd
 
-[visual-studio-2022]: https://learn.microsoft.com/en-us/visualstudio/ide/?view=vs-2022
 [windows-forms]: https://learn.microsoft.com/en-us/dotnet/desktop/winforms/?view=netdesktop-8.0
 [advanced-installer]: https://www.advancedinstaller.com/user-guide/using.html
 [litedb]: https://www.litedb.org/docs/
