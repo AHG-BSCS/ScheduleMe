@@ -27,19 +27,17 @@ A Windows form application that provides different time management solutions. On
 - **Timeline Stacking** - View multiple timelines at the same time.
 
 ## Installation
-1. Download the latest version of [ScheduleMe][release-page].
-2. Install [ScheduleMe-0.1.0-Alpha.exe][latest-release].
+1. Download and install the latest version of [ScheduleMe][release-page].
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
-- **[Visual Studio 2022][visual-studio-2022]**: For development environment.
 - **[Windows Forms][windows-forms]**: For graphical user interface.
 - **[Advanced Installer][advanced-installer]**: For installer.
 - **[LiteDB][litedb]**: For serverless database.
 - **[Newtonsoft.Json][newtonsoft-json]**: For JSON serializer.
-- **[Weather API][weather]**: For weather forecast.
+- **[Weather API][weather-api]**: For weather forecast.
 - ~~**[VLDZ Group API][vldz-group]**: For timetable schedule.~~
 
 <!-- Reference -->
@@ -62,5 +60,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [advanced-installer]: https://www.advancedinstaller.com/user-guide/using.html
 [litedb]: https://www.litedb.org/docs/
 [newtonsoft-json]: https://www.newtonsoft.com/json/help/html/Introduction.htm
-[weather]: https://www.weatherapi.com/docs/
+[weather-api]: https://www.weatherapi.com/docs/
 [vldz-group]: https://api.vldz.tk
